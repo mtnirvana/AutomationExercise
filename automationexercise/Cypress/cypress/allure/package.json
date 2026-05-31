@@ -1,0 +1,20 @@
+{
+  "name": "allure-automationexercise",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Relatórios Allure para os testes do AutomationExercise",
+  "scripts": {
+    "restore-history": "if exist allure-report\\history copy /y allure-report\\history\\*.json allure-results\\history\\ >nul 2>&1",
+    "pre-generate": "copy /y allure.properties allure-results\\allure.properties >nul 2>&1 && npm run restore-history",
+    "generate": ".\\allure.cmd generate --clean -o allure-report allure-results --lang br --name \"AutomationExercise\" && node scripts\\force-dark-mode.js",
+    "open": ".\\allure.cmd open allure-report -p 8765",
+    "serve": ".\\allure.cmd serve allure-results -p 8765 --lang br --name \"AutomationExercise\"",
+    "postinstall": "if exist node_modules\\allure-commandline\\dist\\bin\\allure.bat ( powershell -Command \"(Get-Content node_modules\\allure-commandline\\dist\\bin\\allure.bat) -replace '%%~fi', '%%~fsi' | Set-Content node_modules\\allure-commandline\\dist\\bin\\allure.bat\" )",
+    "k6-to-allure": "node scripts/convert_k6_to_allure.js",
+    "clean": "if exist allure-results rmdir /s /q allure-results && if exist allure-report rmdir /s /q allure-report",
+    "full": "npm run k6-to-allure && npm run pre-generate && npm run generate && npm run open"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.42.0"
+  }
+}
