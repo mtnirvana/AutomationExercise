@@ -44,8 +44,6 @@
 
 ## 3. Cenários E2E
 
-> **Regra Obrigatória — Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável — descrever o recurso ou condição necessária.
-
 ### F01 - Gestão de Identidade e Acesso
 
 ---
@@ -602,8 +600,6 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 ---
 
 ## 4. Cenários API
-
-> **Regra Obrigatória — Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável — descrever o recurso ou condição necessária.
 
 ### F06 - API Catálogo de Produtos e Marcas
 
