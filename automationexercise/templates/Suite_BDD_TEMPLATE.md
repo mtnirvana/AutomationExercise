@@ -443,39 +443,39 @@ Um cenário é considerado **CONCLUÍDO** quando:
 
 | ID | Funcionalidade | Cenário | Tipo | Documento de Referência |
 |----|----------------|---------|------|:-----------------------|
-| TC_WEB_001 | F01 | Registrar usuário | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_002 | F01 | Login de usuário com email e senha corretos | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_003 | F01 | Login de usuário com email e senha incorretos | Erro | `Especificacao_Tecnica_Web.md` |
+| TC_WEB_001 | F01 | Registrar usuário | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_002 | F01 | Login de usuário com email e senha corretos | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_003 | F01 | Login de usuário com email e senha incorretos | Erro | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
 | TC... | F.. | ... | ... | ... |
-| TC_WEB_026 | F05 | Verificar scroll up sem botão de seta | Sucesso | `Especificacao_Tecnica_Web.md` |
+| TC_WEB_026 | F05 | Verificar scroll up sem botão de seta | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
 
 ### 8.2 API
 
 | ID | Funcionalidade | Cenário | Tipo | Documento de Referência |
 |----|----------------|---------|------|:-----------------------|
-| TC_API_001 | F06 | Listar todos os produtos via API | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_002 | F06 | Listar todas as marcas via API | Sucesso | `Especificacao_Tecnica_API.md` |
+| TC_API_001 | F06 | Listar todos os produtos via API | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_002 | F06 | Listar todas as marcas via API | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
 | TC_API_... | F.. | ... | ... | ... |
-| TC_API_014 | F09 | Validar método DELETE em verifyLogin via API | Erro | `Especificacao_Tecnica_API.md` |
+| TC_API_014 | F09 | Validar método DELETE em verifyLogin via API | Erro | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
 
 ### 8.3 Performance
 
 | ID | Funcionalidade | Cenário | Tipo | Documento de Referência |
 |----|----------------|---------|------|:-----------------------|
-| TC_PF_001 | Performance | Smoke test | Smoke | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_002 | Performance | Carga homepage | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_003 | Performance | Carga API produtos | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_004 | Performance | Carga API login | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_005 | Performance | Estresse API produtos | Estresse | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_006 | Performance | Resistência (soak) | Resistência | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_007 | Performance | Pico (spike) | Pico | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_008 | Performance | Core Web Vitals | Front-end | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_009 | Performance | Carga checkout | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_010 | Performance | Auditoria imagens | Auditoria | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_011 | Performance | Carga update account | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_012 | Performance | Carga user details | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_013 | Performance | Carga search product | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_014 | Performance | Carga página produtos | Carga | `Especificacao_Tecnica_Performance.md` |
+| TC_PF_001 | Performance | Smoke test | Smoke | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_002 | Performance | Carga homepage | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_003 | Performance | Carga API produtos | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_004 | Performance | Carga API login | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_005 | Performance | Estresse API produtos | Estresse | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_006 | Performance | Resistência (soak) | Resistência | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_007 | Performance | Pico (spike) | Pico | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_008 | Performance | Core Web Vitals | Front-end | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_009 | Performance | Carga checkout | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_010 | Performance | Auditoria imagens | Auditoria | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_011 | Performance | Carga update account | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_012 | Performance | Carga user details | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_013 | Performance | Carga search product | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_014 | Performance | Carga página produtos | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
 
 ---
 

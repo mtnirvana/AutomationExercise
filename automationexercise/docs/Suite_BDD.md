@@ -944,70 +944,70 @@ Um cenário é considerado **CONCLUÍDO** quando:
 
 | ID | Funcionalidade | Cenário | Tipo | Documento de Referência |
 |----|----------------|---------|------|:-----------------------|
-| TC_WEB_001 | F01 | Registrar usuário | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_002 | F01 | Login de usuário com email e senha corretos | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_003 | F01 | Login de usuário com email e senha incorretos | Erro | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_004 | F01 | Logout de usuário | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_005 | F01 | Registrar usuário com email existente | Erro | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_006 | F05 | Formulário de contato | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_007 | F05 | Verificar página de casos de teste | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_008 | F02 | Verificar todos os produtos e página de detalhes do produto | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_009 | F02 | Pesquisar produto | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_010 | F05 | Verificar assinatura na página inicial | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_011 | F05 | Verificar assinatura na página do carrinho | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_012 | F03 | Adicionar produtos ao carrinho | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_013 | F03 | Verificar quantidade de produto no carrinho | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_014 | F04 | Fazer pedido registrando durante checkout | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_015 | F04 | Fazer pedido registrando antes do checkout | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_016 | F04 | Fazer pedido fazendo login antes do checkout | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_017 | F03 | Remover produtos do carrinho | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_018 | F02 | Visualizar produtos por categoria | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_019 | F02 | Visualizar e adicionar ao carrinho produtos de marcas | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_020 | F03 | Pesquisar produtos e verificar carrinho após login | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_021 | F02 | Adicionar avaliação em produto | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_022 | F03 | Adicionar ao carrinho itens recomendados | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_023 | F04 | Verificar detalhes do endereço na página de checkout | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_024 | F04 | Baixar fatura após pedido | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_025 | F05 | Verificar scroll up usando botão de seta e funcionalidade scroll down | Sucesso | `Especificacao_Tecnica_Web.md` |
-| TC_WEB_026 | F05 | Verificar scroll up sem botão de seta e funcionalidade scroll down | Sucesso | `Especificacao_Tecnica_Web.md` |
+| TC_WEB_001 | F01 | Registrar usuário | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_002 | F01 | Login de usuário com email e senha corretos | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_003 | F01 | Login de usuário com email e senha incorretos | Erro | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_004 | F01 | Logout de usuário | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_005 | F01 | Registrar usuário com email existente | Erro | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_006 | F05 | Formulário de contato | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_007 | F05 | Verificar página de casos de teste | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_008 | F02 | Verificar todos os produtos e página de detalhes do produto | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_009 | F02 | Pesquisar produto | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_010 | F05 | Verificar assinatura na página inicial | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_011 | F05 | Verificar assinatura na página do carrinho | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_012 | F03 | Adicionar produtos ao carrinho | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_013 | F03 | Verificar quantidade de produto no carrinho | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_014 | F04 | Fazer pedido registrando durante checkout | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_015 | F04 | Fazer pedido registrando antes do checkout | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_016 | F04 | Fazer pedido fazendo login antes do checkout | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_017 | F03 | Remover produtos do carrinho | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_018 | F02 | Visualizar produtos por categoria | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_019 | F02 | Visualizar e adicionar ao carrinho produtos de marcas | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_020 | F03 | Pesquisar produtos e verificar carrinho após login | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_021 | F02 | Adicionar avaliação em produto | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_022 | F03 | Adicionar ao carrinho itens recomendados | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_023 | F04 | Verificar detalhes do endereço na página de checkout | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_024 | F04 | Baixar fatura após pedido | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_025 | F05 | Verificar scroll up usando botão de seta e funcionalidade scroll down | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_026 | F05 | Verificar scroll up sem botão de seta e funcionalidade scroll down | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
 
 ### 8.2 API
 
 | ID | Funcionalidade | Cenário | Tipo | Documento de Referência |
 |----|----------------|---------|------|:-----------------------|
-| TC_API_001 | F06 | Listar todos os produtos | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_002 | F06 | Listar todas as marcas | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_003 | F06 | Pesquisar produto por termo | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_004 | F06 | Pesquisar sem parâmetro | Erro | `Especificacao_Tecnica_API.md` |
-| TC_API_005 | F07 | Login válido | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_006 | F07 | Login sem email | Erro | `Especificacao_Tecnica_API.md` |
-| TC_API_007 | F07 | Login com credenciais inválidas | Erro | `Especificacao_Tecnica_API.md` |
-| TC_API_008 | F08 | Criar conta | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_009 | F08 | Excluir conta | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_010 | F08 | Atualizar conta | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_011 | F08 | Obter detalhes por email | Sucesso | `Especificacao_Tecnica_API.md` |
-| TC_API_012 | F09 | POST não suportado em productsList | Erro | `Especificacao_Tecnica_API.md` |
-| TC_API_013 | F09 | PUT não suportado em brandsList | Erro | `Especificacao_Tecnica_API.md` |
-| TC_API_014 | F09 | DELETE não suportado em verifyLogin | Erro | `Especificacao_Tecnica_API.md` |
+| TC_API_001 | F06 | Listar todos os produtos | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_002 | F06 | Listar todas as marcas | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_003 | F06 | Pesquisar produto por termo | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_004 | F06 | Pesquisar sem parâmetro | Erro | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_005 | F07 | Login válido | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_006 | F07 | Login sem email | Erro | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_007 | F07 | Login com credenciais inválidas | Erro | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_008 | F08 | Criar conta | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_009 | F08 | Excluir conta | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_010 | F08 | Atualizar conta | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_011 | F08 | Obter detalhes por email | Sucesso | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_012 | F09 | POST não suportado em productsList | Erro | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_013 | F09 | PUT não suportado em brandsList | Erro | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| TC_API_014 | F09 | DELETE não suportado em verifyLogin | Erro | [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
 
 ### 8.3 Performance
 
 | ID | Funcionalidade | Cenário | Tipo | Documento de Referência |
 |----|----------------|---------|------|:-----------------------|
-| TC_PF_001 | Performance | Smoke test de validação do pipeline | Smoke | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_002 | Performance | Carga concorrente na página inicial | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_003 | Performance | Carga no endpoint /api/productsList | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_004 | Performance | Carga no endpoint /api/verifyLogin | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_005 | Performance | Estresse progressivo no /api/productsList | Estresse | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_006 | Performance | Resistência sustentada com mix de endpoints | Resistência | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_007 | Performance | Pico repentino de tráfego | Pico | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_008 | Performance | Métricas Core Web Vitals (Lighthouse) | Front-end | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_009 | Performance | Carga no fluxo completo de checkout | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_010 | Performance | Análise de tamanho e formato de imagens | Auditoria | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_011 | Performance | Carga no endpoint PUT /api/updateAccount | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_012 | Performance | Carga no endpoint GET /api/getUserDetailByEmail | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_013 | Performance | Carga no endpoint POST /api/searchProduct | Carga | `Especificacao_Tecnica_Performance.md` |
-| TC_PF_014 | Performance | Carga na página de produtos (/products) | Carga | `Especificacao_Tecnica_Performance.md` |
+| TC_PF_001 | Performance | Smoke test de validação do pipeline | Smoke | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_002 | Performance | Carga concorrente na página inicial | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_003 | Performance | Carga no endpoint /api/productsList | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_004 | Performance | Carga no endpoint /api/verifyLogin | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_005 | Performance | Estresse progressivo no /api/productsList | Estresse | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_006 | Performance | Resistência sustentada com mix de endpoints | Resistência | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_007 | Performance | Pico repentino de tráfego | Pico | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_008 | Performance | Métricas Core Web Vitals (Lighthouse) | Front-end | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_009 | Performance | Carga no fluxo completo de checkout | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_010 | Performance | Análise de tamanho e formato de imagens | Auditoria | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_011 | Performance | Carga no endpoint PUT /api/updateAccount | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_012 | Performance | Carga no endpoint GET /api/getUserDetailByEmail | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_013 | Performance | Carga no endpoint POST /api/searchProduct | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
+| TC_PF_014 | Performance | Carga na página de produtos (/products) | Carga | [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
 
 ---
 

@@ -46,7 +46,7 @@
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | `Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js` |
+| **Script** | [`TC_PF_001_smoke_test.js`](Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js) |
 | **Data/Hora** | AAAA-MM-DD HH:MM |
 | **Duração** | Xs |
 | **VUs** | N |
@@ -123,7 +123,7 @@
 
 | Arquivo | Conteúdo |
 |:--------|:---------|
-| `cypress/reports/k6/TC_PF_001_smoke_test.json` | Métricas do smoke test em JSON |
+| [`TC_PF_001_smoke_test.json`](cypress/reports/k6/TC_PF_001_smoke_test.json) | Métricas do smoke test em JSON |
 | `cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/` | Screenshots do TC_PF_008 (Cypress) |
 | `cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/*.gif` | GIF animado (via scripts/gerar_gifs.js) |
 | `cypress/videos/` | Vídeos da execução (Cypress) |

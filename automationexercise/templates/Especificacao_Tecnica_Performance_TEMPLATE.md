@@ -236,7 +236,7 @@ automationexercise/
         └── videos/               # Videos das execucoes
 ```
 
-> **Exemplo de preenchimento:** Substituir os placeholders pelos nomes reais dos arquivos conforme o documento completo `Especificacao_Tecnica_Performance.md`.
+> **Exemplo de preenchimento:** Substituir os placeholders pelos nomes reais dos arquivos conforme o documento completo [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
 
 ---
 

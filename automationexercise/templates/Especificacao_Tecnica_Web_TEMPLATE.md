@@ -326,7 +326,7 @@ automationexercise/
 │       └── videos/                      # Videos das execucoes
 ```
 
-> **Exemplo de preenchimento:** No documento completo, a pasta `web/` deve listar todos os 26 scripts de teste E2E com seus nomes completos, conforme `Especificacao_Tecnica_Web.md`.
+> **Exemplo de preenchimento:** No documento completo, a pasta `web/` deve listar todos os 26 scripts de teste E2E com seus nomes completos, conforme [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md).
 
 ---
 

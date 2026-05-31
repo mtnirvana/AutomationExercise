@@ -194,7 +194,7 @@ automationexercise/
     └── videos/                  # Videos das execucoes
 ```
 
-> **Exemplo de preenchimento:** No documento completo, a pasta `api/` deve listar todos os 14 scripts de teste API com seus nomes completos, conforme `Especificacao_Tecnica_API.md`.
+> **Exemplo de preenchimento:** No documento completo, a pasta `api/` deve listar todos os 14 scripts de teste API com seus nomes completos, conforme [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md).
 
  ---
  
