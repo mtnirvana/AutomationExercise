@@ -55,6 +55,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: Page Objects
 
 ---
 
+<a name="estrutura-do-projeto"></a>
 ## 🏗 Estrutura do Projeto
 
 ```
@@ -147,6 +148,7 @@ antigravity PORTFOLIO/
 
 ---
 
+<a name="como-executar"></a>
 ## 🚀 Como Executar
 
 ### Instalação Rápida (tudo de uma vez)
@@ -274,6 +276,7 @@ npx cypress open
 
 ---
 
+<a name="testes-e2e-web-26"></a>
 ## 📊 Testes E2E Web (26)
 
 | ID | Teste | Tipo | Grupo |
@@ -309,6 +312,7 @@ npx cypress open
 
 ---
 
+<a name="testes-de-api-14"></a>
 ## 📊 Testes de API (14)
 
 | ID | Teste | Tipo |
@@ -332,6 +336,7 @@ npx cypress open
 
 ---
 
+<a name="testes-de-performance-14"></a>
 ## 📊 Testes de Performance (14)
 
 | ID | Cenário | Tipo | Status |
@@ -385,6 +390,7 @@ Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_
 
 ---
 
+<a name="uso-com-agentes-de-ia"></a>
 ## 🤖 Uso com Agentes de IA
 
 O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework**:
