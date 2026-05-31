@@ -51,7 +51,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: Page Objects
 | [Allure](https://allurereport.org/) | 2.42.0 | Relatório interativo dos testes (pt-BR + dark mode) |
 | [gifencoder](https://www.npmjs.com/package/gifencoder) | 2.x | Geração de GIFs animados |
 | [canvas](https://www.npmjs.com/package/canvas) | 2.x | Processamento de imagens |
-| Node.js | 20.19.5 | Runtime |
+| [Node.js](https://nodejs.org/) | 20.19.5 | Runtime |
 
 ---
 
