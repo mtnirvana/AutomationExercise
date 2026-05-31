@@ -1,0 +1,21 @@
+{
+    "searchTerms": {
+        "winter": "Winter Top"
+    },
+    "categories": {
+        "women": "Women",
+        "dress": "Dress",
+        "men": "Men",
+        "tshirts": "Tshirts"
+    },
+    "brands": {
+        "polo": "Polo",
+        "h&m": "H&M"
+    },
+    "quantities": {
+        "default": "4"
+    },
+    "filenames": {
+        "invoice": "cypress/downloads/invoice.txt"
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "homepage": {
+        "title": "Full-Fledged practice website for Automation Engineers",
+        "logoAlt": "Website for automation practice",
+        "loadStep": "00_pagina_inicial_carregada"
+    },
+    "subscription": {
+        "header": "Subscription",
+        "successMessage": "You have been successfully subscribed!"
+    },
+    "review": {
+        "successMessage": "Thank you for your review."
+    },
+    "contact": {
+        "successMessage": "Success! Your details have been submitted successfully."
+    },
+    "errors": {
+        "login": "Your email or password is incorrect!",
+        "emailExist": "Email Address already exist!"
+    },
+    "checkout": {
+        "addressDetails": "Address Details",
+        "reviewOrder": "Review Your Order",
+        "orderPlaced": "Order Placed!",
+        "accountDeleted": "Account Deleted!",
+        "addedMessage": "Added!"
+    },
+    "headers": {
+        "newUserSignup": "New User Signup!",
+        "loginToAccount": "Login to your account",
+        "accountCreated": "Account Created!",
+        "accountDeleted": "Account Deleted!",
+        "enterAccountInfo": "Enter Account Information",
+        "allProducts": "All Products",
+        "searchedProducts": "Searched Products",
+        "getInTouch": "Get In Touch",
+        "testCases": "Test Cases",
+        "loggedInAs": "Logged in as",
+        "categoryHeader": "Category",
+        "productsSuffix": "Products",
+        "brandsHeader": "Brands",
+        "brandPrefix": "Brand - "
+    },
+    "productInfo": {
+        "category": "Category",
+        "availability": "Availability",
+        "condition": "Condition",
+        "brand": "Brand"
+    },
+    "buttons": {
+        "continue": "Continue",
+        "viewCart": "View Cart",
+        "continueShopping": "Continue Shopping",
+        "addToCart": "Add to cart",
+        "payAndConfirm": "Pay and Confirm Order",
+        "placeOrder": "Place Order",
+        "downloadInvoice": "Download Invoice",
+        "proceedToCheckout": "Proceed To Checkout"
+    },
+    "filenames": {
+        "testFile": "cypress/fixtures/test_file.txt"
+    }
+}

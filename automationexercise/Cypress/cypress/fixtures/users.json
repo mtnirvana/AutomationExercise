@@ -1,0 +1,22 @@
+{
+  "invalidUser": {
+    "email": "invalid@example.com",
+    "password": "wrongpassword"
+  },
+  "existingEmail": {
+    "email": "test@test.com",
+    "name": "test"
+  },
+  "testUser": {
+    "email": "teste123@hotmail.com",
+    "password": "123456R@",
+    "name": "teste123"
+  },
+  "paymentData": {
+    "nameOnCard": "John Doe",
+    "cardNumber": "4242424242424242",
+    "cvc": "123",
+    "expiryMonth": "12",
+    "expiryYear": "2028"
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "contactForm": {
+        "subject": "Assunto de Teste",
+        "message": "Esta é uma mensagem de teste para o formulário de contato."
+    },
+    "review": {
+        "text": "Excelente produto! Teste automatizado."
+    },
+    "checkout": {
+        "message": "Comentário de pedido de teste automatizado",
+        "invoiceMessage": "Comentário de pedido de teste para baixar fatura"
+    },
+    "fixtures": {
+        "testFileContent": "Arquivo de teste para upload"
+    }
+}
