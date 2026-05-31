@@ -1,0 +1,78 @@
+{
+  "name": "Carga no endpoint /api/searchProduct",
+  "status": "passed",
+  "stage": "finished",
+  "start": 1780182630083,
+  "stop": 1780182631083,
+  "uuid": "tc-pf-013-1780182980525-i0un4f",
+  "historyId": "tc_pf_013",
+  "fullName": "Performance - Carga no endpoint /api/searchProduct",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_013"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Carga"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_013"
+    },
+    {
+      "name": "p95",
+      "value": "738ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.0%"
+    },
+    {
+      "name": "Checks",
+      "value": "8986/8986"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. search status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182630583,
+      "stop": 1780182630883
+    },
+    {
+      "name": "2. resposta contem produtos",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182631083,
+      "stop": 1780182631383
+    },
+    {
+      "name": "3. Resumo: p95=738ms | Erro=0.0% | 8986/8986 checks | Aprovado",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182630983,
+      "stop": 1780182631083
+    }
+  ],
+  "attachments": []
+}

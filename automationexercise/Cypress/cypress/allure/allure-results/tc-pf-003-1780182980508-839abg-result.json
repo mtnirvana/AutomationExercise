@@ -1,0 +1,71 @@
+{
+  "name": "Carga no endpoint /api/productsList",
+  "status": "failed",
+  "stage": "finished",
+  "start": 1780182799315,
+  "stop": 1780182803205,
+  "uuid": "tc-pf-003-1780182980508-839abg",
+  "historyId": "tc_pf_003",
+  "fullName": "Performance - Carga no endpoint /api/productsList",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_003"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Carga"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_003"
+    },
+    {
+      "name": "p95",
+      "value": "6360ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "4.4%"
+    },
+    {
+      "name": "Checks",
+      "value": "2430/2666"
+    },
+    {
+      "name": "Duration",
+      "value": "3.9s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. status 200 e JSON valido",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780182799815,
+      "stop": 1780182800115
+    },
+    {
+      "name": "2. Resumo: p95=6360ms | Erro=4.4% | 2430/2666 checks | Falhou",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780182803105,
+      "stop": 1780182803205
+    }
+  ],
+  "attachments": []
+}

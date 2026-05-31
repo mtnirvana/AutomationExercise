@@ -1,0 +1,385 @@
+{
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "GET /api/productsList status 200": {
+                    "id": "bcdd2a988107be816c25415104dbf1f0",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "GET /api/productsList status 200",
+                    "path": "::GET /api/productsList status 200"
+                },
+                "imagem 1 carregada": {
+                    "name": "imagem 1 carregada",
+                    "path": "::imagem 1 carregada",
+                    "id": "b2c42a020d7facb26b51e93cc47b31e6",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 2 carregada": {
+                    "fails": 0,
+                    "name": "imagem 2 carregada",
+                    "path": "::imagem 2 carregada",
+                    "id": "db6f2816644a70a9d262c78979c80c7b",
+                    "passes": 1
+                },
+                "imagem 3 carregada": {
+                    "name": "imagem 3 carregada",
+                    "path": "::imagem 3 carregada",
+                    "id": "b21d7acfe21d26567518cb5c9ceecc17",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 4 carregada": {
+                    "name": "imagem 4 carregada",
+                    "path": "::imagem 4 carregada",
+                    "id": "2ee5aa2d241c9709b63d66f774abe68a",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 5 carregada": {
+                    "name": "imagem 5 carregada",
+                    "path": "::imagem 5 carregada",
+                    "id": "344cc9997c21f5064910c366d22b16d3",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 6 carregada": {
+                    "id": "4dd3ae102b548a66d6342641c8c400e2",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 6 carregada",
+                    "path": "::imagem 6 carregada"
+                },
+                "imagem 7 carregada": {
+                    "name": "imagem 7 carregada",
+                    "path": "::imagem 7 carregada",
+                    "id": "3f5e4e3db57750d7027879921ae88521",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 8 carregada": {
+                    "id": "d528bdef29750a4ecf2b04e9d635630b",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 8 carregada",
+                    "path": "::imagem 8 carregada"
+                },
+                "imagem 11 carregada": {
+                    "fails": 0,
+                    "name": "imagem 11 carregada",
+                    "path": "::imagem 11 carregada",
+                    "id": "a5623ace7aa409fc2379762c22c4f52c",
+                    "passes": 1
+                },
+                "imagem 12 carregada": {
+                    "id": "b266b17074fcfd31f37c4edd8d215af9",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 12 carregada",
+                    "path": "::imagem 12 carregada"
+                },
+                "imagem 13 carregada": {
+                    "id": "4efaf1e05f489d9ca3abe2ef932ea96f",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 13 carregada",
+                    "path": "::imagem 13 carregada"
+                },
+                "imagem 14 carregada": {
+                    "name": "imagem 14 carregada",
+                    "path": "::imagem 14 carregada",
+                    "id": "03f3009259840fca43fa7c7c67a9b294",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 15 carregada": {
+                    "name": "imagem 15 carregada",
+                    "path": "::imagem 15 carregada",
+                    "id": "8f30290ecb69cd0824915608203b3d23",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 16 carregada": {
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 16 carregada",
+                    "path": "::imagem 16 carregada",
+                    "id": "a3bf3be372ad39f026a591649d9285a6"
+                },
+                "imagem 18 carregada": {
+                    "name": "imagem 18 carregada",
+                    "path": "::imagem 18 carregada",
+                    "id": "59219ecbc64e00d6f775af28195ce0b9",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 19 carregada": {
+                    "name": "imagem 19 carregada",
+                    "path": "::imagem 19 carregada",
+                    "id": "571977cbeca7a1447b8fdcda97b828a1",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 20 carregada": {
+                    "name": "imagem 20 carregada",
+                    "path": "::imagem 20 carregada",
+                    "id": "bcd26adfa57270160c360ddcf6f7a0aa",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 21 carregada": {
+                    "name": "imagem 21 carregada",
+                    "path": "::imagem 21 carregada",
+                    "id": "cfd7d9d4d5ec3b9ae335e9b069a669d9",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 22 carregada": {
+                    "name": "imagem 22 carregada",
+                    "path": "::imagem 22 carregada",
+                    "id": "cdfb810d344267defb84ab4899a29da3",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 23 carregada": {
+                    "name": "imagem 23 carregada",
+                    "path": "::imagem 23 carregada",
+                    "id": "082c346090bda95da96bab96c24e581c",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 24 carregada": {
+                    "id": "bac393ee1f5c4f3b781be9839ae712fc",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 24 carregada",
+                    "path": "::imagem 24 carregada"
+                },
+                "imagem 28 carregada": {
+                    "path": "::imagem 28 carregada",
+                    "id": "dba72e593124707a7622501e46311aff",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 28 carregada"
+                },
+                "imagem 29 carregada": {
+                    "path": "::imagem 29 carregada",
+                    "id": "65b58178087815eebabb5ba72fe57788",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 29 carregada"
+                },
+                "imagem 30 carregada": {
+                    "name": "imagem 30 carregada",
+                    "path": "::imagem 30 carregada",
+                    "id": "5e531060de3f99bf11056b79980f753d",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 31 carregada": {
+                    "name": "imagem 31 carregada",
+                    "path": "::imagem 31 carregada",
+                    "id": "927a3e6d4da8b449178c7b209e15a56f",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 33 carregada": {
+                    "fails": 0,
+                    "name": "imagem 33 carregada",
+                    "path": "::imagem 33 carregada",
+                    "id": "c41128a8d1b3861458514aff7d578fc1",
+                    "passes": 1
+                },
+                "imagem 35 carregada": {
+                    "fails": 0,
+                    "name": "imagem 35 carregada",
+                    "path": "::imagem 35 carregada",
+                    "id": "f277bb63af0f7659f97b6711db3b537e",
+                    "passes": 1
+                },
+                "imagem 37 carregada": {
+                    "name": "imagem 37 carregada",
+                    "path": "::imagem 37 carregada",
+                    "id": "a96f6c6941da3eca46c0a68d6ea1b5b4",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 38 carregada": {
+                    "name": "imagem 38 carregada",
+                    "path": "::imagem 38 carregada",
+                    "id": "e4324e77b5525b5e453571ebbbd09315",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 39 carregada": {
+                    "name": "imagem 39 carregada",
+                    "path": "::imagem 39 carregada",
+                    "id": "bed5ba9d86605f470e32416179e270e2",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 40 carregada": {
+                    "path": "::imagem 40 carregada",
+                    "id": "3cfacdc5395b41d95c00c786109878be",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 40 carregada"
+                },
+                "imagem 41 carregada": {
+                    "name": "imagem 41 carregada",
+                    "path": "::imagem 41 carregada",
+                    "id": "57b3e450d52b900bc344fccd8204be0b",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "imagem 42 carregada": {
+                    "fails": 0,
+                    "name": "imagem 42 carregada",
+                    "path": "::imagem 42 carregada",
+                    "id": "a94ba49010b141b06c44cd46e0529876",
+                    "passes": 1
+                },
+                "imagem 43 carregada": {
+                    "path": "::imagem 43 carregada",
+                    "id": "25505d1b65711b82d9ec54b3af2b3537",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 43 carregada"
+                },
+                "total 34 imagens analisadas": {
+                    "path": "::total 34 imagens analisadas",
+                    "id": "7229fca17866c88b976ac8f38b1ebcae",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "total 34 imagens analisadas"
+                },
+                "3 imagens > 200KB": {
+                    "name": "3 imagens > 200KB",
+                    "path": "::3 imagens > 200KB",
+                    "id": "138750d9ec53438557173d9c54d4fad6",
+                    "passes": 1,
+                    "fails": 0
+                }
+            }
+    },
+    "metrics": {
+        "http_req_blocked": {
+            "max": 1067.3964,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 30.497040000000002,
+            "min": 0,
+            "med": 0
+        },
+        "http_req_tls_handshaking": {
+            "med": 0,
+            "max": 33.0382,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.9439485714285715,
+            "min": 0
+        },
+        "http_reqs": {
+            "count": 35,
+            "rate": 2.659930284291221
+        },
+        "http_req_sending": {
+            "avg": 0.16692571428571426,
+            "min": 0,
+            "med": 0,
+            "max": 1.0851,
+            "p(90)": 0.54186,
+            "p(95)": 0.6965199999999988
+        },
+        "http_req_connecting": {
+            "avg": 29.254334285714286,
+            "min": 0,
+            "med": 0,
+            "max": 1023.9017,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "data_received": {
+            "count": 3171244,
+            "rate": 241008.22727076654
+        },
+        "iterations": {
+            "count": 1,
+            "rate": 0.0759980081226063
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 35,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "iteration_duration": {
+            "max": 13157.6219,
+            "p(90)": 13157.6219,
+            "p(95)": 13157.6219,
+            "avg": 13157.6219,
+            "min": 13157.6219,
+            "med": 13157.6219
+        },
+        "data_sent": {
+            "count": 14383,
+            "rate": 1093.0793508274467
+        },
+        "http_req_duration": {
+            "med": 199.7532,
+            "max": 2461.5623,
+            "p(90)": 484.0693400000001,
+            "p(95)": 632.4869299999995,
+            "avg": 342.15126285714285,
+            "min": 190.9401,
+            "thresholds": {
+                "p(95)<5000": false
+            }
+        },
+        "http_req_duration{expected_response:true}": {
+            "med": 199.7532,
+            "max": 2461.5623,
+            "p(90)": 484.0693400000001,
+            "p(95)": 632.4869299999995,
+            "avg": 342.15126285714285,
+            "min": 190.9401
+        },
+        "http_req_receiving": {
+            "min": 0,
+            "med": 1.9715,
+            "max": 165.8451,
+            "p(90)": 7.243140000000002,
+            "p(95)": 143.92655999999994,
+            "avg": 15.120494285714283
+        },
+        "vus_max": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        },
+        "checks": {
+            "fails": 0,
+            "passes": 37,
+            "value": 1
+        },
+        "vus": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        },
+        "http_req_waiting": {
+            "avg": 326.8638428571429,
+            "min": 189.6662,
+            "med": 197.5463,
+            "max": 2460.293,
+            "p(90)": 422.451,
+            "p(95)": 590.5897399999993
+        }
+    }
+}

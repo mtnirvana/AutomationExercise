@@ -1,0 +1,78 @@
+{
+  "name": "Carga na página de produtos",
+  "status": "failed",
+  "stage": "finished",
+  "start": 1780182618693,
+  "stop": 1780182619693,
+  "uuid": "tc-pf-014-1780182980526-44ck1u",
+  "historyId": "tc_pf_014",
+  "fullName": "Performance - Carga na página de produtos",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_014"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Carga"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_014"
+    },
+    {
+      "name": "p95",
+      "value": "825ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.1%"
+    },
+    {
+      "name": "Checks",
+      "value": "5686/5698"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. GET /products status 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780182619193,
+      "stop": 1780182619493
+    },
+    {
+      "name": "2. pagina produtos carregada",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780182619693,
+      "stop": 1780182619993
+    },
+    {
+      "name": "3. Resumo: p95=825ms | Erro=0.1% | 5686/5698 checks | Falhou",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780182619593,
+      "stop": 1780182619693
+    }
+  ],
+  "attachments": []
+}

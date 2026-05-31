@@ -1,0 +1,189 @@
+{
+    "root_group": {
+        "checks": {
+            "createAccount status 200": {
+                "name": "createAccount status 200",
+                "path": "::createAccount status 200",
+                "id": "e1da921121bf5aa6bb0528f74b6acbe9",
+                "passes": 1243,
+                "fails": 6
+            },
+            "createAccount responseCode 201": {
+                "passes": 1229,
+                "fails": 20,
+                "name": "createAccount responseCode 201",
+                "path": "::createAccount responseCode 201",
+                "id": "5838b7e2d790b3aafa4a4ed8f6f02153"
+            },
+            "getUserDetail status 200": {
+                "name": "getUserDetail status 200",
+                "path": "::getUserDetail status 200",
+                "id": "70ba69a0bf4772760c35a2b31411dd25",
+                "passes": 1249,
+                "fails": 0
+            },
+            "getUserDetail responseCode 200": {
+                "name": "getUserDetail responseCode 200",
+                "path": "::getUserDetail responseCode 200",
+                "id": "c28caf0a2f7c5f692cabad95af5e8775",
+                "passes": 1241,
+                "fails": 8
+            },
+            "getUserDetail possui user": {
+                "id": "c3fdf774c13cac6acf8dcde47021e9c0",
+                "passes": 1241,
+                "fails": 8,
+                "name": "getUserDetail possui user",
+                "path": "::getUserDetail possui user"
+            },
+            "getUserDetail user.name existe": {
+                "fails": 8,
+                "name": "getUserDetail user.name existe",
+                "path": "::getUserDetail user.name existe",
+                "id": "ad2a6e35bd3c59042389bb1665e724f6",
+                "passes": 1241
+            },
+            "getUserDetail user.email existe": {
+                "path": "::getUserDetail user.email existe",
+                "id": "e3bea14f7a23a5e1a2f4469e6e065faf",
+                "passes": 1241,
+                "fails": 8,
+                "name": "getUserDetail user.email existe"
+            },
+            "deleteAccount status 200": {
+                "name": "deleteAccount status 200",
+                "path": "::deleteAccount status 200",
+                "id": "3af17241f51807ffd8d299517858caa9",
+                "passes": 1249,
+                "fails": 0
+            },
+            "deleteAccount message Account deleted!": {
+                "passes": 1232,
+                "fails": 17,
+                "name": "deleteAccount message Account deleted!",
+                "path": "::deleteAccount message Account deleted!",
+                "id": "0fd83b472ba9c2e2c4b18ab0fc4e9e1d"
+            }
+        },
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {}
+    },
+    "metrics": {
+        "http_req_receiving": {
+            "p(90)": 0.027020000000000075,
+            "p(95)": 0.8034899999999997,
+            "avg": 0.8446156658660263,
+            "min": 0,
+            "med": 0,
+            "max": 408.8488
+        },
+        "vus": {
+            "max": 20,
+            "value": 1,
+            "min": 1
+        },
+        "vus_max": {
+            "value": 20,
+            "min": 20,
+            "max": 20
+        },
+        "http_req_blocked": {
+            "avg": 0.6775064851881507,
+            "min": 0,
+            "med": 0,
+            "max": 1029.9657,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "data_sent": {
+            "count": 772378,
+            "rate": 4692.744139244051
+        },
+        "http_reqs": {
+            "count": 3747,
+            "rate": 22.76568246344078
+        },
+        "http_req_sending": {
+            "avg": 0.23580568454763795,
+            "min": 0,
+            "med": 0,
+            "max": 1.5305,
+            "p(90)": 0.5811000000000002,
+            "p(95)": 0.99361
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0.21451390445689889,
+            "min": 0,
+            "med": 0,
+            "max": 240.5447,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "checks": {
+            "passes": 11166,
+            "fails": 75,
+            "value": 0.9933279957299173
+        },
+        "data_received": {
+            "rate": 20957.02281158748,
+            "count": 3449313
+        },
+        "http_req_failed": {
+            "passes": 6,
+            "fails": 3741,
+            "thresholds": {
+                "rate<0.15": false
+            },
+            "value": 0.0016012810248198558
+        },
+        "http_req_duration": {
+            "p(95)": 953.2302099999988,
+            "avg": 401.1068643448094,
+            "min": 187.6995,
+            "med": 237.0253,
+            "max": 27878.0983,
+            "p(90)": 544.8572400000002,
+            "thresholds": {
+                "p(95)<5000": false
+            }
+        },
+        "http_req_connecting": {
+            "p(95)": 0,
+            "avg": 0.3941202562049639,
+            "min": 0,
+            "med": 0,
+            "max": 1015.2229,
+            "p(90)": 0
+        },
+        "iteration_duration": {
+            "min": 1604.4015,
+            "med": 1836.2571,
+            "max": 29294.2106,
+            "p(90)": 2960.3320200000003,
+            "p(95)": 3846.1408999999994,
+            "avg": 2206.3335865492386
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 400.7651035551993,
+            "min": 187.6995,
+            "med": 236.9577,
+            "max": 27878.0983,
+            "p(90)": 542.4056,
+            "p(95)": 948.5932
+        },
+        "http_req_waiting": {
+            "max": 27877.5583,
+            "p(90)": 538.4670600000002,
+            "p(95)": 948.0562599999997,
+            "avg": 400.0264429943944,
+            "min": 187.6995,
+            "med": 236.681
+        },
+        "iterations": {
+            "count": 1249,
+            "rate": 7.588560821146926
+        }
+    }
+}

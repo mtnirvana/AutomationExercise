@@ -1,0 +1,189 @@
+{
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "GET /api/productsList status 200": {
+                    "id": "bcdd2a988107be816c25415104dbf1f0",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "GET /api/productsList status 200",
+                    "path": "::GET /api/productsList status 200"
+                },
+                "responseCode igual a 200": {
+                    "path": "::responseCode igual a 200",
+                    "id": "19581105e332c48660652c5e77e069c4",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "responseCode igual a 200"
+                },
+                "products é um array": {
+                    "name": "products é um array",
+                    "path": "::products é um array",
+                    "id": "90dba019d2a3e780ca09c12805758f34",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "products.length maior que 0": {
+                    "name": "products.length maior que 0",
+                    "path": "::products.length maior que 0",
+                    "id": "a3e3e29397239763ac182fd68b297b8f",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "GET /api/brandsList status 200": {
+                    "id": "9e629dcee1bd2ee49e7a39622e81c323",
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "GET /api/brandsList status 200",
+                    "path": "::GET /api/brandsList status 200"
+                },
+                "brands responseCode igual a 200": {
+                    "name": "brands responseCode igual a 200",
+                    "path": "::brands responseCode igual a 200",
+                    "id": "c407d932121d5662b2a560ecaff86047",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "brands é um array": {
+                    "name": "brands é um array",
+                    "path": "::brands é um array",
+                    "id": "a29d1a6ef0105d02d069133dbd6f9aa5",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "POST /api/verifyLogin status 200": {
+                    "name": "POST /api/verifyLogin status 200",
+                    "path": "::POST /api/verifyLogin status 200",
+                    "id": "5e15ccf5ce16972a4a7b43d2873fc287",
+                    "passes": 1,
+                    "fails": 0
+                },
+                "login message igual a User exists!": {
+                    "fails": 0,
+                    "name": "login message igual a User exists!",
+                    "path": "::login message igual a User exists!",
+                    "id": "edd2d1ecc5a462e97546b5795be215b7",
+                    "passes": 1
+                }
+            }
+    },
+    "metrics": {
+        "http_req_tls_handshaking": {
+            "p(95)": 33.57513,
+            "avg": 12.435233333333334,
+            "min": 0,
+            "med": 0,
+            "max": 37.3057,
+            "p(90)": 29.84456
+        },
+        "http_req_sending": {
+            "p(90)": 1.54126,
+            "p(95)": 1.54778,
+            "avg": 1.1879000000000002,
+            "min": 0.5203,
+            "med": 1.4891,
+            "max": 1.5543
+        },
+        "http_req_receiving": {
+            "p(95)": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0
+        },
+        "data_received": {
+            "count": 12305,
+            "rate": 9398.872410287935
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 3,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_connecting": {
+            "min": 0,
+            "med": 0,
+            "max": 8.5384,
+            "p(90)": 6.8307199999999995,
+            "p(95)": 7.6845599999999985,
+            "avg": 2.846133333333333
+        },
+        "vus": {
+            "min": 1,
+            "max": 1,
+            "value": 1
+        },
+        "http_reqs": {
+            "count": 3,
+            "rate": 2.291476410472475
+        },
+        "data_sent": {
+            "count": 2057,
+            "rate": 1571.1889921139605
+        },
+        "vus_max": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        },
+        "checks": {
+            "passes": 9,
+            "fails": 0,
+            "value": 1
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 408.87373333333335,
+            "min": 204.1708,
+            "med": 204.6097,
+            "max": 817.8407,
+            "p(90)": 695.1945000000001,
+            "p(95)": 756.5175999999999
+        },
+        "http_req_waiting": {
+            "avg": 407.6858333333334,
+            "min": 202.6817,
+            "med": 204.0894,
+            "max": 816.2864,
+            "p(90)": 693.847,
+            "p(95)": 755.0666999999999
+        },
+        "http_req_blocked": {
+            "max": 78.3704,
+            "p(90)": 62.69632000000001,
+            "p(95)": 70.53336,
+            "avg": 26.12346666666667,
+            "min": 0,
+            "med": 0
+        },
+        "iteration_duration": {
+            "min": 1309.1996,
+            "med": 1309.1996,
+            "max": 1309.1996,
+            "p(90)": 1309.1996,
+            "p(95)": 1309.1996,
+            "avg": 1309.1996
+        },
+        "http_req_duration": {
+            "avg": 408.87373333333335,
+            "min": 204.1708,
+            "med": 204.6097,
+            "max": 817.8407,
+            "p(90)": 695.1945000000001,
+            "p(95)": 756.5175999999999,
+            "thresholds": {
+                "p(95)<5000": false
+            }
+        },
+        "iterations": {
+            "count": 1,
+            "rate": 0.7638254701574917
+        }
+    }
+}

@@ -1,0 +1,323 @@
+{
+  "name": "Auditoria de imagens",
+  "status": "passed",
+  "stage": "finished",
+  "start": 1780182773222,
+  "stop": 1780182774222,
+  "uuid": "tc-pf-010-1780182980519-30m76z",
+  "historyId": "tc_pf_010",
+  "fullName": "Performance - Auditoria de imagens",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_010"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Auditoria"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_010"
+    },
+    {
+      "name": "p95",
+      "value": "632ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.0%"
+    },
+    {
+      "name": "Checks",
+      "value": "37/37"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. GET /api/productsList status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182773722,
+      "stop": 1780182774022
+    },
+    {
+      "name": "2. imagem 1 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182774222,
+      "stop": 1780182774522
+    },
+    {
+      "name": "3. imagem 2 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182774722,
+      "stop": 1780182775022
+    },
+    {
+      "name": "4. imagem 3 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182775222,
+      "stop": 1780182775522
+    },
+    {
+      "name": "5. imagem 4 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182775722,
+      "stop": 1780182776022
+    },
+    {
+      "name": "6. imagem 5 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182776222,
+      "stop": 1780182776522
+    },
+    {
+      "name": "7. imagem 6 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182776722,
+      "stop": 1780182777022
+    },
+    {
+      "name": "8. imagem 7 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182777222,
+      "stop": 1780182777522
+    },
+    {
+      "name": "9. imagem 8 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182777722,
+      "stop": 1780182778022
+    },
+    {
+      "name": "10. imagem 11 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182778222,
+      "stop": 1780182778522
+    },
+    {
+      "name": "11. imagem 12 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182778722,
+      "stop": 1780182779022
+    },
+    {
+      "name": "12. imagem 13 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182779222,
+      "stop": 1780182779522
+    },
+    {
+      "name": "13. imagem 14 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182779722,
+      "stop": 1780182780022
+    },
+    {
+      "name": "14. imagem 15 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182780222,
+      "stop": 1780182780522
+    },
+    {
+      "name": "15. imagem 16 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182780722,
+      "stop": 1780182781022
+    },
+    {
+      "name": "16. imagem 18 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182781222,
+      "stop": 1780182781522
+    },
+    {
+      "name": "17. imagem 19 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182781722,
+      "stop": 1780182782022
+    },
+    {
+      "name": "18. imagem 20 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182782222,
+      "stop": 1780182782522
+    },
+    {
+      "name": "19. imagem 21 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182782722,
+      "stop": 1780182783022
+    },
+    {
+      "name": "20. imagem 22 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182783222,
+      "stop": 1780182783522
+    },
+    {
+      "name": "21. imagem 23 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182783722,
+      "stop": 1780182784022
+    },
+    {
+      "name": "22. imagem 24 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182784222,
+      "stop": 1780182784522
+    },
+    {
+      "name": "23. imagem 28 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182784722,
+      "stop": 1780182785022
+    },
+    {
+      "name": "24. imagem 29 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182785222,
+      "stop": 1780182785522
+    },
+    {
+      "name": "25. imagem 30 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182785722,
+      "stop": 1780182786022
+    },
+    {
+      "name": "26. imagem 31 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182786222,
+      "stop": 1780182786522
+    },
+    {
+      "name": "27. imagem 33 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182786722,
+      "stop": 1780182787022
+    },
+    {
+      "name": "28. imagem 35 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182787222,
+      "stop": 1780182787522
+    },
+    {
+      "name": "29. imagem 37 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182787722,
+      "stop": 1780182788022
+    },
+    {
+      "name": "30. imagem 38 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182788222,
+      "stop": 1780182788522
+    },
+    {
+      "name": "31. imagem 39 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182788722,
+      "stop": 1780182789022
+    },
+    {
+      "name": "32. imagem 40 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182789222,
+      "stop": 1780182789522
+    },
+    {
+      "name": "33. imagem 41 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182789722,
+      "stop": 1780182790022
+    },
+    {
+      "name": "34. imagem 42 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182790222,
+      "stop": 1780182790522
+    },
+    {
+      "name": "35. imagem 43 carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182790722,
+      "stop": 1780182791022
+    },
+    {
+      "name": "36. total 34 imagens analisadas",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182791222,
+      "stop": 1780182791522
+    },
+    {
+      "name": "37. 3 imagens > 200KB",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182791722,
+      "stop": 1780182792022
+    },
+    {
+      "name": "38. Resumo: p95=632ms | Erro=0.0% | 37/37 checks | Aprovado",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780182774122,
+      "stop": 1780182774222
+    }
+  ],
+  "attachments": []
+}
