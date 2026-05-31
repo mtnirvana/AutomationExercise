@@ -948,7 +948,7 @@ Caso um técnico de QA identifique uma falha durante a execução, deve seguir o
 ## 7. Manutenção da Suíte
 ### 7.1 Atualização de Seletores
 Toda alteração de UI no site requer:
-- Atualização do seletor correspondente no arquivo em [`cypress/pages/`](../../Cypress/cypress/pages/).
+- Atualização do seletor correspondente no arquivo em [`cypress/pages/`](https://github.com/mtnirvana/AutomationExercise/tree/main/automationexercise/Cypress/cypress/pages).
 - Atualização do glossário na Seção 5 deste documento.
 ### 7.2 Execução de Regressão
 Após qualquer alteração:
