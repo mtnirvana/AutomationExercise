@@ -188,10 +188,15 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 >
 > **RESULTADO ESPERADO RULE:** All tests (E2E, API, BDD, Performance) MUST include the field `**Resultado esperado:**` after `**Pós-condição:**` describing the expected business outcome of the test. This field applies to both technical documents and BDD scenarios.
 >
-> **SCRIPT HYPERLINK RULE:** Every TC in technical documents (E2E Web, API, Performance) MUST include the field `**Script:**` after `**Resultado esperado:**` with the script filename and a clickable hyperlink to the respective `.cy.js` or `.js` file. Example:
+> **SCRIPT HYPERLINK RULE:** Every TC in technical documents (E2E Web, API, Performance) AND every BDD scenario MUST include the field `**Script:**` after `**Resultado esperado:**` with the script filename and a clickable hyperlink to the respective `.cy.js` or `.js` file. Example:
 > ```
 > **Resultado esperado:** Usuário consegue se registrar...<br>
 > **Script:** [`TC_WEB_001_sucesso_registrar_usuario.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js)<br>
+> ```
+> For BDD scenarios, use the `- **Script:**` format:
+> ```
+> - **Resultado esperado:** Usuário consegue se registrar...
+> - **Script:** [`TC_WEB_001_sucesso_registrar_usuario.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js)
 > ```
 
 > **Exception:** Templates already have `AAAA-MM-DD` as a date placeholder. Always replace it with the **current date** when generating the document.
@@ -252,7 +257,8 @@ When creating a new test case, the BDD must be updated AFTER the technical docum
     - **SUMMARIZE steps** by grouping actions into Given/When/Then blocks (max 7 blocks per scenario)
    - Populate the template with the collected data
    - **REQUIRED DADO FIELD:** Every scenario MUST have the `Dado` field filled with natural language context. Never use "Nenhum" when context applies.
-   - **DADO LANGUAGE STANDARD:** Follow the language patterns defined in item 8 â use "Que existem credenciais pré-cadastradas no sistema" for login, "Que existem dados de registro disponíveis" for registration, etc.
+   - **DADO LANGUAGE STANDARD:** Follow the language patterns defined in item 8 — use "Que existem credenciais pré-cadastradas no sistema" for login, "Que existem dados de registro disponíveis" for registration, etc.
+   - **SCRIPT FIELD:** Every BDD scenario MUST include `- **Script:** [`filename`](path)` after `- **Resultado esperado:**` with a hyperlink to the respective test script.
    - Add new entry to the appropriate functional area (E2E or API)
    - Update totals in Meta e Escopo section
    - Update classification tables (Sucesso/Erro counts and percentages)
