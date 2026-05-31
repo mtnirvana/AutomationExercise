@@ -103,9 +103,9 @@ Os cenários estão organizados em:
 
 | Tipo | Total | Documento de Referência |
 |:-----|:-----:|:------------------------|
-| Testes E2E Web | 26 | `Suite_BDD.md` / `Especificacao_Tecnica_Web.md` |
-| Testes de API | 14 | `Suite_BDD.md` / `Especificacao_Tecnica_API.md` |
-| Testes de Performance | 14 | `Suite_BDD.md` / `Especificacao_Tecnica_Performance.md` |
+| Testes E2E Web | 26 | [`Suite_BDD.md`](Suite_BDD.md) / [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| Testes de API | 14 | [`Suite_BDD.md`](Suite_BDD.md) / [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| Testes de Performance | 14 | [`Suite_BDD.md`](Suite_BDD.md) / [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
 
 > **Total:** 40 cenários funcionais (BDD) · 61 casos individuais no Allure (26 E2E + 14 API + 13 k6 + 8 Core Web Vitals)
 

@@ -173,6 +173,8 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 
    The `---` separator MUST appear after the metadata block (with a blank line before it) and between major sections.
 
+> **HYPERLINK RULE:** Every reference to another document (`.md`, `.js`, `.json`, etc.) within any documentation file MUST be a clickable Markdown link in the format `` [`filename`](path) ``. Bare filenames in backticks (`` `file.md` ``) are NOT allowed unless they are inside code blocks or inlined code examples.
+
 > **Exception:** Templates already have `AAAA-MM-DD` as a date placeholder. Always replace it with the **current date** when generating the document.
 
 ---
