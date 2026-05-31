@@ -617,6 +617,9 @@ automationexercise/
 │   ├── Relatorio_Resultados_Performance.md             # Metricas e resultados k6 + Lighthouse
 │   └── ...
 ├── templates/                                          # Templates para novos TCs
+│   ├── Especificacao_Tecnica_Performance_TEMPLATE.md   # Template especificacao tecnica de performance
+│   ├── Relatorio_Resultados_Performance_TEMPLATE.md    # Template metricas e resultados k6 + Lighthouse
+│   └── ...
 └── Cypress/
     └── cypress/
         ├── e2e/
