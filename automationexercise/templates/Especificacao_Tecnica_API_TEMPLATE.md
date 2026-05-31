@@ -1,5 +1,5 @@
 # Especificação Técnica API - Automation Exercise
-**Versão:** 1.0.0<br><br>
+**Versão:** 1.0.0<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -54,10 +54,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 #### TC_API_001 - Listar todos os produtos via API
 
-**Objetivo:** Validar o retorno da lista completa de produtos do catálogo.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Alta<br><br>
-**Dados:** Nenhum (endpoint público)<br><br>
+**Objetivo:** Validar o retorno da lista completa de produtos do catálogo.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Nenhum (endpoint público)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -70,7 +70,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 4 | Validar quantidade de produtos | body.products.length | Igual a N |
 | ... | ... | ... | ... |
 
-**Asserção Chave:**<br><br>
+**Asserção Chave:**<br>
 **Resultado esperado:** [Resultado esperado do teste]<br>
 **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/api/TCXXX_nome_do_teste.cy.js)<br>
 ```javascript
