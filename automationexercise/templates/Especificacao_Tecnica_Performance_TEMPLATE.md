@@ -182,11 +182,11 @@ Para adicionar um novo TC, insira-o abaixo do grupo funcional correspondente, se
 
 ```
 automationexercise/
-├── docs/                                 # Documentacao viva do projeto
-│   ├── Especificacao_Tecnica_Performance.md  # Especificacao tecnica de performance
-│   ├── Relatorio_Resultados_Performance.md   # Metricas e resultados k6 + Lighthouse
+├── docs/                                               # Documentacao viva do projeto
+│   ├── Especificacao_Tecnica_Performance.md            # Especificacao tecnica de performance
+│   ├── Relatorio_Resultados_Performance.md             # Metricas e resultados k6 + Lighthouse
 │   └── ...
-├── templates/                            # Templates para novos TCs
+├── templates/                                          # Templates para novos TCs
 │   ├── Especificacao_Tecnica_Performance_TEMPLATE.md
 │   ├── Relatorio_Resultados_Performance_TEMPLATE.md
 │   ├── Sumario_Executivo_TEMPLATE.md
@@ -197,9 +197,9 @@ automationexercise/
 └── Cypress/
     └── cypress/
         ├── e2e/
-        │   ├── web/              # Testes E2E
-        │   ├── api/              # Testes de API
-        │   └── performance/      # Scripts k6 + Cypress (TC_PF_008)
+        │   ├── web/                                    # Testes E2E
+        │   ├── api/                                    # Testes de API
+        │   └── performance/                            # Scripts k6 + Cypress (TC_PF_008)
         │       ├── TC_PF_001_smoke_test.js
         │       ├── TC_PF_002_carga_homepage.js
         │       ├── TC_PF_003_carga_api_produtos.js
@@ -214,26 +214,26 @@ automationexercise/
         │       ├── TC_PF_012_carga_detalhes_usuario.js
         │       ├── TC_PF_013_carga_pesquisar_produto.js
         │       └── TC_PF_014_carga_pagina_produtos.js
-        ├── fixtures/             # Dados estaticos
-        │   ├── users.json        # Credenciais e dados de pagamento
-        │   ├── products.json     # Produtos, categorias, marcas
-        │   ├── contact.json      # Mensagens e assuntos
-        │   ├── ui_texts.json     # Labels, headers, erros, botoes
-        │   └── test_file.txt     # Arquivo de teste para upload
-        ├── support/              # Comandos customizados
-        │   └── e2e.js            # beforeEach centralizado + cy.captura()
-        ├── allure/               # Relatorios Allure (dark mode + pt-BR)
-        │   ├── package.json      # allure-commandline
+        ├── fixtures/                                   # Dados estaticos
+        │   ├── users.json                              # Credenciais e dados de pagamento
+        │   ├── products.json                           # Produtos, categorias, marcas
+        │   ├── contact.json                            # Mensagens e assuntos
+        │   ├── ui_texts.json                           # Labels, headers, erros, botoes
+        │   └── test_file.txt                           # Arquivo de teste para upload
+        ├── support/                                    # Comandos customizados
+        │   └── e2e.js                                  # beforeEach centralizado + cy.captura()
+        ├── allure/                                     # Relatorios Allure (dark mode + pt-BR)
+        │   ├── package.json                            # allure-commandline
         │   ├── allure.properties # Tema escuro + idioma pt-BR
-        │   ├── allure-results/   # Resultados das execucoes
-        │   ├── allure-report/    # Relatorio HTML estatico
-        │   └── scripts/          # Conversores k6 → Allure
-        ├── reports/              # Relatorios de execucao
-        │   └── k6/               # JSONs do k6
-        ├── screenshots/          # Evidencias visuais
-        │   ├── performance/      # Screenshots TC_PF_008
+        │   ├── allure-results/                         # Resultados das execucoes
+        │   ├── allure-report/                          # Relatorio HTML estatico
+        │   └── scripts/                                # Conversores k6 → Allure
+        ├── reports/                                    # Relatorios de execucao
+        │   └── k6/                                     # JSONs do k6
+        ├── screenshots/                                # Evidencias visuais
+        │   ├── performance/                            # Screenshots TC_PF_008
         │   └── ...
-        └── videos/               # Videos das execucoes
+        └── videos/                                     # Videos das execucoes
 ```
 
 > **Exemplo de preenchimento:** Substituir os placeholders pelos nomes reais dos arquivos conforme o documento completo [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
