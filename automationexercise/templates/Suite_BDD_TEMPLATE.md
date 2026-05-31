@@ -44,8 +44,6 @@
 
 ## 3. Cenários E2E
 
-> **Regra Obrigatória — Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável — descrever o recurso ou condição necessária.
-
 ### F01 - Gestão de Identidade e Acesso
 
 ---
@@ -238,8 +236,6 @@ Então a mensagem "Success! Your details have been submitted successfully." deve
 ---
 
 ## 4. Cenários API
-
-> **Regra Obrigatória — Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável — descrever o recurso ou condição necessária.
 
 ### F06 - API Catálogo de Produtos e Marcas
 
@@ -508,8 +504,6 @@ Um cenário é considerado **CONCLUÍDO** quando:
 ---
 
 ## 10. Apêndice: Padrão de Linguagem para Campo Dado
-
-> **Regra Obrigatória:** O campo `Dado` deve seguir os padrões de linguagem definidos abaixo para garantir consistência entre todos os cenários.
 
 ### 10.1 Padrões para Cenários E2E
 
