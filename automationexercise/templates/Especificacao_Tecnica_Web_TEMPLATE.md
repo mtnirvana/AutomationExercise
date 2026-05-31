@@ -39,7 +39,6 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 ---
 
 ## 4. Detalhamento Exaustivo de Cenários (E2E)
-
 Esta seção fornece a especificação técnica passo a passo para cada cenário de teste, permitindo que qualquer QA reproduza o teste manualmente. Cada novo TC adicionado deve ser inserido abaixo, seguindo a estrutura de grupo funcional.
 
 <!--
