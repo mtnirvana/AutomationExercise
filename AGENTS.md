@@ -160,6 +160,18 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 6. **EXECUTE AND INCLUDE EVIDENCE** — After generating scripts, run the tests, collect screenshots/HTML reports/videos, and include them in the output folder.
 7. **PERFORMANCE TESTS** — Seguir `Especificacao_Tecnica_Performance_TEMPLATE.md` para criar novos TCs de performance. Cada TC de performance deve ter: objetivo, tipo (smoke/carga/estresse/resistência/pico), configuração (VUs, stages, thresholds), script k6, passos de validação.
 8. **RELATÓRIO DE RESULTADOS** — Após executar testes de performance, atualizar `Relatorio_Resultados_Performance.md` com métricas coletadas (avg, p95, taxa de erro) e gerar evidências via `--summary-export`.
+9. **HEADING STANDARDIZATION** — All documents MUST follow this heading hierarchy:
+
+   | Level | Format | Usage |
+   |:-----:|:-------|:------|
+   | `#` | Document title | `# Title - Automation Exercise` |
+   | `##` | Major section | `## 1. Section Name` |
+   | `###` | Subsection | `### 1.1 Subsection Name` |
+   | `####` | TC / sub-subsection | `#### TC_WEB_001 - Test name` |
+   | `**bold**` | Metadata | `**Versão:** 1.0.0`, `**Responsável:** Rafael Barelli` |
+   | normal text | Content | Paragraphs, lists, tables, code blocks |
+
+   The `---` separator MUST appear after the metadata block (with a blank line before it) and between major sections.
 
 > **Exception:** Templates already have `AAAA-MM-DD` as a date placeholder. Always replace it with the **current date** when generating the document.
 
