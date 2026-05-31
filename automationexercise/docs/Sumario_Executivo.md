@@ -1,6 +1,6 @@
 # Sumário Executivo - Automation Exercise
-**Versão:** 1.0.0
-**Metodologia:** ISTQB (CTFL)
+**Versão:** 1.0.0<br>
+**Metodologia:** ISTQB (CTFL)<br>
 **Responsável:** Rafael Barelli
 
 ---

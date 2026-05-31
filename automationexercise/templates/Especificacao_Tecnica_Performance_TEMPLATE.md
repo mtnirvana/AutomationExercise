@@ -1,7 +1,7 @@
 # Especificação Técnica Performance - Automation Exercise
-**Versão:** 1.0.0<br>
-**Responsável:** Rafael Barelli<br>
-**Ferramenta:** k6 (Grafana Labs) v2.0.0<br>
+**Versão:** 1.0.0<br><br>
+**Responsável:** Rafael Barelli<br><br>
+**Ferramenta:** k6 (Grafana Labs) v2.0.0<br><br>
 **Metodologia:** ISTQB (CTFL) - Testes de Performance
 
 ---
@@ -107,10 +107,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 #### TC_PF_001 - Smoke test de validação do pipeline
 
-**Objetivo:** Validar que o ambiente de teste, o script k6 e as APIs estão funcionando corretamente.<br>
-**Tipo:** Smoke<br>
-**Criticidade:** Alta<br>
-**Configuração:** 1 VU, 1 iteração, sem ramp-up<br>
+**Objetivo:** Validar que o ambiente de teste, o script k6 e as APIs estão funcionando corretamente.<br><br>
+**Tipo:** Smoke<br><br>
+**Criticidade:** Alta<br><br>
+**Configuração:** 1 VU, 1 iteração, sem ramp-up<br><br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,01`
 
 **Script:** `Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js`

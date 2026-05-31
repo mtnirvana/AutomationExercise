@@ -1,8 +1,8 @@
 # Relatório de Resultados Performance - Automation Exercise
-**Versão:** 1.0.0
-**Responsável:** Rafael Barelli
-**Ferramenta:** k6 (Grafana Labs) v2.0.0
-**Data da Execução:** 2026-05-24
+**Versão:** 1.0.0<br>
+**Responsável:** Rafael Barelli<br>
+**Ferramenta:** k6 (Grafana Labs) v2.0.0<br>
+**Data da Execução:** 2026-05-24<br>
 **Ambiente:** Produção (https://www.automationexercise.com)
 
 ---

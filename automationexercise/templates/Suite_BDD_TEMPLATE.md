@@ -1,6 +1,6 @@
 # Suite de Testes BDD - Automation Exercise
-**Versão:** X.X.X
-**Metodologia:** BDD (Behavior Driven Development) - Gherkin
+**Versão:** X.X.X<br>
+**Metodologia:** BDD (Behavior Driven Development) - Gherkin<br>
 **Responsável:** Rafael Barelli
 
 ---

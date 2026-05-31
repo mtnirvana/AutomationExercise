@@ -1,5 +1,5 @@
 # Especificação Técnica Web - Automation Exercise
-**Versão:** 1.0.0<br>
+**Versão:** 1.0.0<br><br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -49,10 +49,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 #### TC_WEB_001 - Registrar usuário
 
-**Objetivo:** Validar o ciclo de vida completo de criação e exclusão de conta.<br>
-**Tipo:** Sucesso<br>
-**Criticidade:** Crítica<br>
-**Dados:** `UserFactory.generate()` - dados dinâmicos únicos por execução<br>
+**Objetivo:** Validar o ciclo de vida completo de criação e exclusão de conta.<br><br>
+**Tipo:** Sucesso<br><br>
+**Criticidade:** Crítica<br><br>
+**Dados:** `UserFactory.generate()` - dados dinâmicos únicos por execução<br><br>
 **Pós-condição:** Conta criada e excluída ao final do teste
 
 **Passos Detalhados:**
@@ -72,8 +72,8 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | ... | ... | ... | ... |
 | N | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Header visível |
 
-**Asserção Chave:**<br>
-**Resultado esperado:** [Resultado esperado do teste] Texto "Logged in as [username]" visível no topo da página após registro.
+**Asserção Chave:**<br><br>
+**Resultado esperado:** [Resultado esperado do teste] Texto "Logged in as [username]" visível no topo da página após registro.<br>
 **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/web/TCXXX_nome_do_teste.cy.js)<br>
 
 **Evidência em GIF:** ![TC00X](../Cypress/cypress/screenshots/web/TC00X_titulo_do_teste.cy.js/TC00X_titulo_do_teste.gif)

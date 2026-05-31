@@ -175,7 +175,7 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 
 > **HYPERLINK RULE:** Every reference to another document (`.md`, `.js`, `.json`, etc.) within any documentation file MUST be a clickable Markdown link in the format `` [`filename`](path) ``. Bare filenames in backticks (`` `file.md` ``) are NOT allowed unless they are inside code blocks or inlined code examples.
 >
-> **METADATA LINE BREAK RULE:** Every TC metadata field (`**Objetivo:**`, `**Tipo:**`, `**Criticidade:**`, `**Dados:**`, `**Pós-condição:**`, `**Configuração:**`, `**Thresholds:**`) MUST end with `<br>` to force line breaks on GitHub. Example:
+> **METADATA LINE BREAK RULE:** Every metadata field in the document header (`**Versão:**`, `**Responsável:**`, `**Metodologia:**`, `**Ferramenta:**`, `**Data:**`, `**Ambiente:**`) and every TC metadata field (`**Objetivo:**`, `**Tipo:**`, `**Criticidade:**`, `**Dados:**`, `**Pós-condição:**`, `**Configuração:**`, `**Thresholds:**`) MUST end with `<br>` to force line breaks on GitHub. Example:
 > ```
 > **Objetivo:** Validar o ciclo de vida completo de criação e exclusão de conta.<br>
 > **Tipo:** Sucesso<br>
