@@ -29,14 +29,15 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: Page Objects
 - [Testes E2E Web](#testes-e2e-web-26)
 - [Testes de API](#testes-de-api-14)
 - [Testes de Performance](#testes-de-performance-14)
-- [Evidências](#evidências)
-- [Documentação](#documentação)
+- [Evidências](#evidencias)
+- [Documentação](#documentacao)
 - [🤖 Uso com Agentes de IA](#uso-com-agentes-de-ia)
 - [Documentação IA](#documentacao-ia)
-- [Rastreabilidade Histórica](#rastreabilidade-histórica)
+- [Rastreabilidade Histórica](#rastreabilidade-historica)
 
 ---
 
+<a name="stack"></a>
 ## 🛠 Stack
 
 | Ferramenta | Versão | Finalidade |
@@ -132,14 +133,14 @@ antigravity PORTFOLIO/
 │   │   └── Relatorio_Testes.lnk                   # Atalho → sobe Allure serve + abre em http://localhost:8765
 │   │
 │   └── templates/                                 # Modelos e documentação para IA
-│       ├── Sumario_Executivo_TEMPLATE.md           # Template do Sumário Executivo
-│       ├── Especificacao_Tecnica_Web_TEMPLATE.md   # Template de especificação técnica (E2E Web)
-│       ├── Especificacao_Tecnica_API_TEMPLATE.md   # Template de especificação técnica (API)
+│       ├── Sumario_Executivo_TEMPLATE.md             # Template do Sumário Executivo
+│       ├── Especificacao_Tecnica_Web_TEMPLATE.md     # Template de especificação técnica (E2E Web)
+│       ├── Especificacao_Tecnica_API_TEMPLATE.md     # Template de especificação técnica (API)
 │       ├── Especificacao_Tecnica_Performance_TEMPLATE.md # Template de especificação técnica (Performance)
-│       ├── Suite_BDD_TEMPLATE.md                  # Template de cenários BDD (Gherkin)
+│       ├── Suite_BDD_TEMPLATE.md                    # Template de cenários BDD (Gherkin)
 │       ├── Relatorio_Resultados_Performance_TEMPLATE.md # Template de relatório de resultados
-│       ├── Guia_Cypress_Template.md               # Template de codificação e padrões do projeto
-│       └── Seletores.md                           # Histórico de seletores e self-healing (IA)
+│       ├── Guia_Cypress_Template.md                 # Template de codificação e padrões do projeto
+│       └── Seletores.md                             # Histórico de seletores e self-healing (IA)
 │
 └── Backup/                                        # Backups automáticos de documentação
 ```
@@ -354,6 +355,7 @@ npx cypress open
 
 ---
 
+<a name="evidencias"></a>
 ## 📸 Evidências
 
 Cada execução gera screenshots PNG de cada passo, vídeos e relatórios HTML. Os GIFs abaixo ilustram o fluxo completo do checkout — 26 steps, ~50s de execução:
@@ -368,6 +370,7 @@ Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_
 
 ---
 
+<a name="documentacao"></a>
 ## 📄 Documentação
 
 | Documento | Conteúdo |
@@ -422,6 +425,7 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 
 ---
 
+<a name="rastreabilidade-historica"></a>
 ## 📈 Rastreabilidade Histórica
 
 ### Relatório Unificado: Allure (Cypress + k6)
