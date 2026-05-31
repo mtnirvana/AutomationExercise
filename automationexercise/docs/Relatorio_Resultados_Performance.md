@@ -47,7 +47,7 @@
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_001_smoke_test.js`](Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js) |
+| **Script** | [`TC_PF_001_smoke_test.js`](../Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js) |
 | **Data/Hora** | 2026-05-24 10:20 |
 | **Duração** | 1,3s |
 | **VUs** | 1 |
@@ -93,7 +93,7 @@
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_002_carga_homepage.js`](Cypress/cypress/e2e/performance/TC_PF_002_carga_homepage.js) |
+| **Script** | [`TC_PF_002_carga_homepage.js`](../Cypress/cypress/e2e/performance/TC_PF_002_carga_homepage.js) |
 | **Data/Hora** | 2026-05-24 10:25 |
 | **Duração** | 31s (30s de execução) |
 | **VUs** | 1 (validação rápida) |
@@ -132,7 +132,7 @@
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_003_carga_api_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_003_carga_api_produtos.js) |
+| **Script** | [`TC_PF_003_carga_api_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_003_carga_api_produtos.js) |
 | **Data/Hora** | 2026-05-24 10:21 |
 | **Duração** | 3min 31s |
 | **VUs** | 100 |
@@ -180,7 +180,7 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_004_carga_api_login.js`](Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js) |
+| **Script** | [`TC_PF_004_carga_api_login.js`](../Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js) |
 | **Data/Hora** | 2026-05-24 10:25 |
 | **Duração** | 31s (30s de execução) |
 | **VUs** | 1 (validação rápida) |
@@ -219,7 +219,7 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_005_estresse_api_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js) |
+| **Script** | [`TC_PF_005_estresse_api_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js) |
 | **Status** | ⚠️ **LIMITAÇÃO DO SERVIDOR** |
 
 #### Resultado da Progressão
@@ -244,7 +244,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_006_resistencia_soak.js`](Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js) |
+| **Script** | [`TC_PF_006_resistencia_soak.js`](../Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js) |
 | **Data/Hora** | 2026-05-24 10:25 |
 | **Duração** | 3min 30s |
 | **VUs** | 1 (validação de fluxo) |
@@ -295,7 +295,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_007_pico_spike.js`](Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js) |
+| **Script** | [`TC_PF_007_pico_spike.js`](../Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js) |
 | **Data/Hora** | 2026-05-24 10:26 |
 | **Duração** | 1min 30s |
 | **VUs** | 1 (validação do script) |
@@ -338,7 +338,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Ferramenta** | Cypress (PerformanceObservers + Lighthouse) |
 | **Data/Hora** | 2026-05-24 14:30 |
 | **Páginas** | 8 páginas críticas |
-| **Script** | [`TC_PF_008_core_web_vitals.cy.js`](Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js) |
+| **Script** | [`TC_PF_008_core_web_vitals.cy.js`](../Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js) |
 | **Status** | ✅ **APROVADO** |
 
 #### Lighthouse Scores
@@ -460,7 +460,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_009_carga_checkout.js`](Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js) |
+| **Script** | [`TC_PF_009_carga_checkout.js`](../Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js) |
 | **Data/Hora** | 2026-05-24 10:25 |
 | **Duração** | 30s |
 | **VUs** | 1 (validação do fluxo) |
@@ -506,7 +506,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_010_auditoria_imagens.js`](Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js) |
+| **Script** | [`TC_PF_010_auditoria_imagens.js`](../Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js) |
 | **Data/Hora** | 2026-05-24 10:27 |
 | **Duração** | 30s |
 | **VUs** | 1 (validação do fluxo) |
@@ -557,7 +557,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_011_carga_atualizar_conta.js`](Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js) |
+| **Script** | [`TC_PF_011_carga_atualizar_conta.js`](../Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js) |
 | **Data/Hora** | 2026-05-24 11:19 |
 | **Duração** | 20s |
 | **VUs** | 1 (validação do fluxo) |
@@ -603,7 +603,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_012_carga_detalhes_usuario.js`](Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js) |
+| **Script** | [`TC_PF_012_carga_detalhes_usuario.js`](../Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js) |
 | **Data/Hora** | 2026-05-24 11:19 |
 | **Duração** | 20s |
 | **VUs** | 1 (validação do fluxo) |
@@ -649,7 +649,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_013_carga_pesquisar_produto.js`](Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js) |
+| **Script** | [`TC_PF_013_carga_pesquisar_produto.js`](../Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js) |
 | **Data/Hora** | 2026-05-24 11:19 |
 | **Duração** | 20s |
 | **VUs** | 1 (validação do fluxo) |
@@ -690,7 +690,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_014_carga_pagina_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_014_carga_pagina_produtos.js) |
+| **Script** | [`TC_PF_014_carga_pagina_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_014_carga_pagina_produtos.js) |
 | **Data/Hora** | 2026-05-24 11:24 |
 | **Duração** | 20s |
 | **VUs** | 1 (validação do fluxo) |
@@ -803,22 +803,22 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Arquivo | Conteúdo |
 |:--------|:---------|
-| [`TC_PF_001_smoke_test.json`](Cypress/cypress/reports/k6/TC_PF_001_smoke_test.json) | Métricas do smoke test em JSON |
+| [`TC_PF_001_smoke_test.json`](../Cypress/cypress/reports/k6/TC_PF_001_smoke_test.json) | Métricas do smoke test em JSON |
 | Lighthouse (Chrome DevTools) | Relatório gerado sob demanda via Chrome DevTools |
 | `(dados consolidados neste relatório)` | Lighthouse scores e Core Web Vitals |
-| [`TC_PF_001_smoke_test.js`](Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js) | Script executado |
-| [`TC_PF_002_carga_homepage.js`](Cypress/cypress/e2e/performance/TC_PF_002_carga_homepage.js) | Script executado |
-| [`TC_PF_003_carga_api_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_003_carga_api_produtos.js) | Script executado |
-| [`TC_PF_004_carga_api_login.js`](Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js) | Script executado |
-| [`TC_PF_005_estresse_api_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js) | Script executado |
-| [`TC_PF_006_resistencia_soak.js`](Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js) | Script executado |
-| [`TC_PF_007_pico_spike.js`](Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js) | Script executado |
-| [`TC_PF_009_carga_checkout.js`](Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js) | Script executado |
-| [`TC_PF_011_carga_atualizar_conta.js`](Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js) | Script executado |
-| [`TC_PF_012_carga_detalhes_usuario.js`](Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js) | Script executado |
-| [`TC_PF_013_carga_pesquisar_produto.js`](Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js) | Script executado |
-| [`TC_PF_014_carga_pagina_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_014_carga_pagina_produtos.js) | Script executado |
-| [`TC_PF_008_core_web_vitals.cy.js`](Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js) | Teste Cypress TC_PF_008 |
+| [`TC_PF_001_smoke_test.js`](../Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js) | Script executado |
+| [`TC_PF_002_carga_homepage.js`](../Cypress/cypress/e2e/performance/TC_PF_002_carga_homepage.js) | Script executado |
+| [`TC_PF_003_carga_api_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_003_carga_api_produtos.js) | Script executado |
+| [`TC_PF_004_carga_api_login.js`](../Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js) | Script executado |
+| [`TC_PF_005_estresse_api_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js) | Script executado |
+| [`TC_PF_006_resistencia_soak.js`](../Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js) | Script executado |
+| [`TC_PF_007_pico_spike.js`](../Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js) | Script executado |
+| [`TC_PF_009_carga_checkout.js`](../Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js) | Script executado |
+| [`TC_PF_011_carga_atualizar_conta.js`](../Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js) | Script executado |
+| [`TC_PF_012_carga_detalhes_usuario.js`](../Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js) | Script executado |
+| [`TC_PF_013_carga_pesquisar_produto.js`](../Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js) | Script executado |
+| [`TC_PF_014_carga_pagina_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_014_carga_pagina_produtos.js) | Script executado |
+| [`TC_PF_008_core_web_vitals.cy.js`](../Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js) | Teste Cypress TC_PF_008 |
 | `Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/` | 9 screenshots do TC_PF_008 (Cypress) |
 | `Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/TC_PF_008_core_web_vitals.gif` | GIF animado gerado via scripts/gerar_gifs.js |
 | `Cypress/cypress/videos/TC_PF_008_core_web_vitals.cy.js.mp4` | Vídeo da execução do TC_PF_008 (Cypress) |

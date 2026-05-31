@@ -106,7 +106,7 @@ export default function () {
 **Configuração:** 1 VU, 1 iteração, sem ramp-up<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,01`
 
-**Script:** [`TC_PF_001_smoke_test.js`](Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js)
+**Script:** [`TC_PF_001_smoke_test.js`](../Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js)
 
 **Passos de Validação:**
 
@@ -136,7 +136,7 @@ export default function () {
 **Configuração:** Ramp-up 30s para 50 VUs, sustentar 3min, ramp-down 10s<br>
 **Thresholds:** `http_req_duration p(95) < 3000`, `http_req_failed rate < 0,05`
 
-**Script:** [`TC_PF_002_carga_homepage.js`](Cypress/cypress/e2e/performance/TC_PF_002_carga_homepage.js)
+**Script:** [`TC_PF_002_carga_homepage.js`](../Cypress/cypress/e2e/performance/TC_PF_002_carga_homepage.js)
 
 **Stages:**
 ```javascript
@@ -169,7 +169,7 @@ export default function () {
 **Configuração:** Ramp-up 20s para 50 VUs, sustentar 1min, ramp-up 20s para 100 VUs, sustentar 1min, ramp-down 10s<br>
 **Thresholds:** `http_req_duration p(95) < 8000`, `http_req_failed rate < 0,40`
 
-**Script:** [`TC_PF_003_carga_api_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_003_carga_api_produtos.js)
+**Script:** [`TC_PF_003_carga_api_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_003_carga_api_produtos.js)
 
 **Stages:**
 ```javascript
@@ -204,7 +204,7 @@ export default function () {
 **Sleep:** 1s entre iterações (comportamento humano)<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,10`
 
-**Script:** [`TC_PF_004_carga_api_login.js`](Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js)
+**Script:** [`TC_PF_004_carga_api_login.js`](../Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js)
 
 **Passos de Validação:**
 
@@ -228,7 +228,7 @@ export default function () {
 **Configuração:** Stages progressivos: 25 (baseline) → 50 → 100 → 200 → **300** VUs (reduzido de 500 para evitar bloqueio total do Cloudflare)<br>
 **Thresholds:** `http_req_duration p(95) < 10000`, `http_req_failed rate < 0,60`
 
-**Script:** [`TC_PF_005_estresse_api_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js)
+**Script:** [`TC_PF_005_estresse_api_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js)
 
 **Stages:**
 ```javascript
@@ -266,7 +266,7 @@ export default function () {
 **Configuração:** 50 VUs, 5min hold, mix de 4 endpoints via `__ITER % 4`<br>
 **Thresholds:** `http_req_duration p(95) < 3000`, `http_req_failed rate < 0,01`
 
-**Script:** [`TC_PF_006_resistencia_soak.js`](Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js)
+**Script:** [`TC_PF_006_resistencia_soak.js`](../Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js)
 
 **Distribuição de Endpoints:**
 
@@ -299,7 +299,7 @@ export default function () {
 **Configuração:** Baseline 10 VUs (30s) → Spike 200 VUs (5s) → Hold 200 (30s) → Recuperação 10 VUs (30s) → Validar recuperação (30s)<br>
 **Thresholds:** `http_req_duration p(95) < 8000`, `http_req_failed rate < 0,30`
 
-**Script:** [`TC_PF_007_pico_spike.js`](Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js)
+**Script:** [`TC_PF_007_pico_spike.js`](../Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js)
 Nota: Spike reduzido de 500 para 200 VUs para evitar bloqueio total do Cloudflare. Mesmo com 200 VUs, o rate limiting do Cloudflare causa ~80% de falha — comportamento esperado e documentado.
 
 **Stages:**
@@ -386,7 +386,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Dados:** Email único via `Date.now()` por iteração<br>
 **Thresholds:** `http_req_duration p(95) < 4000`, `http_req_failed rate < 0,05`
 
-**Script:** [`TC_PF_009_carga_checkout.js`](Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js)
+**Script:** [`TC_PF_009_carga_checkout.js`](../Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js)
 
 **Passos de Validação:**
 
@@ -413,7 +413,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Criticidade:** Baixa<br>
 **Configuração:** 1 VU, lista todos os produtos e verifica Content-Length de cada imagem
 
-**Script:** [`TC_PF_010_auditoria_imagens.js`](Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js)
+**Script:** [`TC_PF_010_auditoria_imagens.js`](../Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js)
 
 **Passos de Validação:**
 
@@ -439,7 +439,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Dados:** Email único via `Date.now()` por iteração. Password consistente em todo o fluxo.<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,15`
 
-**Script:** [`TC_PF_011_carga_atualizar_conta.js`](Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js)
+**Script:** [`TC_PF_011_carga_atualizar_conta.js`](../Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js)
 
 **Cobre:** TC_API_010 (Atualizar conta de usuário via API)
 
@@ -463,7 +463,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Dados:** Email único via `Date.now()`. Password consistente.<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,15`
 
-**Script:** [`TC_PF_012_carga_detalhes_usuario.js`](Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js)
+**Script:** [`TC_PF_012_carga_detalhes_usuario.js`](../Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js)
 
 **Cobre:** TC_API_011 (Obter detalhes do usuário por email via API)
 
@@ -492,7 +492,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Dados:** Termos de busca: 'top', 'winter', 'dress', 'shirt', 'blue'<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,05`
 
-**Script:** [`TC_PF_013_carga_pesquisar_produto.js`](Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js)
+**Script:** [`TC_PF_013_carga_pesquisar_produto.js`](../Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js)
 
 **Cobre:** TC_API_003 (Pesquisar produto por termo via API) + TC_WEB_009 (Pesquisar produto - E2E)
 
@@ -510,7 +510,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Configuração:** Ramp-up 30s para 30 VUs, sustentar 2min, ramp-down 10s<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,05`
 
-**Script:** [`TC_PF_014_carga_pagina_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_014_carga_pagina_produtos.js)
+**Script:** [`TC_PF_014_carga_pagina_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_014_carga_pagina_produtos.js)
 
 **Stages:**
 ```javascript
