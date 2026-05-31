@@ -336,7 +336,7 @@ Nota: Spike reduzido de 500 para 200 VUs para evitar bloqueio total do Cloudflar
 **Configuração:** 8 paginas criticas, 1 execucao cada, navegacao real via Cypress<br>
 **Ferramenta:** Cypress + Chrome DevTools (Lighthouse)
 
-**Script (Cypress):** `automationexercise/Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js`
+**Script (Cypress):** [`TC_PF_008_core_web_vitals.cy.js`](../Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js)
 
 **Execução:**
 ```bash
