@@ -617,13 +617,6 @@ automationexercise/
 │   ├── Relatorio_Resultados_Performance.md             # Metricas e resultados k6 + Lighthouse
 │   └── ...
 ├── templates/                                          # Templates para novos TCs
-│   ├── Especificacao_Tecnica_Performance_TEMPLATE.md
-│   ├── Relatorio_Resultados_Performance_TEMPLATE.md
-│   ├── Sumario_Executivo_TEMPLATE.md
-│   ├── Especificacao_Tecnica_Web_TEMPLATE.md
-│   ├── Especificacao_Tecnica_API_TEMPLATE.md
-│   └── Suite_BDD_TEMPLATE.md
-
 └── Cypress/
     └── cypress/
         ├── e2e/
@@ -654,7 +647,7 @@ automationexercise/
         │   └── e2e.js                                  # beforeEach centralizado + cy.captura()
         ├── allure/                                     # Relatorios Allure (dark mode + pt-BR)
         │   ├── package.json                            # allure-commandline
-        │   ├── allure.properties # Tema escuro + idioma pt-BR
+        │   ├── allure.properties                        # Tema escuro + idioma pt-BR
         │   ├── allure-results/                         # Resultados das execucoes
         │   ├── allure-report/                          # Relatorio HTML estatico
         │   └── scripts/                                # Conversores k6 → Allure
