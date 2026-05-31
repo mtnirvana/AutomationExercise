@@ -2,6 +2,9 @@
     "searchTerms": {
         "winter": "Winter Top"
     },
+    "products": {
+        "firstProd": "Blue Top"
+    },
     "categories": {
         "women": "Women",
         "dress": "Dress",
