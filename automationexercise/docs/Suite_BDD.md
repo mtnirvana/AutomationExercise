@@ -56,6 +56,7 @@
 - **Dado:** Que existem dados de registro disponíveis
 - **Pós-condição:** Conta criada e excluída ao final do teste
 - **Resultado esperado:** Usuário consegue se registrar, acessar o sistema e excluir sua conta
+- **Script:** [TC_WEB_001_sucesso_registrar_usuario.cy.js](../Cypress/cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js)
 
 **Cenário:**
 ```
@@ -78,6 +79,7 @@ Então o header "Account Deleted!" deve estar visível após exclusão
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário cadastrado consegue acessar sua conta
+- **Script:** [TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js](../Cypress/cypress/e2e/web/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js)
 
 **Cenário:**
 ```
@@ -98,6 +100,7 @@ Então o sistema redireciona para a página de login e o header "Login to your a
 - **Dado:** Que existem credenciais inexistentes no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Sistema impede acesso com credenciais inválidas
+- **Script:** [TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js](../Cypress/cypress/e2e/web/TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js)
 
 **Cenário:**
 ```
@@ -118,6 +121,7 @@ Então o sistema exibe a mensagem de erro e o usuário permanece na página de l
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Sessão encerrada
 - **Resultado esperado:** Usuário consegue encerrar a sessão com segurança
+- **Script:** [TC_WEB_004_sucesso_logout_usuario.cy.js](../Cypress/cypress/e2e/web/TC_WEB_004_sucesso_logout_usuario.cy.js)
 
 **Cenário:**
 ```
@@ -138,6 +142,7 @@ Então o sistema redireciona para a página de login e o header "Login to your a
 - **Dado:** Que existe um email já cadastrado no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Sistema impede duplicidade de cadastro
+- **Script:** [TC_WEB_005_erro_registrar_usuario_email_existente.cy.js](../Cypress/cypress/e2e/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js)
 
 **Cenário:**
 ```
@@ -162,6 +167,7 @@ Então o sistema exibe a mensagem de erro "Email Address already exist!"
 - **Dado:** Que existem produtos disponíveis no catálogo
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Catálogo de produtos exibe informações completas
+- **Script:** [TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js)
 
 **Cenário:**
 ```
@@ -182,6 +188,7 @@ Então as informações do produto devem estar visíveis (nome, categoria, preç
 - **Dado:** Que existe um termo de busca válido disponível
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Busca retorna produtos relacionados ao termo
+- **Script:** [TC_WEB_009_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_009_sucesso_pesquisar_produto.cy.js)
 
 **Cenário:**
 ```
@@ -202,6 +209,7 @@ Então o header "SEARCHED PRODUCTS" deve estar visível e os produtos relacionad
 - **Dado:** Que existem categorias de produto válidas disponíveis
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Categorias e subcategorias exibem produtos corretamente
+- **Script:** [TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js](../Cypress/cypress/e2e/web/TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js)
 
 **Cenário:**
 ```
@@ -222,6 +230,7 @@ Então as páginas das categorias devem exibir os produtos corretamente
 - **Dado:** Que existem marcas de produto válidas disponíveis
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Marcas exibem produtos corretamente
+- **Script:** [TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js](../Cypress/cypress/e2e/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js)
 
 **Cenário:**
 ```
@@ -242,6 +251,7 @@ Então as páginas das marcas devem exibir os produtos corretamente
 - **Dado:** Que existe um texto de avaliação de produto disponível
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário consegue avaliar produto
+- **Script:** [TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js)
 
 **Cenário:**
 ```
@@ -266,6 +276,7 @@ Então o sistema exibe a mensagem "Thank you for your review."
 - **Dado:** Que existem produtos disponíveis no catálogo
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Carrinho aceita múltiplos produtos com preços e quantidades
+- **Script:** [TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js)
 
 **Cenário:**
 ```
@@ -286,6 +297,7 @@ Então a página do carrinho deve estar visível e os dois produtos devem estar 
 - **Dado:** Que existe um produto disponível com campo de quantidade editável
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Seletor de quantidade reflete valor escolhido no carrinho
+- **Script:** [TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js)
 
 **Cenário:**
 ```
@@ -305,6 +317,7 @@ Então a quantidade do produto no carrinho deve ser exatamente "4"
 - **Dado:** Que existe um produto disponível no catálogo com quantidade configurável
 - **Pós-condição:** Carrinho atualizado
 - **Resultado esperado:** Usuário consegue remover itens do carrinho
+- **Script:** [TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js)
 
 **Cenário:**
 ```
@@ -325,6 +338,7 @@ Então o produto deve ser removido do carrinho
 - **Dado:** Que existem credenciais pré-cadastradas e termos de busca válidos disponíveis
 - **Pós-condição:** Carrinho persiste após login
 - **Resultado esperado:** Carrinho persiste itens após autenticação
+- **Script:** [TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js](../Cypress/cypress/e2e/web/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js)
 
 **Cenário:**
 ```
@@ -347,6 +361,7 @@ Então os produtos devem persistir no carrinho após login
 - **Dado:** Que existem itens recomendados disponíveis na seção inferior da página inicial
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Produtos recomendados são adicionados ao carrinho
+- **Script:** [TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js)
 
 **Cenário:**
 ```
@@ -371,6 +386,7 @@ Então o produto recomendado deve estar na página do carrinho
 - **Dado:** Que existem dados de registro e dados de pagamento disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** Fluxo completo de compra com registro no checkout
+- **Script:** [TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js)
 
 **Cenário:**
 ```
@@ -394,6 +410,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Diferencial:** Foco no fluxo completo de compra com registro prévio ao checkout, incluindo fechamento de pedido com pagamento.
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** Fluxo completo de compra com registro prévio
+- **Script:** [TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js)
 
 **Cenário:**
 ```
@@ -416,6 +433,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Dado:** Que existem credenciais pré-cadastradas e dados de pagamento disponíveis
 - **Pós-condição:** Sessão permanece ativa
 - **Resultado esperado:** Usuário logado consegue finalizar compra
+- **Script:** [TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js)
 
 **Cenário:**
 ```
@@ -437,6 +455,7 @@ Então a mensagem de confirmação do pedido deve estar visível
 - **Dado:** Que existem dados de registro disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** Endereços de entrega e cobrança conferem com cadastro
+- **Script:** [TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js)
 
 **Cenário:**
 ```
@@ -459,6 +478,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Dado:** Que existem dados de registro, dados de contato e dados de pagamento disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** Fatura é gerada e disponível para download
+- **Script:** [TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js](../Cypress/cypress/e2e/web/TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js)
 
 **Cenário:**
 ```
@@ -486,6 +506,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Dado:** Que existem dados de contato disponíveis
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário consegue enviar mensagem com arquivo anexado
+- **Script:** [TC_WEB_006_sucesso_formulario_contato.cy.js](../Cypress/cypress/e2e/web/TC_WEB_006_sucesso_formulario_contato.cy.js)
 
 **Cenário:**
 ```
@@ -508,6 +529,7 @@ Então a página inicial deve estar carregada
 - **Dado:** Que existem links de navegação acessíveis na página inicial
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Navegação para página de casos de teste funciona
+- **Script:** [TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js](../Cypress/cypress/e2e/web/TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js)
 
 **Cenário:**
 ```
@@ -526,6 +548,7 @@ Então a página de casos de teste é carregada com header "Test Cases" visível
 - **Dado:** Que existe um campo de assinatura de newsletter acessível na página inicial
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário consegue assinar newsletter na home
+- **Script:** [TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js](../Cypress/cypress/e2e/web/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js)
 
 **Cenário:**
 ```
@@ -547,6 +570,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 - **Dado:** Que existe um campo de assinatura de newsletter acessível na página do carrinho
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário consegue assinar newsletter no carrinho
+- **Script:** [TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js)
 
 **Cenário:**
 ```
@@ -567,6 +591,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 - **Dado:** Que existem botões de navegação acessíveis na página
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Botão de scroll up retorna ao topo da página
+- **Script:** [TC_WEB_025_sucesso_verificar_scroll_seta.cy.js](../Cypress/cypress/e2e/web/TC_WEB_025_sucesso_verificar_scroll_seta.cy.js)
 
 **Cenário:**
 ```
@@ -587,6 +612,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **Dado:** Que existe uma área navegável com scroll
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Scroll manual retorna ao topo da página
+- **Script:** [TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js](../Cypress/cypress/e2e/web/TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js)
 
 **Cenário:**
 ```
@@ -613,6 +639,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **Dado:** Que a API de catálogo de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna catálogo completo com 34 produtos
+- **Script:** [TC_API_001_sucesso_listar_todos_produtos.cy.js](../Cypress/cypress/e2e/api/TC_API_001_sucesso_listar_todos_produtos.cy.js)
 
 **Cenário:**
 ```
@@ -635,6 +662,7 @@ E cada produto deve possuir as propriedades id, name, price, brand e category
 - **Dado:** Que a API de catálogo de marcas está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna lista de marcas disponíveis
+- **Script:** [TC_API_002_sucesso_listar_todas_marcas.cy.js](../Cypress/cypress/e2e/api/TC_API_002_sucesso_listar_todas_marcas.cy.js)
 
 **Cenário:**
 ```
@@ -657,6 +685,7 @@ E cada marca deve possuir as propriedades id e brand
 - **Dado:** Que existe um termo de busca 'top' disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna produtos filtrados pelo termo buscado
+- **Script:** [TC_API_003_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/api/TC_API_003_sucesso_pesquisar_produto.cy.js)
 
 **Cenário:**
 ```
@@ -679,6 +708,7 @@ E cada produto deve possuir as propriedades id e name
 - **Dado:** Que a API de busca de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente
+- **Script:** [TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js](../Cypress/cypress/e2e/api/TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js)
 
 **Cenário:**
 ```
@@ -703,6 +733,7 @@ E o body.message deve ser igual a "Bad request, search_product parameter is miss
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** API autentica usuário com credenciais corretas
+- **Script:** [TC_API_005_sucesso_verificar_login_valido.cy.js](../Cypress/cypress/e2e/api/TC_API_005_sucesso_verificar_login_valido.cy.js)
 
 **Cenário:**
 ```
@@ -723,6 +754,7 @@ E o body.message deve ser igual a "User exists!"
 - **Dado:** Que a API de autenticação está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna erro quando campo obrigatório está ausente
+- **Script:** [TC_API_006_erro_verificar_login_sem_email.cy.js](../Cypress/cypress/e2e/api/TC_API_006_erro_verificar_login_sem_email.cy.js)
 
 **Cenário:**
 ```
@@ -743,6 +775,7 @@ E o body.message deve ser igual a "Bad request, email or password parameter is m
 - **Dado:** Que existem credenciais inexistentes no sistema
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita autenticação com dados incorretos
+- **Script:** [TC_API_007_erro_verificar_login_invalido.cy.js](../Cypress/cypress/e2e/api/TC_API_007_erro_verificar_login_invalido.cy.js)
 
 **Cenário:**
 ```
@@ -767,6 +800,7 @@ E o body.message deve ser igual a "User not found!"
 - **Dado:** Que existem dados de registro e a API de criação de conta está disponível
 - **Pós-condição:** Usuário criado deve ser excluído após a execução
 - **Resultado esperado:** API cria nova conta com dados fornecidos
+- **Script:** [TC_API_008_sucesso_criar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_008_sucesso_criar_conta_usuario.cy.js)
 
 **Cenário:**
 ```
@@ -789,6 +823,7 @@ E o usuário criado deve ser excluído após a execução
 - **Dado:** Que existem credenciais pré-cadastradas e a API de exclusão de conta está disponível
 - **Pós-condição:** Nenhuma (usuário temporário criado e excluído no mesmo teste)
 - **Resultado esperado:** API remove conta existente do sistema
+- **Script:** [TC_API_009_sucesso_excluir_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_009_sucesso_excluir_conta_usuario.cy.js)
 
 **Cenário:**
 ```
@@ -810,6 +845,7 @@ E o body.message deve ser igual a "Account deleted!"
 - **Dado:** Que existem dados de registro e a API de atualização de conta está disponível
 - **Pós-condição:** Usuário atualizado deve ser excluído após a execução
 - **Resultado esperado:** API permite alteração de dados cadastrais
+- **Script:** [TC_API_010_sucesso_atualizar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_010_sucesso_atualizar_conta_usuario.cy.js)
 
 **Cenário:**
 ```
@@ -831,6 +867,7 @@ E o body.message deve ser igual a "User updated!"
 - **Dado:** Que existem dados de registro e a API de consulta de conta está disponível
 - **Pós-condição:** Usuário criado deve ser excluído após a execução
 - **Resultado esperado:** API retorna dados do usuário pelo email
+- **Script:** [TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js](../Cypress/cypress/e2e/api/TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js)
 
 **Cenário:**
 ```
@@ -856,6 +893,7 @@ E o body deve possuir user com as propriedades name e email
 - **Dado:** Que a API de catálogo de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
+- **Script:** [TC_API_012_erro_validar_metodo_post_em_productslist.cy.js](../Cypress/cypress/e2e/api/TC_API_012_erro_validar_metodo_post_em_productslist.cy.js)
 
 **Cenário:**
 ```
@@ -876,6 +914,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **Dado:** Que a API de catálogo de marcas está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
+- **Script:** [TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js](../Cypress/cypress/e2e/api/TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js)
 
 **Cenário:**
 ```
@@ -896,6 +935,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **Dado:** Que a API de autenticação está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
+- **Script:** [TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js](../Cypress/cypress/e2e/api/TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js)
 
 **Cenário:**
 ```
