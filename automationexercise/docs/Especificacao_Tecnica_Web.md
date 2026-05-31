@@ -56,11 +56,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 ### 4.1 Grupo: Gestão de Identidade e Acesso (TC_WEB_001 - TC_WEB_005)
 ---
 #### TC_WEB_001 - Registrar usuário
-**Objetivo:** Validar o ciclo de vida completo de criação e exclusão de conta.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `UserFactory.generate()` - dados dinâmicos únicos por execução
-**Pós-condição:** Conta criada e excluída ao final do teste
+**Objetivo:** Validar o ciclo de vida completo de criação e exclusão de conta.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `UserFactory.generate()` - dados dinâmicos únicos por execução<br>
+**Pós-condição:** Conta criada e excluída ao final do teste<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
