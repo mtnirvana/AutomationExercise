@@ -187,6 +187,12 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 > The field `**Asserção Chave:**` MUST end with `<br>` when followed by `**Resultado esperado:**`. Only the field `**Asserção Chave:**` when followed by a code block or paragraph does NOT need `<br>.`
 >
 > **RESULTADO ESPERADO RULE:** All tests (E2E, API, BDD, Performance) MUST include the field `**Resultado esperado:**` after `**Pós-condição:**` describing the expected business outcome of the test. This field applies to both technical documents and BDD scenarios.
+>
+> **SCRIPT HYPERLINK RULE:** Every TC in technical documents (E2E Web, API, Performance) MUST include the field `**Script:**` after `**Resultado esperado:**` with the script filename and a clickable hyperlink to the respective `.cy.js` or `.js` file. Example:
+> ```
+> **Resultado esperado:** Usuário consegue se registrar...<br>
+> **Script:** [`TC_WEB_001_sucesso_registrar_usuario.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js)<br>
+> ```
 
 > **Exception:** Templates already have `AAAA-MM-DD` as a date placeholder. Always replace it with the **current date** when generating the document.
 

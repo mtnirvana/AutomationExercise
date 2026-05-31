@@ -72,6 +72,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:**<br>
 **Resultado esperado:** [Resultado esperado do teste]
+**Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/api/TCXXX_nome_do_teste.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(200)

@@ -74,6 +74,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:**<br>
 **Resultado esperado:** [Resultado esperado do teste] Texto "Logged in as [username]" visível no topo da página após registro.
+**Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/web/TCXXX_nome_do_teste.cy.js)<br>
 
 **Evidência em GIF:** ![TC00X](../Cypress/cypress/screenshots/web/TC00X_titulo_do_teste.cy.js/TC00X_titulo_do_teste.gif)
 

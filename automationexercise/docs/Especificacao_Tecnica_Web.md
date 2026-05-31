@@ -88,6 +88,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Texto "Logged in as [username]" visível no topo da página após registro.<br>
 **Resultado esperado:** Usuário consegue se registrar, acessar o sistema e excluir sua conta<br>
+**Script:** [`TC_WEB_001_sucesso_registrar_usuario.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_001](../Cypress/cypress/screenshots/web/TC_WEB_001_sucesso_registrar_usuario.cy.js/TC_WEB_001_sucesso_registrar_usuario.gif)
 
@@ -114,6 +115,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Sistema redireciona para `/login` ao finalizar a sessão.<br>
 **Resultado esperado:** Usuário cadastrado consegue acessar sua conta<br>
+**Script:** [`TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_002](../Cypress/cypress/screenshots/web/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.gif)
 
@@ -138,6 +140,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "Your email or password is incorrect!" visível após tentativa.<br>
 **Resultado esperado:** Sistema impede acesso com credenciais inválidas<br>
+**Script:** [`TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_003](../Cypress/cypress/screenshots/web/TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js/TC_WEB_003_erro_login_usuario_email_senha_incorretos.gif)
 
@@ -164,6 +167,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Sistema redireciona para página de login após logout.<br>
 **Resultado esperado:** Usuário consegue encerrar a sessão com segurança<br>
+**Script:** [`TC_WEB_004_sucesso_logout_usuario.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_004_sucesso_logout_usuario.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_004](../Cypress/cypress/screenshots/web/TC_WEB_004_sucesso_logout_usuario.cy.js/TC_WEB_004_sucesso_logout_usuario.gif)
 
@@ -188,6 +192,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Sistema exibe mensagem "Email Address already exist!" e não redireciona para formulário.<br>
 **Resultado esperado:** Sistema impede duplicidade de cadastro<br>
+**Script:** [`TC_WEB_005_erro_registrar_usuario_email_existente.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_005](../Cypress/cypress/screenshots/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js/TC_WEB_005_erro_registrar_usuario_email_existente.gif)
 
@@ -217,6 +222,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "Success! Your details have been submitted successfully." visível após envio.<br>
 **Resultado esperado:** Usuário consegue enviar mensagem com arquivo anexado<br>
+**Script:** [`TC_WEB_006_sucesso_formulario_contato.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_006_sucesso_formulario_contato.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_006](../Cypress/cypress/screenshots/web/TC_WEB_006_sucesso_formulario_contato.cy.js/TC_WEB_006_sucesso_formulario_contato.gif)
 
@@ -238,6 +244,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Header "Test Cases" visível na página de casos de teste.<br>
 **Resultado esperado:** Navegação para página de casos de teste funciona<br>
+**Script:** [`TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_007](../Cypress/cypress/screenshots/web/TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js/TC_WEB_007_sucesso_verificar_pagina_casos_teste.gif)
 
@@ -262,6 +269,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "You have been successfully subscribed!" visível após assinatura.<br>
 **Resultado esperado:** Usuário consegue assinar newsletter na home<br>
+**Script:** [`TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_010](../Cypress/cypress/screenshots/web/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.gif)
 
@@ -287,6 +295,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "You have been successfully subscribed!" visível após assinatura.<br>
 **Resultado esperado:** Usuário consegue assinar newsletter no carrinho<br>
+**Script:** [`TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_011](../Cypress/cypress/screenshots/web/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.gif)
 
@@ -314,6 +323,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Todos os detalhes do produto visíveis: Nome, Categoria, Preço, Disponibilidade, Condição e Marca.<br>
 **Resultado esperado:** Catálogo de produtos exibe informações completas<br>
+**Script:** [`TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_008](../Cypress/cypress/screenshots/web/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.gif)
 
@@ -339,6 +349,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Header "SEARCHED PRODUCTS" visível com produtos relacionados ao termo pesquisado.<br>
 **Resultado esperado:** Busca retorna produtos relacionados ao termo<br>
+**Script:** [`TC_WEB_009_sucesso_pesquisar_produto.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_009_sucesso_pesquisar_produto.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_009](../Cypress/cypress/screenshots/web/TC_WEB_009_sucesso_pesquisar_produto.cy.js/TC_WEB_009_sucesso_pesquisar_produto.gif)
 
@@ -369,6 +380,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Ambos os produtos listados com preços, quantidades e totais visíveis no carrinho.<br>
 **Resultado esperado:** Carrinho aceita múltiplos produtos com preços e quantidades<br>
+**Script:** [`TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_012](../Cypress/cypress/screenshots/web/TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js/TC_WEB_012_sucesso_adicionar_produtos_carrinho.gif)
 
@@ -394,6 +406,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Carrinho exibe quantidade exatamente como selecionada (4).<br>
 **Resultado esperado:** Seletor de quantidade reflete valor escolhido no carrinho<br>
+**Script:** [`TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_013](../Cypress/cypress/screenshots/web/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.gif)
 
@@ -439,6 +452,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Fluxo completo de compra com registro no checkout<br>
+**Script:** [`TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_014](../Cypress/cypress/screenshots/web/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.gif)
 
@@ -477,6 +491,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Fluxo completo de compra com registro prévio<br>
+**Script:** [`TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_015](../Cypress/cypress/screenshots/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.gif)
 
@@ -512,6 +527,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Usuário logado consegue finalizar compra<br>
+**Script:** [`TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_016](../Cypress/cypress/screenshots/web/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.gif)
 
@@ -540,6 +556,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "Added!" visível após adicionar, produto removido ao clicar "X".<br>
 **Resultado esperado:** Usuário consegue remover itens do carrinho<br>
+**Script:** [`TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_017](../Cypress/cypress/screenshots/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js/TC_WEB_017_sucesso_remover_produtos_carrinho.gif)
 
@@ -568,6 +585,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Categorias Women e Men exibem produtos nas subcategorias corretas.<br>
 **Resultado esperado:** Categorias e subcategorias exibem produtos corretamente<br>
+**Script:** [`TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_018](../Cypress/cypress/screenshots/web/TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js/TC_WEB_018_sucesso_visualizar_produtos_categoria.gif)
 
@@ -593,6 +611,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Produtos de diferentes marcas são exibidos corretamente após clicar nos links.<br>
 **Resultado esperado:** Marcas exibem produtos corretamente<br>
+**Script:** [`TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_019](../Cypress/cypress/screenshots/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js/TC_WEB_019_sucesso_visualizar_adicionar_marcas.gif)
 
@@ -624,6 +643,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Carrinho mantém produtos após login (persistência verificada).<br>
 **Resultado esperado:** Carrinho persiste itens após autenticação<br>
+**Script:** [`TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_020](../Cypress/cypress/screenshots/web/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.gif)
 
@@ -650,6 +670,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "Thank you for your review." visível após envio.<br>
 **Resultado esperado:** Usuário consegue avaliar produto<br>
+**Script:** [`TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_021](../Cypress/cypress/screenshots/web/TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js/TC_WEB_021_sucesso_adicionar_avaliacao_produto.gif)
 
@@ -674,6 +695,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Produto recomendado aparece no carrinho após adicionar.<br>
 **Resultado esperado:** Produtos recomendados são adicionados ao carrinho<br>
+**Script:** [`TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_022](../Cypress/cypress/screenshots/web/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.gif)
 
@@ -708,6 +730,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Endereço de entrega e cobrança correspondem aos dados preenchidos no registro.<br>
 **Resultado esperado:** Endereços de entrega e cobrança conferem com cadastro<br>
+**Script:** [`TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_023](../Cypress/cypress/screenshots/web/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.gif)
 
@@ -753,6 +776,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Mensagem "Order Placed!" e fatura baixada com sucesso.<br>
 **Resultado esperado:** Fatura é gerada e disponível para download<br>
+**Script:** [`TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_024](../Cypress/cypress/screenshots/web/TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js/TC_WEB_024_sucesso_baixar_fatura_pedido.gif)
 
@@ -776,6 +800,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Texto do cabeçalho visível após clicar no botão de scroll up.<br>
 **Resultado esperado:** Botão de scroll up retorna ao topo da página<br>
+**Script:** [`TC_WEB_025_sucesso_verificar_scroll_seta.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_025_sucesso_verificar_scroll_seta.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_025](../Cypress/cypress/screenshots/web/TC_WEB_025_sucesso_verificar_scroll_seta.cy.js/TC_WEB_025_sucesso_verificar_scroll_seta.gif)
 
@@ -799,6 +824,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 **Asserção Chave:** Texto do cabeçalho visível após scroll up manual.<br>
 **Resultado esperado:** Scroll manual retorna ao topo da página<br>
+**Script:** [`TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_026](../Cypress/cypress/screenshots/web/TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js/TC_WEB_026_sucesso_verificar_scroll_sem_seta.gif)
 
