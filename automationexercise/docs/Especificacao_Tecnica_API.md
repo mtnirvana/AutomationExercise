@@ -1,5 +1,5 @@
 # Especificação Técnica API - Automation Exercise
-**Versão:** 1.0.0<br><br>
+**Versão:** 1.0.0<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -61,10 +61,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 #### TC_API_001 - Listar todos os produtos via API
 
-**Objetivo:** Validar o retorno da lista completa de produtos do catálogo.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Alta<br><br>
-**Dados:** Nenhum (endpoint público)<br><br>
+**Objetivo:** Validar o retorno da lista completa de produtos do catálogo.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Nenhum (endpoint público)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -83,8 +83,8 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 10 | Validar propriedade category do primeiro produto | body.products[0] | Possui propriedade category |
 | 11 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API retorna catálogo completo com 34 produtos<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API retorna catálogo completo com 34 produtos<br>
 **Script:** [`TC_API_001_sucesso_listar_todos_produtos.cy.js`](../Cypress/cypress/e2e/api/TC_API_001_sucesso_listar_todos_produtos.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -105,10 +105,10 @@ expect(response.body.products[0]).to.have.property('category')
 
 #### TC_API_002 - Listar todas as marcas via API
 
-**Objetivo:** Validar o retorno da lista completa de marcas do catálogo.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Alta<br><br>
-**Dados:** Nenhum (endpoint público)<br><br>
+**Objetivo:** Validar o retorno da lista completa de marcas do catálogo.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Nenhum (endpoint público)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -124,8 +124,8 @@ expect(response.body.products[0]).to.have.property('category')
 | 7 | Validar propriedade brand da primeira marca | body.brands[0] | Possui propriedade brand |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API retorna lista de marcas disponíveis<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API retorna lista de marcas disponíveis<br>
 **Script:** [`TC_API_002_sucesso_listar_todas_marcas.cy.js`](../Cypress/cypress/e2e/api/TC_API_002_sucesso_listar_todas_marcas.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -143,10 +143,10 @@ expect(response.body.brands[0]).to.have.property('brand')
 
 #### TC_API_003 - Pesquisar produto por termo via API
 
-**Objetivo:** Validar a busca de produtos por termo de pesquisa.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Alta<br><br>
-**Dados:** Termo de busca 'top' via fixture ou string literal<br><br>
+**Objetivo:** Validar a busca de produtos por termo de pesquisa.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Termo de busca 'top' via fixture ou string literal<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -162,8 +162,8 @@ expect(response.body.brands[0]).to.have.property('brand')
 | 7 | Validar que o nome do primeiro produto contém o termo de busca | body.products[0].name | Contém "top" |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API retorna produtos filtrados pelo termo buscado<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API retorna produtos filtrados pelo termo buscado<br>
 **Script:** [`TC_API_003_sucesso_pesquisar_produto.cy.js`](../Cypress/cypress/e2e/api/TC_API_003_sucesso_pesquisar_produto.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -181,10 +181,10 @@ expect(response.body.products[0].name.toLowerCase()).to.include('top')
 
 #### TC_API_004 - Pesquisar produto sem parâmetro via API
 
-**Objetivo:** Validar que a API retorna erro quando parâmetro de busca está ausente.<br><br>
-**Tipo:** Erro<br><br>
-**Criticidade:** Média<br><br>
-**Dados:** Nenhum (requisição sem parâmetro)<br><br>
+**Objetivo:** Validar que a API retorna erro quando parâmetro de busca está ausente.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum (requisição sem parâmetro)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -197,8 +197,8 @@ expect(response.body.products[0].name.toLowerCase()).to.include('top')
 | 4 | Validar mensagem de erro | body.message | Contém 'Bad request, search_product parameter is missing' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente<br>
 **Script:** [`TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js`](../Cypress/cypress/e2e/api/TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -217,10 +217,10 @@ expect(response.body.message).to.eq('Bad request, search_product parameter is mi
 
 #### TC_API_005 - Verificar login com credenciais válidas via API
 
-**Objetivo:** Garantir que a API retorna sucesso quando credenciais válidas são fornecidas.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Crítica<br><br>
-**Dados:** `cypress/fixtures/users.json` → `testUser` (credenciais pré-cadastradas)<br><br>
+**Objetivo:** Garantir que a API retorna sucesso quando credenciais válidas são fornecidas.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser` (credenciais pré-cadastradas)<br>
 **Pós-condição:** Nenhuma (fixture reutilizável)
 
 **Passos Detalhados:**
@@ -233,8 +233,8 @@ expect(response.body.message).to.eq('Bad request, search_product parameter is mi
 | 4 | Validar mensagem de sucesso | body.message | Igual a 'User exists!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API autentica usuário com credenciais corretas<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API autentica usuário com credenciais corretas<br>
 **Script:** [`TC_API_005_sucesso_verificar_login_valido.cy.js`](../Cypress/cypress/e2e/api/TC_API_005_sucesso_verificar_login_valido.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -249,10 +249,10 @@ expect(response.body.message).to.eq('User exists!')
 
 #### TC_API_006 - Verificar login sem email via API
 
-**Objetivo:** Validar que a API retorna erro quando email está ausente.<br><br>
-**Tipo:** Erro<br><br>
-**Criticidade:** Média<br><br>
-**Dados:** Nenhum (requisição sem email)<br><br>
+**Objetivo:** Validar que a API retorna erro quando email está ausente.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum (requisição sem email)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -265,8 +265,8 @@ expect(response.body.message).to.eq('User exists!')
 | 4 | Validar mensagem de erro | body.message | Contém 'Bad request, email or password parameter is missing' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API retorna erro quando campo obrigatório está ausente<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API retorna erro quando campo obrigatório está ausente<br>
 **Script:** [`TC_API_006_erro_verificar_login_sem_email.cy.js`](../Cypress/cypress/e2e/api/TC_API_006_erro_verificar_login_sem_email.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -281,10 +281,10 @@ expect(response.body.message).to.eq('Bad request, email or password parameter is
 
 #### TC_API_007 - Verificar login com credenciais inválidas via API
 
-**Objetivo:** Validar que a API retorna erro quando credenciais não existem.<br><br>
-**Tipo:** Erro<br><br>
-**Criticidade:** Alta<br><br>
-**Dados:** `cypress/fixtures/users.json` → `invalidUser`<br><br>
+**Objetivo:** Validar que a API retorna erro quando credenciais não existem.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/users.json` → `invalidUser`<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -297,8 +297,8 @@ expect(response.body.message).to.eq('Bad request, email or password parameter is
 | 4 | Validar mensagem de erro | body.message | Igual a 'User not found!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API rejeita autenticação com dados incorretos<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API rejeita autenticação com dados incorretos<br>
 **Script:** [`TC_API_007_erro_verificar_login_invalido.cy.js`](../Cypress/cypress/e2e/api/TC_API_007_erro_verificar_login_invalido.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -317,10 +317,10 @@ expect(response.body.message).to.eq('User not found!')
 
 #### TC_API_008 - Criar conta de usuário via API
 
-**Objetivo:** Validar a criação de novo usuário via endpoint.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Crítica<br><br>
-**Dados:** Dados dinâmicos via UserFactory.generate()<br><br>
+**Objetivo:** Validar a criação de novo usuário via endpoint.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** Dados dinâmicos via UserFactory.generate()<br>
 **Pós-condição:** Usuário criado é excluído no afterEach
 
 **Passos Detalhados:**
@@ -333,8 +333,8 @@ expect(response.body.message).to.eq('User not found!')
 | 4 | Validar mensagem de sucesso | body.message | Igual a 'User created!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API cria nova conta com dados fornecidos<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API cria nova conta com dados fornecidos<br>
 **Script:** [`TC_API_008_sucesso_criar_conta_usuario.cy.js`](../Cypress/cypress/e2e/api/TC_API_008_sucesso_criar_conta_usuario.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -349,10 +349,10 @@ expect(response.body.message).to.eq('User created!')
 
 #### TC_API_009 - Excluir conta de usuário via API
 
-**Objetivo:** Validar a exclusão de usuário via endpoint.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Crítica<br><br>
-**Dados:** `cypress/data/userFactory.js` → `UserFactory.generate()` (usuário dinâmico)<br><br>
+**Objetivo:** Validar a exclusão de usuário via endpoint.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `cypress/data/userFactory.js` → `UserFactory.generate()` (usuário dinâmico)<br>
 **Pós-condição:** Nenhuma (usuário temporário criado e excluído no mesmo teste)
 
 **Passos Detalhados:**
@@ -367,8 +367,8 @@ expect(response.body.message).to.eq('User created!')
 | 6 | Validar mensagem de sucesso | body.message | Igual a 'Account deleted!' |
 | 7 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API remove conta existente do sistema<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API remove conta existente do sistema<br>
 **Script:** [`TC_API_009_sucesso_excluir_conta_usuario.cy.js`](../Cypress/cypress/e2e/api/TC_API_009_sucesso_excluir_conta_usuario.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -383,10 +383,10 @@ expect(response.body.message).to.eq('Account deleted!')
 
 #### TC_API_010 - Atualizar conta de usuário via API
 
-**Objetivo:** Validar a atualização de dados do usuário via endpoint PUT.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Alta<br><br>
-**Dados:** Dados dinâmicos via UserFactory.generate()<br><br>
+**Objetivo:** Validar a atualização de dados do usuário via endpoint PUT.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Dados dinâmicos via UserFactory.generate()<br>
 **Pós-condição:** Usuário criado é excluído no afterEach
 
 **Passos Detalhados:**
@@ -401,8 +401,8 @@ expect(response.body.message).to.eq('Account deleted!')
 | 6 | Consultar usuário via GET e verificar dados atualizados | GET /api/getUserDetailByEmail?email= | Status 200, dados conferidos |
 | 7 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API permite alteração de dados cadastrais<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API permite alteração de dados cadastrais<br>
 **Script:** [`TC_API_010_sucesso_atualizar_conta_usuario.cy.js`](../Cypress/cypress/e2e/api/TC_API_010_sucesso_atualizar_conta_usuario.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -417,10 +417,10 @@ expect(response.body.message).to.eq('User updated!')
 
 #### TC_API_011 - Obter detalhes do usuário por email via API
 
-**Objetivo:** Validar a busca de detalhes de usuário pelo email.<br><br>
-**Tipo:** Sucesso<br><br>
-**Criticidade:** Alta<br><br>
-**Dados:** Dados dinâmicos via UserFactory.generate()<br><br>
+**Objetivo:** Validar a busca de detalhes de usuário pelo email.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Dados dinâmicos via UserFactory.generate()<br>
 **Pós-condição:** Usuário criado é excluído no afterEach
 
 **Passos Detalhados:**
@@ -436,8 +436,8 @@ expect(response.body.message).to.eq('User updated!')
 | 7 | Validar propriedade email do usuário | body.user | Possui propriedade email |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API retorna dados do usuário pelo email<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API retorna dados do usuário pelo email<br>
 **Script:** [`TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js`](../Cypress/cypress/e2e/api/TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -458,10 +458,10 @@ expect(response.body.user).to.have.property('email')
 
 #### TC_API_012 - Validar método POST em productsList via API
 
-**Objetivo:** Garantir que POST não é suportado em /api/productsList.<br><br>
-**Tipo:** Erro<br><br>
-**Criticidade:** Média<br><br>
-**Dados:** Nenhum<br><br>
+**Objetivo:** Garantir que POST não é suportado em /api/productsList.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -474,8 +474,8 @@ expect(response.body.user).to.have.property('email')
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API rejeita método não permitido com erro 405<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API rejeita método não permitido com erro 405<br>
 **Script:** [`TC_API_012_erro_validar_metodo_post_em_productslist.cy.js`](../Cypress/cypress/e2e/api/TC_API_012_erro_validar_metodo_post_em_productslist.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -490,10 +490,10 @@ expect(response.body.message).to.eq('This request method is not supported.')
 
 #### TC_API_013 - Validar método PUT em brandsList via API
 
-**Objetivo:** Garantir que PUT não é suportado em /api/brandsList.<br><br>
-**Tipo:** Erro<br><br>
-**Criticidade:** Média<br><br>
-**Dados:** Nenhum<br><br>
+**Objetivo:** Garantir que PUT não é suportado em /api/brandsList.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -506,8 +506,8 @@ expect(response.body.message).to.eq('This request method is not supported.')
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API rejeita método não permitido com erro 405<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API rejeita método não permitido com erro 405<br>
 **Script:** [`TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js`](../Cypress/cypress/e2e/api/TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -522,10 +522,10 @@ expect(response.body.message).to.eq('This request method is not supported.')
 
 #### TC_API_014 - Validar método DELETE em verifyLogin via API
 
-**Objetivo:** Garantir que DELETE não é suportado em /api/verifyLogin.<br><br>
-**Tipo:** Erro<br><br>
-**Criticidade:** Média<br><br>
-**Dados:** Nenhum<br><br>
+**Objetivo:** Garantir que DELETE não é suportado em /api/verifyLogin.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -538,8 +538,8 @@ expect(response.body.message).to.eq('This request method is not supported.')
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br><br>
-**Resultado esperado:** API rejeita método não permitido com erro 405<br><br>
+**Asserção Chave:**<br>
+**Resultado esperado:** API rejeita método não permitido com erro 405<br>
 **Script:** [`TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js`](../Cypress/cypress/e2e/api/TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)
