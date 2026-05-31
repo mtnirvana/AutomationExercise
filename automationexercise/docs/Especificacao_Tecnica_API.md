@@ -98,9 +98,7 @@ expect(response.body.products[0]).to.have.property('category')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_001_api_result.html
-```
+[`TC_API_001_api_result.html`](cypress/screenshots/api/TC_API_001_api_result.html)
 
 ---
 
@@ -137,9 +135,7 @@ expect(response.body.brands[0]).to.have.property('brand')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_002_api_result.html
-```
+[`TC_API_002_api_result.html`](cypress/screenshots/api/TC_API_002_api_result.html)
 
 ---
 
@@ -176,9 +172,7 @@ expect(response.body.products[0].name.toLowerCase()).to.include('top')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_003_api_result.html
-```
+[`TC_API_003_api_result.html`](cypress/screenshots/api/TC_API_003_api_result.html)
 
 ---
 
@@ -209,9 +203,7 @@ expect(response.body.message).to.eq('Bad request, search_product parameter is mi
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_004_api_result.html
-```
+[`TC_API_004_api_result.html`](cypress/screenshots/api/TC_API_004_api_result.html)
 
 ---
 
@@ -246,9 +238,7 @@ expect(response.body.message).to.eq('User exists!')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_005_api_result.html
-```
+[`TC_API_005_api_result.html`](cypress/screenshots/api/TC_API_005_api_result.html)
 
 ---
 
@@ -279,9 +269,7 @@ expect(response.body.message).to.eq('Bad request, email or password parameter is
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_006_api_result.html
-```
+[`TC_API_006_api_result.html`](cypress/screenshots/api/TC_API_006_api_result.html)
 
 ---
 
@@ -312,9 +300,7 @@ expect(response.body.message).to.eq('User not found!')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_007_api_result.html
-```
+[`TC_API_007_api_result.html`](cypress/screenshots/api/TC_API_007_api_result.html)
 
 ---
 
@@ -349,9 +335,7 @@ expect(response.body.message).to.eq('User created!')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_008_api_result.html
-```
+[`TC_API_008_api_result.html`](cypress/screenshots/api/TC_API_008_api_result.html)
 
 ---
 
@@ -384,9 +368,7 @@ expect(response.body.message).to.eq('Account deleted!')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_009_api_result.html
-```
+[`TC_API_009_api_result.html`](cypress/screenshots/api/TC_API_009_api_result.html)
 
 ---
 
@@ -419,9 +401,7 @@ expect(response.body.message).to.eq('User updated!')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_010_api_result.html
-```
+[`TC_API_010_api_result.html`](cypress/screenshots/api/TC_API_010_api_result.html)
 
 ---
 
@@ -457,9 +437,7 @@ expect(response.body.user).to.have.property('email')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_011_api_result.html
-```
+[`TC_API_011_api_result.html`](cypress/screenshots/api/TC_API_011_api_result.html)
 
 ---
 
@@ -494,9 +472,7 @@ expect(response.body.message).to.eq('This request method is not supported.')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_012_api_result.html
-```
+[`TC_API_012_api_result.html`](cypress/screenshots/api/TC_API_012_api_result.html)
 
 ---
 
@@ -527,9 +503,7 @@ expect(response.body.message).to.eq('This request method is not supported.')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_013_api_result.html
-```
+[`TC_API_013_api_result.html`](cypress/screenshots/api/TC_API_013_api_result.html)
 
 ---
 
@@ -560,9 +534,7 @@ expect(response.body.message).to.eq('This request method is not supported.')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/TC_API_014_api_result.html
-```
+[`TC_API_014_api_result.html`](cypress/screenshots/api/TC_API_014_api_result.html)
 
 ---
 
