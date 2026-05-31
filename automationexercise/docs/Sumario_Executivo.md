@@ -152,7 +152,7 @@ Este projeto utiliza uma stack moderna de automação para garantir escalabilida
 - **Framework de Testes:** Cypress (v15+)
 - **Linguagem e Ambiente:** JavaScript (Node.js)
 - **Padrão de Design:** Modelo de Objetos de Página (POM)
-- **Evidências:** Capturas de Tela (Prefixadas por ID e Etapa) e Gravações de Vídeo
+- **Evidências:** Capturas de Tela (Prefixadas por ID e Etapa), Gravações de Vídeo e GIFs animados
 - **Navegadores:** Chrome, Edge, Firefox e Electron (Resolução: 1280x720)
 - **Integração:** Preparado para execução em fluxos de Integração Contínua (CI/CD)
 
@@ -172,7 +172,7 @@ Este projeto utiliza uma stack moderna de automação para garantir escalabilida
 - **Front-end:** Lighthouse (gerado sob demanda via Chrome DevTools)
 - **Cypress:** TC_PF_008 via Cypress (PerformanceObservers) em `cypress/e2e/performance/`
 - **Navegadores:** Chrome, Edge (para Lighthouse)
-- **Site Alvo:** https://www.automationexercise.com (produção)
+- **Site Alvo:** https://www.automationexercise.com
 - **Integração:** Preparado para execução em fluxos de Integração Contínua (CI/CD)
 
 ### 7.1 Centralização de Evidências (Allure)
@@ -181,7 +181,7 @@ Todas as evidências dos 3 tipos de teste (E2E Web, API e Performance) são cent
 
 | Teste | Evidência no Allure |
 |:------|:--------------------|
-| **E2E Web (26)** | Screenshots numerados por passo + vídeos + métricas de execução |
+| **E2E Web (26)** | Screenshots numerados por passo + vídeos + GIFs animados + métricas de execução |
 | **API (14)** | Requisição, resposta e asserções em HTML report |
 | **Performance (21 checks)** | Resultados k6 convertidos (checks, thresholds, métricas) + Core Web Vitals (13 k6 checks + 8 Core Web Vitals) |
 
