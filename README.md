@@ -113,14 +113,14 @@ antigravity PORTFOLIO/
 │   │   │   ├── reports/                           # Relatórios de execução
 │   │   │   │   └── k6/                            # JSONs do k6 --summary-export
 │   │   │   │
-│   │   │   ├── allure/                             # Relatórios Allure (dark mode + pt-BR)
-│   │   │   │   ├── package.json                    # allure-commandline
-│   │   │   │   ├── allure.properties               # Tema escuro + idioma pt-BR
-│   │   │   │   ├── allure-results/                 # Resultados das execuções (gerado pelo Cypress)
-│   │   │   │   ├── allure-report/                  # Relatório HTML estático (gerado via npm run generate)
-│   │   │   │   └── scripts/                        # Conversores k6 → Allure
+│   │   │   ├── allure/                            # Relatórios Allure (dark mode + pt-BR)
+│   │   │   │   ├── package.json                   # allure-commandline
+│   │   │   │   ├── allure.properties              # Tema escuro + idioma pt-BR
+│   │   │   │   ├── allure-results/                # Resultados das execuções (gerado pelo Cypress)
+│   │   │   │   ├── allure-report/                 # Relatório HTML estático (gerado via npm run generate)
+│   │   │   │   └── scripts/                       # Conversores k6 → Allure
 │   │   │   │
-│   │   │   └── videos/                             # Vídeos das execuções (auto)
+│   │   │   └── videos/                            # Vídeos das execuções (auto)
 │   │   │
 │   │   └── .gitignore
 │   │
@@ -134,14 +134,14 @@ antigravity PORTFOLIO/
 │   │   └── Relatorio_Testes.lnk                   # Atalho → sobe Allure serve + abre em http://localhost:8765
 │   │
 │   └── templates/                                 # Modelos e documentação para IA
-│       ├── Sumario_Executivo_TEMPLATE.md             # Template do Sumário Executivo
-│       ├── Especificacao_Tecnica_Web_TEMPLATE.md     # Template de especificação técnica (E2E Web)
-│       ├── Especificacao_Tecnica_API_TEMPLATE.md     # Template de especificação técnica (API)
+│       ├── Sumario_Executivo_TEMPLATE.md          # Template do Sumário Executivo
+│       ├── Especificacao_Tecnica_Web_TEMPLATE.md  # Template de especificação técnica (E2E Web)
+│       ├── Especificacao_Tecnica_API_TEMPLATE.md  # Template de especificação técnica (API)
 │       ├── Especificacao_Tecnica_Performance_TEMPLATE.md # Template de especificação técnica (Performance)
-│       ├── Suite_BDD_TEMPLATE.md                    # Template de cenários BDD (Gherkin)
+│       ├── Suite_BDD_TEMPLATE.md                  # Template de cenários BDD (Gherkin)
 │       ├── Relatorio_Resultados_Performance_TEMPLATE.md # Template de relatório de resultados
-│       ├── Guia_Cypress_Template.md                 # Template de codificação e padrões do projeto
-│       └── Seletores.md                             # Histórico de seletores e self-healing (IA)
+│       ├── Guia_Cypress_Template.md               # Template de codificação e padrões do projeto
+│       └── Seletores.md                           # Histórico de seletores e self-healing (IA)
 │
 └── Backup/                                        # Backups automáticos de documentação
 ```
