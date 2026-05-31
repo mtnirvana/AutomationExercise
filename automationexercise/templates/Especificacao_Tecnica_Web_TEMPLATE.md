@@ -72,7 +72,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | ... | ... | ... | ... |
 | N | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Header visível |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** [Resultado esperado do teste] Texto "Logged in as [username]" visível no topo da página após registro.
 
 **Evidência em GIF:** ![TC00X](../Cypress/cypress/screenshots/web/TC00X_titulo_do_teste.cy.js/TC00X_titulo_do_teste.gif)

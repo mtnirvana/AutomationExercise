@@ -86,7 +86,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 20 | Validar "ACCOUNT DELETED!" | `AccountPage.accountDeletedHeader` → `h2:contains('Account Deleted!')` | Header visível |
 | 21 | Clicar em "Continue" | `AccountPage.continueButton` | Retorna à home |
 
-**Asserção Chave:** Texto "Logged in as [username]" visível no topo da página após registro.
+**Asserção Chave:** Texto "Logged in as [username]" visível no topo da página após registro.<br>
 **Resultado esperado:** Usuário consegue se registrar, acessar o sistema e excluir sua conta<br>
 
 **Evidência em GIF:** ![TC_WEB_001](../Cypress/cypress/screenshots/web/TC_WEB_001_sucesso_registrar_usuario.cy.js/TC_WEB_001_sucesso_registrar_usuario.gif)
@@ -112,7 +112,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 9 | Clicar em "Logout" | `HomePage.clickLogout()` → `a[href="/logout"]` | Usuário deslogado |
 | 10 | Validar header "Login to your account" | `LoginPage.loginToYourAccountHeader` | Redirecionamento para /login |
 
-**Asserção Chave:** Sistema redireciona para `/login` ao finalizar a sessão.
+**Asserção Chave:** Sistema redireciona para `/login` ao finalizar a sessão.<br>
 **Resultado esperado:** Usuário cadastrado consegue acessar sua conta<br>
 
 **Evidência em GIF:** ![TC_WEB_002](../Cypress/cypress/screenshots/web/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.gif)
@@ -136,7 +136,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 7 | Clicar em "Login" | `LoginPage.loginButton` | Tentativa de login |
 | 8 | Validar mensagem de erro | `cy.contains('Your email or password is incorrect!')` | Mensagem de erro visível |
 
-**Asserção Chave:** Mensagem "Your email or password is incorrect!" visível após tentativa.
+**Asserção Chave:** Mensagem "Your email or password is incorrect!" visível após tentativa.<br>
 **Resultado esperado:** Sistema impede acesso com credenciais inválidas<br>
 
 **Evidência em GIF:** ![TC_WEB_003](../Cypress/cypress/screenshots/web/TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js/TC_WEB_003_erro_login_usuario_email_senha_incorretos.gif)
@@ -162,7 +162,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 9 | Clicar em "Logout" | `HomePage.clickLogout()` → `a[href="/logout"]` | Sessão encerrada |
 | 10 | Validar header "Login to your account" | `LoginPage.loginToYourAccountHeader` | Header visível (indica retorno ao login) |
 
-**Asserção Chave:** Sistema redireciona para página de login após logout.
+**Asserção Chave:** Sistema redireciona para página de login após logout.<br>
 **Resultado esperado:** Usuário consegue encerrar a sessão com segurança<br>
 
 **Evidência em GIF:** ![TC_WEB_004](../Cypress/cypress/screenshots/web/TC_WEB_004_sucesso_logout_usuario.cy.js/TC_WEB_004_sucesso_logout_usuario.gif)
@@ -186,7 +186,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 7 | Clicar em "Signup" | `LoginPage.signupButton` | Tentativa de registro |
 | 8 | Validar mensagem de erro | `cy.contains('Email Address already exist!')` | Mensagem de erro visível |
 
-**Asserção Chave:** Sistema exibe mensagem "Email Address already exist!" e não redireciona para formulário.
+**Asserção Chave:** Sistema exibe mensagem "Email Address already exist!" e não redireciona para formulário.<br>
 **Resultado esperado:** Sistema impede duplicidade de cadastro<br>
 
 **Evidência em GIF:** ![TC_WEB_005](../Cypress/cypress/screenshots/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js/TC_WEB_005_erro_registrar_usuario_email_existente.gif)
@@ -215,7 +215,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 10 | Validar mensagem de sucesso | `cy.contains('Success! Your details have been submitted successfully.')` | Mensagem visível |
 | 11 | Clicar em "Home" e validar página inicial | `ContactUsPage.homeButton` + `HomePage.logo` | Retorna à home e página carregada |
 
-**Asserção Chave:** Mensagem "Success! Your details have been submitted successfully." visível após envio.
+**Asserção Chave:** Mensagem "Success! Your details have been submitted successfully." visível após envio.<br>
 **Resultado esperado:** Usuário consegue enviar mensagem com arquivo anexado<br>
 
 **Evidência em GIF:** ![TC_WEB_006](../Cypress/cypress/screenshots/web/TC_WEB_006_sucesso_formulario_contato.cy.js/TC_WEB_006_sucesso_formulario_contato.gif)
@@ -236,7 +236,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 4 | Clicar em "Test Cases" | `HomePage.clickTestCases()` → `a[href="/test_cases"]` | Redireciona para test cases |
 | 5 | Validar página de casos de teste | `TestCasesPage.verifyPageTitle()` → `h2:contains('Test Cases')` | Header visível |
 
-**Asserção Chave:** Header "Test Cases" visível na página de casos de teste.
+**Asserção Chave:** Header "Test Cases" visível na página de casos de teste.<br>
 **Resultado esperado:** Navegação para página de casos de teste funciona<br>
 
 **Evidência em GIF:** ![TC_WEB_007](../Cypress/cypress/screenshots/web/TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js/TC_WEB_007_sucesso_verificar_pagina_casos_teste.gif)
@@ -260,7 +260,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 7 | Clicar no botão de seta | `#subscribe` | Assinatura enviada |
 | 8 | Validar mensagem de sucesso | `#success-subscribe:contains('You have been successfully subscribed!')` | Confirmação visível |
 
-**Asserção Chave:** Mensagem "You have been successfully subscribed!" visível após assinatura.
+**Asserção Chave:** Mensagem "You have been successfully subscribed!" visível após assinatura.<br>
 **Resultado esperado:** Usuário consegue assinar newsletter na home<br>
 
 **Evidência em GIF:** ![TC_WEB_010](../Cypress/cypress/screenshots/web/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.gif)
@@ -285,7 +285,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 8 | Clicar no botão de seta | `#subscribe` | Assinatura enviada |
 | 9 | Validar mensagem de sucesso | `#success-subscribe:contains('You have been successfully subscribed!')` | Confirmação visível |
 
-**Asserção Chave:** Mensagem "You have been successfully subscribed!" visível após assinatura.
+**Asserção Chave:** Mensagem "You have been successfully subscribed!" visível após assinatura.<br>
 **Resultado esperado:** Usuário consegue assinar newsletter no carrinho<br>
 
 **Evidência em GIF:** ![TC_WEB_011](../Cypress/cypress/screenshots/web/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.gif)
@@ -312,7 +312,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 8 | Validar página de detalhes | `ProductsPage.verifyProductDetailPage()` → `.product-information h2` | Detalhes visíveis |
 | 9 | Validar informações do produto | `ProductsPage.verifyProductDetails()` | Nome, categoria, preço, disponibilidade, condição, marca |
 
-**Asserção Chave:** Todos os detalhes do produto visíveis: Nome, Categoria, Preço, Disponibilidade, Condição e Marca.
+**Asserção Chave:** Todos os detalhes do produto visíveis: Nome, Categoria, Preço, Disponibilidade, Condição e Marca.<br>
 **Resultado esperado:** Catálogo de produtos exibe informações completas<br>
 
 **Evidência em GIF:** ![TC_WEB_008](../Cypress/cypress/screenshots/web/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.gif)
@@ -337,7 +337,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 8 | Validar resultados da busca | `ProductsPage.verifyProductsList()` → `.features_items` | Produtos relacionados visíveis |
 | 9 | Verificar que resultados contêm o termo buscado | `ProductsPage.productsItems.first()` → `.single-products` | Termo de busca presente |
 
-**Asserção Chave:** Header "SEARCHED PRODUCTS" visível com produtos relacionados ao termo pesquisado.
+**Asserção Chave:** Header "SEARCHED PRODUCTS" visível com produtos relacionados ao termo pesquisado.<br>
 **Resultado esperado:** Busca retorna produtos relacionados ao termo<br>
 
 **Evidência em GIF:** ![TC_WEB_009](../Cypress/cypress/screenshots/web/TC_WEB_009_sucesso_pesquisar_produto.cy.js/TC_WEB_009_sucesso_pesquisar_produto.gif)
@@ -367,7 +367,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 11 | Validar produtos no carrinho | `cy.get('tbody tr').should('have.length.gte', 1)` | Produtos listados |
 | 12 | Validar preços, quantidade e total | `.cart_price`, `.cart_quantity`, `.cart_total` | Detalhes visíveis |
 
-**Asserção Chave:** Ambos os produtos listados com preços, quantidades e totais visíveis no carrinho.
+**Asserção Chave:** Ambos os produtos listados com preços, quantidades e totais visíveis no carrinho.<br>
 **Resultado esperado:** Carrinho aceita múltiplos produtos com preços e quantidades<br>
 
 **Evidência em GIF:** ![TC_WEB_012](../Cypress/cypress/screenshots/web/TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js/TC_WEB_012_sucesso_adicionar_produtos_carrinho.gif)
@@ -392,7 +392,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 8 | Clicar em "View Cart" | `cy.contains('a', 'View Cart')` | Abre carrinho |
 | 9 | Validar quantidade no carrinho | `.cart_quantity:contains('4')` | Quantidade exata |
 
-**Asserção Chave:** Carrinho exibe quantidade exatamente como selecionada (4).
+**Asserção Chave:** Carrinho exibe quantidade exatamente como selecionada (4).<br>
 **Resultado esperado:** Seletor de quantidade reflete valor escolhido no carrinho<br>
 
 **Evidência em GIF:** ![TC_WEB_013](../Cypress/cypress/screenshots/web/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.gif)
@@ -437,7 +437,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 26 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
 | 27 | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
 
-**Asserção Chave:** Mensagem "Order Placed!" visível.
+**Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Fluxo completo de compra com registro no checkout<br>
 
 **Evidência em GIF:** ![TC_WEB_014](../Cypress/cypress/screenshots/web/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.gif)
@@ -475,7 +475,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 21 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
 | 22 | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
 
-**Asserção Chave:** Mensagem "Order Placed!" visível.
+**Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Fluxo completo de compra com registro prévio<br>
 
 **Evidência em GIF:** ![TC_WEB_015](../Cypress/cypress/screenshots/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.gif)
@@ -510,7 +510,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 18 | Clicar no botão "Pay and Confirm Order" | `cy.contains('button', 'Pay and Confirm Order')` | Pagamento processado |
 | 19 | Verificar mensagem de sucesso | `h2:contains('Order Placed!')` | Pedido confirmado |
 
-**Asserção Chave:** Mensagem "Order Placed!" visível.
+**Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Usuário logado consegue finalizar compra<br>
 
 **Evidência em GIF:** ![TC_WEB_016](../Cypress/cypress/screenshots/web/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.gif)
@@ -538,7 +538,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 11 | Clicar no botão "X" do produto | `.cart_quantity_delete` | Produto marcado |
 | 12 | Validar que o produto foi removido | `.table-responsive` | Carrinho atualizado |
 
-**Asserção Chave:** Mensagem "Added!" visível após adicionar, produto removido ao clicar "X".
+**Asserção Chave:** Mensagem "Added!" visível após adicionar, produto removido ao clicar "X".<br>
 **Resultado esperado:** Usuário consegue remover itens do carrinho<br>
 
 **Evidência em GIF:** ![TC_WEB_017](../Cypress/cypress/screenshots/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js/TC_WEB_017_sucesso_remover_produtos_carrinho.gif)
@@ -566,7 +566,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 9 | Clicar em "Tshirts" na subcategoria de Men | `ProductsPage.clickSubcategory('Tshirts')` → `.panel-body a` | Navega para subcategoria |
 | 10 | Verificar que a página "Men - Tshirts Products" é exibida | `ProductsPage.verifyCategoryPageHeader()` → `h2:contains(...)` | Página correta |
 
-**Asserção Chave:** Categorias Women e Men exibem produtos nas subcategorias corretas.
+**Asserção Chave:** Categorias Women e Men exibem produtos nas subcategorias corretas.<br>
 **Resultado esperado:** Categorias e subcategorias exibem produtos corretamente<br>
 
 **Evidência em GIF:** ![TC_WEB_018](../Cypress/cypress/screenshots/web/TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js/TC_WEB_018_sucesso_visualizar_produtos_categoria.gif)
@@ -591,7 +591,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 8 | Na barra lateral esquerda, clicar em qualquer outro link de marca | `ProductsPage.clickBrand('H&M')` → `.brands-name a` | Navega para outra marca |
 | 9 | Verificar que o usuário foi redirecionado para essa página de marca e pode ver os produtos | `ProductsPage.verifyBrandPageHeader()` → `.features_items` | Produtos da marca visíveis |
 
-**Asserção Chave:** Produtos de diferentes marcas são exibidos corretamente após clicar nos links.
+**Asserção Chave:** Produtos de diferentes marcas são exibidos corretamente após clicar nos links.<br>
 **Resultado esperado:** Marcas exibem produtos corretamente<br>
 
 **Evidência em GIF:** ![TC_WEB_019](../Cypress/cypress/screenshots/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js/TC_WEB_019_sucesso_visualizar_adicionar_marcas.gif)
@@ -622,7 +622,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 14 | Ir para a página do Carrinho | `a[href="/view_cart"]` | Abre carrinho |
 | 15 | Verificar que produtos estão visíveis no carrinho após login | URL contém `/view_cart` + `h2` | Carrinho persistido |
 
-**Asserção Chave:** Carrinho mantém produtos após login (persistência verificada).
+**Asserção Chave:** Carrinho mantém produtos após login (persistência verificada).<br>
 **Resultado esperado:** Carrinho persiste itens após autenticação<br>
 
 **Evidência em GIF:** ![TC_WEB_020](../Cypress/cypress/screenshots/web/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.gif)
@@ -648,7 +648,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 9 | Clicar no botão "Submit" | `ProductsPage.submitReview()` → `button:contains('Submit')` | Avaliação enviada |
 | 10 | Verificar mensagem de sucesso "Thank you for your review." | `ProductsPage.verifyReviewSuccess()` → `span:contains(...)` | Confirmação visível |
 
-**Asserção Chave:** Mensagem "Thank you for your review." visível após envio.
+**Asserção Chave:** Mensagem "Thank you for your review." visível após envio.<br>
 **Resultado esperado:** Usuário consegue avaliar produto<br>
 
 **Evidência em GIF:** ![TC_WEB_021](../Cypress/cypress/screenshots/web/TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js/TC_WEB_021_sucesso_adicionar_avaliacao_produto.gif)
@@ -672,7 +672,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 7 | Clicar no botão "View Cart" | `a[href="/view_cart"]:contains('View Cart')` | Abre carrinho |
 | 8 | Verificar que o produto está exibido na página do carrinho | `a[href="/view_cart"]` + `.cart_description` | Produto no carrinho |
 
-**Asserção Chave:** Produto recomendado aparece no carrinho após adicionar.
+**Asserção Chave:** Produto recomendado aparece no carrinho após adicionar.<br>
 **Resultado esperado:** Produtos recomendados são adicionados ao carrinho<br>
 
 **Evidência em GIF:** ![TC_WEB_022](../Cypress/cypress/screenshots/web/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.gif)
@@ -706,7 +706,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 17 | Clicar no botão "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
 | 18 | Verificar "ACCOUNT DELETED!" e clicar no botão "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
 
-**Asserção Chave:** Endereço de entrega e cobrança correspondem aos dados preenchidos no registro.
+**Asserção Chave:** Endereço de entrega e cobrança correspondem aos dados preenchidos no registro.<br>
 **Resultado esperado:** Endereços de entrega e cobrança conferem com cadastro<br>
 
 **Evidência em GIF:** ![TC_WEB_023](../Cypress/cypress/screenshots/web/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.gif)
@@ -751,7 +751,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 28 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
 | 29 | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
 
-**Asserção Chave:** Mensagem "Order Placed!" e fatura baixada com sucesso.
+**Asserção Chave:** Mensagem "Order Placed!" e fatura baixada com sucesso.<br>
 **Resultado esperado:** Fatura é gerada e disponível para download<br>
 
 **Evidência em GIF:** ![TC_WEB_024](../Cypress/cypress/screenshots/web/TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js/TC_WEB_024_sucesso_baixar_fatura_pedido.gif)
@@ -774,7 +774,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 6 | Clicar na seta para cima | `i[class*="angle-up"]` | Scroll up acionado |
 | 7 | Validar texto do cabeçalho | `h2:contains('Full-Fledged practice website for Automation Engineers')` | Topo visível |
 
-**Asserção Chave:** Texto do cabeçalho visível após clicar no botão de scroll up.
+**Asserção Chave:** Texto do cabeçalho visível após clicar no botão de scroll up.<br>
 **Resultado esperado:** Botão de scroll up retorna ao topo da página<br>
 
 **Evidência em GIF:** ![TC_WEB_025](../Cypress/cypress/screenshots/web/TC_WEB_025_sucesso_verificar_scroll_seta.cy.js/TC_WEB_025_sucesso_verificar_scroll_seta.gif)
@@ -797,7 +797,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 6 | Rolar para o topo | `cy.scrollTo('top')` | Scroll up manual |
 | 7 | Validar texto do cabeçalho | `h2:contains('Full-Fledged practice website for Automation Engineers')` | Topo visível |
 
-**Asserção Chave:** Texto do cabeçalho visível após scroll up manual.
+**Asserção Chave:** Texto do cabeçalho visível após scroll up manual.<br>
 **Resultado esperado:** Scroll manual retorna ao topo da página<br>
 
 **Evidência em GIF:** ![TC_WEB_026](../Cypress/cypress/screenshots/web/TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js/TC_WEB_026_sucesso_verificar_scroll_sem_seta.gif)

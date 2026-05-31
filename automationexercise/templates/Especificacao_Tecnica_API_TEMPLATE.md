@@ -70,7 +70,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 4 | Validar quantidade de produtos | body.products.length | Igual a N |
 | ... | ... | ... | ... |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** [Resultado esperado do teste]
 ```javascript
 expect(response.status).to.eq(200)

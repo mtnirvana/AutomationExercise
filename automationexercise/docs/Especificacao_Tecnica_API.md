@@ -83,7 +83,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 10 | Validar propriedade category do primeiro produto | body.products[0] | Possui propriedade category |
 | 11 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API retorna catálogo completo com 34 produtos<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -125,7 +125,7 @@ cypress/screenshots/api/TC_API_001_api_result.html
 | 7 | Validar propriedade brand da primeira marca | body.brands[0] | Possui propriedade brand |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API retorna lista de marcas disponíveis<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -164,7 +164,7 @@ cypress/screenshots/api/TC_API_002_api_result.html
 | 7 | Validar que o nome do primeiro produto contém o termo de busca | body.products[0].name | Contém "top" |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API retorna produtos filtrados pelo termo buscado<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -200,7 +200,7 @@ cypress/screenshots/api/TC_API_003_api_result.html
 | 4 | Validar mensagem de erro | body.message | Contém 'Bad request, search_product parameter is missing' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -237,7 +237,7 @@ cypress/screenshots/api/TC_API_004_api_result.html
 | 4 | Validar mensagem de sucesso | body.message | Igual a 'User exists!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API autentica usuário com credenciais corretas<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -270,7 +270,7 @@ cypress/screenshots/api/TC_API_005_api_result.html
 | 4 | Validar mensagem de erro | body.message | Contém 'Bad request, email or password parameter is missing' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API retorna erro quando campo obrigatório está ausente<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -303,7 +303,7 @@ cypress/screenshots/api/TC_API_006_api_result.html
 | 4 | Validar mensagem de erro | body.message | Igual a 'User not found!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API rejeita autenticação com dados incorretos<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -340,7 +340,7 @@ cypress/screenshots/api/TC_API_007_api_result.html
 | 4 | Validar mensagem de sucesso | body.message | Igual a 'User created!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API cria nova conta com dados fornecidos<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -375,7 +375,7 @@ cypress/screenshots/api/TC_API_008_api_result.html
 | 6 | Validar mensagem de sucesso | body.message | Igual a 'Account deleted!' |
 | 7 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API remove conta existente do sistema<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -410,7 +410,7 @@ cypress/screenshots/api/TC_API_009_api_result.html
 | 6 | Consultar usuário via GET e verificar dados atualizados | GET /api/getUserDetailByEmail?email= | Status 200, dados conferidos |
 | 7 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API permite alteração de dados cadastrais<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -446,7 +446,7 @@ cypress/screenshots/api/TC_API_010_api_result.html
 | 7 | Validar propriedade email do usuário | body.user | Possui propriedade email |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API retorna dados do usuário pelo email<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -485,7 +485,7 @@ cypress/screenshots/api/TC_API_011_api_result.html
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API rejeita método não permitido com erro 405<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -518,7 +518,7 @@ cypress/screenshots/api/TC_API_012_api_result.html
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API rejeita método não permitido com erro 405<br>
 ```javascript
 expect(response.status).to.eq(200)
@@ -551,7 +551,7 @@ cypress/screenshots/api/TC_API_013_api_result.html
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**
+**Asserção Chave:**<br>
 **Resultado esperado:** API rejeita método não permitido com erro 405<br>
 ```javascript
 expect(response.status).to.eq(200)
