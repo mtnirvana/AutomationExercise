@@ -67,23 +67,23 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` â `a[href="/login"]` | Redireciona para login |
-| 5 | Validar header "New User Signup!" | `LoginPage.newUserSignupHeader` â `h2:contains('New User Signup!')` | Header visível |
+| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` → `a[href="/login"]` | Redireciona para login |
+| 5 | Validar header "New User Signup!" | `LoginPage.newUserSignupHeader` → `h2:contains('New User Signup!')` | Header visível |
 | 6 | Preencher nome e email (dinâmico) | `LoginPage.nameInput` + `LoginPage.emailInput` | Dados inseridos |
-| 7 | Clicar em "Signup" | `LoginPage.signupButton` â `button[data-qa="signup-button"]` | Redireciona para formulário |
-| 8 | Validar header "ENTER ACCOUNT INFORMATION" | `SignupPage.accountInfoHeader` â `h2:contains('Enter Account Information')` | Header visível |
-| 9 | Selecionar gênero | `SignupPage.genderMale/genderFemale` â `#id_gender1/#id_gender2` | Gênero selecionado |
-| 10 | Preencher senha | `SignupPage.password` â `#password` | Senha inserida |
-| 11 | Preencher data de nascimento | `SignupPage.days/months/years` â `#days/#months/#years` | Data selecionada |
-| 12 | Marcar "Sign up for our newsletter!" (se aplicável) | `SignupPage.newsletterCheckbox` â `#newsletter` | Checkbox marcado |
-| 13 | Marcar "Receive special offers!" (se aplicável) | `SignupPage.specialOffersCheckbox` â `#optin` | Checkbox marcado |
+| 7 | Clicar em "Signup" | `LoginPage.signupButton` → `button[data-qa="signup-button"]` | Redireciona para formulário |
+| 8 | Validar header "ENTER ACCOUNT INFORMATION" | `SignupPage.accountInfoHeader` → `h2:contains('Enter Account Information')` | Header visível |
+| 9 | Selecionar gênero | `SignupPage.genderMale/genderFemale` → `#id_gender1/#id_gender2` | Gênero selecionado |
+| 10 | Preencher senha | `SignupPage.password` → `#password` | Senha inserida |
+| 11 | Preencher data de nascimento | `SignupPage.days/months/years` → `#days/#months/#years` | Data selecionada |
+| 12 | Marcar "Sign up for our newsletter!" (se aplicável) | `SignupPage.newsletterCheckbox` → `#newsletter` | Checkbox marcado |
+| 13 | Marcar "Receive special offers!" (se aplicável) | `SignupPage.specialOffersCheckbox` → `#optin` | Checkbox marcado |
 | 14 | Preencher informações de endereço | `SignupPage.fillAddress()` | Endereço completo |
-| 15 | Clicar em "Create Account" | `SignupPage.createAccountButton` â `button[data-qa="create-account"]` | Conta criada |
-| 16 | Validar "ACCOUNT CREATED!" | `AccountPage.accountCreatedHeader` â `h2:contains('Account Created!')` | Header visível |
-| 17 | Clicar em "Continue" | `AccountPage.continueButton` â `a[data-qa="continue-button"]` | Retorna à home |
-| 18 | Validar "Logged in as [username]" | `HomePage.verifyLoggedInAs()` â `li:contains('Logged in as')` | Nome do usuário visível |
-| 19 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` â `a[href="/delete_account"]` | Conta excluída |
-| 20 | Validar "ACCOUNT DELETED!" | `AccountPage.accountDeletedHeader` â `h2:contains('Account Deleted!')` | Header visível |
+| 15 | Clicar em "Create Account" | `SignupPage.createAccountButton` → `button[data-qa="create-account"]` | Conta criada |
+| 16 | Validar "ACCOUNT CREATED!" | `AccountPage.accountCreatedHeader` → `h2:contains('Account Created!')` | Header visível |
+| 17 | Clicar em "Continue" | `AccountPage.continueButton` → `a[data-qa="continue-button"]` | Retorna à home |
+| 18 | Validar "Logged in as [username]" | `HomePage.verifyLoggedInAs()` → `li:contains('Logged in as')` | Nome do usuário visível |
+| 19 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` → `a[href="/delete_account"]` | Conta excluída |
+| 20 | Validar "ACCOUNT DELETED!" | `AccountPage.accountDeletedHeader` → `h2:contains('Account Deleted!')` | Header visível |
 | 21 | Clicar em "Continue" | `AccountPage.continueButton` | Retorna à home |
 
 **Asserção Chave:** Texto "Logged in as [username]" visível no topo da página após registro.
@@ -96,7 +96,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Garantir o acesso à área restrita para usuários cadastrados.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `cypress/fixtures/users.json` â `testUser` (credenciais pré-cadastradas)<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser` (credenciais pré-cadastradas)<br>
 **Pós-condição:** Nenhuma (fixture reutilizável)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -104,12 +104,12 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` â `a[href="/login"]` | Redireciona para login |
-| 5 | Validar header "Login to your account" | `LoginPage.loginToYourAccountHeader` â `h2:contains('Login to your account')` | Header visível |
-| 6 | Inserir email e senha válidos | `LoginPage.loginEmail` + `LoginPage.loginPassword` â `input[data-qa="login-email/password"]` | Credenciais inseridas |
-| 7 | Clicar em "Login" | `LoginPage.loginButton` â `button[data-qa="login-button"]` | Login realizado |
-| 8 | Validar "Logged in as [username]" | `HomePage.verifyLoggedInAs()` â `li:contains('Logged in as')` | Nome do usuário visível |
-| 9 | Clicar em "Logout" | `HomePage.clickLogout()` â `a[href="/logout"]` | Usuário deslogado |
+| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` → `a[href="/login"]` | Redireciona para login |
+| 5 | Validar header "Login to your account" | `LoginPage.loginToYourAccountHeader` → `h2:contains('Login to your account')` | Header visível |
+| 6 | Inserir email e senha válidos | `LoginPage.loginEmail` + `LoginPage.loginPassword` → `input[data-qa="login-email/password"]` | Credenciais inseridas |
+| 7 | Clicar em "Login" | `LoginPage.loginButton` → `button[data-qa="login-button"]` | Login realizado |
+| 8 | Validar "Logged in as [username]" | `HomePage.verifyLoggedInAs()` → `li:contains('Logged in as')` | Nome do usuário visível |
+| 9 | Clicar em "Logout" | `HomePage.clickLogout()` → `a[href="/logout"]` | Usuário deslogado |
 | 10 | Validar header "Login to your account" | `LoginPage.loginToYourAccountHeader` | Redirecionamento para /login |
 
 **Asserção Chave:** Sistema redireciona para `/login` ao finalizar a sessão.
@@ -122,7 +122,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar o tratamento de erro em tentativas de acesso inválidas.<br>
 **Tipo:** Erro<br>
 **Criticidade:** Alta<br>
-**Dados:** `cypress/fixtures/users.json` â `invalidUser` (credenciais inexistentes)<br>
+**Dados:** `cypress/fixtures/users.json` → `invalidUser` (credenciais inexistentes)<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -130,7 +130,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` â `a[href="/login"]` | Redireciona para login |
+| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` → `a[href="/login"]` | Redireciona para login |
 | 5 | Validar header "Login to your account" | `LoginPage.loginToYourAccountHeader` | Header visível |
 | 6 | Inserir email e senha incorretos | `LoginPage.loginEmail` + `LoginPage.loginPassword` | Credenciais inválidas inseridas |
 | 7 | Clicar em "Login" | `LoginPage.loginButton` | Tentativa de login |
@@ -146,7 +146,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar o encerramento seguro da sessão.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Alta<br>
-**Dados:** `cypress/fixtures/users.json` â `testUser`<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser`<br>
 **Pós-condição:** Sessão encerrada<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -154,12 +154,12 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` â `a[href="/login"]` | Redireciona para login |
+| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` → `a[href="/login"]` | Redireciona para login |
 | 5 | Validar header "Login to your account" | `LoginPage.loginToYourAccountHeader` | Header visível |
 | 6 | Inserir email e senha | `LoginPage.loginEmail` + `LoginPage.loginPassword` | Credenciais inseridas |
 | 7 | Clicar em "Login" | `LoginPage.loginButton` | Login realizado |
 | 8 | Validar "Logged in as [username]" | `HomePage.verifyLoggedInAs()` | Nome do usuário visível |
-| 9 | Clicar em "Logout" | `HomePage.clickLogout()` â `a[href="/logout"]` | Sessão encerrada |
+| 9 | Clicar em "Logout" | `HomePage.clickLogout()` → `a[href="/logout"]` | Sessão encerrada |
 | 10 | Validar header "Login to your account" | `LoginPage.loginToYourAccountHeader` | Header visível (indica retorno ao login) |
 
 **Asserção Chave:** Sistema redireciona para página de login após logout.
@@ -172,7 +172,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Prevenir a duplicidade de contas no sistema.<br>
 **Tipo:** Erro<br>
 **Criticidade:** Alta<br>
-**Dados:** `cypress/fixtures/users.json` â `existingEmail`<br>
+**Dados:** `cypress/fixtures/users.json` → `existingEmail`<br>
 **Pós-condição:** Nenhuma (validação de erro)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -180,7 +180,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` â `a[href="/login"]` | Redireciona para login |
+| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` → `a[href="/login"]` | Redireciona para login |
 | 5 | Validar header "New User Signup!" | `LoginPage.newUserSignupHeader` | Header visível |
 | 6 | Inserir nome e email já existente | `LoginPage.nameInput` + `LoginPage.emailInput` | Dados inseridos |
 | 7 | Clicar em "Signup" | `LoginPage.signupButton` | Tentativa de registro |
@@ -198,7 +198,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar o envio do formulário de contato com upload de arquivo.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Média<br>
-**Dados:** `cypress/fixtures/contact.json` â contato + `ui_texts.json`<br>
+**Dados:** `cypress/fixtures/contact.json` → contato + `ui_texts.json`<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -206,11 +206,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Contact Us" | `HomePage.clickContactUs()` â `a[href="/contact_us"]` | Redireciona para contato |
-| 5 | Validar header "GET IN TOUCH" | `ContactUsPage.getInTouchHeader` â `h2:contains('Get In Touch')` | Header visível |
-| 6 | Preencher nome, email, assunto e mensagem | `ContactUsPage.fillContactForm()` â `input[data-qa="name/email/subject"]` + `textarea[data-qa="message"]` | Formulário preenchido |
-| 7 | Upload de arquivo | `ContactUsPage.uploadFile()` â `input[type="file"]` | Arquivo anexado |
-| 8 | Clicar em "Submit" | `ContactUsPage.submitButton` â `input[data-qa="submit-button"]` | Formulário enviado |
+| 4 | Clicar em "Contact Us" | `HomePage.clickContactUs()` → `a[href="/contact_us"]` | Redireciona para contato |
+| 5 | Validar header "GET IN TOUCH" | `ContactUsPage.getInTouchHeader` → `h2:contains('Get In Touch')` | Header visível |
+| 6 | Preencher nome, email, assunto e mensagem | `ContactUsPage.fillContactForm()` → `input[data-qa="name/email/subject"]` + `textarea[data-qa="message"]` | Formulário preenchido |
+| 7 | Upload de arquivo | `ContactUsPage.uploadFile()` → `input[type="file"]` | Arquivo anexado |
+| 8 | Clicar em "Submit" | `ContactUsPage.submitButton` → `input[data-qa="submit-button"]` | Formulário enviado |
 | 9 | Aceitar confirmação do navegador | `cy.on('window:confirm')` | Confirmação aceita |
 | 10 | Validar mensagem de sucesso | `cy.contains('Success! Your details have been submitted successfully.')` | Mensagem visível |
 | 11 | Clicar em "Home" e validar página inicial | `ContactUsPage.homeButton` + `HomePage.logo` | Retorna à home e página carregada |
@@ -233,8 +233,8 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Test Cases" | `HomePage.clickTestCases()` â `a[href="/test_cases"]` | Redireciona para test cases |
-| 5 | Validar página de casos de teste | `TestCasesPage.verifyPageTitle()` â `h2:contains('Test Cases')` | Header visível |
+| 4 | Clicar em "Test Cases" | `HomePage.clickTestCases()` → `a[href="/test_cases"]` | Redireciona para test cases |
+| 5 | Validar página de casos de teste | `TestCasesPage.verifyPageTitle()` → `h2:contains('Test Cases')` | Header visível |
 
 **Asserção Chave:** Header "Test Cases" visível na página de casos de teste.
 **Resultado esperado:** Navegação para página de casos de teste funciona<br>
@@ -246,7 +246,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar a funcionalidade de assinatura na página inicial.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Média<br>
-**Dados:** `cypress/fixtures/contact.json` â `subscribe.email` + `ui_texts.json`<br>
+**Dados:** `cypress/fixtures/contact.json` → `subscribe.email` + `ui_texts.json`<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -270,7 +270,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar a funcionalidade de assinatura na página do carrinho.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Média<br>
-**Dados:** `cypress/fixtures/contact.json` â `subscribe.email` + `ui_texts.json`<br>
+**Dados:** `cypress/fixtures/contact.json` → `subscribe.email` + `ui_texts.json`<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -278,7 +278,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar no botão "Cart" | `HomePage.clickCart()` â `a[href="/view_cart"]` | Abre carrinho |
+| 4 | Clicar no botão "Cart" | `HomePage.clickCart()` → `a[href="/view_cart"]` | Abre carrinho |
 | 5 | Rolar para o rodapé | `cy.scrollTo('bottom')` | Scroll executado |
 | 6 | Validar texto "SUBSCRIPTION" | `.single-widget h2:contains('SUBSCRIPTION')` | Rodapé visível |
 | 7 | Inserir email no campo de assinatura | `#susbscribe_email` | Email inserido |
@@ -305,11 +305,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Products" | `HomePage.clickProducts()` â `a[href="/products"]` | Redireciona para produtos |
-| 5 | Validar página "ALL PRODUCTS" | `ProductsPage.verifyAllProductsPage()` â `h2:contains('All Products')` | Header visível |
-| 6 | Validar lista de produtos | `ProductsPage.verifyProductsList()` â `.features_items` | Lista visível |
-| 7 | Clicar em "View Product" do primeiro | `ProductsPage.clickViewProduct()` â `.choose a[href*="/product_details/"]` | Abre detalhes |
-| 8 | Validar página de detalhes | `ProductsPage.verifyProductDetailPage()` â `.product-information h2` | Detalhes visíveis |
+| 4 | Clicar em "Products" | `HomePage.clickProducts()` → `a[href="/products"]` | Redireciona para produtos |
+| 5 | Validar página "ALL PRODUCTS" | `ProductsPage.verifyAllProductsPage()` → `h2:contains('All Products')` | Header visível |
+| 6 | Validar lista de produtos | `ProductsPage.verifyProductsList()` → `.features_items` | Lista visível |
+| 7 | Clicar em "View Product" do primeiro | `ProductsPage.clickViewProduct()` → `.choose a[href*="/product_details/"]` | Abre detalhes |
+| 8 | Validar página de detalhes | `ProductsPage.verifyProductDetailPage()` → `.product-information h2` | Detalhes visíveis |
 | 9 | Validar informações do produto | `ProductsPage.verifyProductDetails()` | Nome, categoria, preço, disponibilidade, condição, marca |
 
 **Asserção Chave:** Todos os detalhes do produto visíveis: Nome, Categoria, Preço, Disponibilidade, Condição e Marca.
@@ -322,7 +322,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar o motor de busca do sistema.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Alta<br>
-**Dados:** `cypress/fixtures/products.json` â `searchTerms.winter`<br>
+**Dados:** `cypress/fixtures/products.json` → `searchTerms.winter`<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -330,12 +330,12 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Products" | `HomePage.clickProducts()` â `a[href="/products"]` | Redireciona para produtos |
+| 4 | Clicar em "Products" | `HomePage.clickProducts()` → `a[href="/products"]` | Redireciona para produtos |
 | 5 | Validar página "ALL PRODUCTS" | `ProductsPage.verifyAllProductsPage()` | Header visível |
-| 6 | Inserir termo de busca e pesquisar | `ProductsPage.searchProduct()` â `#search_product` + `#submit_search` | Pesquisa realizada |
-| 7 | Validar "SEARCHED PRODUCTS" | `ProductsPage.verifySearchedProducts()` â `h2:contains('Searched Products')` | Header visível |
-| 8 | Validar resultados da busca | `ProductsPage.verifyProductsList()` â `.features_items` | Produtos relacionados visíveis |
-| 9 | Verificar que resultados contêm o termo buscado | `ProductsPage.productsItems.first()` â `.single-products` | Termo de busca presente |
+| 6 | Inserir termo de busca e pesquisar | `ProductsPage.searchProduct()` → `#search_product` + `#submit_search` | Pesquisa realizada |
+| 7 | Validar "SEARCHED PRODUCTS" | `ProductsPage.verifySearchedProducts()` → `h2:contains('Searched Products')` | Header visível |
+| 8 | Validar resultados da busca | `ProductsPage.verifyProductsList()` → `.features_items` | Produtos relacionados visíveis |
+| 9 | Verificar que resultados contêm o termo buscado | `ProductsPage.productsItems.first()` → `.single-products` | Termo de busca presente |
 
 **Asserção Chave:** Header "SEARCHED PRODUCTS" visível com produtos relacionados ao termo pesquisado.
 **Resultado esperado:** Busca retorna produtos relacionados ao termo<br>
@@ -349,7 +349,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar a funcionalidade de adicionar múltiplos itens ao carrinho.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `cypress/fixtures/ui_texts.json` â `buttons` (via Page Objects)<br>
+**Dados:** `cypress/fixtures/ui_texts.json` → `buttons` (via Page Objects)<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -357,7 +357,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Products" | `HomePage.clickProducts()` â `a[href="/products"]` | Redireciona para produtos |
+| 4 | Clicar em "Products" | `HomePage.clickProducts()` → `a[href="/products"]` | Redireciona para produtos |
 | 5 | Passar mouse sobre primeiro produto | `cy.get('.single-products').first().trigger('mouseover')` | Overlay aparece |
 | 6 | Clicar em "Add to cart" | `.product-overlay:first .btn` | Produto adicionado |
 | 7 | Clicar em "Continue Shopping" | `cy.contains('button', 'Continue Shopping')` | Modal fechado |
@@ -377,7 +377,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar o seletor de quantidade na página de detalhes do produto.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Alta<br>
-**Dados:** `cypress/fixtures/products.json` â `quantities.default` (4)<br>
+**Dados:** `cypress/fixtures/products.json` → `quantities.default` (4)<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -404,7 +404,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar fluxo de compra com registro durante o checkout.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `UserFactory` + `cypress/fixtures/users.json` â `paymentData`<br>
+**Dados:** `UserFactory` + `cypress/fixtures/users.json` → `paymentData`<br>
 **Pós-condição:** Conta criada e excluída ao final<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -447,7 +447,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar fluxo de compra com registro prévio ao checkout.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `UserFactory` + `cypress/fixtures/users.json` â `paymentData`<br>
+**Dados:** `UserFactory` + `cypress/fixtures/users.json` → `paymentData`<br>
 **Pós-condição:** Conta criada e excluída ao final<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -485,7 +485,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar fluxo de compra com login antes do checkout usando usuário existente.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `cypress/fixtures/users.json` â `testUser` + `paymentData`<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser` + `paymentData`<br>
 **Pós-condição:** Sessão permanece ativa (sem delete account)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -520,7 +520,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar que usuário consegue remover produtos do carrinho.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Alta<br>
-**Dados:** `cypress/fixtures/products.json` â `products.firstProd`, `quantities.default` + `ui_texts.json`<br>
+**Dados:** `cypress/fixtures/products.json` → `products.firstProd`, `quantities.default` + `ui_texts.json`<br>
 **Pós-condição:** Carrinho vazio ou produto removido<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -550,7 +550,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar que categorias e subcategorias de produtos são exibidas corretamente.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Média<br>
-**Dados:** `cypress/fixtures/products.json` â `categories` + `ui_texts.json`<br>
+**Dados:** `cypress/fixtures/products.json` → `categories` + `ui_texts.json`<br>
 **Pós-condição:** Nenhuma (não altera dados)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -558,13 +558,13 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Verificar que as categorias estão visíveis na barra lateral esquerda | `ProductsPage.leftSidebar` â `.left-sidebar h2` + `.left-sidebar` | Categorias visíveis |
-| 5 | Clicar na categoria "Women" | `ProductsPage.clickCategory('Women')` â `.panel-heading` | Abre subcategorias |
-| 6 | Clicar em qualquer link de categoria dentro de "Women", por exemplo: Dress | `ProductsPage.clickSubcategory('Dress')` â `.panel-body a` | Navega para subcategoria |
-| 7 | Verificar que a página da categoria é exibida e confirmar o texto "Women - Dress Products" | `ProductsPage.verifyCategoryPageHeader()` â `h2:contains(...)` | Página correta |
-| 8 | Na barra lateral esquerda, clicar em qualquer link de subcategoria da categoria "Men" | `ProductsPage.clickCategory('Men')` â `.panel-heading` | Abre subcategorias |
-| 9 | Clicar em "Tshirts" na subcategoria de Men | `ProductsPage.clickSubcategory('Tshirts')` â `.panel-body a` | Navega para subcategoria |
-| 10 | Verificar que a página "Men - Tshirts Products" é exibida | `ProductsPage.verifyCategoryPageHeader()` â `h2:contains(...)` | Página correta |
+| 4 | Verificar que as categorias estão visíveis na barra lateral esquerda | `ProductsPage.leftSidebar` → `.left-sidebar h2` + `.left-sidebar` | Categorias visíveis |
+| 5 | Clicar na categoria "Women" | `ProductsPage.clickCategory('Women')` → `.panel-heading` | Abre subcategorias |
+| 6 | Clicar em qualquer link de categoria dentro de "Women", por exemplo: Dress | `ProductsPage.clickSubcategory('Dress')` → `.panel-body a` | Navega para subcategoria |
+| 7 | Verificar que a página da categoria é exibida e confirmar o texto "Women - Dress Products" | `ProductsPage.verifyCategoryPageHeader()` → `h2:contains(...)` | Página correta |
+| 8 | Na barra lateral esquerda, clicar em qualquer link de subcategoria da categoria "Men" | `ProductsPage.clickCategory('Men')` → `.panel-heading` | Abre subcategorias |
+| 9 | Clicar em "Tshirts" na subcategoria de Men | `ProductsPage.clickSubcategory('Tshirts')` → `.panel-body a` | Navega para subcategoria |
+| 10 | Verificar que a página "Men - Tshirts Products" é exibida | `ProductsPage.verifyCategoryPageHeader()` → `h2:contains(...)` | Página correta |
 
 **Asserção Chave:** Categorias Women e Men exibem produtos nas subcategorias corretas.
 **Resultado esperado:** Categorias e subcategorias exibem produtos corretamente<br>
@@ -576,7 +576,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar que usuário pode visualizar e adicionar produtos de diferentes marcas ao carrinho.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Média<br>
-**Dados:** `cypress/fixtures/products.json` â `brands` + `ui_texts.json`<br>
+**Dados:** `cypress/fixtures/products.json` → `brands` + `ui_texts.json`<br>
 **Pós-condição:** Nenhuma (não altera dados)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -585,11 +585,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
 | 4 | Clicar no botão "Products" | `HomePage.clickProducts()` | Redireciona para produtos |
-| 5 | Verificar que as Marcas estão visíveis na barra lateral esquerda | `ProductsPage.verifyBrandsHeaderVisible()` â `h2:contains('Brands')` + `.brands-name` | Marcas visíveis |
-| 6 | Clicar em qualquer nome de marca | `ProductsPage.clickBrand('Polo')` â `.brands-name a` | Navega para marca |
-| 7 | Verificar que o usuário foi redirecionado para a página da marca e os produtos da marca são exibidos | `ProductsPage.verifyBrandPageHeader()` â `.features_items` | Produtos da marca visíveis |
-| 8 | Na barra lateral esquerda, clicar em qualquer outro link de marca | `ProductsPage.clickBrand('H&M')` â `.brands-name a` | Navega para outra marca |
-| 9 | Verificar que o usuário foi redirecionado para essa página de marca e pode ver os produtos | `ProductsPage.verifyBrandPageHeader()` â `.features_items` | Produtos da marca visíveis |
+| 5 | Verificar que as Marcas estão visíveis na barra lateral esquerda | `ProductsPage.verifyBrandsHeaderVisible()` → `h2:contains('Brands')` + `.brands-name` | Marcas visíveis |
+| 6 | Clicar em qualquer nome de marca | `ProductsPage.clickBrand('Polo')` → `.brands-name a` | Navega para marca |
+| 7 | Verificar que o usuário foi redirecionado para a página da marca e os produtos da marca são exibidos | `ProductsPage.verifyBrandPageHeader()` → `.features_items` | Produtos da marca visíveis |
+| 8 | Na barra lateral esquerda, clicar em qualquer outro link de marca | `ProductsPage.clickBrand('H&M')` → `.brands-name a` | Navega para outra marca |
+| 9 | Verificar que o usuário foi redirecionado para essa página de marca e pode ver os produtos | `ProductsPage.verifyBrandPageHeader()` → `.features_items` | Produtos da marca visíveis |
 
 **Asserção Chave:** Produtos de diferentes marcas são exibidos corretamente após clicar nos links.
 **Resultado esperado:** Marcas exibem produtos corretamente<br>
@@ -601,7 +601,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar busca de produtos e persistência do carrinho após login.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Alta<br>
-**Dados:** `cypress/fixtures/products.json` â `searchTerms.winter` + `users.json` â `testUser` + `ui_texts.json`<br>
+**Dados:** `cypress/fixtures/products.json` → `searchTerms.winter` + `users.json` → `testUser` + `ui_texts.json`<br>
 **Pós-condição:** Carrinho persiste após login<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -632,7 +632,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar que o usuário pode adicionar avaliação em produto.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Média<br>
-**Dados:** `UserFactory` â usuário dinâmico + `cypress/fixtures/contact.json` â `review.text` + `ui_texts.json`<br>
+**Dados:** `UserFactory` → usuário dinâmico + `cypress/fixtures/contact.json` → `review.text` + `ui_texts.json`<br>
 **Pós-condição:** Nenhuma (não altera dados persistidos)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -643,10 +643,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 4 | Clicar no botão "Products" | `HomePage.clickProducts()` | Redireciona para produtos |
 | 5 | Verificar que o usuário navegou para a página ALL PRODUCTS com sucesso | `ProductsPage.verifyAllProductsPage()` | Página correta |
 | 6 | Clicar no botão "View Product" | `ProductsPage.clickViewProduct()` | Abre detalhes |
-| 7 | Verificar que "Write Your Review" está visível | `ProductsPage.verifyReviewSectionVisible()` â `a[href="#reviews"]` | Seção visível |
-| 8 | Inserir nome, email e avaliação | `ProductsPage.fillReview()` â `#name` + `#email` + `#review` | Dados inseridos |
-| 9 | Clicar no botão "Submit" | `ProductsPage.submitReview()` â `button:contains('Submit')` | Avaliação enviada |
-| 10 | Verificar mensagem de sucesso "Thank you for your review." | `ProductsPage.verifyReviewSuccess()` â `span:contains(...)` | Confirmação visível |
+| 7 | Verificar que "Write Your Review" está visível | `ProductsPage.verifyReviewSectionVisible()` → `a[href="#reviews"]` | Seção visível |
+| 8 | Inserir nome, email e avaliação | `ProductsPage.fillReview()` → `#name` + `#email` + `#review` | Dados inseridos |
+| 9 | Clicar no botão "Submit" | `ProductsPage.submitReview()` → `button:contains('Submit')` | Avaliação enviada |
+| 10 | Verificar mensagem de sucesso "Thank you for your review." | `ProductsPage.verifyReviewSuccess()` → `span:contains(...)` | Confirmação visível |
 
 **Asserção Chave:** Mensagem "Thank you for your review." visível após envio.
 **Resultado esperado:** Usuário consegue avaliar produto<br>
@@ -658,7 +658,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar que itens recomendados podem ser adicionados ao carrinho.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Baixa<br>
-**Dados:** `cypress/fixtures/ui_texts.json` â `buttons.viewCart`<br>
+**Dados:** `cypress/fixtures/ui_texts.json` → `buttons.viewCart`<br>
 **Pós-condição:** Nenhuma (não altera dados)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -682,7 +682,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar que endereços de entrega e cobrança correspondem aos dados registrados.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `UserFactory` â usuário dinâmico + `cypress/fixtures/ui_texts.json`<br>
+**Dados:** `UserFactory` → usuário dinâmico + `cypress/fixtures/ui_texts.json`<br>
 **Pós-condição:** Conta criada e excluída ao final<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -784,7 +784,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar funcionalidade de scroll manual (sem botão de seta).<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Baixa<br>
-**Dados:** `cypress/fixtures/ui_texts.json` â `homepage.title`<br>
+**Dados:** `cypress/fixtures/ui_texts.json` → `homepage.title`<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -936,7 +936,7 @@ Este glossário consolida todos os seletores extraídos dos Page Objects do proj
 | `#address_invoice` | id | Endereço cobrança | Robusto |
 | `.step-one h2` | seletor | Headers checkout | Médio |
 ### 5.9 Seletores Globais
-> Nenhum â todos os seletores estão organizados por página nas seções 5.1 a 5.8.
+> Nenhum — todos os seletores estão organizados por página nas seções 5.1 a 5.8.
 ---
 ## 6. Gestão de Divergências e Erros
 Caso um técnico de QA identifique uma falha durante a execução, deve seguir o protocolo:
@@ -965,57 +965,58 @@ Este documento deve ser atualizado quando:
 Estrutura completa do projeto com destaque para os artefatos de teste **Web (E2E)**:
 ```
 automationexercise/
-âââ install_all.sh
-âââ Cypress/
-â   âââ cypress.config.js                # Configuracao: allure, videos, screenshots, reporters
-â   âââ run_all.bat                      # Script unico: Cypress + k6 + GIFs + relatorio
-â   âââ package.json                     # Dependencias Node (Cypress, Allure, etc.)
-â   âââ scripts/                         # Utilitarios
-â   â   âââ gerar_gifs.js                # Gera GIFs animados
+├── install_all.sh
+├── Cypress/
+│   ├── cypress.config.js                # Configuracao: allure, videos, screenshots, reporters
+│   ├── run_all.bat                      # Script unico: Cypress + k6 + GIFs + relatorio
+│   ├── package.json                     # Dependencias Node (Cypress, Allure, etc.)
+│   ├── scripts/                         # Utilitarios
+│   │   └── gerar_gifs.js                # Gera GIFs animados
 
-â   âââ cypress/
-â       âââ e2e/
-â       â   âââ web/                     # 26 testes E2E Web (TC_WEB_001-TC_WEB_026)
-â       â   â   âââ TC_WEB_001_sucesso_registrar_usuario.cy.js
-â       â   â   âââ TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js
-â       â   â   âââ TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js
-â       â   â   âââ TC_WEB_004_sucesso_logout_usuario.cy.js
-â       â   â   âââ TC_WEB_005_erro_registrar_usuario_email_existente.cy.js
-â       â   â   âââ TC_WEB_006_sucesso_formulario_contato.cy.js
-â       â   â   âââ TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js
-â       â   â   âââ TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js
-â       â   â   âââ TC_WEB_009_sucesso_pesquisar_produto.cy.js
-â       â   â   âââ TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js
-â       â   â   âââ TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js
-â       â   â   âââ TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js
-â       â   â   âââ TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js
-â       â   â   âââ TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js
-â       â   â   âââ TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js
-â       â   â   âââ TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js
-â       â   â   âââ TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js
-â       â   â   âââ TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js
-â       â   â   âââ TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js
-â       â   â   âââ TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js
-â       â   â   âââ TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js
-â       â   â   âââ TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js
-â       â   â   âââ TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js
-â       â   â   âââ TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js
-â       â   â   âââ TC_WEB_025_sucesso_verificar_scroll_seta.cy.js
-â       â   â   âââ TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js
-â       â   âââ api/                     # Testes de API
-â       â   âââ performance/             # Testes de performance
-â       âââ pages/                       # Page Objects
-â       â   âââ ...
-â       âââ data/                        # Factories
-â       âââ fixtures/                    # Dados estaticos
-â       âââ support/                     # Comandos customizados
-â       âââ reports/                     # Relatorios de execucao
-â       âââ screenshots/                 # Evidencias visuais
-â       â   âââ web/                     # PNGs + GIFs por spec
-â       â   âââ api/                     # HTML reports das APIs
-â       â   âââ performance/             # PNGs + GIF do TC_PF_008
-â       âââ allure/                      # Relatorios Allure
-â       âââ videos/                      # Videos das execucoes
+│   └── cypress/
+│       ├── e2e/
+│       │   ├── web/                     # 26 testes E2E Web (TC_WEB_001-TC_WEB_026)
+│       │   │   ├── TC_WEB_001_sucesso_registrar_usuario.cy.js
+│       │   │   ├── TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js
+│       │   │   ├── TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js
+│       │   │   ├── TC_WEB_004_sucesso_logout_usuario.cy.js
+│       │   │   ├── TC_WEB_005_erro_registrar_usuario_email_existente.cy.js
+│       │   │   ├── TC_WEB_006_sucesso_formulario_contato.cy.js
+│       │   │   ├── TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js
+│       │   │   ├── TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js
+│       │   │   ├── TC_WEB_009_sucesso_pesquisar_produto.cy.js
+│       │   │   ├── TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js
+│       │   │   ├── TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js
+│       │   │   ├── TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js
+│       │   │   ├── TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js
+│       │   │   ├── TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js
+│       │   │   ├── TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js
+│       │   │   ├── TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js
+│       │   │   ├── TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js
+│       │   │   ├── TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js
+│       │   │   ├── TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js
+│       │   │   ├── TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js
+│       │   │   ├── TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js
+│       │   │   ├── TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js
+│       │   │   ├── TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js
+│       │   │   ├── TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js
+│       │   │   ├── TC_WEB_025_sucesso_verificar_scroll_seta.cy.js
+│       │   │   └── TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js
+│       │   ├── api/                     # Testes de API
+│       │   └── performance/             # Testes de performance
+│       ├── pages/                       # Page Objects
+│       │   └── ...
+│       ├── data/                        # Factories
+│       ├── fixtures/                    # Dados estaticos
+│       ├── support/                     # Comandos customizados
+│       ├── reports/                     # Relatorios de execucao
+│       ├── screenshots/                 # Evidencias visuais
+│       │   ├── web/                     # PNGs + GIFs por spec
+│       │   ├── api/                     # HTML reports das APIs
+│       │   └── performance/             # PNGs + GIF do TC_PF_008
+│       ├── allure/                      # Relatorios Allure
+│       └── videos/                      # Videos das execucoes
 ```
 ---
 **Documento gerado em:** 2026-05-22
+

@@ -44,7 +44,7 @@
 
 ## 3. Cenários E2E
 
-> **Regra Obrigatória â Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável â descrever o recurso ou condição necessária.
+> **Regra Obrigatória — Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável — descrever o recurso ou condição necessária.
 
 ### F01 - Gestão de Identidade e Acesso
 
@@ -57,6 +57,7 @@
 - **TC:** TC_WEB_001
 - **Dado:** Que existem dados de registro disponíveis
 - **Pós-condição:** Conta criada e excluída ao final do teste
+- **Resultado esperado:** Usuário consegue se registrar, acessar o sistema e excluir sua conta
 
 **Cenário:**
 ```
@@ -78,6 +79,7 @@ Então o header "Account Deleted!" deve estar visível após exclusão
 - **TC:** TC_WEB_002
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Usuário cadastrado consegue acessar sua conta
 
 **Cenário:**
 ```
@@ -97,6 +99,7 @@ Então o sistema redireciona para a página de login e o header "Login to your a
 - **TC:** TC_WEB_003
 - **Dado:** Que existem credenciais inexistentes no sistema
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Sistema impede acesso com credenciais inválidas
 
 **Cenário:**
 ```
@@ -116,6 +119,7 @@ Então o sistema exibe a mensagem de erro e o usuário permanece na página de l
 - **TC:** TC_WEB_004
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Sessão encerrada
+- **Resultado esperado:** Usuário consegue encerrar a sessão com segurança
 
 **Cenário:**
 ```
@@ -135,6 +139,7 @@ Então o sistema redireciona para a página de login e o header "Login to your a
 - **TC:** TC_WEB_005
 - **Dado:** Que existe um email já cadastrado no sistema
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Sistema impede duplicidade de cadastro
 
 **Cenário:**
 ```
@@ -158,6 +163,7 @@ Então o sistema exibe a mensagem de erro "Email Address already exist!"
 - **TC:** TC_WEB_008
 - **Dado:** Que existem produtos disponíveis no catálogo
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Catálogo de produtos exibe informações completas
 
 **Cenário:**
 ```
@@ -177,6 +183,7 @@ Então as informações do produto devem estar visíveis (nome, categoria, preç
 - **TC:** TC_WEB_009
 - **Dado:** Que existe um termo de busca válido disponível
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Busca retorna produtos relacionados ao termo
 
 **Cenário:**
 ```
@@ -196,6 +203,7 @@ Então o header "SEARCHED PRODUCTS" deve estar visível e os produtos relacionad
 - **TC:** TC_WEB_018
 - **Dado:** Que existem categorias de produto válidas disponíveis
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Categorias e subcategorias exibem produtos corretamente
 
 **Cenário:**
 ```
@@ -215,6 +223,7 @@ Então as páginas das categorias devem exibir os produtos corretamente
 - **TC:** TC_WEB_019
 - **Dado:** Que existem marcas de produto válidas disponíveis
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Marcas exibem produtos corretamente
 
 **Cenário:**
 ```
@@ -234,6 +243,7 @@ Então as páginas das marcas devem exibir os produtos corretamente
 - **TC:** TC_WEB_021
 - **Dado:** Que existe um texto de avaliação de produto disponível
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Usuário consegue avaliar produto
 
 **Cenário:**
 ```
@@ -257,6 +267,7 @@ Então o sistema exibe a mensagem "Thank you for your review."
 - **TC:** TC_WEB_012
 - **Dado:** Que existem produtos disponíveis no catálogo
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Carrinho aceita múltiplos produtos com preços e quantidades
 
 **Cenário:**
 ```
@@ -276,6 +287,7 @@ Então a página do carrinho deve estar visível e os dois produtos devem estar 
 - **TC:** TC_WEB_013
 - **Dado:** Que existe um produto disponível com campo de quantidade editável
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Seletor de quantidade reflete valor escolhido no carrinho
 
 **Cenário:**
 ```
@@ -294,6 +306,7 @@ Então a quantidade do produto no carrinho deve ser exatamente "4"
 - **TC:** TC_WEB_017
 - **Dado:** Que existe um produto disponível no catálogo com quantidade configurável
 - **Pós-condição:** Carrinho atualizado
+- **Resultado esperado:** Usuário consegue remover itens do carrinho
 
 **Cenário:**
 ```
@@ -313,6 +326,7 @@ Então o produto deve ser removido do carrinho
 - **TC:** TC_WEB_020
 - **Dado:** Que existem credenciais pré-cadastradas e termos de busca válidos disponíveis
 - **Pós-condição:** Carrinho persiste após login
+- **Resultado esperado:** Carrinho persiste itens após autenticação
 
 **Cenário:**
 ```
@@ -334,6 +348,7 @@ Então os produtos devem persistir no carrinho após login
 - **TC:** TC_WEB_022
 - **Dado:** Que existem itens recomendados disponíveis na seção inferior da página inicial
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Produtos recomendados são adicionados ao carrinho
 
 **Cenário:**
 ```
@@ -357,6 +372,7 @@ Então o produto recomendado deve estar na página do carrinho
 - **TC:** TC_WEB_014
 - **Dado:** Que existem dados de registro e dados de pagamento disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
+- **Resultado esperado:** Fluxo completo de compra com registro no checkout
 
 **Cenário:**
 ```
@@ -379,6 +395,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Dado:** Que existem dados de registro e dados de pagamento disponíveis
 - **Diferencial:** Foco no fluxo completo de compra com registro prévio ao checkout, incluindo fechamento de pedido com pagamento.
 - **Pós-condição:** Conta criada e excluída ao final
+- **Resultado esperado:** Fluxo completo de compra com registro prévio
 
 **Cenário:**
 ```
@@ -400,6 +417,7 @@ Então o header "Account Deleted!" deve estar visível
 - **TC:** TC_WEB_016
 - **Dado:** Que existem credenciais pré-cadastradas e dados de pagamento disponíveis
 - **Pós-condição:** Sessão permanece ativa
+- **Resultado esperado:** Usuário logado consegue finalizar compra
 
 **Cenário:**
 ```
@@ -420,6 +438,7 @@ Então a mensagem de confirmação do pedido deve estar visível
 - **Diferencial:** Foco exclusivo na conferência de endereços. Para o fluxo completo de pagamento pós-registro, veja F04.02 (TC_WEB_015).
 - **Dado:** Que existem dados de registro disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
+- **Resultado esperado:** Endereços de entrega e cobrança conferem com cadastro
 
 **Cenário:**
 ```
@@ -441,6 +460,7 @@ Então o header "Account Deleted!" deve estar visível
 - **TC:** TC_WEB_024
 - **Dado:** Que existem dados de registro, dados de contato e dados de pagamento disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
+- **Resultado esperado:** Fatura é gerada e disponível para download
 
 **Cenário:**
 ```
@@ -467,6 +487,7 @@ Então o header "Account Deleted!" deve estar visível
 - **TC:** TC_WEB_006
 - **Dado:** Que existem dados de contato disponíveis
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Usuário consegue enviar mensagem com arquivo anexado
 
 **Cenário:**
 ```
@@ -488,6 +509,7 @@ Então a página inicial deve estar carregada
 - **TC:** TC_WEB_007
 - **Dado:** Que existem links de navegação acessíveis na página inicial
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Navegação para página de casos de teste funciona
 
 **Cenário:**
 ```
@@ -505,6 +527,7 @@ Então a página de casos de teste é carregada com header "Test Cases" visível
 - **TC:** TC_WEB_010
 - **Dado:** Que existe um campo de assinatura de newsletter acessível na página inicial
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Usuário consegue assinar newsletter na home
 
 **Cenário:**
 ```
@@ -525,6 +548,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 - **TC:** TC_WEB_011
 - **Dado:** Que existe um campo de assinatura de newsletter acessível na página do carrinho
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Usuário consegue assinar newsletter no carrinho
 
 **Cenário:**
 ```
@@ -544,6 +568,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 - **TC:** TC_WEB_025
 - **Dado:** Que existem botões de navegação acessíveis na página
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Botão de scroll up retorna ao topo da página
 
 **Cenário:**
 ```
@@ -563,6 +588,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **TC:** TC_WEB_026
 - **Dado:** Que existe uma área navegável com scroll
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** Scroll manual retorna ao topo da página
 
 **Cenário:**
 ```
@@ -577,7 +603,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 
 ## 4. Cenários API
 
-> **Regra Obrigatória â Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável â descrever o recurso ou condição necessária.
+> **Regra Obrigatória — Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável — descrever o recurso ou condição necessária.
 
 ### F06 - API Catálogo de Produtos e Marcas
 
@@ -590,6 +616,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **TC:** TC_API_001
 - **Dado:** Que a API de catálogo de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API retorna catálogo completo com 34 produtos
 
 **Cenário:**
 ```
@@ -611,6 +638,7 @@ E cada produto deve possuir as propriedades id, name, price, brand e category
 - **TC:** TC_API_002
 - **Dado:** Que a API de catálogo de marcas está disponível
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API retorna lista de marcas disponíveis
 
 **Cenário:**
 ```
@@ -632,6 +660,7 @@ E cada marca deve possuir as propriedades id e brand
 - **TC:** TC_API_003
 - **Dado:** Que existe um termo de busca 'top' disponível
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API retorna produtos filtrados pelo termo buscado
 
 **Cenário:**
 ```
@@ -653,6 +682,7 @@ E cada produto deve possuir as propriedades id e name
 - **TC:** TC_API_004
 - **Dado:** Que a API de busca de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente
 
 **Cenário:**
 ```
@@ -676,6 +706,7 @@ E o body.message deve ser igual a "Bad request, search_product parameter is miss
 - **TC:** TC_API_005
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Nenhuma
+- **Resultado esperado:** API autentica usuário com credenciais corretas
 
 **Cenário:**
 ```
@@ -695,6 +726,7 @@ E o body.message deve ser igual a "User exists!"
 - **TC:** TC_API_006
 - **Dado:** Que a API de autenticação está disponível
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API retorna erro quando campo obrigatório está ausente
 
 **Cenário:**
 ```
@@ -714,6 +746,7 @@ E o body.message deve ser igual a "Bad request, email or password parameter is m
 - **TC:** TC_API_007
 - **Dado:** Que existem credenciais inexistentes no sistema
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API rejeita autenticação com dados incorretos
 
 **Cenário:**
 ```
@@ -737,6 +770,7 @@ E o body.message deve ser igual a "User not found!"
 - **TC:** TC_API_008
 - **Dado:** Que existem dados de registro e a API de criação de conta está disponível
 - **Pós-condição:** Usuário criado deve ser excluído após a execução
+- **Resultado esperado:** API cria nova conta com dados fornecidos
 
 **Cenário:**
 ```
@@ -758,6 +792,7 @@ E o usuário criado deve ser excluído após a execução
 - **TC:** TC_API_009
 - **Dado:** Que existem credenciais pré-cadastradas e a API de exclusão de conta está disponível
 - **Pós-condição:** Nenhuma (usuário temporário criado e excluído no mesmo teste)
+- **Resultado esperado:** API remove conta existente do sistema
 
 **Cenário:**
 ```
@@ -778,6 +813,7 @@ E o body.message deve ser igual a "Account deleted!"
 - **TC:** TC_API_010
 - **Dado:** Que existem dados de registro e a API de atualização de conta está disponível
 - **Pós-condição:** Usuário atualizado deve ser excluído após a execução
+- **Resultado esperado:** API permite alteração de dados cadastrais
 
 **Cenário:**
 ```
@@ -798,6 +834,7 @@ E o body.message deve ser igual a "User updated!"
 - **TC:** TC_API_011
 - **Dado:** Que existem dados de registro e a API de consulta de conta está disponível
 - **Pós-condição:** Usuário criado deve ser excluído após a execução
+- **Resultado esperado:** API retorna dados do usuário pelo email
 
 **Cenário:**
 ```
@@ -822,6 +859,7 @@ E o body deve possuir user com as propriedades name e email
 - **TC:** TC_API_012
 - **Dado:** Que a API de catálogo de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API rejeita método não permitido com erro 405
 
 **Cenário:**
 ```
@@ -841,6 +879,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **TC:** TC_API_013
 - **Dado:** Que a API de catálogo de marcas está disponível
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API rejeita método não permitido com erro 405
 
 **Cenário:**
 ```
@@ -860,6 +899,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **TC:** TC_API_014
 - **Dado:** Que a API de autenticação está disponível
 - **Pós-condição:** Nenhuma alteração
+- **Resultado esperado:** API rejeita método não permitido com erro 405
 
 **Cenário:**
 ```
@@ -880,12 +920,12 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 |-----------|-------|---------|------|
 | **E2E Tests** | 26 | 24 (92,3%) | 2 (7,7%) |
 | **API Tests** | 14 | 8 (57,1%) | 6 (42,9%) |
-| **Performance Tests** | 21 | 18 (85,7%) | 3 (14,3%) â ï¸Â¹ |
+| **Performance Tests** | 21 | 18 (85,7%) | 3 (14,3%) ⚠️¹ |
 | **Total Consolidado** | **61** | **50 (82,0%)** | **11 (18,0%)** |
 
 > **Nota:** Performance tests (k6 + TC_PF_008) são cenários técnicos sem classificação Sucesso/Erro tradicional. A divisão acima reflete a última execução. Os 8 checks do TC_PF_008 são contados individualmente, elevando o total para 61 casos no Allure. Em termos BDD (cenários descritíveis em Gherkin), o total é de 40 cenários (26 E2E + 14 API).
 >
-> Â¹ Os 3 cenários classificados como "Erro" (TC_PF_003, TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare, não erros funcionais. Os scripts executam corretamente e os thresholds foram ajustados para tolerar a degradação esperada sob carga.
+> ¹ Os 3 cenários classificados como "Erro" (TC_PF_003, TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare, não erros funcionais. Os scripts executam corretamente e os thresholds foram ajustados para tolerar a degradação esperada sob carga.
 
 ### 5.1 Cobertura por Área Funcional - E2E
 

@@ -19,7 +19,7 @@ O **Automation Exercise** é uma plataforma de e-commerce de alta fidelidade par
 - **Fora de Escopo:** Segurança de Penetração.
 
 #### Performance Tests (Carga e Estresse)
-- **Em Escopo:** Endpoints REST (GET, POST, DELETE) sob carga, Páginas Web (Homepage, Produtos, Login), Fluxos de Negócio (Criar Conta â Login â Listar â Excluir), Validação de Latência e Throughput, Core Web Vitals (LCP, CLS, TTFB).
+- **Em Escopo:** Endpoints REST (GET, POST, DELETE) sob carga, Páginas Web (Homepage, Produtos, Login), Fluxos de Negócio (Criar Conta → Login → Listar → Excluir), Validação de Latência e Throughput, Core Web Vitals (LCP, CLS, TTFB).
 - **Fora de Escopo:** Testes Mobile, Testes de Usabilidade, Testes Cross-Browser, Testes de Carga Distribuída.
 
 ---
@@ -107,7 +107,7 @@ Os cenários estão organizados em:
 | Testes de API | 14 | `Suite_BDD.md` / `Especificacao_Tecnica_API.md` |
 | Testes de Performance | 21 | `Suite_BDD.md` / `Especificacao_Tecnica_Performance.md` |
 
-> **Total:** 40 cenários funcionais (BDD) Â· 61 casos individuais no Allure (26 E2E + 14 API + 13 k6 + 8 Core Web Vitals)
+> **Total:** 40 cenários funcionais (BDD) · 61 casos individuais no Allure (26 E2E + 14 API + 13 k6 + 8 Core Web Vitals)
 
 ---
 
