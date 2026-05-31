@@ -185,6 +185,8 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 > **Passos Detalhados:**
 > ```
 > The field `**Asserção Chave:**` does NOT need `<br>` as it is followed by a code block or paragraph.
+>
+> **RESULTADO ESPERADO RULE:** All tests (E2E, API, BDD, Performance) MUST include the field `**Resultado esperado:**` after `**Pós-condição:**` describing the expected business outcome of the test. This field applies to both technical documents and BDD scenarios.
 
 > **Exception:** Templates already have `AAAA-MM-DD` as a date placeholder. Always replace it with the **current date** when generating the document.
 

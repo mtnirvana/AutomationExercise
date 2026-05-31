@@ -57,6 +57,7 @@
 - **TC:** TC###
 - **Dado:** [Obrigatório — contexto do cenário: dados de entrada, pré-condições, recursos necessários]
 - **Pós-condição:** [O que permanece ou é alterado após o teste]
+- **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 
 **Cenário:**
 ```
@@ -554,4 +555,3 @@ Um cenário é considerado **CONCLUÍDO** quando:
 ---
 
 **Documento gerado em:** AAAA-MM-DD
-
