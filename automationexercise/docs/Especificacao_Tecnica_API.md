@@ -23,7 +23,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 | **Asserções** | Explícitas (`expect(response.status).to.eq(200)`) em **PORTUGUÊS** conforme padrão: `é igual a 200`, `é um array`, `possui propriedade id` |
 | **Validação de Body** | Verificação de `responseCode`, `products`, `brands`, `message` |
 | **Cleanup** | afterEach com DELETE para usuários criados |
-| **Evidências** | HTML report gerado via `cy.task('generateEvidenceReport')`:<br>- Folder: `cypress/screenshots/api/` (plano)<br>- HTML Report: `{testId}_api_result.html` (request, response, assertions, sobrescrito a cada execução)<br>- Relatório unificado no **Allure Report** |
+| **Evidências** | HTML report gerado via `cy.task('generateEvidenceReport')`:<br>- Folder: [`cypress/screenshots/api/`](../Cypress/cypress/screenshots/api/) (plano)<br>- HTML Report: `{testId}_api_result.html` (request, response, assertions, sobrescrito a cada execução)<br>- Relatório unificado no **Allure Report** |
 | **Asserções em PT-BR** | Descrições em **PORTUGUÊS (BRASIL)** conforme padrão do projeto (ex: 'é igual a 200', 'é um array', 'possui propriedade id') |
 
 ---
@@ -98,7 +98,7 @@ expect(response.body.products[0]).to.have.property('category')
 ```
 
 **Evidência:**
-[`TC_API_001_api_result.html`](cypress/screenshots/api/TC_API_001_api_result.html)
+[`TC_API_001_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_001_api_result.html)
 
 ---
 
@@ -135,7 +135,7 @@ expect(response.body.brands[0]).to.have.property('brand')
 ```
 
 **Evidência:**
-[`TC_API_002_api_result.html`](cypress/screenshots/api/TC_API_002_api_result.html)
+[`TC_API_002_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_002_api_result.html)
 
 ---
 
@@ -172,7 +172,7 @@ expect(response.body.products[0].name.toLowerCase()).to.include('top')
 ```
 
 **Evidência:**
-[`TC_API_003_api_result.html`](cypress/screenshots/api/TC_API_003_api_result.html)
+[`TC_API_003_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_003_api_result.html)
 
 ---
 
@@ -203,7 +203,7 @@ expect(response.body.message).to.eq('Bad request, search_product parameter is mi
 ```
 
 **Evidência:**
-[`TC_API_004_api_result.html`](cypress/screenshots/api/TC_API_004_api_result.html)
+[`TC_API_004_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_004_api_result.html)
 
 ---
 
@@ -238,7 +238,7 @@ expect(response.body.message).to.eq('User exists!')
 ```
 
 **Evidência:**
-[`TC_API_005_api_result.html`](cypress/screenshots/api/TC_API_005_api_result.html)
+[`TC_API_005_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_005_api_result.html)
 
 ---
 
@@ -269,7 +269,7 @@ expect(response.body.message).to.eq('Bad request, email or password parameter is
 ```
 
 **Evidência:**
-[`TC_API_006_api_result.html`](cypress/screenshots/api/TC_API_006_api_result.html)
+[`TC_API_006_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_006_api_result.html)
 
 ---
 
@@ -300,7 +300,7 @@ expect(response.body.message).to.eq('User not found!')
 ```
 
 **Evidência:**
-[`TC_API_007_api_result.html`](cypress/screenshots/api/TC_API_007_api_result.html)
+[`TC_API_007_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_007_api_result.html)
 
 ---
 
@@ -335,7 +335,7 @@ expect(response.body.message).to.eq('User created!')
 ```
 
 **Evidência:**
-[`TC_API_008_api_result.html`](cypress/screenshots/api/TC_API_008_api_result.html)
+[`TC_API_008_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_008_api_result.html)
 
 ---
 
@@ -368,7 +368,7 @@ expect(response.body.message).to.eq('Account deleted!')
 ```
 
 **Evidência:**
-[`TC_API_009_api_result.html`](cypress/screenshots/api/TC_API_009_api_result.html)
+[`TC_API_009_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_009_api_result.html)
 
 ---
 
@@ -401,7 +401,7 @@ expect(response.body.message).to.eq('User updated!')
 ```
 
 **Evidência:**
-[`TC_API_010_api_result.html`](cypress/screenshots/api/TC_API_010_api_result.html)
+[`TC_API_010_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_010_api_result.html)
 
 ---
 
@@ -437,7 +437,7 @@ expect(response.body.user).to.have.property('email')
 ```
 
 **Evidência:**
-[`TC_API_011_api_result.html`](cypress/screenshots/api/TC_API_011_api_result.html)
+[`TC_API_011_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_011_api_result.html)
 
 ---
 
@@ -472,7 +472,7 @@ expect(response.body.message).to.eq('This request method is not supported.')
 ```
 
 **Evidência:**
-[`TC_API_012_api_result.html`](cypress/screenshots/api/TC_API_012_api_result.html)
+[`TC_API_012_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_012_api_result.html)
 
 ---
 
@@ -503,7 +503,7 @@ expect(response.body.message).to.eq('This request method is not supported.')
 ```
 
 **Evidência:**
-[`TC_API_013_api_result.html`](cypress/screenshots/api/TC_API_013_api_result.html)
+[`TC_API_013_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_013_api_result.html)
 
 ---
 
@@ -534,7 +534,7 @@ expect(response.body.message).to.eq('This request method is not supported.')
 ```
 
 **Evidência:**
-[`TC_API_014_api_result.html`](cypress/screenshots/api/TC_API_014_api_result.html)
+[`TC_API_014_api_result.html`](../Cypress/cypress/screenshots/api/TC_API_014_api_result.html)
 
 ---
 
