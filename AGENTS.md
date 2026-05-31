@@ -184,8 +184,8 @@ The BDD document provides a business-readable overview of all test scenarios org
    - When = actions grouped by business intent
    - Then = validations grouped
    - The technical plan has the granular steps; the BDD summarizes by intention
-7. **CAMPO DADO OBRIGATÓRIO** — Every scenario MUST have the `Dado` field filled with natural language context (input data, preconditions, or required resources). NEVER use "Nenhum" when context applies — describe the resource or condition needed. Example: "Que existem credenciais pré-cadastradas no sistema" instead of "Nenhum".
-8. **PADRÃO DE LINGUAGEM PARA CAMPO DADO** — O campo `Dado` deve seguir padrões consistentes para facilitar leitura por stakeholders:
+7. **REQUIRED DADO FIELD** — Every scenario MUST have the `Dado` field filled with natural language context (input data, preconditions, or required resources). NEVER use "Nenhum" when context applies — describe the resource or condition needed. Example: "Que existem credenciais pré-cadastradas no sistema" instead of "Nenhum".
+8. **DADO LANGUAGE STANDARD** — The `Dado` field must follow consistent patterns for stakeholder readability:
 
 | Cenário | Padrão `Dado` |
 |---------|---------------|
@@ -218,8 +218,8 @@ When creating a new test case, the BDD must be updated AFTER the technical docum
    - Extract the exact scenarios from the source documents
     - **SUMMARIZE steps** by grouping actions into Given/When/Then blocks (max 7 blocks per scenario)
    - Populate the template with the collected data
-   - **CAMPO DADO OBRIGATÓRIO:** Every scenario MUST have the `Dado` field filled with natural language context. Never use "Nenhum" when context applies.
-   - **PADRÃO DE LINGUAGEM:** Follow the language patterns defined in item 8 — use "Que existem credenciais pré-cadastradas no sistema" for login, "Que existem dados de registro disponíveis" for registration, etc.
+   - **REQUIRED DADO FIELD:** Every scenario MUST have the `Dado` field filled with natural language context. Never use "Nenhum" when context applies.
+   - **DADO LANGUAGE STANDARD:** Follow the language patterns defined in item 8 — use "Que existem credenciais pré-cadastradas no sistema" for login, "Que existem dados de registro disponíveis" for registration, etc.
    - Add new entry to the appropriate functional area (E2E or API)
    - Update totals in Meta e Escopo section
    - Update classification tables (Sucesso/Erro counts and percentages)

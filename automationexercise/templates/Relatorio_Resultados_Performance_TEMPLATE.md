@@ -1,4 +1,4 @@
-# Relatório de Resultados - Testes de Performance e Carga
+# Relatório de Resultados Performance - Automation Exercise
 **Versão:** 1.0.0
 **Responsável:** Rafael Barelli
 **Ferramenta:** k6 (Grafana Labs) v2.0.0
