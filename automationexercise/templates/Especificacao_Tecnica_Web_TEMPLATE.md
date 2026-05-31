@@ -1,5 +1,5 @@
 # Especificação Técnica Web - Automation Exercise
-**Versão:** 1.0.0
+**Versão:** 1.0.0<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -49,10 +49,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 #### TC_WEB_001 - Registrar usuário
 
-**Objetivo:** Validar o ciclo de vida completo de criação e exclusão de conta.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `UserFactory.generate()` - dados dinâmicos únicos por execução
+**Objetivo:** Validar o ciclo de vida completo de criação e exclusão de conta.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `UserFactory.generate()` - dados dinâmicos únicos por execução<br>
 **Pós-condição:** Conta criada e excluída ao final do teste
 
 **Passos Detalhados:**
@@ -330,4 +330,3 @@ automationexercise/
 ---
 
 **Documento gerado em:** AAAA-MM-DD
-

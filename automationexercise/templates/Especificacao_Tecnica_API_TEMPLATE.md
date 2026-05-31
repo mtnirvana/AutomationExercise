@@ -1,5 +1,5 @@
 # Especificação Técnica API - Automation Exercise
-**Versão:** 1.0.0
+**Versão:** 1.0.0<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -54,10 +54,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 #### TC_API_001 - Listar todos os produtos via API
 
-**Objetivo:** Validar o retorno da lista completa de produtos do catálogo.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** Nenhum (endpoint público)
+**Objetivo:** Validar o retorno da lista completa de produtos do catálogo.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Nenhum (endpoint público)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**

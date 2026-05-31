@@ -1,5 +1,5 @@
 # Especificação Técnica API - Automation Exercise
-**Versão:** 1.0.0
+**Versão:** 1.0.0<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -61,10 +61,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 #### TC_API_001 - Listar todos os produtos via API
 
-**Objetivo:** Validar o retorno da lista completa de produtos do catálogo.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** Nenhum (endpoint público)
+**Objetivo:** Validar o retorno da lista completa de produtos do catálogo.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Nenhum (endpoint público)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -105,10 +105,10 @@ cypress/screenshots/api/TC_API_001_api_result.html
 
 #### TC_API_002 - Listar todas as marcas via API
 
-**Objetivo:** Validar o retorno da lista completa de marcas do catálogo.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** Nenhum (endpoint público)
+**Objetivo:** Validar o retorno da lista completa de marcas do catálogo.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Nenhum (endpoint público)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -143,10 +143,10 @@ cypress/screenshots/api/TC_API_002_api_result.html
 
 #### TC_API_003 - Pesquisar produto por termo via API
 
-**Objetivo:** Validar a busca de produtos por termo de pesquisa.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** Termo de busca 'top' via fixture ou string literal
+**Objetivo:** Validar a busca de produtos por termo de pesquisa.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Termo de busca 'top' via fixture ou string literal<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -181,10 +181,10 @@ cypress/screenshots/api/TC_API_003_api_result.html
 
 #### TC_API_004 - Pesquisar produto sem parâmetro via API
 
-**Objetivo:** Validar que a API retorna erro quando parâmetro de busca está ausente.
-**Tipo:** Erro
-**Criticidade:** Média
-**Dados:** Nenhum (requisição sem parâmetro)
+**Objetivo:** Validar que a API retorna erro quando parâmetro de busca está ausente.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum (requisição sem parâmetro)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -217,10 +217,10 @@ cypress/screenshots/api/TC_API_004_api_result.html
 
 #### TC_API_005 - Verificar login com credenciais válidas via API
 
-**Objetivo:** Garantir que a API retorna sucesso quando credenciais válidas são fornecidas.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `cypress/fixtures/users.json` → `testUser` (credenciais pré-cadastradas)
+**Objetivo:** Garantir que a API retorna sucesso quando credenciais válidas são fornecidas.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser` (credenciais pré-cadastradas)<br>
 **Pós-condição:** Nenhuma (fixture reutilizável)
 
 **Passos Detalhados:**
@@ -249,10 +249,10 @@ cypress/screenshots/api/TC_API_005_api_result.html
 
 #### TC_API_006 - Verificar login sem email via API
 
-**Objetivo:** Validar que a API retorna erro quando email está ausente.
-**Tipo:** Erro
-**Criticidade:** Média
-**Dados:** Nenhum (requisição sem email)
+**Objetivo:** Validar que a API retorna erro quando email está ausente.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum (requisição sem email)<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -281,10 +281,10 @@ cypress/screenshots/api/TC_API_006_api_result.html
 
 #### TC_API_007 - Verificar login com credenciais inválidas via API
 
-**Objetivo:** Validar que a API retorna erro quando credenciais não existem.
-**Tipo:** Erro
-**Criticidade:** Alta
-**Dados:** `cypress/fixtures/users.json` → `invalidUser`
+**Objetivo:** Validar que a API retorna erro quando credenciais não existem.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/users.json` → `invalidUser`<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -317,10 +317,10 @@ cypress/screenshots/api/TC_API_007_api_result.html
 
 #### TC_API_008 - Criar conta de usuário via API
 
-**Objetivo:** Validar a criação de novo usuário via endpoint.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** Dados dinâmicos via UserFactory.generate()
+**Objetivo:** Validar a criação de novo usuário via endpoint.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** Dados dinâmicos via UserFactory.generate()<br>
 **Pós-condição:** Usuário criado é excluído no afterEach
 
 **Passos Detalhados:**
@@ -349,10 +349,10 @@ cypress/screenshots/api/TC_API_008_api_result.html
 
 #### TC_API_009 - Excluir conta de usuário via API
 
-**Objetivo:** Validar a exclusão de usuário via endpoint.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `cypress/data/userFactory.js` → `UserFactory.generate()` (usuário dinâmico)
+**Objetivo:** Validar a exclusão de usuário via endpoint.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `cypress/data/userFactory.js` → `UserFactory.generate()` (usuário dinâmico)<br>
 **Pós-condição:** Nenhuma (usuário temporário criado e excluído no mesmo teste)
 
 **Passos Detalhados:**
@@ -383,10 +383,10 @@ cypress/screenshots/api/TC_API_009_api_result.html
 
 #### TC_API_010 - Atualizar conta de usuário via API
 
-**Objetivo:** Validar a atualização de dados do usuário via endpoint PUT.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** Dados dinâmicos via UserFactory.generate()
+**Objetivo:** Validar a atualização de dados do usuário via endpoint PUT.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Dados dinâmicos via UserFactory.generate()<br>
 **Pós-condição:** Usuário criado é excluído no afterEach
 
 **Passos Detalhados:**
@@ -417,10 +417,10 @@ cypress/screenshots/api/TC_API_010_api_result.html
 
 #### TC_API_011 - Obter detalhes do usuário por email via API
 
-**Objetivo:** Validar a busca de detalhes de usuário pelo email.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** Dados dinâmicos via UserFactory.generate()
+**Objetivo:** Validar a busca de detalhes de usuário pelo email.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Dados dinâmicos via UserFactory.generate()<br>
 **Pós-condição:** Usuário criado é excluído no afterEach
 
 **Passos Detalhados:**
@@ -458,10 +458,10 @@ cypress/screenshots/api/TC_API_011_api_result.html
 
 #### TC_API_012 - Validar método POST em productsList via API
 
-**Objetivo:** Garantir que POST não é suportado em /api/productsList.
-**Tipo:** Erro
-**Criticidade:** Média
-**Dados:** Nenhum
+**Objetivo:** Garantir que POST não é suportado em /api/productsList.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -490,10 +490,10 @@ cypress/screenshots/api/TC_API_012_api_result.html
 
 #### TC_API_013 - Validar método PUT em brandsList via API
 
-**Objetivo:** Garantir que PUT não é suportado em /api/brandsList.
-**Tipo:** Erro
-**Criticidade:** Média
-**Dados:** Nenhum
+**Objetivo:** Garantir que PUT não é suportado em /api/brandsList.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -522,10 +522,10 @@ cypress/screenshots/api/TC_API_013_api_result.html
 
 #### TC_API_014 - Validar método DELETE em verifyLogin via API
 
-**Objetivo:** Garantir que DELETE não é suportado em /api/verifyLogin.
-**Tipo:** Erro
-**Criticidade:** Média
-**Dados:** Nenhum
+**Objetivo:** Garantir que DELETE não é suportado em /api/verifyLogin.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Média<br>
+**Dados:** Nenhum<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**

@@ -1,5 +1,5 @@
 # Especificação Técnica Web - Automation Exercise
-**Versão:** 1.0.0
+**Versão:** 1.0.0<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -92,11 +92,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_002 - Login de usuário com email e senha corretos
-**Objetivo:** Garantir o acesso à área restrita para usuários cadastrados.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `cypress/fixtures/users.json` → `testUser` (credenciais pré-cadastradas)
-**Pós-condição:** Nenhuma (fixture reutilizável)
+**Objetivo:** Garantir o acesso à área restrita para usuários cadastrados.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser` (credenciais pré-cadastradas)<br>
+**Pós-condição:** Nenhuma (fixture reutilizável)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -117,11 +117,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_003 - Login de usuário com email e senha incorretos
-**Objetivo:** Validar o tratamento de erro em tentativas de acesso inválidas.
-**Tipo:** Erro
-**Criticidade:** Alta
-**Dados:** `cypress/fixtures/users.json` → `invalidUser` (credenciais inexistentes)
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar o tratamento de erro em tentativas de acesso inválidas.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/users.json` → `invalidUser` (credenciais inexistentes)<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -140,11 +140,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_004 - Logout de usuário
-**Objetivo:** Validar o encerramento seguro da sessão.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** `cypress/fixtures/users.json` → `testUser`
-**Pós-condição:** Sessão encerrada
+**Objetivo:** Validar o encerramento seguro da sessão.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser`<br>
+**Pós-condição:** Sessão encerrada<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -165,11 +165,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_005 - Registrar usuário com email existente
-**Objetivo:** Prevenir a duplicidade de contas no sistema.
-**Tipo:** Erro
-**Criticidade:** Alta
-**Dados:** `cypress/fixtures/users.json` → `existingEmail`
-**Pós-condição:** Nenhuma (validação de erro)
+**Objetivo:** Prevenir a duplicidade de contas no sistema.<br>
+**Tipo:** Erro<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/users.json` → `existingEmail`<br>
+**Pós-condição:** Nenhuma (validação de erro)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -190,11 +190,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 ### 4.2 Grupo: Comunicação e UX (TC_WEB_006 - TC_WEB_007, TC_WEB_010 - TC_WEB_011)
 ---
 #### TC_WEB_006 - Formulário de contato
-**Objetivo:** Validar o envio do formulário de contato com upload de arquivo.
-**Tipo:** Sucesso
-**Criticidade:** Média
-**Dados:** `cypress/fixtures/contact.json` → contato + `ui_texts.json`
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar o envio do formulário de contato com upload de arquivo.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Média<br>
+**Dados:** `cypress/fixtures/contact.json` → contato + `ui_texts.json`<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -216,11 +216,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_007 - Verificar página de casos de teste
-**Objetivo:** Validar a navegação para a página de Casos de Teste.
-**Tipo:** Sucesso
-**Criticidade:** Baixa
-**Dados:** Nenhum
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar a navegação para a página de Casos de Teste.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Baixa<br>
+**Dados:** Nenhum<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -236,11 +236,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_010 - Verificar assinatura na página inicial
-**Objetivo:** Validar a funcionalidade de assinatura na página inicial.
-**Tipo:** Sucesso
-**Criticidade:** Média
-**Dados:** `cypress/fixtures/contact.json` → `subscribe.email` + `ui_texts.json`
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar a funcionalidade de assinatura na página inicial.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Média<br>
+**Dados:** `cypress/fixtures/contact.json` → `subscribe.email` + `ui_texts.json`<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -259,11 +259,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_011 - Verificar assinatura na página do carrinho
-**Objetivo:** Validar a funcionalidade de assinatura na página do carrinho.
-**Tipo:** Sucesso
-**Criticidade:** Média
-**Dados:** `cypress/fixtures/contact.json` → `subscribe.email` + `ui_texts.json`
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar a funcionalidade de assinatura na página do carrinho.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Média<br>
+**Dados:** `cypress/fixtures/contact.json` → `subscribe.email` + `ui_texts.json`<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -285,11 +285,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 ### 4.3 Grupo: Catálogo e Exploração de Produtos (TC_WEB_008 - TC_WEB_009)
 ---
 #### TC_WEB_008 - Verificar todos os produtos e página de detalhes do produto
-**Objetivo:** Validar a integridade das informações exibidas na ficha técnica do produto.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** Nenhum
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar a integridade das informações exibidas na ficha técnica do produto.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** Nenhum<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -309,11 +309,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_009 - Pesquisar produto
-**Objetivo:** Validar o motor de busca do sistema.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** `cypress/fixtures/products.json` → `searchTerms.winter`
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar o motor de busca do sistema.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/products.json` → `searchTerms.winter`<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -335,11 +335,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 ### 4.4 Grupo: Experiência de Compra e Carrinho (TC_WEB_012 - TC_WEB_013, TC_WEB_017)
 ---
 #### TC_WEB_012 - Adicionar produtos ao carrinho
-**Objetivo:** Validar a funcionalidade de adicionar múltiplos itens ao carrinho.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `cypress/fixtures/ui_texts.json` → `buttons` (via Page Objects)
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar a funcionalidade de adicionar múltiplos itens ao carrinho.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `cypress/fixtures/ui_texts.json` → `buttons` (via Page Objects)<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -362,11 +362,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_013 - Verificar quantidade de produto no carrinho
-**Objetivo:** Validar o seletor de quantidade na página de detalhes do produto.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** `cypress/fixtures/products.json` → `quantities.default` (4)
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar o seletor de quantidade na página de detalhes do produto.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/products.json` → `quantities.default` (4)<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -388,11 +388,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 ### 4.5 Grupo: Transacional e Financeiro (TC_WEB_014 - TC_WEB_016)
 ---
 #### TC_WEB_014 - Fazer pedido registrando durante o checkout
-**Objetivo:** Validar fluxo de compra com registro durante o checkout.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `UserFactory` + `cypress/fixtures/users.json` → `paymentData`
-**Pós-condição:** Conta criada e excluída ao final
+**Objetivo:** Validar fluxo de compra com registro durante o checkout.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `UserFactory` + `cypress/fixtures/users.json` → `paymentData`<br>
+**Pós-condição:** Conta criada e excluída ao final<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -430,11 +430,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_015 - Fazer pedido registrando antes do checkout
-**Objetivo:** Validar fluxo de compra com registro prévio ao checkout.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `UserFactory` + `cypress/fixtures/users.json` → `paymentData`
-**Pós-condição:** Conta criada e excluída ao final
+**Objetivo:** Validar fluxo de compra com registro prévio ao checkout.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `UserFactory` + `cypress/fixtures/users.json` → `paymentData`<br>
+**Pós-condição:** Conta criada e excluída ao final<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -467,11 +467,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_016 - Fazer pedido fazendo login antes do checkout
-**Objetivo:** Validar fluxo de compra com login antes do checkout usando usuário existente.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `cypress/fixtures/users.json` → `testUser` + `paymentData`
-**Pós-condição:** Sessão permanece ativa (sem delete account)
+**Objetivo:** Validar fluxo de compra com login antes do checkout usando usuário existente.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser` + `paymentData`<br>
+**Pós-condição:** Sessão permanece ativa (sem delete account)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -501,11 +501,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_017 - Remover produtos do carrinho
-**Objetivo:** Validar que usuário consegue remover produtos do carrinho.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** `cypress/fixtures/products.json` → `products.firstProd`, `quantities.default` + `ui_texts.json`
-**Pós-condição:** Carrinho vazio ou produto removido
+**Objetivo:** Validar que usuário consegue remover produtos do carrinho.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/products.json` → `products.firstProd`, `quantities.default` + `ui_texts.json`<br>
+**Pós-condição:** Carrinho vazio ou produto removido<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -530,11 +530,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 ### 4.6 Grupo: Catálogo, Carrinho e UX/UI (TC_WEB_018 - TC_WEB_026)
 ---
 #### TC_WEB_018 - Visualizar produtos por categoria
-**Objetivo:** Validar que categorias e subcategorias de produtos são exibidas corretamente.
-**Tipo:** Sucesso
-**Criticidade:** Média
-**Dados:** `cypress/fixtures/products.json` → `categories` + `ui_texts.json`
-**Pós-condição:** Nenhuma (não altera dados)
+**Objetivo:** Validar que categorias e subcategorias de produtos são exibidas corretamente.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Média<br>
+**Dados:** `cypress/fixtures/products.json` → `categories` + `ui_texts.json`<br>
+**Pós-condição:** Nenhuma (não altera dados)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -555,11 +555,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_019 - Visualizar e adicionar ao carrinho produtos de marcas
-**Objetivo:** Validar que usuário pode visualizar e adicionar produtos de diferentes marcas ao carrinho.
-**Tipo:** Sucesso
-**Criticidade:** Média
-**Dados:** `cypress/fixtures/products.json` → `brands` + `ui_texts.json`
-**Pós-condição:** Nenhuma (não altera dados)
+**Objetivo:** Validar que usuário pode visualizar e adicionar produtos de diferentes marcas ao carrinho.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Média<br>
+**Dados:** `cypress/fixtures/products.json` → `brands` + `ui_texts.json`<br>
+**Pós-condição:** Nenhuma (não altera dados)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -579,11 +579,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_020 - Pesquisar produtos e verificar carrinho após login
-**Objetivo:** Validar busca de produtos e persistência do carrinho após login.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** `cypress/fixtures/products.json` → `searchTerms.winter` + `users.json` → `testUser` + `ui_texts.json`
-**Pós-condição:** Carrinho persiste após login
+**Objetivo:** Validar busca de produtos e persistência do carrinho após login.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** `cypress/fixtures/products.json` → `searchTerms.winter` + `users.json` → `testUser` + `ui_texts.json`<br>
+**Pós-condição:** Carrinho persiste após login<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -609,11 +609,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_021 - Adicionar avaliação em produto
-**Objetivo:** Validar que o usuário pode adicionar avaliação em produto.
-**Tipo:** Sucesso
-**Criticidade:** Média
-**Dados:** `UserFactory` → usuário dinâmico + `cypress/fixtures/contact.json` → `review.text` + `ui_texts.json`
-**Pós-condição:** Nenhuma (não altera dados persistidos)
+**Objetivo:** Validar que o usuário pode adicionar avaliação em produto.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Média<br>
+**Dados:** `UserFactory` → usuário dinâmico + `cypress/fixtures/contact.json` → `review.text` + `ui_texts.json`<br>
+**Pós-condição:** Nenhuma (não altera dados persistidos)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -634,11 +634,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_022 - Adicionar ao carrinho itens recomendados
-**Objetivo:** Validar que itens recomendados podem ser adicionados ao carrinho.
-**Tipo:** Sucesso
-**Criticidade:** Baixa
-**Dados:** `cypress/fixtures/ui_texts.json` → `buttons.viewCart`
-**Pós-condição:** Nenhuma (não altera dados)
+**Objetivo:** Validar que itens recomendados podem ser adicionados ao carrinho.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Baixa<br>
+**Dados:** `cypress/fixtures/ui_texts.json` → `buttons.viewCart`<br>
+**Pós-condição:** Nenhuma (não altera dados)<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -657,11 +657,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_023 - Verificar detalhes do endereço na página de checkout
-**Objetivo:** Validar que endereços de entrega e cobrança correspondem aos dados registrados.
-**Tipo:** Sucesso
-**Criticidade:** Crítica
-**Dados:** `UserFactory` → usuário dinâmico + `cypress/fixtures/ui_texts.json`
-**Pós-condição:** Conta criada e excluída ao final
+**Objetivo:** Validar que endereços de entrega e cobrança correspondem aos dados registrados.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Crítica<br>
+**Dados:** `UserFactory` → usuário dinâmico + `cypress/fixtures/ui_texts.json`<br>
+**Pós-condição:** Conta criada e excluída ao final<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -690,11 +690,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_024 - Baixar fatura após pedido
-**Objetivo:** Validar o processo completo de pedido e download de fatura.
-**Tipo:** Sucesso
-**Criticidade:** Alta
-**Dados:** `UserFactory` + `cypress/fixtures/contact.json` + `paymentData`
-**Pós-condição:** Conta criada e excluída ao final
+**Objetivo:** Validar o processo completo de pedido e download de fatura.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Alta<br>
+**Dados:** `UserFactory` + `cypress/fixtures/contact.json` + `paymentData`<br>
+**Pós-condição:** Conta criada e excluída ao final<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -734,11 +734,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_025 - Verificar scroll up usando botão de seta e funcionalidade scroll down
-**Objetivo:** Validar a funcionalidade de scroll usando o botão de seta.
-**Tipo:** Sucesso
-**Criticidade:** Baixa
-**Dados:** `cypress/fixtures/ui_texts.json`
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar a funcionalidade de scroll usando o botão de seta.<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Baixa<br>
+**Dados:** `cypress/fixtures/ui_texts.json`<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -756,11 +756,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 #### TC_WEB_026 - Verificar scroll up sem botão de seta e funcionalidade scroll down
-**Objetivo:** Validar funcionalidade de scroll manual (sem botão de seta).
-**Tipo:** Sucesso
-**Criticidade:** Baixa
-**Dados:** `cypress/fixtures/ui_texts.json` → `homepage.title`
-**Pós-condição:** Nenhuma
+**Objetivo:** Validar funcionalidade de scroll manual (sem botão de seta).<br>
+**Tipo:** Sucesso<br>
+**Criticidade:** Baixa<br>
+**Dados:** `cypress/fixtures/ui_texts.json` → `homepage.title`<br>
+**Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
 |:---:|:---|:---|:---|
@@ -993,5 +993,4 @@ automationexercise/
 ```
 ---
 **Documento gerado em:** 2026-05-22
-
 
