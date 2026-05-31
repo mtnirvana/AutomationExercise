@@ -11,7 +11,7 @@
 Este documento fornece o detalhamento operacional para a execução e manutenção dos testes de performance do **Automation Exercise**. Ele serve como guia para engenheiros de QA, descrevendo a configuração técnica de cada cenário, os thresholds estabelecidos e as validações aplicadas.
 
 ### 1.1 Premissas de Execução
-- **Clean Slate:** Cada teste é independente â dados de criação de conta usam timestamp único para evitar conflitos.
+- **Clean Slate:** Cada teste é independente — dados de criação de conta usam timestamp único para evitar conflitos.
 - **Design Pattern:** Scripts em JavaScript com uso de `stages`, `thresholds` e `check()` do k6.
 - **Dados Dinâmicos:** Uso de `Date.now()` para emails únicos em cenários de criação de conta (TC_PF_009).
 - **Headless:** Execução via CLI (sem GUI), modo non-interactive.
@@ -21,7 +21,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 - **Framework:** jQuery (sem SPA)
 - **CDN/Proxy:** Cloudflare
 - **Servidor:** Nginx
-- **API:** REST â retorna JSON com `responseCode`, `message`, `products`, `brands`
+- **API:** REST — retorna JSON com `responseCode`, `message`, `products`, `brands`
 
 ---
 
@@ -77,11 +77,11 @@ export default function () {
 |:---|:-------|:----:|:-----:|:-------------:|
 | **TC_PF_001** | Smoke test de validação do pipeline | Smoke | 1 VU | ~1s |
 | **TC_PF_002** | Carga concorrente na página inicial | Carga | 50 VUs | ~3,5min |
-| **TC_PF_003** | Carga no endpoint /api/productsList | Carga | 50â100 VUs | ~3,5min |
+| **TC_PF_003** | Carga no endpoint /api/productsList | Carga | 50→100 VUs | ~3,5min |
 | **TC_PF_004** | Carga no endpoint /api/verifyLogin | Carga | 30 VUs | ~2,5min |
-| **TC_PF_005** | Estresse progressivo no /api/productsList | Estresse | 25â300 VUs | ~5,5min |
+| **TC_PF_005** | Estresse progressivo no /api/productsList | Estresse | 25→300 VUs | ~5,5min |
 | **TC_PF_006** | Resistência sustentada com mix de endpoints | Resistência | 50 VUs | ~5,5min |
-| **TC_PF_007** | Pico repentino de tráfego | Pico | 10â200â10 VUs | ~3,5min |
+| **TC_PF_007** | Pico repentino de tráfego | Pico | 10→200→10 VUs | ~3,5min |
 | **TC_PF_008** | Métricas Core Web Vitals (Lighthouse) | Front-end | 1 usuário | ~5min |
 | **TC_PF_009** | Carga no fluxo completo de checkout | Carga | 20 VUs | ~2,5min |
 | **TC_PF_010** | Análise de tamanho e formato de imagens | Auditoria | 1 VU | ~1min |
@@ -186,7 +186,7 @@ export default function () {
 
 | Passo | Ação | Endpoint | Validação |
 |:----:|:-----|:---------|:----------|
-| 1 | 50â100 VUs GET | /api/productsList | Status 200 |
+| 1 | 50→100 VUs GET | /api/productsList | Status 200 |
 | 2 | Validar Content-Type | response.headers | application/json |
 | 3 | Validar responseCode | body.responseCode | Igual a 200 |
 | 4 | Validar array | body.products | É um array |
@@ -225,7 +225,7 @@ export default function () {
 **Objetivo:** Encontrar o ponto de ruptura da API aumentando progressivamente a carga.<br>
 **Tipo:** Estresse (Stress)<br>
 **Criticidade:** Alta<br>
-**Configuração:** Stages progressivos: 25 (baseline) â 50 â 100 â 200 â **300** VUs (reduzido de 500 para evitar bloqueio total do Cloudflare)<br>
+**Configuração:** Stages progressivos: 25 (baseline) → 50 → 100 → 200 → **300** VUs (reduzido de 500 para evitar bloqueio total do Cloudflare)<br>
 **Thresholds:** `http_req_duration p(95) < 10000`, `http_req_failed rate < 0,60`
 
 **Script:** [`TC_PF_005_estresse_api_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js)
@@ -296,11 +296,11 @@ export default function () {
 **Objetivo:** Validar que o sistema se recupera após um pico repentino de 200 VUs.<br>
 **Tipo:** Pico (Spike)<br>
 **Criticidade:** Média<br>
-**Configuração:** Baseline 10 VUs (30s) â Spike 200 VUs (5s) â Hold 200 (30s) â Recuperação 10 VUs (30s) â Validar recuperação (30s)<br>
+**Configuração:** Baseline 10 VUs (30s) → Spike 200 VUs (5s) → Hold 200 (30s) → Recuperação 10 VUs (30s) → Validar recuperação (30s)<br>
 **Thresholds:** `http_req_duration p(95) < 8000`, `http_req_failed rate < 0,30`
 
 **Script:** [`TC_PF_007_pico_spike.js`](Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js)
-Nota: Spike reduzido de 500 para 200 VUs para evitar bloqueio total do Cloudflare. Mesmo com 200 VUs, o rate limiting do Cloudflare causa ~80% de falha â comportamento esperado e documentado.
+Nota: Spike reduzido de 500 para 200 VUs para evitar bloqueio total do Cloudflare. Mesmo com 200 VUs, o rate limiting do Cloudflare causa ~80% de falha — comportamento esperado e documentado.
 
 **Stages:**
 ```javascript
@@ -379,7 +379,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 #### TC_PF_009 - Carga no fluxo completo de checkout
 
-**Objetivo:** Validar o funil de conversão completo (criar conta â login â listar â excluir) sob carga.<br>
+**Objetivo:** Validar o funil de conversão completo (criar conta → login → listar → excluir) sob carga.<br>
 **Tipo:** Carga (Load) - Fluxo Misto<br>
 **Criticidade:** Alta<br>
 **Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa a cadeia completa<br>
@@ -422,7 +422,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 | 1 | Listar todos os produtos | GET /api/productsList | Lista completa |
 | 2 | Para cada produto, HEAD da imagem | GET /get_product_picture/{id} | Content-Length |
 | 3 | Reportar imagens > 200 KB | - | Threshold violado |
-| 4 | Verificar Content-Type | - | JPEG â recomendar WebP |
+| 4 | Verificar Content-Type | - | JPEG → recomendar WebP |
 
 ---
 
@@ -435,7 +435,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Objetivo:** Validar a atualização de dados do usuário via endpoint PUT sob carga.<br>
 **Tipo:** Carga (Load)<br>
 **Criticidade:** Alta<br>
-**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa: criar â atualizar â excluir<br>
+**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa: criar → atualizar → excluir<br>
 **Dados:** Email único via `Date.now()` por iteração. Password consistente em todo o fluxo.<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,15`
 
@@ -459,7 +459,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Objetivo:** Validar a consulta de detalhes de usuário por email sob carga.<br>
 **Tipo:** Carga (Load)<br>
 **Criticidade:** Alta<br>
-**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa: criar â consultar â excluir<br>
+**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa: criar → consultar → excluir<br>
 **Dados:** Email único via `Date.now()`. Password consistente.<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,15`
 
@@ -530,22 +530,22 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 ---
 
-### 4.13 Limitações do k6 â Cenários que são apenas funcionais (não carga)
+### 4.13 Limitações do k6 — Cenários que são apenas funcionais (não carga)
 
-> **Nota:** Todos os cenários marcados como "Teste funcional" já possuem testes Cypress automatizados no projeto (seção `cypress/e2e/web/`). Esta seção apenas documenta por que NÃO são testados sob carga com k6 â não porque não são testados.
+> **Nota:** Todos os cenários marcados como "Teste funcional" já possuem testes Cypress automatizados no projeto (seção `cypress/e2e/web/`). Esta seção apenas documenta por que NÃO são testados sob carga com k6 — não porque não são testados.
 
 | Cenário Funcional | Testável com k6? | Coberto por teste funcional? | Alternativa |
 |:------------------|:----------------:|:----------------------------:|:------------|
-| **Homepage (/)** | â HTTP response time | â | k6 HTTP GET |
-| **Produtos (/products)** | â HTTP response time | â | k6 HTTP GET |
-| **Detalhe Produto (/product_details/1)** | â HTTP response time | â | k6 HTTP GET |
-| **Login via API (/api/verifyLogin)** | â Sim | â | k6 HTTP POST |
-| **CRUD de contas via API** | â Sim | â | k6 HTTP POST/PUT/DELETE |
-| **Carrinho (adicionar/remover)** | â Browser-only | â TC_WEB_012, TC_WEB_017, TC_WEB_020 | Cypress E2E |
-| **Checkout visual** | â Browser-only | â TC_WEB_014, TC_WEB_015, TC_WEB_016 | Cypress E2E |
-| **Formulário de Contato** | â Browser-only | â TC_WEB_006 | Cypress E2E |
-| **Scroll / UX** | â Não é carga | â TC_WEB_025, TC_WEB_026 | Cypress E2E |
-| **LCP, FCP, CLS** | â Requer browser | â TC_PF_008 | Cypress + Lighthouse |
+| **Homepage (/)** | ✅ HTTP response time | — | k6 HTTP GET |
+| **Produtos (/products)** | ✅ HTTP response time | — | k6 HTTP GET |
+| **Detalhe Produto (/product_details/1)** | ✅ HTTP response time | — | k6 HTTP GET |
+| **Login via API (/api/verifyLogin)** | ✅ Sim | — | k6 HTTP POST |
+| **CRUD de contas via API** | ✅ Sim | — | k6 HTTP POST/PUT/DELETE |
+| **Carrinho (adicionar/remover)** | ❌ Browser-only | ✅ TC_WEB_012, TC_WEB_017, TC_WEB_020 | Cypress E2E |
+| **Checkout visual** | ❌ Browser-only | ✅ TC_WEB_014, TC_WEB_015, TC_WEB_016 | Cypress E2E |
+| **Formulário de Contato** | ❌ Browser-only | ✅ TC_WEB_006 | Cypress E2E |
+| **Scroll / UX** | ❌ Não é carga | ✅ TC_WEB_025, TC_WEB_026 | Cypress E2E |
+| **LCP, FCP, CLS** | ❌ Requer browser | ✅ TC_PF_008 | Cypress + Lighthouse |
 
 > **Prática de mercado:** k6 testa **carga e volume** (APIs + HTTP response time). Fluxos que dependem de JavaScript no browser (localStorage, DOM, modais) são testados funcionalmente com Cypress. Ambos se complementam.
 
@@ -557,35 +557,35 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 | Grupo Funcional | TCs E2E | Coberto por Performance | Status |
 |:----------------|:--------|:------------------------|:------:|
-| **Identidade** (Registro, Login, Logout) | TC_WEB_001 - TC_WEB_005 | TC_PF_004 (login), TC_PF_009 (createAccount) | â ï¸ Parcial |
-| **Catálogo** (Busca, Detalhes, Categorias, Marcas) | TC_WEB_008, TC_WEB_009, TC_WEB_018, TC_WEB_019, TC_WEB_021 | TC_PF_003 (productsList), TC_PF_006 (mix) | â ï¸ Parcial |
-| **Carrinho** (Adição, Remoção, Quantidade) | TC_WEB_012, TC_WEB_013, TC_WEB_017, TC_WEB_020, TC_WEB_022 | â Não cobertoÂ¹ | â |
-| **Transacional** (Checkout, Fatura) | TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023, TC_WEB_024 | TC_PF_009 (createAccount) | â ï¸ ParcialÂ² |
-| **Comunicação e UX** (Contato, Newsletter, Scroll) | TC_WEB_006, TC_WEB_007, TC_WEB_010, TC_WEB_011, TC_WEB_025, TC_WEB_026 | â Não cobertoÂ³ | â |
-| **UX/UI** | TC_WEB_025, TC_WEB_026 | â Não cobertoÂ³ | â |
+| **Identidade** (Registro, Login, Logout) | TC_WEB_001 - TC_WEB_005 | TC_PF_004 (login), TC_PF_009 (createAccount) | ⚠️ Parcial |
+| **Catálogo** (Busca, Detalhes, Categorias, Marcas) | TC_WEB_008, TC_WEB_009, TC_WEB_018, TC_WEB_019, TC_WEB_021 | TC_PF_003 (productsList), TC_PF_006 (mix) | ⚠️ Parcial |
+| **Carrinho** (Adição, Remoção, Quantidade) | TC_WEB_012, TC_WEB_013, TC_WEB_017, TC_WEB_020, TC_WEB_022 | ❌ Não coberto¹ | ❌ |
+| **Transacional** (Checkout, Fatura) | TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023, TC_WEB_024 | TC_PF_009 (createAccount) | ⚠️ Parcial² |
+| **Comunicação e UX** (Contato, Newsletter, Scroll) | TC_WEB_006, TC_WEB_007, TC_WEB_010, TC_WEB_011, TC_WEB_025, TC_WEB_026 | ❌ Não coberto³ | ❌ |
+| **UX/UI** | TC_WEB_025, TC_WEB_026 | ❌ Não coberto³ | ❌ |
 
-> Â¹ **Carrinho:** Funcionalidade browser-only (localStorage + JavaScript). k6 é protocol-level HTTP â não executa JavaScript de página. Para testar o carrinho com itens, usar **Cypress** (teste funcional) para adicionar produtos e medir performance.
+> ¹ **Carrinho:** Funcionalidade browser-only (localStorage + JavaScript). k6 é protocol-level HTTP — não executa JavaScript de página. Para testar o carrinho com itens, usar **Cypress** (teste funcional) para adicionar produtos e medir performance.
 >
-> Â² **Checkout completo:** O fluxo de checkout envolve interações JavaScript no browser (modal, overlay, atualização de DOM). A API de criação de conta é coberta, mas o fluxo visual completo não.
+> ² **Checkout completo:** O fluxo de checkout envolve interações JavaScript no browser (modal, overlay, atualização de DOM). A API de criação de conta é coberta, mas o fluxo visual completo não.
 >
-> Â³ **Comunicação e UX / UX/UI:** São testes de interação visual (formulário de contato, newsletter, scroll). Não há endpoints HTTP que justifiquem teste de carga específico.
+> ³ **Comunicação e UX / UX/UI:** São testes de interação visual (formulário de contato, newsletter, scroll). Não há endpoints HTTP que justifiquem teste de carga específico.
 
 ### 5.2 Cobertura dos Cenários API (TC_API_001 - TC_API_014)
 
 | Grupo Funcional | TCs API | Coberto por Performance | Status |
 |:----------------|:--------|:------------------------|:------:|
-| **Catálogo** (Listar produtos, Listar marcas, Pesquisar) | TC_API_001 - TC_API_004 | TC_PF_003, TC_PF_005, TC_PF_006 | â Coberto |
-| **Autenticação** (Login válido, sem email, inválido) | TC_API_005 - TC_API_007 | TC_PF_004 | â ï¸ Parcialâ´ |
-| **Gestão de Usuários** (Criar, Excluir, Atualizar, Obter) | TC_API_008 - TC_API_011 | TC_PF_009 | â ï¸ Parcialâµ |
-| **Métodos HTTP** (POST, PUT, DELETE não suportados) | TC_API_012 - TC_API_014 | â Não cobertoâ¶ | â |
+| **Catálogo** (Listar produtos, Listar marcas, Pesquisar) | TC_API_001 - TC_API_004 | TC_PF_003, TC_PF_005, TC_PF_006 | ✅ Coberto |
+| **Autenticação** (Login válido, sem email, inválido) | TC_API_005 - TC_API_007 | TC_PF_004 | ⚠️ Parcial⁴ |
+| **Gestão de Usuários** (Criar, Excluir, Atualizar, Obter) | TC_API_008 - TC_API_011 | TC_PF_009 | ⚠️ Parcial⁵ |
+| **Métodos HTTP** (POST, PUT, DELETE não suportados) | TC_API_012 - TC_API_014 | ❌ Não coberto⁶ | ❌ |
 
-> â´ **Autenticação:** Apenas o fluxo de login com credenciais válidas é testado sob carga. Login inválido e sem email não são relevantes para performance (são validações funcionais rápidas).
+> ⁴ **Autenticação:** Apenas o fluxo de login com credenciais válidas é testado sob carga. Login inválido e sem email não são relevantes para performance (são validações funcionais rápidas).
 >
-> âµ **Gestão de Usuários:** Criação e exclusão são cobertas. **Atualização (PUT) e consulta (GET por email)** ainda não possuem scripts de carga específicos.
+> ⁵ **Gestão de Usuários:** Criação e exclusão são cobertas. **Atualização (PUT) e consulta (GET por email)** ainda não possuem scripts de carga específicos.
 >
-> â¶ **Métodos HTTP:** Testes de métodos não suportados (405) não são relevantes para performance â são validações funcionais de API.
+> ⁶ **Métodos HTTP:** Testes de métodos não suportados (405) não são relevantes para performance — são validações funcionais de API.
 
-### 5.3 Mapa Detalhado: Performance TC â Funcional TC
+### 5.3 Mapa Detalhado: Performance TC → Funcional TC
 
 | Performance TC | TCs Funcionais Cobertos | Endpoints |
 |:---------------|:------------------------|:----------|
@@ -612,58 +612,58 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 ```
 automationexercise/
-âââ docs/                                 # Documentacao viva do projeto
-â   âââ Especificacao_Tecnica_Performance.md  # Especificacao tecnica de performance
-â   âââ Relatorio_Resultados_Performance.md   # Metricas e resultados k6 + Lighthouse
-â   âââ ...
-âââ templates/                            # Templates para novos TCs
-â   âââ Especificacao_Tecnica_Performance_TEMPLATE.md
-â   âââ Relatorio_Resultados_Performance_TEMPLATE.md
-â   âââ Sumario_Executivo_TEMPLATE.md
-â   âââ Especificacao_Tecnica_Web_TEMPLATE.md
-â   âââ Especificacao_Tecnica_API_TEMPLATE.md
-â   âââ Suite_BDD_TEMPLATE.md
+├── docs/                                 # Documentacao viva do projeto
+│   ├── Especificacao_Tecnica_Performance.md  # Especificacao tecnica de performance
+│   ├── Relatorio_Resultados_Performance.md   # Metricas e resultados k6 + Lighthouse
+│   └── ...
+├── templates/                            # Templates para novos TCs
+│   ├── Especificacao_Tecnica_Performance_TEMPLATE.md
+│   ├── Relatorio_Resultados_Performance_TEMPLATE.md
+│   ├── Sumario_Executivo_TEMPLATE.md
+│   ├── Especificacao_Tecnica_Web_TEMPLATE.md
+│   ├── Especificacao_Tecnica_API_TEMPLATE.md
+│   └── Suite_BDD_TEMPLATE.md
 
-âââ Cypress/
-    âââ cypress/
-        âââ e2e/
-        â   âââ web/              # Testes E2E
-        â   âââ api/              # Testes de API
-        â   âââ performance/      # Scripts k6 + Cypress (TC_PF_008)
-        â       âââ TC_PF_001_smoke_test.js
-        â       âââ TC_PF_002_carga_homepage.js
-        â       âââ TC_PF_003_carga_api_produtos.js
-        â       âââ TC_PF_004_carga_api_login.js
-        â       âââ TC_PF_005_estresse_api_produtos.js
-        â       âââ TC_PF_006_resistencia_soak.js
-        â       âââ TC_PF_007_pico_spike.js
-        â       âââ TC_PF_008_core_web_vitals.cy.js
-        â       âââ TC_PF_009_carga_checkout.js
-        â       âââ TC_PF_010_auditoria_imagens.js
-        â       âââ TC_PF_011_carga_atualizar_conta.js
-        â       âââ TC_PF_012_carga_detalhes_usuario.js
-        â       âââ TC_PF_013_carga_pesquisar_produto.js
-        â       âââ TC_PF_014_carga_pagina_produtos.js
-        âââ fixtures/             # Dados estaticos
-        â   âââ users.json        # Credenciais e dados de pagamento
-        â   âââ products.json     # Produtos, categorias, marcas
-        â   âââ contact.json      # Mensagens e assuntos
-        â   âââ ui_texts.json     # Labels, headers, erros, botoes
-        â   âââ test_file.txt     # Arquivo de teste para upload
-        âââ support/              # Comandos customizados
-        â   âââ e2e.js            # beforeEach centralizado + cy.captura()
-        âââ allure/               # Relatorios Allure (dark mode + pt-BR)
-        â   âââ package.json      # allure-commandline
-        â   âââ allure.properties # Tema escuro + idioma pt-BR
-        â   âââ allure-results/   # Resultados das execucoes
-        â   âââ allure-report/    # Relatorio HTML estatico
-        â   âââ scripts/          # Conversores k6 â Allure
-        âââ reports/              # Relatorios de execucao
-        â   âââ k6/               # JSONs do k6 --summary-export
-        âââ screenshots/          # Evidencias visuais
-        â   âââ performance/      # Screenshots TC_PF_008
-        â   âââ ...
-        âââ videos/               # Videos das execucoes
+└── Cypress/
+    └── cypress/
+        ├── e2e/
+        │   ├── web/              # Testes E2E
+        │   ├── api/              # Testes de API
+        │   └── performance/      # Scripts k6 + Cypress (TC_PF_008)
+        │       ├── TC_PF_001_smoke_test.js
+        │       ├── TC_PF_002_carga_homepage.js
+        │       ├── TC_PF_003_carga_api_produtos.js
+        │       ├── TC_PF_004_carga_api_login.js
+        │       ├── TC_PF_005_estresse_api_produtos.js
+        │       ├── TC_PF_006_resistencia_soak.js
+        │       ├── TC_PF_007_pico_spike.js
+        │       ├── TC_PF_008_core_web_vitals.cy.js
+        │       ├── TC_PF_009_carga_checkout.js
+        │       ├── TC_PF_010_auditoria_imagens.js
+        │       ├── TC_PF_011_carga_atualizar_conta.js
+        │       ├── TC_PF_012_carga_detalhes_usuario.js
+        │       ├── TC_PF_013_carga_pesquisar_produto.js
+        │       └── TC_PF_014_carga_pagina_produtos.js
+        ├── fixtures/             # Dados estaticos
+        │   ├── users.json        # Credenciais e dados de pagamento
+        │   ├── products.json     # Produtos, categorias, marcas
+        │   ├── contact.json      # Mensagens e assuntos
+        │   ├── ui_texts.json     # Labels, headers, erros, botoes
+        │   └── test_file.txt     # Arquivo de teste para upload
+        ├── support/              # Comandos customizados
+        │   └── e2e.js            # beforeEach centralizado + cy.captura()
+        ├── allure/               # Relatorios Allure (dark mode + pt-BR)
+        │   ├── package.json      # allure-commandline
+        │   ├── allure.properties # Tema escuro + idioma pt-BR
+        │   ├── allure-results/   # Resultados das execucoes
+        │   ├── allure-report/    # Relatorio HTML estatico
+        │   └── scripts/          # Conversores k6 → Allure
+        ├── reports/              # Relatorios de execucao
+        │   └── k6/               # JSONs do k6 --summary-export
+        ├── screenshots/          # Evidencias visuais
+        │   ├── performance/      # Screenshots TC_PF_008
+        │   └── ...
+        └── videos/               # Videos das execucoes
 ```
 
 ### 6.2 Arquivos de Script e suas Configurações
@@ -672,11 +672,11 @@ automationexercise/
 |:--------|:---|:----:|:---:|:--------|
 | `TC_PF_001_smoke_test.js` | TC_PF_001 | Smoke | 1 | ~1s |
 | `TC_PF_002_carga_homepage.js` | TC_PF_002 | Carga | 50 | ~3,5min |
-| `TC_PF_003_carga_api_produtos.js` | TC_PF_003 | Carga | 50â100 | ~3,5min |
+| `TC_PF_003_carga_api_produtos.js` | TC_PF_003 | Carga | 50→100 | ~3,5min |
 | `TC_PF_004_carga_api_login.js` | TC_PF_004 | Carga | 30 | ~2,5min |
-| `TC_PF_005_estresse_api_produtos.js` | TC_PF_005 | Estresse | 25â300 | ~5,5min |
+| `TC_PF_005_estresse_api_produtos.js` | TC_PF_005 | Estresse | 25→300 | ~5,5min |
 | `TC_PF_006_resistencia_soak.js` | TC_PF_006 | Resistência | 50 | ~5,5min |
-| `TC_PF_007_pico_spike.js` | TC_PF_007 | Pico | 10â200 | ~3,5min |
+| `TC_PF_007_pico_spike.js` | TC_PF_007 | Pico | 10→200 | ~3,5min |
 | `TC_PF_008_core_web_vitals.cy.js` | TC_PF_008 | Front-end | 1 | ~5min |
 | `TC_PF_009_carga_checkout.js` | TC_PF_009 | Carga | 20 | ~2,5min |
 | `TC_PF_010_auditoria_imagens.js` | TC_PF_010 | Auditoria | 1 | ~1min |
@@ -691,22 +691,22 @@ automationexercise/
 
 | Termo | Definição |
 |:------|:----------|
-| **VU (Virtual User)** | Usuário virtual â executa a função `default()` em loop |
+| **VU (Virtual User)** | Usuário virtual — executa a função `default()` em loop |
 | **Ramp-up** | Aumento gradual de VUs até o target |
 | **Stage** | Fase do teste com duração e target de VUs |
 | **Hold** | Período mantendo carga constante |
-| **p95 / p99** | 95Âº / 99Âº percentil da distribuição de latência |
+| **p95 / p99** | 95º / 99º percentil da distribuição de latência |
 | **TTFB (http_req_waiting)** | Tempo entre envio do request e primeiro byte |
-| **http_req_duration** | Tempo total: request â resposta completa |
-| **http_req_failed** | Taxa de requisições com status â¥ 400 |
-| **http_reqs** | Throughput â requisições por segundo |
+| **http_req_duration** | Tempo total: request → resposta completa |
+| **http_req_failed** | Taxa de requisições com status ≥ 400 |
+| **http_reqs** | Throughput — requisições por segundo |
 | **Check** | Asserção booleana (passou/falhou) sobre a resposta |
-| **Threshold** | Limite de performance â se violado, teste é reprovado |
+| **Threshold** | Limite de performance — se violado, teste é reprovado |
 | **LCP (Largest Contentful Paint)** | Marca o tempo em que o **maior elemento visível** (imagem, texto, vídeo) é renderizado na tela. Objetivo: < 2,5s. |
-| **CLS (Cumulative Layout Shift)** | Mede a **estabilidade visual** â quanto os elementos da página "pulam" de lugar durante o carregamento. Causado por imagens sem dimensão, fontes carregando tarde, anúncios injetados. Objetivo: < 0,1. |
+| **CLS (Cumulative Layout Shift)** | Mede a **estabilidade visual** — quanto os elementos da página "pulam" de lugar durante o carregamento. Causado por imagens sem dimensão, fontes carregando tarde, anúncios injetados. Objetivo: < 0,1. |
 | **TTFB (Time to First Byte)** | Tempo entre o navegador fazer a requisição HTTP e receber o **primeiro byte** de resposta do servidor. Reflete latência de rede + processamento do servidor. Objetivo: < 500ms (k6 `http_req_waiting`). |
 | **FCP (First Contentful Paint)** | Primeiro conteúdo renderizado (texto, imagem, canvas). Objetivo: < 1,5s. |
-| **INP (Interaction to Next Paint)** | Mede a **responsividade** â tempo entre o usuário interagir (clique, toque) e a página responder. Objetivo: < 200ms. |
+| **INP (Interaction to Next Paint)** | Mede a **responsividade** — tempo entre o usuário interagir (clique, toque) e a página responder. Objetivo: < 200ms. |
 
 ---
 

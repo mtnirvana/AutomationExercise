@@ -44,7 +44,7 @@
 
 ## 3. Cenários E2E
 
-> **Regra Obrigatória â Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável â descrever o recurso ou condição necessária.
+> **Regra Obrigatória — Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável — descrever o recurso ou condição necessária.
 
 ### F01 - Gestão de Identidade e Acesso
 
@@ -55,7 +55,7 @@
 - **Criticidade:** Crítica/Alta/Média/Baixa
 - **Objetivo:** [Descrição do objetivo]
 - **TC:** TC###
-- **Dado:** [Obrigatório â contexto do cenário: dados de entrada, pré-condições, recursos necessários]
+- **Dado:** [Obrigatório — contexto do cenário: dados de entrada, pré-condições, recursos necessários]
 - **Pós-condição:** [O que permanece ou é alterado após o teste]
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 
@@ -233,7 +233,7 @@ Então a mensagem "Success! Your details have been submitted successfully." deve
 
 ## 4. Cenários API
 
-> **Regra Obrigatória â Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável â descrever o recurso ou condição necessária.
+> **Regra Obrigatória — Campo Dado:** Todos os cenários DEVEM ter o campo `Dado` preenchido com contexto natural (dados de entrada, pré-condições ou recursos necessários). Nunca utilizar "Nenhum" quando houver contexto aplicável — descrever o recurso ou condição necessária.
 
 ### F06 - API Catálogo de Produtos e Marcas
 
@@ -244,7 +244,7 @@ Então a mensagem "Success! Your details have been submitted successfully." deve
 - **Criticidade:** Crítica/Alta/Média/Baixa
 - **Objetivo:** [Descrição do objetivo]
 - **TC:** TC_API_###
-- **Dado:** [Obrigatório â contexto do cenário: dados de entrada, pré-condições, recursos necessários]
+- **Dado:** [Obrigatório — contexto do cenário: dados de entrada, pré-condições, recursos necessários]
 - **Pós-condição:** [O que permanece ou é alterado após o teste]
 
 **Cenário:**
@@ -382,12 +382,12 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 |-----------|-------|---------|------|
 | **E2E Tests** | 26 | 24 (92,3%) | 2 (7,7%) |
 | **API Tests** | 14 | 8 (57,1%) | 6 (42,9%) |
-| **Performance Tests** | 21 | 18 (85,7%) | 3 (14,3%) â ï¸Â¹ |
+| **Performance Tests** | 21 | 18 (85,7%) | 3 (14,3%) ⚠️¹ |
 | **Total Consolidado** | **61** | **50 (82,0%)** | **11 (18,0%)** |
 
 > **Nota:** Performance tests (k6 + TC_PF_008) são cenários técnicos sem classificação Sucesso/Erro tradicional. A divisão acima reflete a última execução. Os 8 checks do TC_PF_008 são contados individualmente, elevando o total para 61 casos no Allure. Em termos BDD (cenários descritíveis em Gherkin), o total é de 40 cenários (26 E2E + 14 API).
 >
-> Â¹ Os cenários classificados como "Erro" na performance (TC_PF_003, TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare, não erros funcionais. Os scripts executam corretamente e os thresholds foram ajustados para tolerar a degradação esperada sob carga.
+> ¹ Os cenários classificados como "Erro" na performance (TC_PF_003, TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare, não erros funcionais. Os scripts executam corretamente e os thresholds foram ajustados para tolerar a degradação esperada sob carga.
 
 ### 5.1 Cobertura por Área Funcional - E2E
 
@@ -547,10 +547,10 @@ Um cenário é considerado **CONCLUÍDO** quando:
 
 | Termo | Quando usar |
 |-------|------------|
-| **Credenciais pré-cadastradas** | Usuário já existe no sistema â cenários de login, logout, checkout com usuário existente |
-| **Credenciais inexistentes** | Falha intencional â testar resposta da API quando credenciais não existem |
-| **Dados de registro** | Criar novo usuário â cenários de registro, checkout registrando |
-| **API de [função] disponível** | APIs específicas â acompanhar com a função da API (criação, exclusão, consulta, etc.) |
+| **Credenciais pré-cadastradas** | Usuário já existe no sistema — cenários de login, logout, checkout com usuário existente |
+| **Credenciais inexistentes** | Falha intencional — testar resposta da API quando credenciais não existem |
+| **Dados de registro** | Criar novo usuário — cenários de registro, checkout registrando |
+| **API de [função] disponível** | APIs específicas — acompanhar com a função da API (criação, exclusão, consulta, etc.) |
 
 ---
 

@@ -47,9 +47,9 @@ Todos os arquivos DEVEM seguir este padrão de nomenclatura:
    - **API:** `TC_API_### - [Descrição]` (ex: `TC_API_012 - Validar método POST em productsList via API`)
    - **Performance:** `TC_PF_### - [Descrição]` (ex: `TC_PF_005 - Estresse progressivo no /api/productsList`)
 6. Exemplos de tradução:
-   - `Test Case 1: Register User` â `TC_WEB_001 - Registrar usuário`
-   - `Test Case 2: Login User with correct email and password` â `TC_WEB_002 - Login de usuário com email e senha corretos`
-   - `Test Case 5: Register User with existing email` â `TC_WEB_005 - Registrar usuário com email existente`
+   - `Test Case 1: Register User` → `TC_WEB_001 - Registrar usuário`
+   - `Test Case 2: Login User with correct email and password` → `TC_WEB_002 - Login de usuário com email e senha corretos`
+   - `Test Case 5: Register User with existing email` → `TC_WEB_005 - Registrar usuário com email existente`
 
 ### Rules for Sucesso/Erro (MANDATORY)
 1. **IDENTIFICAR o tipo**: Analisar o .txt para verificar se o cenário termina com sucesso ou erro
@@ -58,10 +58,10 @@ Todos os arquivos DEVEM seguir este padrão de nomenclatura:
 4. **Arquivo**: Adicionar prefixo `TC##_sucesso_` ou `TC##_erro_`
 
 Exemplos de classificação:
-- "Login User with correct email and password" â Sucesso
-- "Login User with incorrect email and password" â Erro
-- "Register User with existing email" â Erro
-- "Register User" â Sucesso
+- "Login User with correct email and password" → Sucesso
+- "Login User with incorrect email and password" → Erro
+- "Register User with existing email" → Erro
+- "Register User" → Sucesso
 
 ### Rules for Screenshots (MANDATORY):
 1. **Sempre usar prefixo TC##** antes do nome em describe() e it()
@@ -76,22 +76,22 @@ Exemplos de classificação:
 ### Rules for File Naming (MANDATORY):
 Ao criar arquivo de teste:
 1. Pegar título da linha 1 do JSDoc (formato: "Test Case #: Título traduzido")
-2. Converter para underscore (espaços â underscore, lowercase)
+2. Converter para underscore (espaços → underscore, lowercase)
 3. **IDENTIFICAR se é Sucesso ou Erro** (analisar .txt)
 4. Adicionar prefixo `TC##_sucesso_` ou `TC##_erro_`
 5. Adicionar extensão `.cy.js`
 6. **O nome do arquivo DEVE ser igual ao título da linha 1 do JSDoc** (não ao describe)
 
 Exemplos E2E (prefixo TC_WEB):
-- "Test Case 3: Login de usuário com email e senha incorretos" â "TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js"
-- "Test Case 4: Logout de usuário" â "TC_WEB_004_sucesso_logout_usuario.cy.js"
-- "Test Case 5: Registrar usuário com email existente" â "TC_WEB_005_erro_registrar_usuario_email_existente.cy.js"
+- "Test Case 3: Login de usuário com email e senha incorretos" → "TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js"
+- "Test Case 4: Logout de usuário" → "TC_WEB_004_sucesso_logout_usuario.cy.js"
+- "Test Case 5: Registrar usuário com email existente" → "TC_WEB_005_erro_registrar_usuario_email_existente.cy.js"
 
 Exemplos API (prefixo TC_API):
-- "Test Case 12: Validar método POST em productsList" â "TC_API_012_erro_validar_metodo_post_em_productslist.cy.js"
+- "Test Case 12: Validar método POST em productsList" → "TC_API_012_erro_validar_metodo_post_em_productslist.cy.js"
 
 Exemplos Performance (prefixo TC_PF):
-- "Load test: /api/productsList" â "TC_PF_003_carga_api_produtos.js"
+- "Load test: /api/productsList" → "TC_PF_003_carga_api_produtos.js"
 
 ---
 
@@ -262,13 +262,13 @@ module.exports = defineConfig({
               }
             }
             console.log('')
-            console.log('âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ')
+            console.log('═══════════════════════════════════════════════════════════════')
             console.log('  REQUEST')
-            console.log('âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ')
+            console.log('═══════════════════════════════════════════════════════════════')
             console.log(`  Method:  ${reqOptions.method}`)
             console.log(`  URL:     https://${reqOptions.hostname}${reqOptions.path}`)
             console.log(`  Body:    ${options.body || '(empty)'}`)
-            console.log('âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ')
+            console.log('───────────────────────────────────────────────────────────────')
             const req = https.request(reqOptions, (res) => {
               let data = ''
               res.on('data', chunk => data += chunk)
@@ -276,11 +276,11 @@ module.exports = defineConfig({
                 const duration = Date.now() - startTime
                 const responseBody = JSON.parse(data || '{}')
                 console.log('  RESPONSE')
-                console.log('âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ')
+                console.log('═══════════════════════════════════════════════════════════════')
                 console.log(`  Status:  ${res.statusCode}`)
                 console.log(`  Time:    ${duration}ms`)
                 console.log(`  Body:    ${data.substring(0, 500)}${data.length > 500 ? '...' : ''}`)
-                console.log('âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ')
+                console.log('═══════════════════════════════════════════════════════════════')
                 console.log('')
                 resolve({
                   status: res.statusCode,
@@ -394,7 +394,7 @@ Body: ${JSON.stringify(data.response?.body, null, 2)}</div>
       <div class="section-content">
         ${(data.assertions || []).map((a, i) => `
         <div class="assertion">
-          <span class="assertion-icon">${a.passed ? 'â' : 'â'}</span>
+          <span class="assertion-icon">${a.passed ? '✓' : '✗'}</span>
           <span class="assertion-text">${a.description}</span>
         </div>
         `).join('')}
@@ -429,11 +429,11 @@ Body: ${JSON.stringify(data.response?.body, null, 2)}</div>
 5. **Termos de Busca:** Devem ser lidos de fixtures para garantir manutenibilidade.
 
 **Exemplo de Refatoração:**
-â `ProductsPage.searchProduct('Winter Top')`
-â `ProductsPage.searchProduct(productsData.searchTerms.winter)`
+❌ `ProductsPage.searchProduct('Winter Top')`
+✅ `ProductsPage.searchProduct(productsData.searchTerms.winter)`
 
-â `cy.contains('button', 'Submit').click()`
-â `cy.contains('button', uiData.buttons.submit).click()`
+❌ `cy.contains('button', 'Submit').click()`
+✅ `cy.contains('button', uiData.buttons.submit).click()`
 
 ---
 
@@ -441,29 +441,29 @@ Body: ${JSON.stringify(data.response?.body, null, 2)}</div>
 
 ```
 cypress/
-âââ e2e/                    # Testes E2E
-â   âââ [teste].cy.js       # Script de teste por cenário
-âââ pages/                  # Page Objects
-â   âââ index.js            # Exportação centralizada dos pages
-â   âââ [PageName]Page.js   # Page Object por página
-â   âââ ...                 # Demais pages
-âââ data/                   # Factories
-â   âââ [Factory].js        # Dados dinâmicos únicos por execução
-âââ fixtures/               # Dados estáticos
-â   âââ data.json           # Massa de dados do teste
-âââ support/                # Comandos customizados
-â   âââ e2e.js              # beforeEach centralizado + cy.captura()
-âââ downloads/              # Downloads temporários (faturas)
-âââ reports/                # Relatórios de execução
-â   âââ k6/                 # JSONs do k6 --summary-export
-âââ screenshots/            # Evidências visuais
-âââ allure/                 # Relatórios Allure (dark mode + pt-BR)
-â   âââ package.json        # allure-commandline
-â   âââ allure.properties   # Tema escuro + idioma pt-BR
-â   âââ allure-results/     # Resultados das execuções
-â   âââ allure-report/      # Relatório HTML estático
-â   âââ scripts/            # Conversores k6 â Allure
-âââ videos/                 # Vídeos das execuções (auto)
+├── e2e/                    # Testes E2E
+│   └── [teste].cy.js       # Script de teste por cenário
+├── pages/                  # Page Objects
+│   ├── index.js            # Exportação centralizada dos pages
+│   ├── [PageName]Page.js   # Page Object por página
+│   └── ...                 # Demais pages
+├── data/                   # Factories
+│   └── [Factory].js        # Dados dinâmicos únicos por execução
+├── fixtures/               # Dados estáticos
+│   └── data.json           # Massa de dados do teste
+├── support/                # Comandos customizados
+│   └── e2e.js              # beforeEach centralizado + cy.captura()
+├── downloads/              # Downloads temporários (faturas)
+├── reports/                # Relatórios de execução
+│   └── k6/                 # JSONs do k6 --summary-export
+├── screenshots/            # Evidências visuais
+├── allure/                 # Relatórios Allure (dark mode + pt-BR)
+│   ├── package.json        # allure-commandline
+│   ├── allure.properties   # Tema escuro + idioma pt-BR
+│   ├── allure-results/     # Resultados das execuções
+│   ├── allure-report/      # Relatório HTML estático
+│   └── scripts/            # Conversores k6 → Allure
+└── videos/                 # Vídeos das execuções (auto)
 ```
 
 ---
@@ -529,9 +529,9 @@ describe('[Título do Teste em PORTUGUÊS]', () => {
 8. **Estabilidade:** Usar `.scrollIntoView().should('be.visible').click({ force: true })` para interações críticas.
 9. **Seleção de gênero:** usar `toLowerCase()` para validação
 10. **Ordem dos passos:** seguir o scenario original numerado
-11. **Fixture vs Factory:** Verificar se teste CRIA e DELETA usuário â usar Factory
-12. **Fixture vs Factory:** Verificar se teste apenas LOGA (sem delete) â usar fixture
-13. **beforeEach global:** NUNCA repetir beforeEach nos testes â já está em `cypress/support/e2e.js`
+11. **Fixture vs Factory:** Verificar se teste CRIA e DELETA usuário → usar Factory
+12. **Fixture vs Factory:** Verificar se teste apenas LOGA (sem delete) → usar fixture
+13. **beforeEach global:** NUNCA repetir beforeEach nos testes — já está em `cypress/support/e2e.js`
 
 ---
 
@@ -925,10 +925,10 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 - [ ] Importar Factory (se aplicável)
 - [ ] Adicionar JSDoc no topo
 - [ ] Adicionar `takeScreenshot()` em cada passo **(NOME EM PORTUGUÊS)**
-- [ ] **NAO adicionar beforeEach** â já está em `cypress/support/e2e.js`
+- [ ] **NAO adicionar beforeEach** — já está em `cypress/support/e2e.js`
 - [ ] Usar `afterEach()` para captura de erros
-- [ ] Verificar se teste CRIA e DELETA â usar UserFactory.generate()
-- [ ] Verificar se teste apenas LOGA (sem delete) â usar fixture
+- [ ] Verificar se teste CRIA e DELETA → usar UserFactory.generate()
+- [ ] Verificar se teste apenas LOGA (sem delete) → usar fixture
 - [ ] **Numerar comentários dos passos (corresponder ao .txt)**
 - [ ] **Traduzir describe() para PORTUGUÊS**
 - [ ] **Garantir uso de cy.captura() para screenshots**

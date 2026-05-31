@@ -14,30 +14,30 @@
 | Indicador | Resultado |
 |:----------|:----------|
 | **Total de Cenários** | 14 (14 executados) |
-| **Aprovados** | 11 â |
-| **Aprovados com Ressalvas** | 3 â ï¸ (rate limiting do Cloudflare) |
+| **Aprovados** | 11 ✅ |
+| **Aprovados com Ressalvas** | 3 ⚠️ (rate limiting do Cloudflare) |
 | **Pendentes** | 0 |
 | **Taxa de Passagem Geral** | 100% (11+3/14 executados) |
-| **Thresholds Violados** | TC_PF_003, TC_PF_005 e TC_PF_007 (esperado â limitação do servidor) |
+| **Thresholds Violados** | TC_PF_003, TC_PF_005 e TC_PF_007 (esperado — limitação do servidor) |
 
 ### 1.2 Matriz de Resultados
 
 | ID | Cenário | Status | Checks | p95 | Erro |
 |:---|:--------|:------:|:-----:|:---:|:----:|
-| TC_PF_001 | Smoke test | â Passou | 9/9 | 694ms | 0% |
-| TC_PF_002 | Carga Homepage | â Passou | 48/48 | 480ms | 0% |
-| TC_PF_003 | Carga API Produtos | â ï¸ Rate limited | 87% | 7,2s | 22,76% |
-| TC_PF_004 | Carga API Login | â Passou | 50/50 | 391ms | 0% |
-| TC_PF_005 | Estresse API Produtos | â ï¸ Rate limited | - | - | - |
-| TC_PF_006 | Resistência (Soak) | â Passou | 14/14 | 1s | 0% |
-| TC_PF_007 | Pico (Spike) | â ï¸ Rate limited (atual) | 178/178Â¹ | 556ms | 0% |
-| TC_PF_008 | Core Web Vitals | â Passou (8/8) | Cypress | - | 0% |
-| TC_PF_009 | Fluxo Checkout | â Passou | 273/273 | 400ms | 0% |
-| TC_PF_010 | Análise de Imagens | â Passou | 37/37 | 659ms | 0% |
-| TC_PF_011 | Carga Update Account | â Passou | 77/77 | 477ms | 0% |
-| TC_PF_012 | Carga User Details | â Passou | 108/108 | 497ms | 0% |
-| TC_PF_013 | Carga Search Product | â Passou | 48/48 | 1,06s | 0% |
-| TC_PF_014 | Carga Pagina Produtos | â Passou | 32/32 | 533ms | 0% |
+| TC_PF_001 | Smoke test | ✅ Passou | 9/9 | 694ms | 0% |
+| TC_PF_002 | Carga Homepage | ✅ Passou | 48/48 | 480ms | 0% |
+| TC_PF_003 | Carga API Produtos | ⚠️ Rate limited | 87% | 7,2s | 22,76% |
+| TC_PF_004 | Carga API Login | ✅ Passou | 50/50 | 391ms | 0% |
+| TC_PF_005 | Estresse API Produtos | ⚠️ Rate limited | - | - | - |
+| TC_PF_006 | Resistência (Soak) | ✅ Passou | 14/14 | 1s | 0% |
+| TC_PF_007 | Pico (Spike) | ⚠️ Rate limited (atual) | 178/178¹ | 556ms | 0% |
+| TC_PF_008 | Core Web Vitals | ✅ Passou (8/8) | Cypress | - | 0% |
+| TC_PF_009 | Fluxo Checkout | ✅ Passou | 273/273 | 400ms | 0% |
+| TC_PF_010 | Análise de Imagens | ✅ Passou | 37/37 | 659ms | 0% |
+| TC_PF_011 | Carga Update Account | ✅ Passou | 77/77 | 477ms | 0% |
+| TC_PF_012 | Carga User Details | ✅ Passou | 108/108 | 497ms | 0% |
+| TC_PF_013 | Carga Search Product | ✅ Passou | 48/48 | 1,06s | 0% |
+| TC_PF_014 | Carga Pagina Produtos | ✅ Passou | 32/32 | 533ms | 0% |
 
 ---
 
@@ -52,7 +52,7 @@
 | **Duração** | 1,3s |
 | **VUs** | 1 |
 | **Iterações** | 1 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -70,22 +70,22 @@
 
 | Check | Resultado |
 |:------|:---------:|
-| GET /api/productsList status 200 | â Passou |
-| responseCode igual a 200 | â Passou |
-| products é um array | â Passou |
-| products.length maior que 0 | â Passou |
-| GET /api/brandsList status 200 | â Passou |
-| brands responseCode igual a 200 | â Passou |
-| brands é um array | â Passou |
-| POST /api/verifyLogin status 200 | â Passou |
-| login message igual a User exists! | â Passou |
+| GET /api/productsList status 200 | ✅ Passou |
+| responseCode igual a 200 | ✅ Passou |
+| products é um array | ✅ Passou |
+| products.length maior que 0 | ✅ Passou |
+| GET /api/brandsList status 200 | ✅ Passou |
+| brands responseCode igual a 200 | ✅ Passou |
+| brands é um array | ✅ Passou |
+| POST /api/verifyLogin status 200 | ✅ Passou |
+| login message igual a User exists! | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 5000` | â p(95)=694ms |
-| `http_req_failed rate < 0,01` | â rate=0,00% |
+| `http_req_duration p(95) < 5000` | ✅ p(95)=694ms |
+| `http_req_failed rate < 0,01` | ✅ rate=0,00% |
 
 ---
 
@@ -98,7 +98,7 @@
 | **Duração** | 31s (30s de execução) |
 | **VUs** | 1 (validação rápida) |
 | **Iterações** | 24 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -116,15 +116,15 @@
 
 | Check | Resultado |
 |:------|:---------:|
-| GET / status 200 | â Passou |
-| pagina carregada em menos de 5s | â Passou |
+| GET / status 200 | ✅ Passou |
+| pagina carregada em menos de 5s | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 3000` | â p(95)=480ms |
-| `http_req_failed rate < 0,05` | â rate=0,00% |
+| `http_req_duration p(95) < 3000` | ✅ p(95)=480ms |
+| `http_req_failed rate < 0,05` | ✅ rate=0,00% |
 
 ---
 
@@ -137,7 +137,7 @@
 | **Duração** | 3min 31s |
 | **VUs** | 100 |
 | **Iterações** | 3.963 |
-| **Status** | â ï¸ **APROVADO COM RESSALVAS** |
+| **Status** | ⚠️ **APROVADO COM RESSALVAS** |
 
 #### Métricas de Rede
 
@@ -157,18 +157,18 @@
 
 | Check | Acerto | Resultado |
 |:------|:------:|:---------:|
-| status 200 | 77% | â ï¸ 902 falhas (rate limit) |
-| resposta JSON | 77% | â ï¸ Cloudflare retorna HTML |
-| responseCode 200 | 77% | â ï¸ Só válido quando retorna JSON |
-| products array | 100% | â Quando retorna JSON, é válido |
-| products.length > 0 | 100% | â Quando retorna JSON, é válido |
+| status 200 | 77% | ⚠️ 902 falhas (rate limit) |
+| resposta JSON | 77% | ⚠️ Cloudflare retorna HTML |
+| responseCode 200 | 77% | ⚠️ Só válido quando retorna JSON |
+| products array | 100% | ✅ Quando retorna JSON, é válido |
+| products.length > 0 | 100% | ✅ Quando retorna JSON, é válido |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 8000` | â p(95)=7,2s |
-| `http_req_failed rate < 0,30` | â rate=22,76% |
+| `http_req_duration p(95) < 8000` | ✅ p(95)=7,2s |
+| `http_req_failed rate < 0,30` | ✅ rate=22,76% |
 
 #### Análise
 
@@ -185,7 +185,7 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 | **Duração** | 31s (30s de execução) |
 | **VUs** | 1 (validação rápida) |
 | **Iterações** | 25 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -203,15 +203,15 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 
 | Check | Resultado |
 |:------|:---------:|
-| POST /api/verifyLogin status 200 | â Passou |
-| message User exists! | â Passou |
+| POST /api/verifyLogin status 200 | ✅ Passou |
+| message User exists! | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 5000` | â p(95)=391ms |
-| `http_req_failed rate < 0,10` | â rate=0,00% |
+| `http_req_duration p(95) < 5000` | ✅ p(95)=391ms |
+| `http_req_failed rate < 0,10` | ✅ rate=0,00% |
 
 ---
 
@@ -220,7 +220,7 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 | Parâmetro | Valor |
 |:----------|:------|
 | **Script** | [`TC_PF_005_estresse_api_produtos.js`](Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js) |
-| **Status** | â ï¸ **LIMITAÇÃO DO SERVIDOR** |
+| **Status** | ⚠️ **LIMITAÇÃO DO SERVIDOR** |
 
 #### Resultado da Progressão
 
@@ -249,7 +249,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Duração** | 3min 30s |
 | **VUs** | 1 (validação de fluxo) |
 | **Iterações** | 14 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -267,27 +267,27 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Check | Resultado |
 |:------|:---------:|
-| GET /api/productsList status 200 | â Passou |
-| responseCode igual a 200 | â Passou |
-| products é um array | â Passou |
-| products.length maior que 0 | â Passou |
-| GET /api/brandsList status 200 | â Passou |
-| brands responseCode igual a 200 | â Passou |
-| brands é um array | â Passou |
-| POST /api/verifyLogin status 200 | â Passou |
-| login responseCode igual a 200 | â Passou |
-| login message User exists! | â Passou |
-| GET /api/productsList pós-login | â Passou |
-| POST /api/verifyLogin inválido 404 | â Passou |
-| GET /api/products/search?search=... | â Passou |
-| search contem resultados | â Passou |
+| GET /api/productsList status 200 | ✅ Passou |
+| responseCode igual a 200 | ✅ Passou |
+| products é um array | ✅ Passou |
+| products.length maior que 0 | ✅ Passou |
+| GET /api/brandsList status 200 | ✅ Passou |
+| brands responseCode igual a 200 | ✅ Passou |
+| brands é um array | ✅ Passou |
+| POST /api/verifyLogin status 200 | ✅ Passou |
+| login responseCode igual a 200 | ✅ Passou |
+| login message User exists! | ✅ Passou |
+| GET /api/productsList pós-login | ✅ Passou |
+| POST /api/verifyLogin inválido 404 | ✅ Passou |
+| GET /api/products/search?search=... | ✅ Passou |
+| search contem resultados | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 3000` | â p(95)=1,0s |
-| `http_req_failed rate < 0,01` | â rate=0,00% |
+| `http_req_duration p(95) < 3000` | ✅ p(95)=1,0s |
+| `http_req_failed rate < 0,01` | ✅ rate=0,00% |
 
 ---
 
@@ -300,7 +300,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Duração** | 1min 30s |
 | **VUs** | 1 (validação do script) |
 | **Iterações** | 178 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -318,18 +318,18 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Check | Resultado |
 |:------|:---------:|
-| status 200 | â Passou (178/178) |
+| status 200 | ✅ Passou (178/178) |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 8000` | â p(95)=556ms |
-| `http_req_failed rate < 0,15` | â rate=0,00% |
+| `http_req_duration p(95) < 8000` | ✅ p(95)=556ms |
+| `http_req_failed rate < 0,15` | ✅ rate=0,00% |
 
 ---
 
-> Â¹ A execução original de 2026-05-24 registrou TC_PF_007 como aprovado (0% erro) porque o k6 executou com apenas 1 VU efetivo. Testes posteriores (2026-05-30) com spike real de 200 VUs confirmaram ~80% de falha por rate limiting do Cloudflare, consistente com os demais cenários de alta carga.
+> ¹ A execução original de 2026-05-24 registrou TC_PF_007 como aprovado (0% erro) porque o k6 executou com apenas 1 VU efetivo. Testes posteriores (2026-05-30) com spike real de 200 VUs confirmaram ~80% de falha por rate limiting do Cloudflare, consistente com os demais cenários de alta carga.
 
 ### 2.8 TC_PF_008 - Core Web Vitals (Lighthouse / Chrome DevTools)
 
@@ -339,14 +339,14 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Data/Hora** | 2026-05-24 14:30 |
 | **Páginas** | 8 páginas críticas |
 | **Script** | [`TC_PF_008_core_web_vitals.cy.js`](Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js) |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Lighthouse Scores
 
 | Categoria | Score | Interpretação |
 |:----------|:-----:|:--------------|
 | **Acessibilidade** | 73/100 | Bom, mas melhorável |
-| **Boas Práticas** | 54/100 | â ï¸ Baixo â imagens sem WebP, mixed content |
+| **Boas Práticas** | 54/100 | ⚠️ Baixo — imagens sem WebP, mixed content |
 | **SEO** | 83/100 | Bom |
 | **Agentic Browsing** | 33/100 | Baixo |
 
@@ -376,25 +376,25 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | Contato | 1.120ms | 0,01 | 732ms | 1.120ms |
 | Casos de Teste | 1.020ms | **0,00** | 715ms | 1.020ms |
 
-#### Glossário â O que são LCP, CLS, TTFB?
+#### Glossário — O que são LCP, CLS, TTFB?
 
 | Sigla | Significado | O que mede | SLA |
 |:------|:------------|:-----------|:---:|
 | **LCP** | Largest Contentful Paint | Tempo para renderizar o **maior elemento visível** (imagem, texto). Quanto menor, mais rápido o usuário vê o conteúdo principal. | < 2,5s |
-| **CLS** | Cumulative Layout Shift | **Estabilidade visual** â quanto os elementos "pulam" de lugar. Causado por imagens sem tamanho definido, fontes carregando tarde, anúncios. | < 0,1 |
+| **CLS** | Cumulative Layout Shift | **Estabilidade visual** — quanto os elementos "pulam" de lugar. Causado por imagens sem tamanho definido, fontes carregando tarde, anúncios. | < 0,1 |
 | **TTFB** | Time to First Byte | Tempo entre a requisição HTTP e o **primeiro byte** de resposta. Reflete latência do servidor/Cloudflare. | < 500ms |
 | **FCP** | First Contentful Paint | Primeiro conteúdo renderizado (texto, imagem). | < 1,5s |
 | **INP** | Interaction to Next Paint | Tempo entre o usuário clicar e a página responder. | < 200ms |
 
-> Essas são as **Core Web Vitals** do Google â métricas oficiais de experiência do usuário usadas para ranking de busca.
+> Essas são as **Core Web Vitals** do Google — métricas oficiais de experiência do usuário usadas para ranking de busca.
 
 #### Métricas Core Web Vitals (Lab - máquina local)
 
 | Métrica | Valor | SLA | Status |
 |:--------|:-----:|:---:|:------:|
-| **LCP** (Largest Contentful Paint) | 937ms | < 2.500ms | â |
-| **CLS** (Cumulative Layout Shift) | 0,05 | < 0,1 | â |
-| **TTFB** (Time to First Byte) | 749ms | < 500ms | â ï¸ Acima do ideal |
+| **LCP** (Largest Contentful Paint) | 937ms | < 2.500ms | ✅ |
+| **CLS** (Cumulative Layout Shift) | 0,05 | < 0,1 | ✅ |
+| **TTFB** (Time to First Byte) | 749ms | < 500ms | ⚠️ Acima do ideal |
 
 #### LCP Breakdown
 
@@ -409,17 +409,17 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Métrica | p75 Real | SLA | Status |
 |:--------|:--------:|:---:|:------:|
-| **LCP** | 1.985ms | < 2.500ms | â |
-| **INP** (Interaction to Next Paint) | 34ms | < 200ms | â |
-| **CLS** | **0,35** | < 0,1 | â Ruim |
+| **LCP** | 1.985ms | < 2.500ms | ✅ |
+| **INP** (Interaction to Next Paint) | 34ms | < 200ms | ✅ |
+| **CLS** | **0,35** | < 0,1 | ❌ Ruim |
 
 #### SLA das Core Web Vitals
 
 | Métrica | Alvo | Resultado |
 |:--------|:----:|:----------|
-| **LCP** (< 2.500ms) | 100% das páginas | â 8/8 abaixo |
-| **CLS** (< 0,1) | 100% das páginas | â 8/8 abaixo |
-| **TTFB** (< 500ms) | 100% das páginas | â 7/8 acima (exceção: Login 228ms) |
+| **LCP** (< 2.500ms) | 100% das páginas | ✅ 8/8 abaixo |
+| **CLS** (< 0,1) | 100% das páginas | ✅ 8/8 abaixo |
+| **TTFB** (< 500ms) | 100% das páginas | ❌ 7/8 acima (exceção: Login 228ms) |
 
 #### Lighthouse - Demais Páginas Críticas
 
@@ -433,7 +433,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Contato** (/contact_us) | TC_WEB_006 | 993ms | **0,00** | 860ms | 54 | Lighthouse |
 | **Casos de Teste** (/test_cases) | TC_WEB_007 | - | - | - | 54 | Lighthouse |
 
-> **Nota:** Carrinho e checkout foram testados via Lighthouse (páginas vazias). A adição de itens ao carrinho depende de interação JavaScript no browser (hover, modal, localStorage) â não é possível via Lighthouse simples. Para testar com itens, seria necessário usar um teste E2E (Cypress) que adiciona produtos e então coleta as métricas de performance.
+> **Nota:** Carrinho e checkout foram testados via Lighthouse (páginas vazias). A adição de itens ao carrinho depende de interação JavaScript no browser (hover, modal, localStorage) — não é possível via Lighthouse simples. Para testar com itens, seria necessário usar um teste E2E (Cypress) que adiciona produtos e então coleta as métricas de performance.
 
 ---
 
@@ -465,7 +465,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Duração** | 30s |
 | **VUs** | 1 (validação do fluxo) |
 | **Iterações** | 39 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -483,22 +483,22 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Check | Resultado |
 |:------|:---------:|
-| createAccount status 200 | â Passou |
-| createAccount responseCode 201 | â Passou |
-| createAccount message User created! | â Passou |
-| login status 200 | â Passou |
-| login message User exists! | â Passou |
-| listProducts status 200 | â Passou |
-| listProducts responseCode 200 | â Passou |
-| deleteAccount status 200 | â Passou |
-| deleteAccount message Account deleted! | â Passou |
+| createAccount status 200 | ✅ Passou |
+| createAccount responseCode 201 | ✅ Passou |
+| createAccount message User created! | ✅ Passou |
+| login status 200 | ✅ Passou |
+| login message User exists! | ✅ Passou |
+| listProducts status 200 | ✅ Passou |
+| listProducts responseCode 200 | ✅ Passou |
+| deleteAccount status 200 | ✅ Passou |
+| deleteAccount message Account deleted! | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 4000` | â p(95)=400ms |
-| `http_req_failed rate < 0,05` | â rate=0,00% |
+| `http_req_duration p(95) < 4000` | ✅ p(95)=400ms |
+| `http_req_failed rate < 0,05` | ✅ rate=0,00% |
 
 ---
 
@@ -511,7 +511,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Duração** | 30s |
 | **VUs** | 1 (validação do fluxo) |
 | **Iterações** | 37 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -529,27 +529,27 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Check | Resultado |
 |:------|:---------:|
-| GET /products status 200 (home) | â Passou |
-| response body contem HTML | â Passou |
-| GET /view_cart status 200 | â Passou |
-| cart body contem HTML | â Passou |
-| GET /login status 200 | â Passou |
-| login body contem HTML | â Passou |
-| GET /product_details/1 status 200 | â Passou |
-| product_details body contem HTML | â Passou |
-| GET /contact_us status 200 | â Passou |
-| contact_us body contem HTML | â Passou |
-| GET /test_cases status 200 | â Passou |
-| test_cases body contem HTML | â Passou |
-| GET /api/productsList status 200 | â Passou |
-| api responseCode igual a 200 | â Passou |
+| GET /products status 200 (home) | ✅ Passou |
+| response body contem HTML | ✅ Passou |
+| GET /view_cart status 200 | ✅ Passou |
+| cart body contem HTML | ✅ Passou |
+| GET /login status 200 | ✅ Passou |
+| login body contem HTML | ✅ Passou |
+| GET /product_details/1 status 200 | ✅ Passou |
+| product_details body contem HTML | ✅ Passou |
+| GET /contact_us status 200 | ✅ Passou |
+| contact_us body contem HTML | ✅ Passou |
+| GET /test_cases status 200 | ✅ Passou |
+| test_cases body contem HTML | ✅ Passou |
+| GET /api/productsList status 200 | ✅ Passou |
+| api responseCode igual a 200 | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 5000` | â p(95)=659ms |
-| `http_req_failed rate < 0,05` | â rate=0,00% |
+| `http_req_duration p(95) < 5000` | ✅ p(95)=659ms |
+| `http_req_failed rate < 0,05` | ✅ rate=0,00% |
 
 ---
 
@@ -562,7 +562,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Duração** | 20s |
 | **VUs** | 1 (validação do fluxo) |
 | **Iterações** | 11 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -580,20 +580,20 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Check | Resultado |
 |:------|:---------:|
-| createAccount status 200 | â Passou |
-| createAccount responseCode 201 | â Passou |
-| updateAccount status 200 | â Passou |
-| updateAccount responseCode 200 | â Passou |
-| updateAccount message User updated! | â Passou |
-| deleteAccount status 200 | â Passou |
-| deleteAccount message Account deleted! | â Passou |
+| createAccount status 200 | ✅ Passou |
+| createAccount responseCode 201 | ✅ Passou |
+| updateAccount status 200 | ✅ Passou |
+| updateAccount responseCode 200 | ✅ Passou |
+| updateAccount message User updated! | ✅ Passou |
+| deleteAccount status 200 | ✅ Passou |
+| deleteAccount message Account deleted! | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 5000` | â p(95)=477ms |
-| `http_req_failed rate < 0,15` | â rate=0,00% |
+| `http_req_duration p(95) < 5000` | ✅ p(95)=477ms |
+| `http_req_failed rate < 0,15` | ✅ rate=0,00% |
 
 **Observação:** O endpoint PUT /api/updateAccount exige que o password informado seja o MESMO password usado na criação. O script mantém password consistente em todo o fluxo. O DELETE usa `http.del()` com body em vez de POST.
 
@@ -608,7 +608,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Duração** | 20s |
 | **VUs** | 1 (validação do fluxo) |
 | **Iterações** | 12 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -626,22 +626,22 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Check | Resultado |
 |:------|:---------:|
-| createAccount status 200 | â Passou |
-| createAccount responseCode 201 | â Passou |
-| getUserDetail status 200 | â Passou |
-| getUserDetail responseCode 200 | â Passou |
-| getUserDetail possui user | â Passou |
-| getUserDetail user.name existe | â Passou |
-| getUserDetail user.email existe | â Passou |
-| deleteAccount status 200 | â Passou |
-| deleteAccount message Account deleted! | â Passou |
+| createAccount status 200 | ✅ Passou |
+| createAccount responseCode 201 | ✅ Passou |
+| getUserDetail status 200 | ✅ Passou |
+| getUserDetail responseCode 200 | ✅ Passou |
+| getUserDetail possui user | ✅ Passou |
+| getUserDetail user.name existe | ✅ Passou |
+| getUserDetail user.email existe | ✅ Passou |
+| deleteAccount status 200 | ✅ Passou |
+| deleteAccount message Account deleted! | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 5000` | â p(95)=497ms |
-| `http_req_failed rate < 0,15` | â rate=0,00% |
+| `http_req_duration p(95) < 5000` | ✅ p(95)=497ms |
+| `http_req_failed rate < 0,15` | ✅ rate=0,00% |
 
 ---
 
@@ -654,7 +654,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Duração** | 20s |
 | **VUs** | 1 (validação do fluxo) |
 | **Iterações** | 24 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -672,15 +672,15 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Check | Resultado |
 |:------|:---------:|
-| search status 200 | â Passou |
-| resposta contem produtos | â Passou |
+| search status 200 | ✅ Passou |
+| resposta contem produtos | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 5000` | â p(95)=1,06s |
-| `http_req_failed rate < 0,05` | â rate=0,00% |
+| `http_req_duration p(95) < 5000` | ✅ p(95)=1,06s |
+| `http_req_failed rate < 0,05` | ✅ rate=0,00% |
 
 **Observação:** A API retorna `Content-Type: text/html` mesmo quando o body é JSON válido. O script usa `JSON.parse()` diretamente em vez de `r.json()` para contornar essa limitação do servidor.
 
@@ -695,7 +695,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | **Duração** | 20s |
 | **VUs** | 1 (validação do fluxo) |
 | **Iterações** | 16 |
-| **Status** | â **APROVADO** |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
@@ -713,17 +713,17 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Check | Resultado |
 |:------|:---------:|
-| GET /products status 200 | â Passou |
-| pagina produtos carregada | â Passou |
+| GET /products status 200 | ✅ Passou |
+| pagina produtos carregada | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 5000` | â p(95)=533ms |
-| `http_req_failed rate < 0,05` | â rate=0,00% |
+| `http_req_duration p(95) < 5000` | ✅ p(95)=533ms |
+| `http_req_failed rate < 0,05` | ✅ rate=0,00% |
 
-**Observação:** A página /products retorna o HTML completo com a listagem de produtos. k6 mede o tempo de resposta HTTP â não inclui renderização no browser (LCP, FCP, CLS). Para métricas de renderização, usar Lighthouse.
+**Observação:** A página /products retorna o HTML completo com a listagem de produtos. k6 mede o tempo de resposta HTTP — não inclui renderização no browser (LCP, FCP, CLS). Para métricas de renderização, usar Lighthouse.
 
 ---
 
@@ -776,7 +776,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | # | Recomendação | Impacto Esperado |
 |:-|:-------------|:-----------------|
-| 1 | Corrigir Mixed Content â alterar `http://fonts.googleapis.com` para `https://` | Fontes voltam a carregar |
+| 1 | Corrigir Mixed Content — alterar `http://fonts.googleapis.com` para `https://` | Fontes voltam a carregar |
 | 2 | Adicionar lazy loading nas imagens da Homepage | Redução de ~2,4 MB no load inicial |
 | 3 | Converter imagens para WebP | Redução de 50-70% no tamanho |
 
@@ -837,12 +837,12 @@ k6 run Cypress\cypress\e2e\performance\TC_PF_001_smoke_test.js --summary-export=
 |:------|:----------|
 | **Rate Limiting** | Mecanismo do servidor que limita o número de requisições em um período |
 | **Cloudflare** | CDN e proxy reverso que protege o servidor de origem |
-| **Mixed Content** | Recurso HTTP carregado em página HTTPS â bloqueado pelo navegador |
+| **Mixed Content** | Recurso HTTP carregado em página HTTPS — bloqueado pelo navegador |
 | **Lazy Loading** | Técnica que adia o carregamento de recursos não visíveis |
 | **WebP** | Formato de imagem moderno com compressão superior ao JPEG |
-| **TTFB** | Time to First Byte â tempo até o primeiro byte de resposta |
-| **LCP** | Largest Contentful Paint â maior elemento visível. Objetivo: < 2,5s |
-| **CLS** | Cumulative Layout Shift â estabilidade visual. Objetivo: < 0,1 |
+| **TTFB** | Time to First Byte — tempo até o primeiro byte de resposta |
+| **LCP** | Largest Contentful Paint — maior elemento visível. Objetivo: < 2,5s |
+| **CLS** | Cumulative Layout Shift — estabilidade visual. Objetivo: < 0,1 |
 | **Throughput** | Taxa de requisições processadas por segundo |
 
 ---

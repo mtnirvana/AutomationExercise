@@ -19,7 +19,7 @@ O **Automation Exercise** é uma plataforma de e-commerce de alta fidelidade par
 - **Fora de Escopo:** Segurança de Penetração.
 
 #### Performance Tests (Carga e Estresse)
-- **Em Escopo:** Endpoints REST (GET, POST, DELETE) sob carga, Páginas Web (Homepage, Produtos, Login), Fluxos de Negócio (Criar Conta â Login â Listar â Excluir), Validação de Latência e Throughput, Core Web Vitals (LCP, CLS, TTFB).
+- **Em Escopo:** Endpoints REST (GET, POST, DELETE) sob carga, Páginas Web (Homepage, Produtos, Login), Fluxos de Negócio (Criar Conta → Login → Listar → Excluir), Validação de Latência e Throughput, Core Web Vitals (LCP, CLS, TTFB).
 - **Fora de Escopo:** Testes Mobile, Testes de Usabilidade, Testes Cross-Browser, Testes de Carga Distribuída.
 
 ---
@@ -103,18 +103,18 @@ Os cenários estão organizados em:
 
 | Tipo | Total | Documento de Referência |
 |:-----|:-----:|:------------------------|
-| Testes E2E Web | 26 | `Suite_BDD.md` / `Especificacao_Tecnica_Web.md` |
-| Testes de API | 14 | `Suite_BDD.md` / `Especificacao_Tecnica_API.md` |
-| Testes de Performance | 21 | `Suite_BDD.md` / `Especificacao_Tecnica_Performance.md` |
+| Testes E2E Web | 26 | [`Suite_BDD.md`](Suite_BDD.md) / [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| Testes de API | 14 | [`Suite_BDD.md`](Suite_BDD.md) / [`Especificacao_Tecnica_API.md`](Especificacao_Tecnica_API.md) |
+| Testes de Performance | 14 | [`Suite_BDD.md`](Suite_BDD.md) / [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md) |
 
-> **Total:** 40 cenários funcionais (BDD) Â· 61 casos individuais no Allure (26 E2E + 14 API + 13 k6 + 8 Core Web Vitals)
+> **Total:** 40 cenários funcionais (BDD) · 61 casos individuais no Allure (26 E2E + 14 API + 13 k6 + 8 Core Web Vitals)
 
 ---
 
 ## 5. Gestão de Defeitos e Divergências
 O projeto adota uma postura rigorosa na detecção de desvios operacionais:
 
-1. **Triagem Automática:** Captura de registros visuais (screenshots, vídeos e GIFs animados) e logs de response para cada requisição API.
+1. **Triagem Automática:** Captura de registros visuais (screenshots, vídeos e GIFs animados) e logs de response para cada requisição API. Cada TC na Especificação Técnica Web possui seu GIF inline.
 2. **Rastreamento de Divergências:** Identificação de casos onde o comportamento do sistema diverge da documentação de requisitos funcionais ou da especificação da API.
 3. **Documentação de Erros:** Registro técnico detalhando o desvio entre o comportamento observado e o esperado.
 
@@ -181,13 +181,12 @@ Todas as evidências dos 3 tipos de teste (E2E Web, API e Performance) são cent
 
 | Teste | Evidência no Allure |
 |:------|:--------------------|
-| **E2E Web (NN)** | Screenshots numerados por passo + vídeos + GIFs animados + métricas de execução |
-| **API (NN)** | Requisição, resposta e asserções em HTML report |
-| **Performance (NN)** | Resultados k6 convertidos (checks, thresholds, métricas) + Core Web Vitals |
+| **E2E Web (26)** | Screenshots numerados por passo + vídeos + GIFs animados + métricas de execução |
+| **API (14)** | Requisição, resposta e asserções em HTML report |
+| **Performance (21 checks)** | Resultados k6 convertidos (checks, thresholds, métricas) + Core Web Vitals (13 k6 checks + 8 Core Web Vitals) |
 
-> O relatório unificado pode ser acessado via `cypress/allure/allure-report/index.html` ou atalho `docs/Relatorio_Testes.lnk`.
+> O relatório unificado pode ser acessado via `../Cypress/cypress/allure/allure-report/index.html` ou atalho `docs/Relatorio_Testes.lnk`.
 
 ---
 
-**Documento gerado em:** AAAA-MM-DD
-
+**Documento gerado em:** 2026-05-22

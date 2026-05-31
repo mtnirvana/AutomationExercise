@@ -62,13 +62,13 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` â `a[href="/login"]` | Redireciona para login |
-| 5 | Validar header "New User Signup!" | `LoginPage.newUserSignupHeader` â `h2:contains('New User Signup!')` | Header visível |
+| 4 | Clicar em "Signup / Login" | `HomePage.clickSignupLogin()` → `a[href="/login"]` | Redireciona para login |
+| 5 | Validar header "New User Signup!" | `LoginPage.newUserSignupHeader` → `h2:contains('New User Signup!')` | Header visível |
 | 6 | Preencher nome e email (dinâmico) | `LoginPage.nameInput` + `LoginPage.emailInput` | Dados inseridos |
-| 7 | Clicar em "Signup" | `LoginPage.signupButton` â `button[data-qa="signup-button"]` | Redireciona para formulário |
-| 8 | Validar header "ENTER ACCOUNT INFORMATION" | `SignupPage.accountInfoHeader` â `h2:contains('Enter Account Information')` | Header visível |
-| 9 | Selecionar gênero | `SignupPage.genderMale/genderFemale` â `#id_gender1/#id_gender2` | Gênero selecionado |
-| 10 | Preencher senha | `SignupPage.password` â `#password` | Senha inserida |
+| 7 | Clicar em "Signup" | `LoginPage.signupButton` → `button[data-qa="signup-button"]` | Redireciona para formulário |
+| 8 | Validar header "ENTER ACCOUNT INFORMATION" | `SignupPage.accountInfoHeader` → `h2:contains('Enter Account Information')` | Header visível |
+| 9 | Selecionar gênero | `SignupPage.genderMale/genderFemale` → `#id_gender1/#id_gender2` | Gênero selecionado |
+| 10 | Preencher senha | `SignupPage.password` → `#password` | Senha inserida |
 | ... | ... | ... | ... |
 | N | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Header visível |
 
@@ -251,7 +251,7 @@ Este glossário consolida todos os seletores extraídos dos Page Objects do proj
 
 ### 5.9 Seletores Globais
 
-> Nenhum â todos os seletores estão organizados por página nas seções 5.1 a 5.8.
+> Nenhum — todos os seletores estão organizados por página nas seções 5.1 a 5.8.
 
 ---
 
@@ -296,33 +296,33 @@ Estrutura completa do projeto com destaque para os artefatos de teste **Web (E2E
 
 ```
 automationexercise/
-âââ Cypress/
-â   âââ cypress.config.js                # Configuracao: allure, videos, screenshots, reporters
-â   âââ run_all.bat                      # Script unico: Cypress + k6 + GIFs + relatorio
-â   âââ package.json                     # Dependencias Node (Cypress, Allure, etc.)
-â   âââ scripts/                         # Utilitarios
-â   â   âââ gerar_gifs.js                # Gera GIFs animados
+├── Cypress/
+│   ├── cypress.config.js                # Configuracao: allure, videos, screenshots, reporters
+│   ├── run_all.bat                      # Script unico: Cypress + k6 + GIFs + relatorio
+│   ├── package.json                     # Dependencias Node (Cypress, Allure, etc.)
+│   ├── scripts/                         # Utilitarios
+│   │   └── gerar_gifs.js                # Gera GIFs animados
 
-â   âââ cypress/
-â       âââ e2e/
-â       â   âââ web/                     # 26 testes E2E Web (TC_WEB_001-TC_WEB_026)
-â       â   âââ api/                     # Testes de API
-â       â   âââ performance/             # Testes de performance
-â       âââ pages/                       # Page Objects
-â       â   âââ ...
-â       âââ data/                        # Factories
-â       âââ fixtures/                    # Dados estaticos
-â       â   âââ users.json               # Credenciais e dados de pagamento
-â       â   âââ products.json            # Produtos, categorias, marcas
-â       â   âââ contact.json             # Mensagens e assuntos
-â       â   âââ ui_texts.json            # Labels, headers, erros, botoes
-â       â   âââ test_file.txt            # Arquivo de teste para upload
-â       âââ support/                     # Comandos customizados
-â       â   âââ e2e.js                   # beforeEach centralizado + cy.captura()
-â       âââ reports/                     # Relatorios de execucao
-â       âââ screenshots/                 # Evidencias visuais
-â       âââ allure/                      # Relatorios Allure
-â       âââ videos/                      # Videos das execucoes
+│   └── cypress/
+│       ├── e2e/
+│       │   ├── web/                     # 26 testes E2E Web (TC_WEB_001-TC_WEB_026)
+│       │   ├── api/                     # Testes de API
+│       │   └── performance/             # Testes de performance
+│       ├── pages/                       # Page Objects
+│       │   └── ...
+│       ├── data/                        # Factories
+│       ├── fixtures/                    # Dados estaticos
+│       │   ├── users.json               # Credenciais e dados de pagamento
+│       │   ├── products.json            # Produtos, categorias, marcas
+│       │   ├── contact.json             # Mensagens e assuntos
+│       │   ├── ui_texts.json            # Labels, headers, erros, botoes
+│       │   └── test_file.txt            # Arquivo de teste para upload
+│       ├── support/                     # Comandos customizados
+│       │   └── e2e.js                   # beforeEach centralizado + cy.captura()
+│       ├── reports/                     # Relatorios de execucao
+│       ├── screenshots/                 # Evidencias visuais
+│       ├── allure/                      # Relatorios Allure
+│       └── videos/                      # Videos das execucoes
 ```
 
 > **Exemplo de preenchimento:** No documento completo, a pasta `web/` deve listar todos os 26 scripts de teste E2E com seus nomes completos, conforme [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md).

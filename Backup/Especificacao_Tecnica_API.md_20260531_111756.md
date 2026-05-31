@@ -84,7 +84,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 11 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API retorna catálogo completo com 34 produtos<br>
+**Resultado esperado:** API retorna cat�logo completo com 34 produtos<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(200)
@@ -126,7 +126,7 @@ cypress/screenshots/api/TC_API_001_api_result.html
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API retorna lista de marcas disponíveis<br>
+**Resultado esperado:** API retorna lista de marcas dispon�veis<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(200)
@@ -201,7 +201,7 @@ cypress/screenshots/api/TC_API_003_api_result.html
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente<br>
+**Resultado esperado:** API retorna erro quando par�metro obrigat�rio est� ausente<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(400)
@@ -224,7 +224,7 @@ cypress/screenshots/api/TC_API_004_api_result.html
 **Objetivo:** Garantir que a API retorna sucesso quando credenciais válidas são fornecidas.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `cypress/fixtures/users.json` â `testUser` (credenciais pré-cadastradas)<br>
+**Dados:** `cypress/fixtures/users.json` → `testUser` (credenciais pré-cadastradas)<br>
 **Pós-condição:** Nenhuma (fixture reutilizável)
 
 **Passos Detalhados:**
@@ -238,7 +238,7 @@ cypress/screenshots/api/TC_API_004_api_result.html
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API autentica usuário com credenciais corretas<br>
+**Resultado esperado:** API autentica usu�rio com credenciais corretas<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(200)
@@ -271,7 +271,7 @@ cypress/screenshots/api/TC_API_005_api_result.html
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API retorna erro quando campo obrigatório está ausente<br>
+**Resultado esperado:** API retorna erro quando campo obrigat�rio est� ausente<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(400)
@@ -290,7 +290,7 @@ cypress/screenshots/api/TC_API_006_api_result.html
 **Objetivo:** Validar que a API retorna erro quando credenciais não existem.<br>
 **Tipo:** Erro<br>
 **Criticidade:** Alta<br>
-**Dados:** `cypress/fixtures/users.json` â `invalidUser`<br>
+**Dados:** `cypress/fixtures/users.json` → `invalidUser`<br>
 **Pós-condição:** Nenhuma alteração
 
 **Passos Detalhados:**
@@ -304,7 +304,7 @@ cypress/screenshots/api/TC_API_006_api_result.html
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API rejeita autenticação com dados incorretos<br>
+**Resultado esperado:** API rejeita autentica��o com dados incorretos<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(404)
@@ -360,7 +360,7 @@ cypress/screenshots/api/TC_API_008_api_result.html
 **Objetivo:** Validar a exclusão de usuário via endpoint.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `cypress/data/userFactory.js` â `UserFactory.generate()` (usuário dinâmico)<br>
+**Dados:** `cypress/data/userFactory.js` → `UserFactory.generate()` (usuário dinâmico)<br>
 **Pós-condição:** Nenhuma (usuário temporário criado e excluído no mesmo teste)
 
 **Passos Detalhados:**
@@ -411,7 +411,7 @@ cypress/screenshots/api/TC_API_009_api_result.html
 | 7 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API permite alteração de dados cadastrais<br>
+**Resultado esperado:** API permite altera��o de dados cadastrais<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(200)
@@ -447,7 +447,7 @@ cypress/screenshots/api/TC_API_010_api_result.html
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API retorna dados do usuário pelo email<br>
+**Resultado esperado:** API retorna dados do usu�rio pelo email<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(200)
@@ -486,7 +486,7 @@ cypress/screenshots/api/TC_API_011_api_result.html
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API rejeita método não permitido com erro 405<br>
+**Resultado esperado:** API rejeita m�todo n�o permitido com erro 405<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(405)
@@ -519,7 +519,7 @@ cypress/screenshots/api/TC_API_012_api_result.html
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API rejeita método não permitido com erro 405<br>
+**Resultado esperado:** API rejeita m�todo n�o permitido com erro 405<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(405)
@@ -552,7 +552,7 @@ cypress/screenshots/api/TC_API_013_api_result.html
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:**
-**Resultado esperado:** API rejeita método não permitido com erro 405<br>
+**Resultado esperado:** API rejeita m�todo n�o permitido com erro 405<br>
 ```javascript
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(405)
@@ -628,36 +628,36 @@ Estrutura completa do projeto com destaque para os artefatos de teste **API**:
 
 ```
 automationexercise/
-âââ Cypress/cypress/
-    âââ e2e/
-    â   âââ web/                 # Testes E2E
-    â   âââ api/                 # Testes de API (TC_API_001-TC_API_014)
-    â   â   âââ TC_API_001_sucesso_listar_todos_produtos.cy.js
-    â   â   âââ TC_API_002_sucesso_listar_todas_marcas.cy.js
-    â   â   âââ TC_API_003_sucesso_pesquisar_produto.cy.js
-    â   â   âââ TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js
-    â   â   âââ TC_API_005_sucesso_verificar_login_valido.cy.js
-    â   â   âââ TC_API_006_erro_verificar_login_sem_email.cy.js
-    â   â   âââ TC_API_007_erro_verificar_login_invalido.cy.js
-    â   â   âââ TC_API_008_sucesso_criar_conta_usuario.cy.js
-    â   â   âââ TC_API_009_sucesso_excluir_conta_usuario.cy.js
-    â   â   âââ TC_API_010_sucesso_atualizar_conta_usuario.cy.js
-    â   â   âââ TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js
-    â   â   âââ TC_API_012_erro_validar_metodo_post_em_productslist.cy.js
-    â   â   âââ TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js
-    â   â   âââ TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js
-    â   âââ performance/         # Testes de performance (k6 + Cypress)
-    âââ fixtures/                # Dados estaticos
-    â   âââ users.json           # Credenciais e dados de pagamento
-    â   âââ products.json        # Produtos, categorias, marcas
-    â   âââ contact.json         # Mensagens e assuntos
-    â   âââ ui_texts.json        # Labels, headers, erros, botoes
-    â   âââ test_file.txt        # Arquivo de teste para upload
-    âââ support/                 # Comandos customizados
-    â   âââ e2e.js               # beforeEach centralizado + cy.captura()
-    âââ reports/                 # Relatorios de execucao
-    âââ screenshots/             # Evidencias visuais
-    âââ videos/                  # Videos das execucoes
+└── Cypress/cypress/
+    ├── e2e/
+    │   ├── web/                 # Testes E2E
+    │   ├── api/                 # Testes de API (TC_API_001-TC_API_014)
+    │   │   ├── TC_API_001_sucesso_listar_todos_produtos.cy.js
+    │   │   ├── TC_API_002_sucesso_listar_todas_marcas.cy.js
+    │   │   ├── TC_API_003_sucesso_pesquisar_produto.cy.js
+    │   │   ├── TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js
+    │   │   ├── TC_API_005_sucesso_verificar_login_valido.cy.js
+    │   │   ├── TC_API_006_erro_verificar_login_sem_email.cy.js
+    │   │   ├── TC_API_007_erro_verificar_login_invalido.cy.js
+    │   │   ├── TC_API_008_sucesso_criar_conta_usuario.cy.js
+    │   │   ├── TC_API_009_sucesso_excluir_conta_usuario.cy.js
+    │   │   ├── TC_API_010_sucesso_atualizar_conta_usuario.cy.js
+    │   │   ├── TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js
+    │   │   ├── TC_API_012_erro_validar_metodo_post_em_productslist.cy.js
+    │   │   ├── TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js
+    │   │   └── TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js
+    │   └── performance/         # Testes de performance (k6 + Cypress)
+    ├── fixtures/                # Dados estaticos
+    │   ├── users.json           # Credenciais e dados de pagamento
+    │   ├── products.json        # Produtos, categorias, marcas
+    │   ├── contact.json         # Mensagens e assuntos
+    │   ├── ui_texts.json        # Labels, headers, erros, botoes
+    │   └── test_file.txt        # Arquivo de teste para upload
+    ├── support/                 # Comandos customizados
+    │   └── e2e.js               # beforeEach centralizado + cy.captura()
+    ├── reports/                 # Relatorios de execucao
+    ├── screenshots/             # Evidencias visuais
+    └── videos/                  # Videos das execucoes
 ```
 
  ---

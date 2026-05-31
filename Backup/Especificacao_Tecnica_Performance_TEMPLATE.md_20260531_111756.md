@@ -11,7 +11,7 @@
 Este documento fornece o detalhamento operacional para a execução e manutenção dos testes de performance do **Automation Exercise**. Ele serve como guia para engenheiros de QA, descrevendo a configuração técnica de cada cenário, os thresholds estabelecidos e as validações aplicadas.
 
 ### 1.1 Premissas de Execução
-- **Clean Slate:** Cada teste é independente â dados de criação de conta usam timestamp único para evitar conflitos.
+- **Clean Slate:** Cada teste é independente — dados de criação de conta usam timestamp único para evitar conflitos.
 - **Design Pattern:** Scripts em JavaScript com uso de `stages`, `thresholds` e `check()` do k6.
 - **Dados Dinâmicos:** Uso de `Date.now()` para emails únicos em cenários de criação de conta (TC_PF_009).
 - **Headless:** Execução via CLI (sem GUI), modo non-interactive. 
@@ -21,7 +21,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 - **Framework:** jQuery (sem SPA)
 - **CDN/Proxy:** Cloudflare
 - **Servidor:** Nginx
-- **API:** REST â retorna JSON com `responseCode`, `message`, `products`, `brands`
+- **API:** REST — retorna JSON com `responseCode`, `message`, `products`, `brands`
 
 ---
 
@@ -80,11 +80,11 @@ export default function () {
 |:---|:-------|:----:|:-----:|:-------------:|
 | TC_PF_001 | Smoke test de validação do pipeline | Smoke | 1 VU | ~1s |
 | TC_PF_002 | Carga concorrente na página inicial | Carga | 50 VUs | ~3,5min |
-| TC_PF_003 | Carga no endpoint /api/productsList | Carga | 50â100 VUs | ~3,5min |
+| TC_PF_003 | Carga no endpoint /api/productsList | Carga | 50→100 VUs | ~3,5min |
 | TC_PF_004 | Carga no endpoint /api/verifyLogin | Carga | 30 VUs | ~2,5min |
-| TC_PF_005 | Estresse progressivo no /api/productsList | Estresse | 25â300 VUs | ~5,5min |
+| TC_PF_005 | Estresse progressivo no /api/productsList | Estresse | 25→300 VUs | ~5,5min |
 | TC_PF_006 | Resistência sustentada com mix de endpoints | Resistência | 50 VUs | ~5,5min |
-| TC_PF_007 | Pico repentino de tráfego | Pico | 10â200â10 VUs | ~3,5min |
+| TC_PF_007 | Pico repentino de tráfego | Pico | 10→200→10 VUs | ~3,5min |
 | TC_PF_008 | Métricas Core Web Vitals (Lighthouse) | Front-end | 1 usuário | ~5min |
 | TC_PF_009 | Carga no fluxo completo de checkout | Carga | 20 VUs | ~2,5min |
 | TC_PF_010 | Análise de tamanho e formato de imagens | Auditoria | 1 VU | ~1min |
@@ -182,58 +182,58 @@ Para adicionar um novo TC, insira-o abaixo do grupo funcional correspondente, se
 
 ```
 automationexercise/
-âââ docs/                                 # Documentacao viva do projeto
-â   âââ Especificacao_Tecnica_Performance.md  # Especificacao tecnica de performance
-â   âââ Relatorio_Resultados_Performance.md   # Metricas e resultados k6 + Lighthouse
-â   âââ ...
-âââ templates/                            # Templates para novos TCs
-â   âââ Especificacao_Tecnica_Performance_TEMPLATE.md
-â   âââ Relatorio_Resultados_Performance_TEMPLATE.md
-â   âââ Sumario_Executivo_TEMPLATE.md
-â   âââ Especificacao_Tecnica_Web_TEMPLATE.md
-â   âââ Especificacao_Tecnica_API_TEMPLATE.md
-â   âââ Suite_BDD_TEMPLATE.md
+├── docs/                                 # Documentacao viva do projeto
+│   ├── Especificacao_Tecnica_Performance.md  # Especificacao tecnica de performance
+│   ├── Relatorio_Resultados_Performance.md   # Metricas e resultados k6 + Lighthouse
+│   └── ...
+├── templates/                            # Templates para novos TCs
+│   ├── Especificacao_Tecnica_Performance_TEMPLATE.md
+│   ├── Relatorio_Resultados_Performance_TEMPLATE.md
+│   ├── Sumario_Executivo_TEMPLATE.md
+│   ├── Especificacao_Tecnica_Web_TEMPLATE.md
+│   ├── Especificacao_Tecnica_API_TEMPLATE.md
+│   └── Suite_BDD_TEMPLATE.md
 
-âââ Cypress/
-    âââ cypress/
-        âââ e2e/
-        â   âââ web/              # Testes E2E
-        â   âââ api/              # Testes de API
-        â   âââ performance/      # Scripts k6 + Cypress (TC_PF_008)
-        â       âââ TC_PF_001_smoke_test.js
-        â       âââ TC_PF_002_carga_homepage.js
-        â       âââ TC_PF_003_carga_api_produtos.js
-        â       âââ TC_PF_004_carga_api_login.js
-        â       âââ TC_PF_005_estresse_api_produtos.js
-        â       âââ TC_PF_006_resistencia_soak.js
-        â       âââ TC_PF_007_pico_spike.js
-        â       âââ TC_PF_008_core_web_vitals.cy.js
-        â       âââ TC_PF_009_carga_checkout.js
-        â       âââ TC_PF_010_auditoria_imagens.js
-        â       âââ TC_PF_011_carga_atualizar_conta.js
-        â       âââ TC_PF_012_carga_detalhes_usuario.js
-        â       âââ TC_PF_013_carga_pesquisar_produto.js
-        â       âââ TC_PF_014_carga_pagina_produtos.js
-        âââ fixtures/             # Dados estaticos
-        â   âââ users.json        # Credenciais e dados de pagamento
-        â   âââ products.json     # Produtos, categorias, marcas
-        â   âââ contact.json      # Mensagens e assuntos
-        â   âââ ui_texts.json     # Labels, headers, erros, botoes
-        â   âââ test_file.txt     # Arquivo de teste para upload
-        âââ support/              # Comandos customizados
-        â   âââ e2e.js            # beforeEach centralizado + cy.captura()
-        âââ allure/               # Relatorios Allure (dark mode + pt-BR)
-        â   âââ package.json      # allure-commandline
-        â   âââ allure.properties # Tema escuro + idioma pt-BR
-        â   âââ allure-results/   # Resultados das execucoes
-        â   âââ allure-report/    # Relatorio HTML estatico
-        â   âââ scripts/          # Conversores k6 â Allure
-        âââ reports/              # Relatorios de execucao
-        â   âââ k6/               # JSONs do k6
-        âââ screenshots/          # Evidencias visuais
-        â   âââ performance/      # Screenshots TC_PF_008
-        â   âââ ...
-        âââ videos/               # Videos das execucoes
+└── Cypress/
+    └── cypress/
+        ├── e2e/
+        │   ├── web/              # Testes E2E
+        │   ├── api/              # Testes de API
+        │   └── performance/      # Scripts k6 + Cypress (TC_PF_008)
+        │       ├── TC_PF_001_smoke_test.js
+        │       ├── TC_PF_002_carga_homepage.js
+        │       ├── TC_PF_003_carga_api_produtos.js
+        │       ├── TC_PF_004_carga_api_login.js
+        │       ├── TC_PF_005_estresse_api_produtos.js
+        │       ├── TC_PF_006_resistencia_soak.js
+        │       ├── TC_PF_007_pico_spike.js
+        │       ├── TC_PF_008_core_web_vitals.cy.js
+        │       ├── TC_PF_009_carga_checkout.js
+        │       ├── TC_PF_010_auditoria_imagens.js
+        │       ├── TC_PF_011_carga_atualizar_conta.js
+        │       ├── TC_PF_012_carga_detalhes_usuario.js
+        │       ├── TC_PF_013_carga_pesquisar_produto.js
+        │       └── TC_PF_014_carga_pagina_produtos.js
+        ├── fixtures/             # Dados estaticos
+        │   ├── users.json        # Credenciais e dados de pagamento
+        │   ├── products.json     # Produtos, categorias, marcas
+        │   ├── contact.json      # Mensagens e assuntos
+        │   ├── ui_texts.json     # Labels, headers, erros, botoes
+        │   └── test_file.txt     # Arquivo de teste para upload
+        ├── support/              # Comandos customizados
+        │   └── e2e.js            # beforeEach centralizado + cy.captura()
+        ├── allure/               # Relatorios Allure (dark mode + pt-BR)
+        │   ├── package.json      # allure-commandline
+        │   ├── allure.properties # Tema escuro + idioma pt-BR
+        │   ├── allure-results/   # Resultados das execucoes
+        │   ├── allure-report/    # Relatorio HTML estatico
+        │   └── scripts/          # Conversores k6 → Allure
+        ├── reports/              # Relatorios de execucao
+        │   └── k6/               # JSONs do k6
+        ├── screenshots/          # Evidencias visuais
+        │   ├── performance/      # Screenshots TC_PF_008
+        │   └── ...
+        └── videos/               # Videos das execucoes
 ```
 
 > **Exemplo de preenchimento:** Substituir os placeholders pelos nomes reais dos arquivos conforme o documento completo [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
@@ -244,22 +244,22 @@ automationexercise/
 
 | Termo | Definição |
 |:------|:----------|
-| **VU (Virtual User)** | Usuário virtual â executa a função `default()` em loop |
+| **VU (Virtual User)** | Usuário virtual — executa a função `default()` em loop |
 | **Ramp-up** | Aumento gradual de VUs até o target |
 | **Stage** | Fase do teste com duração e target de VUs |
 | **Hold** | Período mantendo carga constante |
-| **p95 / p99** | 95Âº / 99Âº percentil da distribuição de latência |
+| **p95 / p99** | 95º / 99º percentil da distribuição de latência |
 | **TTFB (http_req_waiting)** | Tempo entre envio do request e primeiro byte |
-| **http_req_duration** | Tempo total: request â resposta completa |
-| **http_req_failed** | Taxa de requisições com status â¥ 400 |
-| **http_reqs** | Throughput â requisições por segundo |
+| **http_req_duration** | Tempo total: request → resposta completa |
+| **http_req_failed** | Taxa de requisições com status ≥ 400 |
+| **http_reqs** | Throughput — requisições por segundo |
 | **Check** | Asserção booleana (passou/falhou) sobre a resposta |
-| **Threshold** | Limite de performance â se violado, teste é reprovado |
+| **Threshold** | Limite de performance — se violado, teste é reprovado |
 | **LCP (Largest Contentful Paint)** | Marca o tempo em que o maior elemento visível é renderizado. Objetivo: < 2,5s. |
-| **CLS (Cumulative Layout Shift)** | Mede a estabilidade visual â quanto os elementos "pulam". Objetivo: < 0,1. |
+| **CLS (Cumulative Layout Shift)** | Mede a estabilidade visual — quanto os elementos "pulam". Objetivo: < 0,1. |
 | **TTFB (Time to First Byte)** | Tempo entre requisição HTTP e primeiro byte de resposta do servidor. Objetivo: < 500ms. |
 | **FCP (First Contentful Paint)** | Primeiro conteúdo renderizado (texto, imagem). Objetivo: < 1,5s. |
-| **INP (Interaction to Next Paint)** | Mede a responsividade â tempo entre interagir e a página responder. Objetivo: < 200ms. |
+| **INP (Interaction to Next Paint)** | Mede a responsividade — tempo entre interagir e a página responder. Objetivo: < 200ms. |
 
 ---
 
