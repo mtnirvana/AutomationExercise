@@ -532,7 +532,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 ### 4.13 Limitações do k6 — Cenários que são apenas funcionais (não carga)
 
-> **Nota:** Todos os cenários marcados como "Teste funcional" já possuem testes Cypress automatizados no projeto (seção `cypress/e2e/web/`). Esta seção apenas documenta por que NÃO são testados sob carga com k6 — não porque não são testados.
+> **Nota:** Todos os cenários marcados como "Teste funcional" já possuem testes Cypress automatizados no projeto (seção [`cypress/e2e/web/`](../Cypress/cypress/e2e/web/)). Esta seção apenas documenta por que NÃO são testados sob carga com k6 — não porque não são testados.
 
 | Cenário Funcional | Testável com k6? | Coberto por teste funcional? | Alternativa |
 |:------------------|:----------------:|:----------------------------:|:------------|
