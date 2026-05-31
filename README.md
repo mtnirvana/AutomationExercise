@@ -397,7 +397,7 @@ O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define 
 
 1. **Geração de scripts de teste** — Cria arquivos `.cy.js` no padrão Page Object Model, com steps numerados e comentados em português, seguindo a nomenclatura definida no projeto
 2. **Page Objects e abstração** — Mantém `pages/*.js`, `fixtures/*.json`, `data/userFactory.js`, garantindo isolamento total entre camadas
-3. **Self-healing de seletores** — Consulta `templates/Seletores.md` para alternativas antes de inspecionar o live site; marca seletores como `[QUEBRADO]` e `[RESTAURADO]` com datas. Não reutiliza seletores quebrados a menos que o seletor volte a funcionar — nesse caso, reutiliza mantendo o histórico de quebra/restauração
+3. **Self-healing de seletores** — Consulta [`templates/Seletores.md`](automationexercise/templates/Seletores.md) para alternativas antes de inspecionar o live site; marca seletores como `[QUEBRADO]` e `[RESTAURADO]` com datas. Não reutiliza seletores quebrados a menos que o seletor volte a funcionar — nesse caso, reutiliza mantendo o histórico de quebra/restauração
 4. **Documentação completa** — Gera Sumário Executivo, BDD, Especificações Técnicas e Relatório de Resultados seguindo o padrão ouro do mercado em 2026 para cada documentação e scripts.
 5. **Evidências visuais** — Screenshots numerados, GIFs animados, HTML reports, consolidado histórico
 
