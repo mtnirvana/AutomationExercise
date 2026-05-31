@@ -51,6 +51,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 ---
 ## 4. Detalhamento Exaustivo de Cenários (E2E)
 Esta seção fornece a especificação técnica passo a passo para cada cenário de teste, permitindo que qualquer QA reproduza o teste manualmente.
+
 ---
 ### 4.1 Grupo: Gestão de Identidade e Acesso (TC_WEB_001 - TC_WEB_005)
 ---
