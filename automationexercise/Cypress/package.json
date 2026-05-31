@@ -1,0 +1,15 @@
+{
+  "name": "automationexercise-cypress",
+  "version": "1.0.0",
+  "description": "Cypress E2E Tests for Automation Exercise",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "canvas": "^3.2.3",
+    "cypress": "^15.15.0",
+    "gifencoder": "^2.0.1"
+  }
+}
