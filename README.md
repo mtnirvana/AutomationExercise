@@ -363,7 +363,7 @@ npx cypress open
 <a name="evidencias"></a>
 ## 📸 Evidências
 
-Cada execução gera screenshots PNG de cada passo, vídeos e relatórios HTML. Os GIFs abaixo ilustram o fluxo completo do checkout — 26 steps, ~50s de execução:
+Cada execução gera screenshots PNG de cada passo, vídeos e relatórios HTML. O GIF abaixo ilustra o fluxo completo do checkout — 26 steps, ~50s de execução:
 
 ### TC_WEB_015 — Pedido registrando antes do checkout
 
