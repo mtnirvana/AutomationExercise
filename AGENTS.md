@@ -29,15 +29,15 @@ If the user doesn't specify which tool to use, choose the most suitable tool for
 ## Priority Rule
 1. Tool explicitly requested by the user.
 2. Rules in this AGENTS.md.
-3. Guidelines in `automationexercise/templates/Guia_Cypress_Template.md`.
+3. Guidelines in [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md).
 4. Current state of the page or session.
 
 ## Specific Rules for Playwright CLI
-When using Playwright CLI, first consult the skill at `playwright-cli/SKILL.md`.
+When using Playwright CLI, first consult the skill at [`SKILL.md`](playwright-cli/SKILL.md).
 
 ## Mandatory Use of Playwright CLI
 Before any action with Playwright CLI:
-1. Read `playwright-cli/SKILL.md`.
+1. Read [`SKILL.md`](playwright-cli/SKILL.md).
 2. Execute `playwright-cli --help`.
 3. Confirm the appropriate commands for the task.
 4. Only then start the automation.
@@ -106,32 +106,32 @@ Before making ANY changes to documentation files:
 - `README.md`
 
 ### E2E Documentation Files (Backup MANDATORY):
-- `automationexercise/docs/Sumario_Executivo.md`
-- `automationexercise/templates/Sumario_Executivo_TEMPLATE.md`
-- `automationexercise/docs/Especificacao_Tecnica_Web.md`
-- `automationexercise/templates/Especificacao_Tecnica_Web_TEMPLATE.md`
+- [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md)
+- [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md)
+- [`Especificacao_Tecnica_Web.md`](automationexercise/docs/Especificacao_Tecnica_Web.md)
+- [`Especificacao_Tecnica_Web_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Web_TEMPLATE.md)
 
 ### BDD Documentation Files (Backup MANDATORY):
 - `automationexercise/docs/Suite_BDD.md`
-- `automationexercise/templates/Suite_BDD_TEMPLATE.md`
+- [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md)
 
 ### API Documentation Files (Backup MANDATORY):
-- `automationexercise/docs/Sumario_Executivo.md`
-- `automationexercise/templates/Sumario_Executivo_TEMPLATE.md`
-- `automationexercise/docs/Especificacao_Tecnica_API.md`
-- `automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md`
+- [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md)
+- [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md)
+- [`Especificacao_Tecnica_API.md`](automationexercise/docs/Especificacao_Tecnica_API.md)
+- [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md)
 
 ### Performance Documentation Files (Backup MANDATORY):
-- `automationexercise/docs/Sumario_Executivo.md`
-- `automationexercise/templates/Sumario_Executivo_TEMPLATE.md`
-- `automationexercise/docs/Especificacao_Tecnica_Performance.md`
-- `automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md`
-- `automationexercise/docs/Relatorio_Resultados_Performance.md`
-- `automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md`
+- [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md)
+- [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md)
+- [`Especificacao_Tecnica_Performance.md`](automationexercise/docs/Especificacao_Tecnica_Performance.md)
+- [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md)
+- [`Relatorio_Resultados_Performance.md`](automationexercise/docs/Relatorio_Resultados_Performance.md)
+- [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md)
 
 ### IA Documentation Files (Backup MANDATORY):
-- `automationexercise/templates/Guia_Cypress_Template.md`
-- `automationexercise/templates/Seletores.md`
+- [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md)
+- [`Seletores.md`](automationexercise/templates/Seletores.md)
 
 ## Pipeline Order (MANDATORY)
 
@@ -141,7 +141,7 @@ The standard pipeline for ALL new test cases MUST follow this exact order:
 2. **RUN** — Execute the test and verify it passes completely
 3. **BACKUP** — Create backups of all documentation files before any changes
 4. **UPDATE DOCS** — Increment Sumario_Executivo, Especificacao_Tecnica, Suite_BDD, and Relatorio (if applicable) using their respective templates
-5. **ALLURE** — Ensure Allure results are generated (Cypress auto-generates for .cy.js; k6 requires conversion via `cypress/allure/scripts/convert_k6_to_allure.js`)
+5. **ALLURE** — Ensure Allure results are generated (Cypress auto-generates for .cy.js; k6 requires conversion via [`convert_k6_to_allure.js`](cypress/allure/scripts/convert_k6_to_allure.js))
 6. **VERIFY** — Confirm all documents compile correctly with no broken links or numbering gaps
 
 > **NEVER** update documentation with unexecuted tests. Code first, document after, Allure last.
@@ -171,9 +171,9 @@ The BDD document provides a business-readable overview of all test scenarios org
 ### BDD Generation Rules:
 1. **CREATE BACKUP** of BDD files before any change (`Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
 2. **READ ALL SOURCE DOCUMENTS FIRST** — Before reading the BDD template:
-   - Read `automationexercise/docs/Especificacao_Tecnica_Web.md`
-   - Read `automationexercise/docs/Especificacao_Tecnica_API.md`
-   - Read `automationexercise/docs/Sumario_Executivo.md`
+   - Read [`Especificacao_Tecnica_Web.md`](automationexercise/docs/Especificacao_Tecnica_Web.md)
+   - Read [`Especificacao_Tecnica_API.md`](automationexercise/docs/Especificacao_Tecnica_API.md)
+   - Read [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md)
 3. **READ Suite_BDD_TEMPLATE.md** — Only after the source documents are read, read the template to understand the structure.
 4. **GENERATE FROM TECHNICAL DOCUMENTS** — The BDD must reflect the exact scenarios defined in the technical test plans, NOT invent new scenarios.
 5. **MATCH TECHNICAL DETAILS** — Each BDD entry must align with its corresponding entry in Especificacao_Tecnica_Web.md, Especificacao_Tecnica_API.md and Sumario_Executivo.md.
@@ -208,9 +208,9 @@ The BDD document provides a business-readable overview of all test scenarios org
 When creating a new test case, the BDD must be updated AFTER the technical documents are updated:
 
 1. **READ ALL SOURCE DOCUMENTS FIRST** — Before reading the BDD template:
-   - Read `automationexercise/docs/Especificacao_Tecnica_Web.md`
-   - Read `automationexercise/docs/Especificacao_Tecnica_API.md`
-   - Read `automationexercise/docs/Sumario_Executivo.md`
+   - Read [`Especificacao_Tecnica_Web.md`](automationexercise/docs/Especificacao_Tecnica_Web.md)
+   - Read [`Especificacao_Tecnica_API.md`](automationexercise/docs/Especificacao_Tecnica_API.md)
+   - Read [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md)
 2. **READ Suite_BDD_TEMPLATE.md** — Only after the source documents are read, read the template to understand the structure.
 3. **CHECK** if TC already exists in Suite_BDD.md.
 4. **CREATE BACKUP** of BDD files before any change.
@@ -227,10 +227,10 @@ When creating a new test case, the BDD must be updated AFTER the technical docum
 
 ### BDD Documentation:
 The BDD document must follow the structure defined in:
-📄 `automationexercise/templates/Suite_BDD_TEMPLATE.md`
+📄 [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md)
 
 Template file for increment:
-📄 `automationexercise/templates/Suite_BDD_TEMPLATE.md`
+📄 [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md)
 
 ## BeforeEach Centralizado (MANDATORY)
 O `beforeEach()` com `cy.visit('/')` e `cy.fixture('users').as('usersData')` deve ser centralizado em `cypress/support/e2e.js`.
@@ -243,21 +243,21 @@ The Agent **MUST** follow the appropriate standards based on the test type:
 
 ### E2E Tests (Default)
 The Agent **MUST** follow all coding, naming, and documentation standards defined in:
-📄 - `automationexercise/templates/Guia_Cypress_Template.md`
+📄 - [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md)
 
 ### API Tests
 The Agent **MUST** follow all coding, naming, and documentation standards defined in:
-📄 `automationexercise/templates/Guia_Cypress_Template.md`
-📄 `automationexercise/docs/Sumario_Executivo.md`
-📄 `automationexercise/docs/Especificacao_Tecnica_API.md`
+📄 [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md)
+📄 [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md)
+📄 [`Especificacao_Tecnica_API.md`](automationexercise/docs/Especificacao_Tecnica_API.md)
 
 **Rule:** When the user explicitly mentions "API tests", "API documentation", or "testes de API", the Agent MUST use the API-specific technical document.
 
 ### Performance Tests (k6)
 The Agent **MUST** follow all coding, naming, and documentation standards defined in:
-📄 `automationexercise/templates/Guia_Cypress_Template.md`
-📄 `automationexercise/docs/Sumario_Executivo.md`
-📄 `automationexercise/docs/Especificacao_Tecnica_Performance.md`
+📄 [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md)
+📄 [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md)
+📄 [`Especificacao_Tecnica_Performance.md`](automationexercise/docs/Especificacao_Tecnica_Performance.md)
 
 **Rule:** When the user explicitly mentions "performance tests", "load tests", "carga", or "testes de performance", the Agent MUST use the performance-specific technical document.
 
@@ -270,7 +270,7 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
     - **`ui_texts.json`**: Must contain all fixed `headers`, `buttons`, `errors`, and `labels` of the site.
 - **Data Factories:** Unique dynamic data (new accounts) must come from `UserFactory.js`.
 - **Selector Hierarchy:** Priority order for elements.
-- **Selector Investigation Flow:** Always inspect the live site before creating selectors; register alternatives in `automationexercise/templates/Seletores.md`.
+- **Selector Investigation Flow:** Always inspect the live site before creating selectors; register alternatives in [`Seletores.md`](automationexercise/templates/Seletores.md).
 - **Documentation:** One-line comment patterns for selectors and methods.
 - **Selector Description Format:** All selector descriptions in `Especificacao_Tecnica_Web.md` and its template MUST follow the pattern: `[verbo/objeto] + [elemento] + (contexto se necessário)`. Examples: `Botão adicionar ao carrinho (modal)`, `Header categoria`, `Campo email newsletter`. The doc is the source of truth — the template MUST mirror the doc exactly.
 - **Documentation Increment (MANDATORY):** When creating a new test case:
@@ -307,7 +307,7 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
     7. **Update `Suite_BDD.md`:** Add new entry to section 8.3 (Performance) mapping table.
     8. **Update `Relatorio_Resultados_Performance.md`:** After execution, populate metrics (avg, p95, taxa de erro) using `Relatorio_Resultados_Performance_TEMPLATE.md` as base.
     9. **Verify** all documents compile correctly with no broken links or numbering gaps.
-    10. **Allure** — Confirm allure-results are generated (k6 requires conversion via `cypress/allure/scripts/convert_k6_to_allure.js`).
+    10. **Allure** — Confirm allure-results are generated (k6 requires conversion via [`convert_k6_to_allure.js`](cypress/allure/scripts/convert_k6_to_allure.js)).
 
 **Critical Rule:** NEVER update any test plan or technical test plan with a test case that has not been executed and confirmed passing. Documentation reflects the validated, working state of the test — not a planned or in-progress state.
 
@@ -380,17 +380,17 @@ Before creating any selector or when identifying a failure, the Agent must use i
 1. Open the site and inspect the complete HTML.
 2. Search for the most robust level available (data-qa, ID, etc.).
 3. **MANDATORY CHECK:** Verify if the selector (or an equivalent one) ALREADY EXISTS in the target Page Object. If it exists, **REUSE it**. Do not create redundant selectors with different names to avoid polluting the Page Objects.
-4. **Register ALL found alternatives and history in the `automationexercise/templates/Seletores.md` file**.
+4. **Register ALL found alternatives and history in the [`Seletores.md`](automationexercise/templates/Seletores.md) file**.
 
 ## Self-Healing Policy (Failure/Restoration)
 If a test fails due to a selector error:
-1. **Step 1:** Consult `automationexercise/templates/Seletores.md` for documented alternatives (Skip `[QUEBRADO]`).
+1. **Step 1:** Consult [`Seletores.md`](automationexercise/templates/Seletores.md) for documented alternatives (Skip `[QUEBRADO]`).
 2. **Step 2:** If failed, use inspection tools to find a new selector.
-3. **Step 3:** Update Page Object and `automationexercise/templates/Seletores.md` (Marking old as `[QUEBRADO]`).
+3. **Step 3:** Update Page Object and [`Seletores.md`](automationexercise/templates/Seletores.md) (Marking old as `[QUEBRADO]`).
 
 ## Golden Rules
 - **NEVER** use a selector marked as `[QUEBRADO]` during execution.
-- **Restoration:** If a broken selector works again during investigation, remove the tag in `automationexercise/templates/Seletores.md` but **KEEP the history** (Failure/Restoration dates).
+- **Restoration:** If a broken selector works again during investigation, remove the tag in [`Seletores.md`](automationexercise/templates/Seletores.md) but **KEEP the history** (Failure/Restoration dates).
 
 ---
 
@@ -414,7 +414,7 @@ npx cypress run --browser firefox
 | Browser | Recommended Version | Note |
 |---------|-------------------|------------|
 | Edge | 148+ | Mais rápido |
-| Firefox | 135+ | Requer atualização |
+| Firefox | 135+ | Compatível |
 | Chrome | 147+ | Padrão |
 | Electron | 138 | Bundled com Cypress |
 
