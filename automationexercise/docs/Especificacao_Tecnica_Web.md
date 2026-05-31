@@ -1,7 +1,9 @@
 # Especificação Técnica Web - Automation Exercise
 **Versão:** 1.0.0
 **Responsável:** Rafael Barelli
+
 ---
+
 ## 1. Introdução Técnica
 Este documento fornece o detalhamento operacional para a execução e manutenção da suíte de testes do **Automation Exercise**. Ele serve como o guia definitivo para engenheiros de QA, descrevendo o comportamento esperado do sistema e os pontos críticos de validação para cada cenário.
 ### 1.1 Premissas de Execução
