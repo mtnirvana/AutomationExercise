@@ -1,4 +1,4 @@
-# Especificação Técnica de Teste - Automation Exercise
+# Especificação Técnica Web - Automation Exercise
 **Versão:** 1.0.0
 **Responsável:** Rafael Barelli
 

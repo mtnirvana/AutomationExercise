@@ -1,4 +1,4 @@
-# Plano de Testes Estratégico - [Automation Exercise](https://www.automationexercise.com)
+# Sumário Executivo - Automation Exercise
 **Versão:** 1.0.0
 **Metodologia:** ISTQB (CTFL)
 **Responsável:** Rafael Barelli

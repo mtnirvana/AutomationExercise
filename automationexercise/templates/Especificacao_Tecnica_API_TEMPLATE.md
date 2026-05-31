@@ -1,4 +1,4 @@
-# Especificação Técnica de Teste - API Automation Exercise
+# Especificação Técnica API - Automation Exercise
 **Versão:** 1.0.0
 **Responsável:** Rafael Barelli
 
