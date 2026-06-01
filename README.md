@@ -343,7 +343,7 @@ npx cypress open
 |:---|:--------|:----:|:------:|
 | TC_PF_001 | Smoke test | Validação | ✅ |
 | TC_PF_002 | Carga Homepage | Carga | ✅ |
-| TC_PF_003 | Carga API Produtos | Carga | ⚠️ |
+| TC_PF_003 | Carga API Produtos | Carga | ✅ |
 | TC_PF_004 | Carga API Login | Carga | ✅ |
 | TC_PF_005 | Estresse API Produtos | Estresse | ⚠️ |
 | TC_PF_006 | Resistência (Soak) | Resistência | ✅ |
