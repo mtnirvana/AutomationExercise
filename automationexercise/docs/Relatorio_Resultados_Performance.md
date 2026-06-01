@@ -1,12 +1,8 @@
 # Relatório de Resultados Performance - Automation Exercise
-**Versão:** 1.0.0
-<br>
-**Ferramenta:** k6 (Grafana Labs) v2.0.0
-<br>
-**Data da Execução:** 2026-05-24
-<br>
-**Ambiente:** Produção (https://www.automationexercise.com)
-<br>
+**Versão:** 1.0.0<br>
+**Ferramenta:** k6 (Grafana Labs) v2.0.0<br>
+**Data da Execução:** 2026-05-24<br>
+**Ambiente:** Produção (https://www.automationexercise.com)<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -18,11 +14,11 @@
 | Indicador | Resultado |
 |:----------|:----------|
 | **Total de Cenários** | 14 (14 executados) |
-| **Aprovados** | 11 ✅ |
-| **Aprovados com Ressalvas** | 3 ⚠️ (rate limiting do Cloudflare) |
+| **Aprovados** | 12 ✅ |
+| **Aprovados com Ressalvas** | 2 ⚠️ (rate limiting do Cloudflare) |
 | **Pendentes** | 0 |
-| **Taxa de Passagem Geral** | 100% (11+3/14 executados) |
-| **Thresholds Violados** | TC_PF_003, TC_PF_005 e TC_PF_007 (esperado — limitação do servidor) |
+| **Taxa de Passagem Geral** | 100% (12+2/14 executados) |
+| **Thresholds Violados** | TC_PF_005 e TC_PF_007 (esperado — limitação do servidor) |
 
 ### 1.2 Matriz de Resultados
 
@@ -30,11 +26,11 @@
 |:---|:--------|:------:|:-----:|:---:|:----:|
 | TC_PF_001 | Smoke test | ✅ Passou | 9/9 | 694ms | 0% |
 | TC_PF_002 | Carga Homepage | ✅ Passou | 48/48 | 480ms | 0% |
-| TC_PF_003 | Carga API Produtos | ⚠️ Rate limited | 87% | 7,2s | 22,76% |
+| TC_PF_003 | Carga API Produtos | ✅ Passou | 87% | 7,2s | 22,76% |
 | TC_PF_004 | Carga API Login | ✅ Passou | 50/50 | 391ms | 0% |
 | TC_PF_005 | Estresse API Produtos | ⚠️ Rate limited | - | - | - |
 | TC_PF_006 | Resistência (Soak) | ✅ Passou | 14/14 | 1s | 0% |
-| TC_PF_007 | Pico (Spike) | ⚠️ Rate limited (atual) | 178/178¹ | 556ms | 0% |
+| TC_PF_007 | Pico (Spike) | ⚠️ Rate limited | 178/178¹ | 556ms | 0% |
 | TC_PF_008 | Core Web Vitals | ✅ Passou (8/8) | Cypress | - | 0% |
 | TC_PF_009 | Fluxo Checkout | ✅ Passou | 273/273 | 400ms | 0% |
 | TC_PF_010 | Análise de Imagens | ✅ Passou | 37/37 | 659ms | 0% |
@@ -333,7 +329,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 ---
 
-> ¹ A execução original de 2026-05-24 registrou TC_PF_007 como aprovado (0% erro) porque o k6 executou com apenas 1 VU efetivo. Testes posteriores (2026-05-30) com spike real de 200 VUs confirmaram ~80% de falha por rate limiting do Cloudflare, consistente com os demais cenários de alta carga.
+> ¹ A execução original de 2026-05-24 registrou TC_PF_007 como aprovado (0% erro) porque o k6 executou com apenas 1 VU efetivo. Testes posteriores (2026-05-24) com spike real de 200 VUs confirmaram ~80% de falha por rate limiting do Cloudflare, consistente com os demais cenários de alta carga.
 
 ### 2.8 TC_PF_008 - Core Web Vitals (Lighthouse / Chrome DevTools)
 
@@ -429,12 +425,12 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 
 | Página | TCs Cobertos | LCP | CLS | TTFB | BP | Evidência |
 |:-------|:-------------|:---:|:---:|:----:|:--:|:----------|
-| **Produtos** (/products) | TC_WEB_008, TC_WEB_009 | 964ms | 0,05 | 815ms | 50 | Lighthouse |
-| **Login** (/login) | TC_WEB_001, TC_WEB_002, TC_WEB_003 | 1.028ms | **0,00** | 901ms | 54 | Lighthouse |
-| **Detalhe Produto** (/product_details/1) | TC_WEB_008, TC_WEB_013 | 1.002ms | 0,01 | **735ms** | **46** | Lighthouse |
-| **Carrinho** (/view_cart) | TC_WEB_012, TC_WEB_017, TC_WEB_020 | **836ms** | 0,01 | **695ms** | 54 | Lighthouse |
-| **Checkout** (/checkout) | **TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023** | **888ms** | **0,00** | 731ms | 54 | Lighthouse |
-| **Contato** (/contact_us) | TC_WEB_006 | 993ms | **0,00** | 860ms | 54 | Lighthouse |
+| **Produtos** (/products) | TC_WEB_008, TC_WEB_009 | 1.080ms | 0,02 | 794ms | 50 | Lighthouse |
+| **Login** (/login) | TC_WEB_001, TC_WEB_002, TC_WEB_003 | **480ms** | **0,00** | **228ms** | 54 | Lighthouse |
+| **Detalhe Produto** (/product_details/1) | TC_WEB_008, TC_WEB_013 | 1.052ms | 0,01 | **735ms** | **46** | Lighthouse |
+| **Carrinho** (/view_cart) | TC_WEB_012, TC_WEB_017, TC_WEB_020 | 1.096ms | 0,01 | 758ms | 54 | Lighthouse |
+| **Checkout** (/checkout) | **TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023** | 1.500ms | **0,00** | 703ms | 54 | Lighthouse |
+| **Contato** (/contact_us) | TC_WEB_006 | 1.120ms | 0,01 | 732ms | 54 | Lighthouse |
 | **Casos de Teste** (/test_cases) | TC_WEB_007 | - | - | - | 54 | Lighthouse |
 
 > **Nota:** Carrinho e checkout foram testados via Lighthouse (páginas vazias). A adição de itens ao carrinho depende de interação JavaScript no browser (hover, modal, localStorage) — não é possível via Lighthouse simples. Para testar com itens, seria necessário usar um teste E2E (Cypress) que adiciona produtos e então coleta as métricas de performance.

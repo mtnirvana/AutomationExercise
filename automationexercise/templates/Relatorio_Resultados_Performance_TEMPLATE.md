@@ -1,12 +1,8 @@
-# Relatório de Resultados Performance TEMPLATE - Automation Exercise
-**Versão:** 1.0.0
-<br>
-**Ferramenta:** k6 (Grafana Labs) v2.0.0
-<br>
-**Data da Execução:** AAAA-MM-DD
-<br>
-**Ambiente:** Produção (https://www.automationexercise.com)
-<br>
+# Relatório de Resultados Performance - Automation Exercise
+**Versão:** 1.0.0<br>
+**Ferramenta:** k6 (Grafana Labs) v2.0.0<br>
+**Data da Execução:** AAAA-MM-DD<br>
+**Ambiente:** Produção (https://www.automationexercise.com)<br>
 **Responsável:** Rafael Barelli
 
 ---

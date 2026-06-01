@@ -31,7 +31,7 @@
 |----------|---------------|---------------|---------------|------------------|
 | NewUserHeader | `h2.contains('New User Signup!')` | `.signup-form h2` | - | OK |
 | LoginHeader | `h2.contains('Login to your account')` | `.login-form h2` | - | OK |
-| SignupName | `input[data-qa="signup-name"]` | `[placeholder="Name"]` | `input[name="name"]` | OK |
+| nameInput | `input[data-qa="signup-name"]` | `[placeholder="Name"]` | `input[name="name"]` | OK |
 | SignupEmail | `input[data-qa="signup-email"]` | `form[action="/signup"] [placeholder="Email Address"]` | - | OK |
 | SignupButton | `button[data-qa="signup-button"]` | `button.btn-default`.contains('Signup') | - | OK |
 | LoginEmail | `input[data-qa="login-email"]` | `[placeholder="Email Address"]` | `input[name="email"]` | OK |
@@ -97,7 +97,7 @@
 | SearchButton | `#submit_search` | `button#submit_search` | - | OK |
 | SearchedHeader | `h2.contains('Searched Products')` | `.features_items h2.title` | - | OK |
 | ProductDetailName | `.product-information h2` | - | - | OK |
-| ProductItems | `.single-products` | `.product-image-wrapper` | - | OK |
+| productsItems | `.single-products` | `.product-image-wrapper` | - | OK |
 | ViewProductLink | `.choose a[href*="/product_details/"]` | `a[href*="/product_details/"]` | - | OK |
 | ProductCategory | `.product-information p` (Category) | `.product-information p:first` | - | OK |
 | ProductPrice | `.product-information span span` | `.product-information span` | - | OK |

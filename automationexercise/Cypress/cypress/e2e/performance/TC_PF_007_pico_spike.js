@@ -1,6 +1,6 @@
 /**
  * TC_PF_007 - Pico repentino de trafego
- * @description Validar recuperacao do sistema apos pico de 500 VUs
+ * @description Validar recuperacao do sistema apos pico de 200 VUs
  * @tags @pico @TC_PF_007
  * @author Rafael Barelli
  */

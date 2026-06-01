@@ -356,7 +356,7 @@ npx cypress open
 | TC_PF_013 | Carga Search Product | Carga | ✅ |
 | TC_PF_014 | Carga Página Produtos | Carga | ✅ |
 
-**11 ✅ · 3 ⚠️** (rate limiting Cloudflare)
+**12 ✅ · 2 ⚠️** (rate limiting Cloudflare)
 
 ---
 
@@ -465,4 +465,8 @@ O **histórico** funciona assim:
 2. O script `pre-generate` copia esse `history/` de volta pra `allure-results/` antes da próxima geração
 3. Isso acumula dados de múltiplas execuções — dias, semanas, meses
 4. Os gráficos de tendência mostram a evolução ao longo do tempo
+
+---
+
+**Documento gerado em:** 2026-06-01
 

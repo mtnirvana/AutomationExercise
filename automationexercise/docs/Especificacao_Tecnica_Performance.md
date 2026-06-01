@@ -384,12 +384,12 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 |:-------|:-------------|:---:|:---:|:----:|
 | Homepage (/) | TC_WEB_010 | **1.440ms** | 0,01 | 783ms |
 | Produtos (/products) | TC_WEB_008, TC_WEB_009 | **1.080ms** | 0,02 | 794ms |
-| Login (/login) | TC_WEB_001, TC_WEB_002, TC_WEB_003 | **1.028ms** | 0,00 | 901ms |
-| Detalhe Produto (/product_details/1) | TC_WEB_008, TC_WEB_013 | **1.002ms** | 0,01 | 735ms |
-| Carrinho (/view_cart) | TC_WEB_012, TC_WEB_017, TC_WEB_020 | **836ms** | 0,01 | 695ms |
-| Checkout (/checkout) | TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023 | **888ms** | 0,00 | 731ms |
-| Contato (/contact_us) | TC_WEB_006 | 993ms | 0,00 | 860ms |
-| Casos de Teste (/test_cases) | TC_WEB_007 | - | - | - |
+| Login (/login) | TC_WEB_001, TC_WEB_002, TC_WEB_003 | **480ms** | 0,00 | **228ms** |
+| Detalhe Produto (/product_details/1) | TC_WEB_008, TC_WEB_013 | **1.052ms** | 0,01 | 735ms |
+| Carrinho (/view_cart) | TC_WEB_012, TC_WEB_017, TC_WEB_020 | 1.096ms | 0,01 | 758ms |
+| Checkout (/checkout) | TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023 | 1.500ms | 0,00 | 703ms |
+| Contato (/contact_us) | TC_WEB_006 | 1.120ms | 0,01 | 732ms |
+| Casos de Teste (/test_cases) | TC_WEB_007 | 1.020ms | 0,00 | 715ms |
 
 **Passos de Validação (por página):**
 

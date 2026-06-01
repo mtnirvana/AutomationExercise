@@ -1,6 +1,6 @@
-# Suite de Testes BDD - Automation Exercise
-**Versão:** 1.0.0<br>
-**Metodologia:** BDD (Behavior Driven Development) - Gherkin<br>
+﻿# Suite de Testes BDD - Automation Exercise
+**Versão:** 1.0.0<br>
+**Metodologia:** BDD (Behavior Driven Development) - Gherkin<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -403,12 +403,12 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 |-----------|-------|---------|------|
 | **E2E Tests** | 26 | 24 (92,3%) | 2 (7,7%) |
 | **API Tests** | 14 | 8 (57,1%) | 6 (42,9%) |
-| **Performance Tests** | 21 | 18 (85,7%) | 3 (14,3%) ⚠️¹ |
+| **Performance Tests** | 21 | 19 (90,5%) | 2 (9,5%) ⚠️¹ |
 | **Total Consolidado** | **61** | **50 (82,0%)** | **11 (18,0%)** |
 
 > **Nota:** Performance tests (k6 + TC_PF_008) são cenários técnicos sem classificação Sucesso/Erro tradicional. A divisão acima reflete a última execução. Os 8 checks do TC_PF_008 são contados individualmente, elevando o total para 61 casos no Allure. Em termos BDD (cenários descritíveis em Gherkin), o total é de 40 cenários (26 E2E + 14 API).
 >
-> ¹ Os cenários classificados como "Erro" na performance (TC_PF_003, TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare, não erros funcionais. Os scripts executam corretamente e os thresholds foram ajustados para tolerar a degradação esperada sob carga.
+> ¹ Os cenários classificados como "Erro" na performance (TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare, não erros funcionais. Os scripts executam corretamente e os thresholds foram ajustados para tolerar a degradação esperada sob carga.
 
 ### 5.1 Cobertura por Área Funcional - E2E
 

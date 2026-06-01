@@ -5,6 +5,8 @@
  * @author Rafael Barelli
  */
 
+import productsData from '../../fixtures/products.json'
+
 describe('TC_API_003 - Pesquisar produto por termo via API', () => {
   const testId = 'TC_API_003'
 
@@ -14,7 +16,7 @@ describe('TC_API_003 - Pesquisar produto por termo via API', () => {
       hostname: 'automationexercise.com',
       path: '/api/searchProduct',
       method: 'POST',
-      body: 'search_product=top'
+      body: `search_product=${productsData.searchTerms.top}`
     }).then((response) => {
       const assertions = []
 

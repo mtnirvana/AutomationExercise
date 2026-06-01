@@ -91,7 +91,7 @@ describe('TC_WEB_024 - Baixar fatura após pedido', () => {
 
     // 17. Clicar no botão 'Cart'
     HomePage.clickCart()
-    cy.contains('a', uiData.buttons.proceedToCheckout).should('be.visible')
+    CheckoutPage.proceedToCheckoutButton.should('be.visible')
     takeScreenshot('17_clicou_carrinho')
 
     // 18. Clicar no botão 'Proceed To Checkout'
@@ -144,7 +144,7 @@ describe('TC_WEB_024 - Baixar fatura após pedido', () => {
     takeScreenshot('28_clicou_excluir_conta')
 
     // 29. Verificar 'ACCOUNT DELETED!' e clicar em 'Continue'
-    cy.get('h2').contains(uiData.checkout.accountDeleted).should('be.visible')
+    AccountPage.verifyAccountDeleted()
     AccountPage.clickContinue()
     takeScreenshot('29_conta_excluida_teste_concluido')
   })

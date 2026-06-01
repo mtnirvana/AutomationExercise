@@ -135,7 +135,7 @@ cy.get('@usersData').then((usersData) => {
     "password": "wrongpassword"
   },
   "existingEmail": {
-    "email": "already@registered.com",
+    "email": "test@test.com",
     "name": "test"
   },
   "testUser": {
@@ -176,7 +176,7 @@ module.exports = defineConfig({
     viewportWidth: 1280,
     viewportHeight: 720,
     defaultCommandTimeout: 10000,
-    pageLoadTimeout: 30000,
+    pageLoadTimeout: 60000,
     video: true,
     videoCompression: 32,
     screenshotsFolder: 'cypress/screenshots',
@@ -711,17 +711,7 @@ export class [Name]Factory {
     }
   }
 
-  /**
-   * Gera [entidade] parcial (apenas dados necessários)
-   * @returns {Object} Objeto com dados mínimos
-   */
-  static generatePartial() {
-    const timestamp = Date.now()
-    return {
-      field1: `value${timestamp}`,
-      field2: `email${timestamp}@example.com`,
-    }
-  }
+
 }
 ```
 
@@ -757,6 +747,7 @@ export { AccountPage } from './AccountPage'
 
 ```javascript
 import '@shelex/cypress-allure-plugin'
+import { HomePage } from '../pages'
 import uiData from '../fixtures/ui_texts.json'
 
 // Screenshot custom - sempre salva dentro da pasta do spec
@@ -800,7 +791,7 @@ beforeEach(function () {
   }
   cy.visit('/')
   cy.fixture('users').as('usersData')
-  cy.get(`img[alt="${uiData.homepage.logoAlt}"]`, { timeout: 10000 }).should('be.visible')
+  HomePage.logo.should('be.visible')
   cy.captura(uiData.homepage.loadStep)
 })
 

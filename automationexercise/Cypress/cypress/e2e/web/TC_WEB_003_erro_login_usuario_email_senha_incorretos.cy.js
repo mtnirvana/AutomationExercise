@@ -6,9 +6,8 @@
  */
 
 import { HomePage, LoginPage } from '../../pages'
-import users from '../../fixtures/users.json'
 
-describe('TC_WEB_003 - Login de usuário com email e senha incorretos', () => {
+describe('TC_WEB_003 - Login de usuário com email e senha incorretos', function () {
 
   const takeScreenshot = (stepName) => {
     cy.captura(`${stepName}`)
@@ -20,7 +19,7 @@ describe('TC_WEB_003 - Login de usuário com email e senha incorretos', () => {
     }
   })
 
-  it('deve mostrar erro com credenciais incorretas', () => {
+  it('deve mostrar erro com credenciais incorretas', function () {
     // 1. Abrir navegador (via beforeEach cy.visit('/'))
     // 2. Navegar para url 'http://automationexercise.com' (via beforeEach)
     // 3. Verificar que página inicial está visível (via beforeEach)
@@ -33,8 +32,8 @@ describe('TC_WEB_003 - Login de usuário com email e senha incorretos', () => {
     takeScreenshot('05_header_login_visivel')
 
     // 6. Inserir endereço de email e senha incorretos
-    LoginPage.fillEmail(users.invalidUser.email)
-    LoginPage.fillPassword(users.invalidUser.password)
+    LoginPage.fillEmail(this.usersData.invalidUser.email)
+    LoginPage.fillPassword(this.usersData.invalidUser.password)
     takeScreenshot('06_preencheu_credenciais_incorretas')
 
     // 7. Clicar no botão 'Login'

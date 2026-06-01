@@ -1,6 +1,6 @@
-# Sumário Executivo - Automation Exercise
-**Versão:** 1.0.0<br>
-**Metodologia:** ISTQB (CTFL)<br>
+﻿# Sumário Executivo - Automation Exercise
+**Versão:** 1.0.0<br>
+**Metodologia:** ISTQB (CTFL)<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -92,7 +92,7 @@ Os cenários validam o fluxo esperado de funcionamento da aplicação de forma i
 #### Performance Tests
 - **Smoke:** Validação de pipeline e ambiente (1 VU).
 - **Carga (Load):** Comportamento sob tráfego esperado (50-100 VUs).
-- **Estresse (Stress):** Comportamento sob tráfego extremo (até 500 VUs).
+- **Estresse (Stress):** Comportamento sob tráfego extremo (até 300 VUs).
 - **Resistência (Soak):** Degradação ao longo do tempo (5-30min hold).
 - **Pico (Spike):** Resposta a pico repentino de tráfego.
 - **Front-end:** Core Web Vitals via Cypress + Lighthouse.
@@ -105,7 +105,7 @@ Os cenários estão organizados em:
 |:-----|:-----:|:------------------------|
 | Testes E2E Web | 26 | `Suite_BDD.md` / `Especificacao_Tecnica_Web.md` |
 | Testes de API | 14 | `Suite_BDD.md` / `Especificacao_Tecnica_API.md` |
-| Testes de Performance | 21 | `Suite_BDD.md` / `Especificacao_Tecnica_Performance.md` |
+| Testes de Performance | 14 | `Suite_BDD.md` / `Especificacao_Tecnica_Performance.md` |
 
 > **Total:** 40 cenários funcionais (BDD) · 61 casos individuais no Allure (26 E2E + 14 API + 13 k6 + 8 Core Web Vitals)
 
