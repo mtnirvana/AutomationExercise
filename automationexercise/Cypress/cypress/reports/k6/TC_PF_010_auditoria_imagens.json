@@ -6,25 +6,25 @@
         "groups": {},
         "checks": {
                 "GET /api/productsList status 200": {
-                    "id": "bcdd2a988107be816c25415104dbf1f0",
-                    "passes": 1,
                     "fails": 0,
                     "name": "GET /api/productsList status 200",
-                    "path": "::GET /api/productsList status 200"
+                    "path": "::GET /api/productsList status 200",
+                    "id": "bcdd2a988107be816c25415104dbf1f0",
+                    "passes": 1
                 },
                 "imagem 1 carregada": {
-                    "name": "imagem 1 carregada",
                     "path": "::imagem 1 carregada",
                     "id": "b2c42a020d7facb26b51e93cc47b31e6",
                     "passes": 1,
-                    "fails": 0
+                    "fails": 0,
+                    "name": "imagem 1 carregada"
                 },
                 "imagem 2 carregada": {
-                    "fails": 0,
-                    "name": "imagem 2 carregada",
                     "path": "::imagem 2 carregada",
                     "id": "db6f2816644a70a9d262c78979c80c7b",
-                    "passes": 1
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 2 carregada"
                 },
                 "imagem 3 carregada": {
                     "name": "imagem 3 carregada",
@@ -41,11 +41,11 @@
                     "fails": 0
                 },
                 "imagem 5 carregada": {
+                    "passes": 1,
+                    "fails": 0,
                     "name": "imagem 5 carregada",
                     "path": "::imagem 5 carregada",
-                    "id": "344cc9997c21f5064910c366d22b16d3",
-                    "passes": 1,
-                    "fails": 0
+                    "id": "344cc9997c21f5064910c366d22b16d3"
                 },
                 "imagem 6 carregada": {
                     "id": "4dd3ae102b548a66d6342641c8c400e2",
@@ -62,39 +62,39 @@
                     "fails": 0
                 },
                 "imagem 8 carregada": {
+                    "name": "imagem 8 carregada",
+                    "path": "::imagem 8 carregada",
                     "id": "d528bdef29750a4ecf2b04e9d635630b",
                     "passes": 1,
-                    "fails": 0,
-                    "name": "imagem 8 carregada",
-                    "path": "::imagem 8 carregada"
+                    "fails": 0
                 },
                 "imagem 11 carregada": {
-                    "fails": 0,
-                    "name": "imagem 11 carregada",
                     "path": "::imagem 11 carregada",
                     "id": "a5623ace7aa409fc2379762c22c4f52c",
-                    "passes": 1
+                    "passes": 1,
+                    "fails": 0,
+                    "name": "imagem 11 carregada"
                 },
                 "imagem 12 carregada": {
+                    "name": "imagem 12 carregada",
+                    "path": "::imagem 12 carregada",
                     "id": "b266b17074fcfd31f37c4edd8d215af9",
                     "passes": 1,
-                    "fails": 0,
-                    "name": "imagem 12 carregada",
-                    "path": "::imagem 12 carregada"
+                    "fails": 0
                 },
                 "imagem 13 carregada": {
+                    "name": "imagem 13 carregada",
+                    "path": "::imagem 13 carregada",
                     "id": "4efaf1e05f489d9ca3abe2ef932ea96f",
                     "passes": 1,
-                    "fails": 0,
-                    "name": "imagem 13 carregada",
-                    "path": "::imagem 13 carregada"
+                    "fails": 0
                 },
                 "imagem 14 carregada": {
+                    "fails": 0,
                     "name": "imagem 14 carregada",
                     "path": "::imagem 14 carregada",
                     "id": "03f3009259840fca43fa7c7c67a9b294",
-                    "passes": 1,
-                    "fails": 0
+                    "passes": 1
                 },
                 "imagem 15 carregada": {
                     "name": "imagem 15 carregada",
@@ -104,32 +104,32 @@
                     "fails": 0
                 },
                 "imagem 16 carregada": {
-                    "passes": 1,
-                    "fails": 0,
                     "name": "imagem 16 carregada",
                     "path": "::imagem 16 carregada",
-                    "id": "a3bf3be372ad39f026a591649d9285a6"
+                    "id": "a3bf3be372ad39f026a591649d9285a6",
+                    "passes": 1,
+                    "fails": 0
                 },
                 "imagem 18 carregada": {
+                    "passes": 1,
+                    "fails": 0,
                     "name": "imagem 18 carregada",
                     "path": "::imagem 18 carregada",
-                    "id": "59219ecbc64e00d6f775af28195ce0b9",
-                    "passes": 1,
-                    "fails": 0
+                    "id": "59219ecbc64e00d6f775af28195ce0b9"
                 },
                 "imagem 19 carregada": {
+                    "passes": 1,
+                    "fails": 0,
                     "name": "imagem 19 carregada",
                     "path": "::imagem 19 carregada",
-                    "id": "571977cbeca7a1447b8fdcda97b828a1",
-                    "passes": 1,
-                    "fails": 0
+                    "id": "571977cbeca7a1447b8fdcda97b828a1"
                 },
                 "imagem 20 carregada": {
-                    "name": "imagem 20 carregada",
-                    "path": "::imagem 20 carregada",
                     "id": "bcd26adfa57270160c360ddcf6f7a0aa",
                     "passes": 1,
-                    "fails": 0
+                    "fails": 0,
+                    "name": "imagem 20 carregada",
+                    "path": "::imagem 20 carregada"
                 },
                 "imagem 21 carregada": {
                     "name": "imagem 21 carregada",
@@ -153,18 +153,18 @@
                     "fails": 0
                 },
                 "imagem 24 carregada": {
+                    "name": "imagem 24 carregada",
+                    "path": "::imagem 24 carregada",
                     "id": "bac393ee1f5c4f3b781be9839ae712fc",
                     "passes": 1,
-                    "fails": 0,
-                    "name": "imagem 24 carregada",
-                    "path": "::imagem 24 carregada"
+                    "fails": 0
                 },
                 "imagem 28 carregada": {
+                    "name": "imagem 28 carregada",
                     "path": "::imagem 28 carregada",
                     "id": "dba72e593124707a7622501e46311aff",
                     "passes": 1,
-                    "fails": 0,
-                    "name": "imagem 28 carregada"
+                    "fails": 0
                 },
                 "imagem 29 carregada": {
                     "path": "::imagem 29 carregada",
@@ -181,25 +181,25 @@
                     "fails": 0
                 },
                 "imagem 31 carregada": {
+                    "fails": 0,
                     "name": "imagem 31 carregada",
                     "path": "::imagem 31 carregada",
                     "id": "927a3e6d4da8b449178c7b209e15a56f",
-                    "passes": 1,
-                    "fails": 0
+                    "passes": 1
                 },
                 "imagem 33 carregada": {
-                    "fails": 0,
                     "name": "imagem 33 carregada",
                     "path": "::imagem 33 carregada",
                     "id": "c41128a8d1b3861458514aff7d578fc1",
-                    "passes": 1
+                    "passes": 1,
+                    "fails": 0
                 },
                 "imagem 35 carregada": {
+                    "id": "f277bb63af0f7659f97b6711db3b537e",
+                    "passes": 1,
                     "fails": 0,
                     "name": "imagem 35 carregada",
-                    "path": "::imagem 35 carregada",
-                    "id": "f277bb63af0f7659f97b6711db3b537e",
-                    "passes": 1
+                    "path": "::imagem 35 carregada"
                 },
                 "imagem 37 carregada": {
                     "name": "imagem 37 carregada",
@@ -209,32 +209,32 @@
                     "fails": 0
                 },
                 "imagem 38 carregada": {
+                    "passes": 1,
+                    "fails": 0,
                     "name": "imagem 38 carregada",
                     "path": "::imagem 38 carregada",
-                    "id": "e4324e77b5525b5e453571ebbbd09315",
-                    "passes": 1,
-                    "fails": 0
+                    "id": "e4324e77b5525b5e453571ebbbd09315"
                 },
                 "imagem 39 carregada": {
+                    "passes": 1,
+                    "fails": 0,
                     "name": "imagem 39 carregada",
                     "path": "::imagem 39 carregada",
-                    "id": "bed5ba9d86605f470e32416179e270e2",
-                    "passes": 1,
-                    "fails": 0
+                    "id": "bed5ba9d86605f470e32416179e270e2"
                 },
                 "imagem 40 carregada": {
+                    "name": "imagem 40 carregada",
                     "path": "::imagem 40 carregada",
                     "id": "3cfacdc5395b41d95c00c786109878be",
                     "passes": 1,
-                    "fails": 0,
-                    "name": "imagem 40 carregada"
+                    "fails": 0
                 },
                 "imagem 41 carregada": {
+                    "passes": 1,
+                    "fails": 0,
                     "name": "imagem 41 carregada",
                     "path": "::imagem 41 carregada",
-                    "id": "57b3e450d52b900bc344fccd8204be0b",
-                    "passes": 1,
-                    "fails": 0
+                    "id": "57b3e450d52b900bc344fccd8204be0b"
                 },
                 "imagem 42 carregada": {
                     "fails": 0,
@@ -244,18 +244,18 @@
                     "passes": 1
                 },
                 "imagem 43 carregada": {
+                    "name": "imagem 43 carregada",
                     "path": "::imagem 43 carregada",
                     "id": "25505d1b65711b82d9ec54b3af2b3537",
                     "passes": 1,
-                    "fails": 0,
-                    "name": "imagem 43 carregada"
+                    "fails": 0
                 },
                 "total 34 imagens analisadas": {
+                    "name": "total 34 imagens analisadas",
                     "path": "::total 34 imagens analisadas",
                     "id": "7229fca17866c88b976ac8f38b1ebcae",
                     "passes": 1,
-                    "fails": 0,
-                    "name": "total 34 imagens analisadas"
+                    "fails": 0
                 },
                 "3 imagens > 200KB": {
                     "name": "3 imagens > 200KB",
@@ -267,49 +267,59 @@
             }
     },
     "metrics": {
-        "http_req_blocked": {
-            "max": 1067.3964,
-            "p(90)": 0,
-            "p(95)": 0,
-            "avg": 30.497040000000002,
-            "min": 0,
-            "med": 0
+        "data_received": {
+            "count": 3171583,
+            "rate": 143498.137215341
+        },
+        "vus": {
+            "max": 1,
+            "value": 1,
+            "min": 1
+        },
+        "vus_max": {
+            "value": 1,
+            "min": 1,
+            "max": 1
+        },
+        "http_req_duration": {
+            "min": 189.6613,
+            "med": 213.0072,
+            "max": 4085.5909,
+            "p(90)": 1448.00194,
+            "p(95)": 2197.003099999997,
+            "avg": 626.4048342857142,
+            "thresholds": {
+                "p(95)<5000": false
+            }
         },
         "http_req_tls_handshaking": {
+            "min": 0,
             "med": 0,
-            "max": 33.0382,
+            "max": 36.4339,
             "p(90)": 0,
             "p(95)": 0,
-            "avg": 0.9439485714285715,
-            "min": 0
+            "avg": 1.0409685714285715
         },
-        "http_reqs": {
-            "count": 35,
-            "rate": 2.659930284291221
+        "http_req_waiting": {
+            "p(95)": 2195.278849999997,
+            "avg": 601.5816714285713,
+            "min": 186.8005,
+            "med": 205.0523,
+            "max": 4078.18,
+            "p(90)": 1358.19522
         },
-        "http_req_sending": {
-            "avg": 0.16692571428571426,
-            "min": 0,
-            "med": 0,
-            "max": 1.0851,
-            "p(90)": 0.54186,
-            "p(95)": 0.6965199999999988
+        "checks": {
+            "passes": 37,
+            "fails": 0,
+            "value": 1
         },
-        "http_req_connecting": {
-            "avg": 29.254334285714286,
-            "min": 0,
-            "med": 0,
-            "max": 1023.9017,
-            "p(90)": 0,
-            "p(95)": 0
-        },
-        "data_received": {
-            "count": 3171244,
-            "rate": 241008.22727076654
-        },
-        "iterations": {
-            "count": 1,
-            "rate": 0.0759980081226063
+        "iteration_duration": {
+            "med": 22101.9106,
+            "max": 22101.9106,
+            "p(90)": 22101.9106,
+            "p(95)": 22101.9106,
+            "avg": 22101.9106,
+            "min": 22101.9106
         },
         "http_req_failed": {
             "passes": 0,
@@ -319,67 +329,57 @@
             },
             "value": 0
         },
-        "iteration_duration": {
-            "max": 13157.6219,
-            "p(90)": 13157.6219,
-            "p(95)": 13157.6219,
-            "avg": 13157.6219,
-            "min": 13157.6219,
-            "med": 13157.6219
-        },
-        "data_sent": {
-            "count": 14383,
-            "rate": 1093.0793508274467
-        },
-        "http_req_duration": {
-            "med": 199.7532,
-            "max": 2461.5623,
-            "p(90)": 484.0693400000001,
-            "p(95)": 632.4869299999995,
-            "avg": 342.15126285714285,
-            "min": 190.9401,
-            "thresholds": {
-                "p(95)<5000": false
-            }
+        "http_reqs": {
+            "count": 35,
+            "rate": 1.5835735033694327
         },
         "http_req_duration{expected_response:true}": {
-            "med": 199.7532,
-            "max": 2461.5623,
-            "p(90)": 484.0693400000001,
-            "p(95)": 632.4869299999995,
-            "avg": 342.15126285714285,
-            "min": 190.9401
+            "p(90)": 1448.00194,
+            "p(95)": 2197.003099999997,
+            "avg": 626.4048342857142,
+            "min": 189.6613,
+            "med": 213.0072,
+            "max": 4085.5909
+        },
+        "http_req_blocked": {
+            "min": 0,
+            "med": 0,
+            "max": 52.5709,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 1.5020257142857143
+        },
+        "http_req_connecting": {
+            "max": 8.067,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.2304857142857143,
+            "min": 0,
+            "med": 0
         },
         "http_req_receiving": {
+            "p(95)": 167.86859999999993,
+            "avg": 24.56014,
             "min": 0,
-            "med": 1.9715,
-            "max": 165.8451,
-            "p(90)": 7.243140000000002,
-            "p(95)": 143.92655999999994,
-            "avg": 15.120494285714283
+            "med": 1.3877,
+            "max": 286.8145,
+            "p(90)": 99.09228000000022
         },
-        "vus_max": {
-            "value": 1,
-            "min": 1,
-            "max": 1
+        "http_req_sending": {
+            "avg": 0.26302285714285717,
+            "min": 0,
+            "med": 0,
+            "max": 1.3459,
+            "p(90)": 0.5669200000000001,
+            "p(95)": 1.00173
         },
-        "checks": {
-            "fails": 0,
-            "passes": 37,
-            "value": 1
+        "iterations": {
+            "count": 1,
+            "rate": 0.04524495723912665
         },
-        "vus": {
-            "value": 1,
-            "min": 1,
-            "max": 1
-        },
-        "http_req_waiting": {
-            "avg": 326.8638428571429,
-            "min": 189.6662,
-            "med": 197.5463,
-            "max": 2460.293,
-            "p(90)": 422.451,
-            "p(95)": 590.5897399999993
+        "data_sent": {
+            "count": 13772,
+            "rate": 623.1135510972522
         }
     }
 }
