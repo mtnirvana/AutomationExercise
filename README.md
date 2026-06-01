@@ -15,7 +15,7 @@ Framework de automação de testes para o site [Automation Exercise](https://www
 
 Arquitetura orientada a **alta manutenibilidade e repetibilidade**: Page Objects centralizam seletores, fixtures isolam dados, factories geram dados únicos, `beforeEach` global e `cy.captura()` eliminam duplicação. Framework escalável do Automation Exercise para E2E, API, performance e auditoria visual.
 
-**61 casos de teste no Allure** · 26 E2E Web · 14 API · 13 k6 · 8 Core Web Vitals
+**61 casos individuais no Allure** · 26 E2E · 14 API · 13 k6 · 8 Core Web Vitals
 
 ---
 
