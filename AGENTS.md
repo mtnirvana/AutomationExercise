@@ -141,7 +141,7 @@ The standard pipeline for ALL new test cases MUST follow this exact order:
 2. **RUN** â Execute the test and verify it passes completely
 3. **BACKUP** â Create backups of all documentation files before any changes
 4. **UPDATE DOCS** â Increment Sumario_Executivo, Especificacao_Tecnica, Suite_BDD, and Relatorio (if applicable) using their respective templates
-5. **ALLURE** â Ensure Allure results are generated (Cypress auto-generates for .cy.js; k6 requires conversion via [`convert_k6_to_allure.js`](cypress/allure/scripts/convert_k6_to_allure.js))
+5. **ALLURE** â Ensure Allure results are generated (Cypress auto-generates for .cy.js; k6 requires conversion via [`convert_k6_to_allure.js`](automationexercise/Cypress/cypress/allure/scripts/convert_k6_to_allure.js))
 6. **VERIFY** â Confirm all documents compile correctly with no broken links or numbering gaps
 
 > **NEVER** update documentation with unexecuted tests. Code first, document after, Allure last.
@@ -346,7 +346,7 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
     7. **Update `Suite_BDD.md`:** Add new entry to section 8.3 (Performance) mapping table.
     8. **Update `Relatorio_Resultados_Performance.md`:** After execution, populate metrics (avg, p95, taxa de erro) using `Relatorio_Resultados_Performance_TEMPLATE.md` as base.
     9. **Verify** all documents compile correctly with no broken links or numbering gaps.
-    10. **Allure** â Confirm allure-results are generated (k6 requires conversion via [`convert_k6_to_allure.js`](cypress/allure/scripts/convert_k6_to_allure.js)).
+    10. **Allure** â Confirm allure-results are generated (k6 requires conversion via [`convert_k6_to_allure.js`](automationexercise/Cypress/cypress/allure/scripts/convert_k6_to_allure.js)).
 
 **Critical Rule:** NEVER update any test plan or technical test plan with a test case that has not been executed and confirmed passing. Documentation reflects the validated, working state of the test â not a planned or in-progress state.
 

@@ -234,9 +234,9 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 
 #### Análise
 
-**Ponto de Ruptura Identificado:** ~50 VUs simultâneas.
+**Ponto de Ruptura Identificado:** ~50 VUs (rate limit inicial), com ruptura total em 300 VUs.
 
-O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições simultâneas ao endpoint `/api/productsList` sem começar a rate limitar. A partir de 100 VUs, a taxa de erro sobe para ~23% e continua crescendo progressivamente.
+O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições simultâneas ao endpoint `/api/productsList`. A 100 VUs a taxa de erro sobe para ~23% e continua crescendo progressivamente, atingindo bloqueio quase total em 300 VUs.
 
 ---
 

@@ -404,7 +404,7 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 | **E2E Tests** | 26 | 24 (92,3%) | 2 (7,7%) |
 | **API Tests** | 14 | 8 (57,1%) | 6 (42,9%) |
 | **Performance Tests** | 21 | 19 (90,5%) | 2 (9,5%) ⚠️¹ |
-| **Total Consolidado** | **61** | **50 (82,0%)** | **11 (18,0%)** |
+| **Total Consolidado** | **61** | **51 (83,6%)** | **10 (16,4%)** |
 
 > **Nota:** Performance tests (k6 + TC_PF_008) são cenários técnicos sem classificação Sucesso/Erro tradicional. A divisão acima reflete a última execução. Os 8 checks do TC_PF_008 são contados individualmente, elevando o total para 61 casos no Allure. Em termos BDD (cenários descritíveis em Gherkin), o total é de 40 cenários (26 E2E + 14 API).
 >
