@@ -212,14 +212,10 @@ export default function () {
 <br>
 **Tipo:** Carga (Load)<br>
 <br>
-**Criticidade:** Média<br>
-<br>
+**Criticidade:** Alta<br>
 **Configuração:** Ramp-up 15s para 30 VUs, sustentar 2min, ramp-down 10s<br>
-<br>
 **Dados:** Credenciais fixas (teste123@hotmail.com / 123456R@)<br>
-<br>
 **Sleep:** 1s entre iterações (comportamento humano)<br>
-<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,10`
 
 **Script:** [`TC_PF_004_carga_api_login.js`](../Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js)
@@ -565,7 +561,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 <br>
 **Tipo:** Carga (Load)<br>
 <br>
-**Criticidade:** Média<br>
+**Criticidade:** Alta<br>
 <br>
 **Configuração:** Ramp-up 30s para 30 VUs, sustentar 2min, ramp-down 10s<br>
 <br>
