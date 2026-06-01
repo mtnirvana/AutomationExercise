@@ -13,7 +13,7 @@
 | **Total de Cenários** | 61 (26 E2E + 14 API + 13 Performance k6 + 8 Core Web Vitals) |
 | **E2E** | 26 cenários |
 | **API** | 14 cenários |
-| **Performance** | 21 cenários (13 k6 + 8 checks) |
+| **Performance** | 14 cenários (21 checks no Allure) |
 
 > **Nota:** Performance tests (k6) e Core Web Vitals são cenários técnicos (carga, estresse, pico, auditoria) não representáveis em Gherkin. Estão contabilizados aqui para totalização, mas detalhados apenas nos documentos de performance. No contexto BDD, 40 cenários (26 E2E + 14 API) são os descritíveis em Gherkin.
 
