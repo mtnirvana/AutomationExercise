@@ -129,7 +129,7 @@
 |:--------|:---------|
 | [`TC_PF_001_smoke_test.json`](../Cypress/cypress/reports/k6/TC_PF_001_smoke_test.json) | Métricas do smoke test em JSON |
 | [`cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/`](../Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/) | Screenshots do TC_PF_008 (Cypress) |
-| [`cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/TC_PF_008_core_web_vitals.gif`](../Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/TC_PF_008_core_web_vitals.gif) | GIF animado (via scripts/gerar_gifs.js) |
+| ![TC_PF_008](../Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/TC_PF_008_core_web_vitals.gif) | GIF animado (via scripts/gerar_gifs.js) |
 | [`cypress/videos/`](../Cypress/cypress/videos/) | Vídeos da execução (Cypress) |
 | [`cypress/screenshots/performance/`](../Cypress/cypress/screenshots/performance/) | Screenshots Core Web Vitals |
 | ... | ... |
