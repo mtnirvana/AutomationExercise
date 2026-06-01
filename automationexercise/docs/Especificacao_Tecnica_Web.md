@@ -1,5 +1,6 @@
 # Especificação Técnica Web - Automation Exercise
 **Versão:** 1.0.0<br>
+**Metodologia:** POM (Page Object Model)<br>
 **Responsável:** Rafael Barelli
 
 ---

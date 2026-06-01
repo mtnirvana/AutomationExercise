@@ -1,5 +1,6 @@
 # Especificação Técnica API - Automation Exercise
 **Versão:** 1.0.0<br>
+**Metodologia:** API Testing (Cypress)<br>
 **Responsável:** Rafael Barelli
 
 ---
