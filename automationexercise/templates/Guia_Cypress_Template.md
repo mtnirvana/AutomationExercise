@@ -1,19 +1,7 @@
-# Cypress Test Template - Page Object Model (POM)
-**Versão:** 1.0.0
-
----
-
-# Configuration Files Backup (MANDATORY)
-
-Antes de fazer QUALQUER alteração neste arquivo:
-1. **CRIAR BACKUP** na pasta `Backup/` na raiz do projeto
-2. Usar timestamp no formato: `YYYYMMDD_HHmmss`
-3. Nomenclatura: `Guia_Cypress_Template_[TIMESTAMP].md`
-
-**Comando para backup:**
-```bash
-$ts = Get-Date -Format "yyyyMMdd_HHmmss"; Copy-Item "automationexercise/templates/Guia_Cypress_Template.md" "Backup/Guia_Cypress_Template_$ts.md"
-```
+# Guia de Cypress - Automation Exercise
+**Versão:** 1.0.0<br>
+**Metodologia:** POM (Page Object Model)<br>
+**Responsável:** Rafael Barelli
 
 ---
 

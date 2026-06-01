@@ -1,12 +1,9 @@
-# Repositorio de Seletores - Automation Exercise
+# Repositório de Seletores - Automation Exercise
+**Versão:** 1.0.0<br>
+**Metodologia:** POM (Page Object Model)<br>
+**Responsável:** Rafael Barelli
 
-Este arquivo armazena alternativas para cada elemento mapeado no projeto. Em caso de falha de teste (Timeout/Selector not found), o agente deve consultar este arquivo para tentar um seletor alternativo antes de realizar uma nova inspecao live.
-
-**Rastreabilidade de Falhas:** Caso um seletor pare de funcionar, ele deve ser marcado como **`[QUEBRADO]`** com a data da falha.
-
-**Restauração:** Se um seletor voltar a funcionar, ele deve ser marcado como **`[RESTAURADO]`** com a data, mantendo a informação de quando havia quebrado (ex: `[RESTAURADO 2026-05-15 (Quebrou 2026-05-10)]`).
-
-**Regra:** O agente nunca usa seletores com status `[QUEBRADO]`.
+---
 
 ## Estrutura por Pagina
 

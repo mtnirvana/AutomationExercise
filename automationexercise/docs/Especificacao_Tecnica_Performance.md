@@ -1,8 +1,8 @@
 # Especificação Técnica Performance - Automation Exercise
-**Versão:** 1.0.0<br><br>
-**Responsável:** Rafael Barelli<br><br>
-**Ferramenta:** k6 (Grafana Labs) v2.0.0<br><br>
-**Metodologia:** ISTQB (CTFL) - Testes de Performance
+**Versão:** 1.0.0<br>
+**Ferramenta:** k6 (Grafana Labs) v2.0.0<br>
+**Metodologia:** ISTQB (CTFL) - Testes de Performance<br>
+**Responsável:** Rafael Barelli
 
 ---
 
@@ -100,10 +100,14 @@ export default function () {
 
 #### TC_PF_001 - Smoke test de validação do pipeline
 
-**Objetivo:** Validar que o ambiente de teste, o script k6 e as APIs estão funcionando corretamente.<br><br>
-**Tipo:** Smoke<br><br>
-**Criticidade:** Alta<br><br>
-**Configuração:** 1 VU, 1 iteração, sem ramp-up<br><br>
+**Objetivo:** Validar que o ambiente de teste, o script k6 e as APIs estão funcionando corretamente.<br>
+<br>
+**Tipo:** Smoke<br>
+<br>
+**Criticidade:** Alta<br>
+<br>
+**Configuração:** 1 VU, 1 iteração, sem ramp-up<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,01`
 
 **Script:** [`TC_PF_001_smoke_test.js`](../Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js)
@@ -130,10 +134,14 @@ export default function () {
 
 #### TC_PF_002 - Carga concorrente na página inicial
 
-**Objetivo:** Validar a performance da homepage com 50 usuários simultâneos.<br><br>
-**Tipo:** Carga (Load)<br><br>
-**Criticidade:** Alta<br><br>
-**Configuração:** Ramp-up 30s para 50 VUs, sustentar 3min, ramp-down 10s<br><br>
+**Objetivo:** Validar a performance da homepage com 50 usuários simultâneos.<br>
+<br>
+**Tipo:** Carga (Load)<br>
+<br>
+**Criticidade:** Alta<br>
+<br>
+**Configuração:** Ramp-up 30s para 50 VUs, sustentar 3min, ramp-down 10s<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 3000`, `http_req_failed rate < 0,05`
 
 **Script:** [`TC_PF_002_carga_homepage.js`](../Cypress/cypress/e2e/performance/TC_PF_002_carga_homepage.js)
@@ -163,10 +171,14 @@ export default function () {
 
 #### TC_PF_003 - Carga no endpoint /api/productsList
 
-**Objetivo:** Validar throughput e latência da API de listagem de produtos com até 100 usuários simultâneos.<br><br>
-**Tipo:** Carga (Load)<br><br>
-**Criticidade:** Alta<br><br>
-**Configuração:** Ramp-up 20s para 50 VUs, sustentar 1min, ramp-up 20s para 100 VUs, sustentar 1min, ramp-down 10s<br><br>
+**Objetivo:** Validar throughput e latência da API de listagem de produtos com até 100 usuários simultâneos.<br>
+<br>
+**Tipo:** Carga (Load)<br>
+<br>
+**Criticidade:** Alta<br>
+<br>
+**Configuração:** Ramp-up 20s para 50 VUs, sustentar 1min, ramp-up 20s para 100 VUs, sustentar 1min, ramp-down 10s<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 8000`, `http_req_failed rate < 0,40`
 
 **Script:** [`TC_PF_003_carga_api_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_003_carga_api_produtos.js)
@@ -196,12 +208,18 @@ export default function () {
 
 #### TC_PF_004 - Carga no endpoint /api/verifyLogin
 
-**Objetivo:** Validar tempo de resposta da autenticação com 30 usuários simultâneos.<br><br>
-**Tipo:** Carga (Load)<br><br>
-**Criticidade:** Média<br><br>
-**Configuração:** Ramp-up 15s para 30 VUs, sustentar 2min, ramp-down 10s<br><br>
-**Dados:** Credenciais fixas (teste123@hotmail.com / 123456R@)<br><br>
-**Sleep:** 1s entre iterações (comportamento humano)<br><br>
+**Objetivo:** Validar tempo de resposta da autenticação com 30 usuários simultâneos.<br>
+<br>
+**Tipo:** Carga (Load)<br>
+<br>
+**Criticidade:** Média<br>
+<br>
+**Configuração:** Ramp-up 15s para 30 VUs, sustentar 2min, ramp-down 10s<br>
+<br>
+**Dados:** Credenciais fixas (teste123@hotmail.com / 123456R@)<br>
+<br>
+**Sleep:** 1s entre iterações (comportamento humano)<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,10`
 
 **Script:** [`TC_PF_004_carga_api_login.js`](../Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js)
@@ -222,10 +240,14 @@ export default function () {
 
 #### TC_PF_005 - Estresse progressivo no /api/productsList
 
-**Objetivo:** Encontrar o ponto de ruptura da API aumentando progressivamente a carga.<br><br>
-**Tipo:** Estresse (Stress)<br><br>
-**Criticidade:** Alta<br><br>
-**Configuração:** Stages progressivos: 25 (baseline) → 50 → 100 → 200 → **300** VUs (reduzido de 500 para evitar bloqueio total do Cloudflare)<br><br>
+**Objetivo:** Encontrar o ponto de ruptura da API aumentando progressivamente a carga.<br>
+<br>
+**Tipo:** Estresse (Stress)<br>
+<br>
+**Criticidade:** Alta<br>
+<br>
+**Configuração:** Stages progressivos: 25 (baseline) → 50 → 100 → 200 → **300** VUs (reduzido de 500 para evitar bloqueio total do Cloudflare)<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 10000`, `http_req_failed rate < 0,60`
 
 **Script:** [`TC_PF_005_estresse_api_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js)
@@ -260,10 +282,14 @@ export default function () {
 
 #### TC_PF_006 - Resistência sustentada com mix de endpoints
 
-**Objetivo:** Detectar degradação gradual ou memory leak com carga constante por 5 minutos.<br><br>
-**Tipo:** Resistência (Soak)<br><br>
-**Criticidade:** Média<br><br>
-**Configuração:** 50 VUs, 5min hold, mix de 4 endpoints via `__ITER % 4`<br><br>
+**Objetivo:** Detectar degradação gradual ou memory leak com carga constante por 5 minutos.<br>
+<br>
+**Tipo:** Resistência (Soak)<br>
+<br>
+**Criticidade:** Média<br>
+<br>
+**Configuração:** 50 VUs, 5min hold, mix de 4 endpoints via `__ITER % 4`<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 3000`, `http_req_failed rate < 0,01`
 
 **Script:** [`TC_PF_006_resistencia_soak.js`](../Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js)
@@ -293,10 +319,14 @@ export default function () {
 
 #### TC_PF_007 - Pico repentino de tráfego
 
-**Objetivo:** Validar que o sistema se recupera após um pico repentino de 200 VUs.<br><br>
-**Tipo:** Pico (Spike)<br><br>
-**Criticidade:** Média<br><br>
-**Configuração:** Baseline 10 VUs (30s) → Spike 200 VUs (5s) → Hold 200 (30s) → Recuperação 10 VUs (30s) → Validar recuperação (30s)<br><br>
+**Objetivo:** Validar que o sistema se recupera após um pico repentino de 200 VUs.<br>
+<br>
+**Tipo:** Pico (Spike)<br>
+<br>
+**Criticidade:** Média<br>
+<br>
+**Configuração:** Baseline 10 VUs (30s) → Spike 200 VUs (5s) → Hold 200 (30s) → Recuperação 10 VUs (30s) → Validar recuperação (30s)<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 8000`, `http_req_failed rate < 0,30`
 
 **Script:** [`TC_PF_007_pico_spike.js`](../Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js)
@@ -330,10 +360,14 @@ Nota: Spike reduzido de 500 para 200 VUs para evitar bloqueio total do Cloudflar
 
 #### TC_PF_008 - Métricas Core Web Vitals (Lighthouse)
 
-**Objetivo:** Coletar LCP, FCP, CLS e TTFB da homepage via Lighthouse.<br><br>
-**Tipo:** Front-end<br><br>
-**Criticidade:** Média<br><br>
-**Configuração:** 8 paginas criticas, 1 execucao cada, navegacao real via Cypress<br><br>
+**Objetivo:** Coletar LCP, FCP, CLS e TTFB da homepage via Lighthouse.<br>
+<br>
+**Tipo:** Front-end<br>
+<br>
+**Criticidade:** Média<br>
+<br>
+**Configuração:** 8 paginas criticas, 1 execucao cada, navegacao real via Cypress<br>
+<br>
 **Ferramenta:** Cypress + Chrome DevTools (Lighthouse)
 
 **Script (Cypress):** [`TC_PF_008_core_web_vitals.cy.js`](../Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js)
@@ -379,11 +413,16 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 #### TC_PF_009 - Carga no fluxo completo de checkout
 
-**Objetivo:** Validar o funil de conversão completo (criar conta → login → listar → excluir) sob carga.<br><br>
-**Tipo:** Carga (Load) - Fluxo Misto<br><br>
-**Criticidade:** Alta<br><br>
-**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa a cadeia completa<br><br>
-**Dados:** Email único via `Date.now()` por iteração<br><br>
+**Objetivo:** Validar o funil de conversão completo (criar conta → login → listar → excluir) sob carga.<br>
+<br>
+**Tipo:** Carga (Load) - Fluxo Misto<br>
+<br>
+**Criticidade:** Alta<br>
+<br>
+**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa a cadeia completa<br>
+<br>
+**Dados:** Email único via `Date.now()` por iteração<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 4000`, `http_req_failed rate < 0,05`
 
 **Script:** [`TC_PF_009_carga_checkout.js`](../Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js)
@@ -408,9 +447,12 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 #### TC_PF_010 - Análise de tamanho e formato de imagens
 
-**Objetivo:** Identificar imagens que excedem thresholds de performance e recomendar compressão.<br><br>
-**Tipo:** Auditoria<br><br>
-**Criticidade:** Baixa<br><br>
+**Objetivo:** Identificar imagens que excedem thresholds de performance e recomendar compressão.<br>
+<br>
+**Tipo:** Auditoria<br>
+<br>
+**Criticidade:** Baixa<br>
+<br>
 **Configuração:** 1 VU, lista todos os produtos e verifica Content-Length de cada imagem
 
 **Script:** [`TC_PF_010_auditoria_imagens.js`](../Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js)
@@ -432,11 +474,16 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 #### TC_PF_011 - Carga no endpoint PUT /api/updateAccount
 
-**Objetivo:** Validar a atualização de dados do usuário via endpoint PUT sob carga.<br><br>
-**Tipo:** Carga (Load)<br><br>
-**Criticidade:** Alta<br><br>
-**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa: criar → atualizar → excluir<br><br>
-**Dados:** Email único via `Date.now()` por iteração. Password consistente em todo o fluxo.<br><br>
+**Objetivo:** Validar a atualização de dados do usuário via endpoint PUT sob carga.<br>
+<br>
+**Tipo:** Carga (Load)<br>
+<br>
+**Criticidade:** Alta<br>
+<br>
+**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa: criar → atualizar → excluir<br>
+<br>
+**Dados:** Email único via `Date.now()` por iteração. Password consistente em todo o fluxo.<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,15`
 
 **Script:** [`TC_PF_011_carga_atualizar_conta.js`](../Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js)
@@ -456,11 +503,16 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 #### TC_PF_012 - Carga no endpoint GET /api/getUserDetailByEmail
 
-**Objetivo:** Validar a consulta de detalhes de usuário por email sob carga.<br><br>
-**Tipo:** Carga (Load)<br><br>
-**Criticidade:** Alta<br><br>
-**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa: criar → consultar → excluir<br><br>
-**Dados:** Email único via `Date.now()`. Password consistente.<br><br>
+**Objetivo:** Validar a consulta de detalhes de usuário por email sob carga.<br>
+<br>
+**Tipo:** Carga (Load)<br>
+<br>
+**Criticidade:** Alta<br>
+<br>
+**Configuração:** 20 VUs, ramp-up 20s, hold 2min, cada VU executa: criar → consultar → excluir<br>
+<br>
+**Dados:** Email único via `Date.now()`. Password consistente.<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,15`
 
 **Script:** [`TC_PF_012_carga_detalhes_usuario.js`](../Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js)
@@ -485,11 +537,16 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 #### TC_PF_013 - Carga no endpoint POST /api/searchProduct
 
-**Objetivo:** Validar a busca de produtos com múltiplos termos sob carga.<br><br>
-**Tipo:** Carga (Load)<br><br>
-**Criticidade:** Alta<br><br>
-**Configuração:** 30 VUs, ramp-up 20s, hold 2min, 5 termos de busca alternados via `__ITER % 5`<br><br>
-**Dados:** Termos de busca: 'top', 'winter', 'dress', 'shirt', 'blue'<br><br>
+**Objetivo:** Validar a busca de produtos com múltiplos termos sob carga.<br>
+<br>
+**Tipo:** Carga (Load)<br>
+<br>
+**Criticidade:** Alta<br>
+<br>
+**Configuração:** 30 VUs, ramp-up 20s, hold 2min, 5 termos de busca alternados via `__ITER % 5`<br>
+<br>
+**Dados:** Termos de busca: 'top', 'winter', 'dress', 'shirt', 'blue'<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,05`
 
 **Script:** [`TC_PF_013_carga_pesquisar_produto.js`](../Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js)
@@ -504,10 +561,14 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 #### TC_PF_014 - Carga na página de produtos
 
-**Objetivo:** Validar tempo de carregamento da página de listagem de produtos (/products).<br><br>
-**Tipo:** Carga (Load)<br><br>
-**Criticidade:** Média<br><br>
-**Configuração:** Ramp-up 30s para 30 VUs, sustentar 2min, ramp-down 10s<br><br>
+**Objetivo:** Validar tempo de carregamento da página de listagem de produtos (/products).<br>
+<br>
+**Tipo:** Carga (Load)<br>
+<br>
+**Criticidade:** Média<br>
+<br>
+**Configuração:** Ramp-up 30s para 30 VUs, sustentar 2min, ramp-down 10s<br>
+<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,05`
 
 **Script:** [`TC_PF_014_carga_pagina_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_014_carga_pagina_produtos.js)

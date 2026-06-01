@@ -194,7 +194,6 @@ Este glossário consolida todos os seletores extraídos dos Page Objects do proj
 | `.product-information p` (Condition) | seletor+texto | Condição do produto | Médio |
 | `.product-information p` (Brand) | seletor+texto | Marca do produto | Médio |
 | `.product-information span span` | seletor | Preço produto | Médio |
-
 | `#quantity` | id | Campo quantidade | Robusto |
 | `.left-sidebar` | classe | Barra lateral categorias | Médio |
 | `.product-overlay` | classe | Overlay produto (hover) | Médio |

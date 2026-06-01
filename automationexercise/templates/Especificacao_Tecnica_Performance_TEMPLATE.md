@@ -1,8 +1,8 @@
 # Especificação Técnica Performance - Automation Exercise
 **Versão:** 1.0.0<br>
-**Responsável:** Rafael Barelli<br>
 **Ferramenta:** k6 (Grafana Labs) v2.0.0<br>
-**Metodologia:** ISTQB (CTFL) - Testes de Performance
+**Metodologia:** ISTQB (CTFL) - Testes de Performance<br>
+**Responsável:** Rafael Barelli
 
 ---
 

@@ -3,3 +3,5 @@ opencode.json
 .playwright-cli/
 corrigir.txt
 *.log
+Backup/*
+!Backup/.gitkeep

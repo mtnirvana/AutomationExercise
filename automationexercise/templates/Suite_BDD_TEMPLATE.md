@@ -1,5 +1,5 @@
 # Suite de Testes BDD - Automation Exercise
-**Versão:** X.X.X<br>
+**Versão:** 1.0.0<br>
 **Metodologia:** BDD (Behavior Driven Development) - Gherkin<br>
 **Responsável:** Rafael Barelli
 
@@ -56,7 +56,7 @@
 - **Dado:** [Obrigatório — contexto do cenário: dados de entrada, pré-condições, recursos necessários]
 - **Pós-condição:** [O que permanece ou é alterado após o teste]
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -79,7 +79,7 @@ E [validação agrupada 2 - se necessário]
 - **Dado:** Que existem dados de registro disponíveis
 - **Pós-condição:** Conta criada e excluída ao final do teste
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -105,7 +105,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -135,7 +135,7 @@ E o header "Login to your account" deve estar visível
 - **Dado:** Que existem produtos disponíveis no catálogo
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -163,7 +163,7 @@ E as informações do produto devem estar visíveis (nome, categoria, preço, di
 - **Dado:** Que existem produtos disponíveis no catálogo
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -191,7 +191,7 @@ E os preços, quantidades e totais devem estar corretos
 - **Dado:** Que existem dados de registro e dados de pagamento disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -225,7 +225,7 @@ Então a mensagem "Congratulations! Your order has been placed successfully!" de
 - **Dado:** Que existem dados de contato disponíveis
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -256,7 +256,7 @@ Então a mensagem "Success! Your details have been submitted successfully." deve
 - **Dado:** [Obrigatório — contexto do cenário: dados de entrada, pré-condições, recursos necessários]
 - **Pós-condição:** [O que permanece ou é alterado após o teste]
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -278,7 +278,7 @@ Máximo de 7 blocos por cenário. Agrupar ações relacionadas por intenção de
 - **Dado:** Que a API de catálogo de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -298,7 +298,7 @@ E cada produto deve possuir id, name, price, brand e category
 - **Dado:** Que a API de busca de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -325,7 +325,7 @@ E a mensagem de erro deve conter "Bad request, search_product parameter is missi
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -352,7 +352,7 @@ E a mensagem deve ser "User exists!"
 - **Dado:** Que existem dados de registro e a API de criação de conta está disponível
 - **Pós-condição:** Usuário criado deve ser excluído no afterEach
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
@@ -379,7 +379,7 @@ E a mensagem deve ser "User created!"
 - **Dado:** Que a API de catálogo de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
-- **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/FUNC/TCXXX_nome_do_teste.cy.js)
+- **Script:** `TCXXX_nome_do_teste.cy.js`
 
 **Cenário:**
 ```
