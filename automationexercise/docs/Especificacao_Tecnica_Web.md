@@ -620,7 +620,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 #### TC_WEB_020 - Pesquisar produtos e verificar carrinho após login
 **Objetivo:** Validar busca de produtos e persistência do carrinho após login.<br>
 **Tipo:** Sucesso<br>
-**Criticidade:** Alta<br>
+**Criticidade:** Crítica<br>
 **Dados:** `cypress/fixtures/products.json` → `searchTerms.winter` + `users.json` → `testUser` + `ui_texts.json`<br>
 **Pós-condição:** Carrinho persiste após login<br>
 **Passos Detalhados:**
@@ -679,7 +679,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 #### TC_WEB_022 - Adicionar ao carrinho itens recomendados
 **Objetivo:** Validar que itens recomendados podem ser adicionados ao carrinho.<br>
 **Tipo:** Sucesso<br>
-**Criticidade:** Baixa<br>
+**Criticidade:** Média<br>
 **Dados:** `cypress/fixtures/ui_texts.json` → `buttons.viewCart`<br>
 **Pós-condição:** Nenhuma (não altera dados)<br>
 **Passos Detalhados:**

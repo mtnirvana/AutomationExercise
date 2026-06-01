@@ -168,7 +168,7 @@
 | Threshold | Resultado |
 |:----------|:---------:|
 | `http_req_duration p(95) < 8000` | ✅ p(95)=7,2s |
-| `http_req_failed rate < 0,30` | ✅ rate=22,76% |
+| `http_req_failed rate < 0,40` | ✅ rate=22,76% |
 
 #### Análise
 
@@ -226,11 +226,11 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 
 | Stage | VUs | Comportamento Observado |
 |:-----:|:---:|:------------------------|
-| 1 | 50 | Taxa de sucesso alta |
-| 2 | 100 | Início de rate limiting (~23% erro) |
-| 3 | 200 | Rate limiting severo |
-| 4 | 300 | Maioria das requests bloqueadas |
-| 5 | 500 | Queda total |
+| 1 | 25 | Baseline — taxa de sucesso alta |
+| 2 | 50 | Início de rate limiting |
+| 3 | 100 | Rate limit esperado (~23% erro) |
+| 4 | 200 | Degradação severa |
+| 5 | 300 | Ponto de ruptura — maioria bloqueada |
 
 #### Análise
 
@@ -325,7 +325,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | Threshold | Resultado |
 |:----------|:---------:|
 | `http_req_duration p(95) < 8000` | ✅ p(95)=556ms |
-| `http_req_failed rate < 0,15` | ✅ rate=0,00% |
+| `http_req_failed rate < 0,30` | ✅ rate=0,00% |
 
 ---
 
