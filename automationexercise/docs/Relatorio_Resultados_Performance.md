@@ -825,7 +825,7 @@ O servidor com Cloudflare não suporta mais que aproximadamente 50 requisições
 | [`TC_PF_008_core_web_vitals.cy.js`](../Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js) | Teste Cypress TC_PF_008 |
 | [`Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/`](../Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/) | 9 screenshots do TC_PF_008 (Cypress) |
 | ![TC_PF_008](../Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/TC_PF_008_core_web_vitals.gif) | GIF animado gerado via scripts/gerar_gifs.js |
-| <video src="../Cypress/cypress/videos/TC_PF_008_core_web_vitals.cy.js.mp4" controls width="320"></video> | Vídeo da execução do TC_PF_008 (Cypress) |
+| [`Cypress/cypress/videos/TC_PF_008_core_web_vitals.cy.js.mp4`](../Cypress/cypress/videos/TC_PF_008_core_web_vitals.cy.js.mp4) | Vídeo da execução do TC_PF_008 (Cypress) |
 
 ### 5.2 Comando para Gerar Evidências
 
