@@ -401,7 +401,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 | 4 | Validar LCP, CLS e TTFB contra SLAs | LCP < 2500ms, CLS < 0,1, TTFB < 1000ms |
 | 5 | Screenshot via `cy.captura()` | Evidencia visual |
 
-**Evidências:** Lighthouse (gerado sob demanda via Chrome DevTools) + screenshots do Cypress em `cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/`
+**Evidências:** Lighthouse (gerado sob demanda via Chrome DevTools) + screenshots do Cypress em [`cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/`](../Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/)
 
 **Evidência em GIF:** ![TC_PF_008](../Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/TC_PF_008_core_web_vitals.gif)
 
