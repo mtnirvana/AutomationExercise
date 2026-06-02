@@ -301,7 +301,7 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
 **Rule:** When the user explicitly mentions "performance tests", "load tests", "carga", or "testes de performance", the Agent MUST use the performance-specific technical document.
 
 - **Step Numbering:** All steps use sequential numbering (no sub-letters like 4a, 4b, 4c). Each action is a separate step. Each step MUST have a comment in format `// N. [description in Portuguese]`. **This applies to BOTH E2E and API tests.**
-- **BeforeEach:** Global em `cypress/support/e2e.js`, NAO repetir nos testes.
+- **BeforeEach:** Global in `cypress/support/e2e.js`, DO NOT repeat in tests.
 - **Test Naming:** File names, `describe()` and `it()` tags (MUST be in Portuguese).
 - **Screenshots:** Numbering MUST exactly match the current step number (e.g., `04_`). For multiple screenshots in the same step, use suffixes `04_`, `04a_`, `04b_`. ALL descriptions in the takeScreenshot argument MUST be in Portuguese. **MANDATORY use of `cy.captura()` custom command.**
 - **Zero Hardcoded Policy (MANDATORY):** Test data (emails, passwords, product names, categories, brands, or messages) and **UI TEXTS** (buttons, headers, labels) **MUST NOT** be hardcoded in test files (Always abstract to fixtures).
@@ -452,10 +452,10 @@ npx cypress run --browser firefox
 ## Supported Browsers
 | Browser | Recommended Version | Note |
 |---------|-------------------|------------|
-| Edge | 148+ | Mais rápido |
-| Firefox | 135+ | Compatível |
-| Chrome | 147+ | Padrão |
-| Electron | 138 | Bundled com Cypress |
+| Edge | 148+ | Fastest |
+| Firefox | 135+ | Compatible |
+| Chrome | 147+ | Default |
+| Electron | 138 | Bundled with Cypress |
 
 ## API Testing Commands
 ```bash
