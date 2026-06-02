@@ -5,3 +5,7 @@ corrigir.txt
 *.log
 Backup/*
 !Backup/.gitkeep
+
+# Cypress generated artifacts (regenerados a cada execucao)
+automationexercise/Cypress/cypress/screenshots/
+automationexercise/Cypress/cypress/videos/
