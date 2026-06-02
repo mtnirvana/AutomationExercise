@@ -29,7 +29,7 @@
 | F02 | Catálogo de Produtos | Navegação, busca, detalhes e avaliação de produtos |
 | F03 | Gestão de Carrinho | Adição, remoção e manipulação de itens |
 | F04 | Fluxo de Checkout e Pedidos | Processo completo de compra e geração de fatura |
-| F05 | Comunicação e UX | Formulário de contato, newsletter e navegação de página |
+| F05 | Comunicação e Experiência do Usuário | Formulário de contato, newsletter, navegação de página e scroll |
 
 ### 2.2 API - Funcionalidades
 
@@ -214,7 +214,7 @@ Então a mensagem "Congratulations! Your order has been placed successfully!" de
 
 ---
 
-### F05 - Comunicação e UX
+### F05 - Comunicação e Experiência do Usuário
 
 <!--
 **F05.01** - Formulário de contato
@@ -418,7 +418,7 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 | **F02 - Catálogo** | N cenários | Produtos, busca, categorias, marcas, avaliações |
 | **F03 - Carrinho** | N cenários | Adição, remoção, quantidades |
 | **F04 - Checkout** | N cenários | Pedidos, pagamento, faturas |
-| **F05 - Comunicação e UX** | N cenários | Contato, assinatura, scroll |
+| **F05 - Comunicação e Experiência do Usuário** | N cenários | Contato, assinatura, scroll |
 
 ### 5.2 Cobertura por Área Funcional - API
 

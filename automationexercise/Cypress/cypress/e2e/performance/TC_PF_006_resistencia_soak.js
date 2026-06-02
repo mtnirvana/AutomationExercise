@@ -48,7 +48,7 @@ export default function () {
     })
   } else if (endpoint === 2) {
     // 4. Enviar POST para /api/verifyLogin
-      res = http.post(`${BASE_URL}/api/verifyLogin`, {
+    res = http.post(`${BASE_URL}/api/verifyLogin`, {
         email: testUser.email,
         password: testUser.password,
       }, {

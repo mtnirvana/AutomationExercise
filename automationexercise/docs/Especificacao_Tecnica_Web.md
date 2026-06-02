@@ -28,12 +28,12 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 | TC_WEB_003 | Login de usuário com email e senha incorretos | Identidade | Alta | Erro |
 | TC_WEB_004 | Logout de usuário | Identidade | Alta | Sucesso |
 | TC_WEB_005 | Registrar usuário com email existente | Identidade | Alta | Erro |
-| TC_WEB_006 | Formulário de contato | Comunicação e UX | Média | Sucesso |
-| TC_WEB_007 | Verificar página de casos de teste | Comunicação e UX | Baixa | Sucesso |
+| TC_WEB_006 | Formulário de contato | Comunicação e Experiência do Usuário | Média | Sucesso |
+| TC_WEB_007 | Verificar página de casos de teste | Comunicação e Experiência do Usuário | Baixa | Sucesso |
 | TC_WEB_008 | Verificar todos os produtos e página de detalhes do produto | Catálogo | Alta | Sucesso |
 | TC_WEB_009 | Pesquisar produto | Catálogo | Alta | Sucesso |
-| TC_WEB_010 | Verificar assinatura na página inicial | Comunicação e UX | Média | Sucesso |
-| TC_WEB_011 | Verificar assinatura na página do carrinho | Comunicação e UX | Média | Sucesso |
+| TC_WEB_010 | Verificar assinatura na página inicial | Comunicação e Experiência do Usuário | Média | Sucesso |
+| TC_WEB_011 | Verificar assinatura na página do carrinho | Comunicação e Experiência do Usuário | Média | Sucesso |
 | TC_WEB_012 | Adicionar produtos ao carrinho | Carrinho | Crítica | Sucesso |
 | TC_WEB_013 | Verificar quantidade de produto no carrinho | Carrinho | Alta | Sucesso |
 | TC_WEB_014 | Fazer pedido registrando durante o checkout | Transacional | Crítica | Sucesso |
@@ -47,8 +47,8 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 | TC_WEB_022 | Adicionar ao carrinho itens recomendados | Carrinho | Média | Sucesso |
 | TC_WEB_023 | Verificar detalhes do endereço na página de checkout | Transacional | Crítica | Sucesso |
 | TC_WEB_024 | Baixar fatura após pedido | Transacional | Alta | Sucesso |
-| TC_WEB_025 | Verificar scroll up usando botão de seta e funcionalidade scroll down | UX/UI | Baixa | Sucesso |
-| TC_WEB_026 | Verificar scroll up sem botão de seta e funcionalidade scroll down | UX/UI | Baixa | Sucesso |
+| TC_WEB_025 | Verificar scroll up usando botão de seta e funcionalidade scroll down | Comunicação e Experiência do Usuário | Baixa | Sucesso |
+| TC_WEB_026 | Verificar scroll up sem botão de seta e funcionalidade scroll down | Comunicação e Experiência do Usuário | Baixa | Sucesso |
 ---
 ## 4. Detalhamento Exaustivo de Cenários (E2E)
 Esta seção fornece a especificação técnica passo a passo para cada cenário de teste, permitindo que qualquer QA reproduza o teste manualmente.
@@ -198,7 +198,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Evidência em GIF:** ![TC_WEB_005](../Cypress/cypress/screenshots/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js/TC_WEB_005_erro_registrar_usuario_email_existente.gif)
 
 ---
-### 4.2 Grupo: Comunicação e UX (TC_WEB_006 - TC_WEB_007, TC_WEB_010 - TC_WEB_011)
+### 4.2 Grupo: Comunicação e Experiência do Usuário (TC_WEB_006 - TC_WEB_007, TC_WEB_010 - TC_WEB_011)
 ---
 #### TC_WEB_006 - Formulário de contato
 **Objetivo:** Validar o envio do formulário de contato com upload de arquivo.<br>
@@ -562,7 +562,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Evidência em GIF:** ![TC_WEB_017](../Cypress/cypress/screenshots/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js/TC_WEB_017_sucesso_remover_produtos_carrinho.gif)
 
 ---
-### 4.6 Grupo: Catálogo, Carrinho e UX/UI (TC_WEB_018 - TC_WEB_026)
+### 4.6 Grupo: Catálogo, Carrinho e Experiência do Usuário (TC_WEB_018 - TC_WEB_026)
 ---
 #### TC_WEB_018 - Visualizar produtos por categoria
 **Objetivo:** Validar que categorias e subcategorias de produtos são exibidas corretamente.<br>

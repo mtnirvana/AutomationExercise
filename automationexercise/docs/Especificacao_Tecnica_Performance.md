@@ -567,14 +567,13 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 | **Catálogo** (Busca, Detalhes, Categorias, Marcas) | TC_WEB_008, TC_WEB_009, TC_WEB_018, TC_WEB_019, TC_WEB_021 | TC_PF_003 (productsList), TC_PF_006 (mix) | ⚠️ Parcial |
 | **Carrinho** (Adição, Remoção, Quantidade) | TC_WEB_012, TC_WEB_013, TC_WEB_017, TC_WEB_020, TC_WEB_022 | ❌ Não coberto¹ | ❌ |
 | **Transacional** (Checkout, Fatura) | TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023, TC_WEB_024 | TC_PF_009 (createAccount) | ⚠️ Parcial² |
-| **Comunicação e UX** (Contato, Newsletter, Scroll) | TC_WEB_006, TC_WEB_007, TC_WEB_010, TC_WEB_011, TC_WEB_025, TC_WEB_026 | ❌ Não coberto³ | ❌ |
-| **UX/UI** | TC_WEB_025, TC_WEB_026 | ❌ Não coberto³ | ❌ |
+| **Comunicação e Experiência do Usuário** (Contato, Newsletter, Scroll) | TC_WEB_006, TC_WEB_007, TC_WEB_010, TC_WEB_011, TC_WEB_025, TC_WEB_026 | ❌ Não coberto³ | ❌ |
 
 > ¹ **Carrinho:** Funcionalidade browser-only (localStorage + JavaScript). k6 é protocol-level HTTP — não executa JavaScript de página. Para testar o carrinho com itens, usar **Cypress** (teste funcional) para adicionar produtos e medir performance.
 >
 > ² **Checkout completo:** O fluxo de checkout envolve interações JavaScript no browser (modal, overlay, atualização de DOM). A API de criação de conta é coberta, mas o fluxo visual completo não.
 >
-> ³ **Comunicação e UX / UX/UI:** São testes de interação visual (formulário de contato, newsletter, scroll). Não há endpoints HTTP que justifiquem teste de carga específico.
+> ³ **Comunicação e Experiência do Usuário:** São testes de interação visual (formulário de contato, newsletter, scroll). Não há endpoints HTTP que justifiquem teste de carga específico.
 
 ### 5.2 Cobertura dos Cenários API (TC_API_001 - TC_API_014)
 

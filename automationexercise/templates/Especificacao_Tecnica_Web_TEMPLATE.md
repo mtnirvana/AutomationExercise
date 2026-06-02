@@ -35,7 +35,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 | TC_WEB_002 | Login de usuário com email e senha corretos | Identidade | Crítica | Sucesso |
 | TC_WEB_003 | Login de usuário com email e senha incorretos | Identidade | Alta | Erro |
 | TC... | ... | ... | ... | ... |
-| TC_WEB_026 | Verificar scroll up sem botão de seta | UX/UI | Baixa | Sucesso |
+| TC_WEB_026 | Verificar scroll up sem botão de seta | Comunicação e Experiência do Usuário | Baixa | Sucesso |
 
 ---
 
@@ -81,7 +81,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 
-### 4.2 Grupo: Comunicação e UX (TC_WEB_006 - TC_WEB_007, TC_WEB_010 - TC_WEB_011)
+### 4.2 Grupo: Comunicação e Experiência do Usuário (TC_WEB_006 - TC_WEB_007, TC_WEB_010 - TC_WEB_011)
 
 ---
 
@@ -97,7 +97,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 
-### 4.6 Grupo: Catálogo, Carrinho e UX/UI (TC_WEB_018 - TC_WEB_026)
+### 4.6 Grupo: Catálogo, Carrinho e Experiência do Usuário (TC_WEB_018 - TC_WEB_026)
 
 ---
 

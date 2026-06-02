@@ -84,7 +84,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 10 | Validar propriedade category do primeiro produto | body.products[0] | Possui propriedade category |
 | 11 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response status 200 com responseCode 200 e body contendo array de 34 produtos<br>
 **Resultado esperado:** API retorna catálogo completo com 34 produtos<br>
 **Script:** [`TC_API_001_sucesso_listar_todos_produtos.cy.js`](../Cypress/cypress/e2e/api/TC_API_001_sucesso_listar_todos_produtos.cy.js)<br>
 ```javascript
@@ -125,7 +125,7 @@ expect(response.body.products[0]).to.have.property('category')
 | 7 | Validar propriedade brand da primeira marca | body.brands[0] | Possui propriedade brand |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response status 200 com responseCode 200 e array de marcas no body<br>
 **Resultado esperado:** API retorna lista de marcas disponíveis<br>
 **Script:** [`TC_API_002_sucesso_listar_todas_marcas.cy.js`](../Cypress/cypress/e2e/api/TC_API_002_sucesso_listar_todas_marcas.cy.js)<br>
 ```javascript
@@ -163,7 +163,7 @@ expect(response.body.brands[0]).to.have.property('brand')
 | 7 | Validar que o nome do primeiro produto contém o termo de busca | body.products[0].name | Contém "top" |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response status 200 com produtos filtrados contendo o termo "top" no name<br>
 **Resultado esperado:** API retorna produtos filtrados pelo termo buscado<br>
 **Script:** [`TC_API_003_sucesso_pesquisar_produto.cy.js`](../Cypress/cypress/e2e/api/TC_API_003_sucesso_pesquisar_produto.cy.js)<br>
 ```javascript
@@ -198,7 +198,7 @@ expect(response.body.products[0].name.toLowerCase()).to.include('top')
 | 4 | Validar mensagem de erro | body.message | Contém 'Bad request, search_product parameter is missing' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response code 400 com mensagem de parâmetro ausente no body<br>
 **Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente<br>
 **Script:** [`TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js`](../Cypress/cypress/e2e/api/TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js)<br>
 ```javascript
@@ -234,7 +234,7 @@ expect(response.body.message).to.eq('Bad request, search_product parameter is mi
 | 4 | Validar mensagem de sucesso | body.message | Igual a 'User exists!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response status 200 com responseCode 200 e message "User exists!"<br>
 **Resultado esperado:** API autentica usuário com credenciais corretas<br>
 **Script:** [`TC_API_005_sucesso_verificar_login_valido.cy.js`](../Cypress/cypress/e2e/api/TC_API_005_sucesso_verificar_login_valido.cy.js)<br>
 ```javascript
@@ -266,7 +266,7 @@ expect(response.body.message).to.eq('User exists!')
 | 4 | Validar mensagem de erro | body.message | Contém 'Bad request, email or password parameter is missing' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response code 400 com mensagem de parâmetro email ausente<br>
 **Resultado esperado:** API retorna erro quando campo obrigatório está ausente<br>
 **Script:** [`TC_API_006_erro_verificar_login_sem_email.cy.js`](../Cypress/cypress/e2e/api/TC_API_006_erro_verificar_login_sem_email.cy.js)<br>
 ```javascript
@@ -298,7 +298,7 @@ expect(response.body.message).to.eq('Bad request, email or password parameter is
 | 4 | Validar mensagem de erro | body.message | Igual a 'User not found!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response code 404 com message "User not found!"<br>
 **Resultado esperado:** API rejeita autenticação com dados incorretos<br>
 **Script:** [`TC_API_007_erro_verificar_login_invalido.cy.js`](../Cypress/cypress/e2e/api/TC_API_007_erro_verificar_login_invalido.cy.js)<br>
 ```javascript
@@ -334,7 +334,7 @@ expect(response.body.message).to.eq('User not found!')
 | 4 | Validar mensagem de sucesso | body.message | Igual a 'User created!' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response status 200 com responseCode 201 e message "User created!"<br>
 **Resultado esperado:** API cria nova conta com dados fornecidos<br>
 **Script:** [`TC_API_008_sucesso_criar_conta_usuario.cy.js`](../Cypress/cypress/e2e/api/TC_API_008_sucesso_criar_conta_usuario.cy.js)<br>
 ```javascript
@@ -368,7 +368,7 @@ expect(response.body.message).to.eq('User created!')
 | 6 | Validar mensagem de sucesso | body.message | Igual a 'Account deleted!' |
 | 7 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response status 200 com responseCode 200 e message "Account deleted!"<br>
 **Resultado esperado:** API remove conta existente do sistema<br>
 **Script:** [`TC_API_009_sucesso_excluir_conta_usuario.cy.js`](../Cypress/cypress/e2e/api/TC_API_009_sucesso_excluir_conta_usuario.cy.js)<br>
 ```javascript
@@ -402,7 +402,7 @@ expect(response.body.message).to.eq('Account deleted!')
 | 6 | Consultar usuário via GET e verificar dados atualizados | GET /api/getUserDetailByEmail?email= | Status 200, dados conferidos |
 | 7 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response status 200 com responseCode 200 e message "User updated!"<br>
 **Resultado esperado:** API permite alteração de dados cadastrais<br>
 **Script:** [`TC_API_010_sucesso_atualizar_conta_usuario.cy.js`](../Cypress/cypress/e2e/api/TC_API_010_sucesso_atualizar_conta_usuario.cy.js)<br>
 ```javascript
@@ -437,7 +437,7 @@ expect(response.body.message).to.eq('User updated!')
 | 7 | Validar propriedade email do usuário | body.user | Possui propriedade email |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response status 200 com objeto user contendo name e email<br>
 **Resultado esperado:** API retorna dados do usuário pelo email<br>
 **Script:** [`TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js`](../Cypress/cypress/e2e/api/TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js)<br>
 ```javascript
@@ -475,7 +475,7 @@ expect(response.body.user).to.have.property('email')
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response code 405 com message "This request method is not supported."<br>
 **Resultado esperado:** API rejeita método não permitido com erro 405<br>
 **Script:** [`TC_API_012_erro_validar_metodo_post_em_productslist.cy.js`](../Cypress/cypress/e2e/api/TC_API_012_erro_validar_metodo_post_em_productslist.cy.js)<br>
 ```javascript
@@ -507,7 +507,7 @@ expect(response.body.message).to.eq('This request method is not supported.')
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response code 405 com message "This request method is not supported."<br>
 **Resultado esperado:** API rejeita método não permitido com erro 405<br>
 **Script:** [`TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js`](../Cypress/cypress/e2e/api/TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js)<br>
 ```javascript
@@ -539,7 +539,7 @@ expect(response.body.message).to.eq('This request method is not supported.')
 | 4 | Validar mensagem de erro | body.message | Igual a 'This request method is not supported.' |
 | 5 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
-**Asserção Chave:**<br>
+**Asserção Chave:** Response code 405 com message "This request method is not supported."<br>
 **Resultado esperado:** API rejeita método não permitido com erro 405<br>
 **Script:** [`TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js`](../Cypress/cypress/e2e/api/TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js)<br>
 ```javascript

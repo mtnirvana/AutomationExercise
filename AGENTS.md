@@ -185,6 +185,12 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 > **Passos Detalhados:**
 > ```
 > The field `**Asserção Chave:**` MUST end with `<br>` when followed by `**Resultado esperado:**`. Only the field `**Asserção Chave:**` when followed by a code block or paragraph does NOT need `<br>.`
+> 
+> **API ASSERÇÃO CHAVE FORMAT:** For API tests, `**Asserção Chave:**` MUST contain the technical validation detail (status code + key response fields), distinct from the business outcome in `**Resultado esperado:**`. Example:
+> ```
+> **Asserção Chave:** Response status 200 com responseCode 200 e body contendo array de 34 produtos<br>
+> **Resultado esperado:** API retorna catálogo completo com 34 produtos<br>
+> ```
 >
 > **RESULTADO ESPERADO RULE:** All tests (E2E, API, BDD, Performance) MUST include the field `**Resultado esperado:**` after `**Pós-condição:**` describing the expected business outcome of the test. This field applies to both technical documents and BDD scenarios.
 >

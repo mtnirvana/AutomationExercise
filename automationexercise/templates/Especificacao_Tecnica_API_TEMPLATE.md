@@ -70,9 +70,9 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 3 | Validar array de produtos | body.products | É um array |
 | 4 | Validar quantidade de produtos | body.products.length | Igual a N |
 | ... | ... | ... | ... |
-
-**Asserção Chave:**<br>
-**Resultado esperado:** [Resultado esperado do teste]<br>
+**Asserção Chave:** [status code esperado] com [responseCode esperado] e [validação chave do body]<br>
+**Resultado esperado:** [Resultado esperado do teste - desfecho de negócio]
+<br>
 **Script:** [TCXXX_nome_do_teste.cy.js](../Cypress/cypress/e2e/api/TCXXX_nome_do_teste.cy.js)<br>
 ```javascript
 expect(response.status).to.eq(200)

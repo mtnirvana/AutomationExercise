@@ -35,7 +35,7 @@ export default function () {
     'search status 200': (r) => r.status === 200,
     'resposta contem produtos': (r) => {
       try {
-        const body = JSON.parse(r.body)
+        const body = r.json()
         return body.responseCode === 200 && Array.isArray(body.products)
       } catch { return false }
     },

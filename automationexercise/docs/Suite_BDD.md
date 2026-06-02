@@ -29,7 +29,7 @@
 | F02 | Catálogo de Produtos | Navegação, busca, detalhes e avaliação de produtos |
 | F03 | Gestão de Carrinho | Adição, remoção e manipulação de itens |
 | F04 | Fluxo de Checkout e Pedidos | Processo completo de compra e geração de fatura |
-| F05 | Comunicação e UX | Formulário de contato, newsletter e navegação de página |
+| F05 | Comunicação e Experiência do Usuário | Formulário de contato, newsletter, navegação de página e scroll |
 
 ### 2.2 API - Funcionalidades
 
@@ -494,7 +494,7 @@ Então o header "Account Deleted!" deve estar visível
 
 ---
 
-### F05 - Comunicação e UX
+### F05 - Comunicação e Experiência do Usuário
 
 ---
 
@@ -956,10 +956,10 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 |-----------|-------|---------|------|
 | **E2E Tests** | 26 | 24 (92,3%) | 2 (7,7%) |
 | **API Tests** | 14 | 8 (57,1%) | 6 (42,9%) |
-| **Performance Tests** | 21 | 19 (90,5%) | 2 (9,5%) ⚠️¹ |
+| **Performance Tests** | 14 (21 checks no Allure) | 12 (85,7%) | 2 (14,3%) ⚠️¹ |
 | **Total Consolidado** | **61** | **51 (83,6%)** | **10 (16,4%)** |
 
-> **Nota:** Performance tests (k6 + TC_PF_008) são cenários técnicos sem classificação Sucesso/Erro tradicional. A divisão acima reflete a última execução. Os 8 checks do TC_PF_008 são contados individualmente, elevando o total para 61 casos no Allure. Em termos BDD (cenários descritíveis em Gherkin), o total é de 40 cenários (26 E2E + 14 API).
+> **Nota:** Performance tests são 14 scripts (13 k6 + 1 Cypress), que geram 21 checks individuais no Allure (13 k6 + 8 Core Web Vitals). Os 8 checks do TC_PF_008 elevam o total para 61 casos no Allure (26 E2E + 14 API + 21 Performance). Em termos BDD (cenários descritíveis em Gherkin), o total é de 40 cenários (26 E2E + 14 API).
 >
 > ¹ Os 2 cenários classificados como "Erro" (TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare, não erros funcionais. Os scripts executam corretamente e os thresholds foram ajustados para tolerar a degradação esperada sob carga.
 
@@ -971,7 +971,7 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 | **F02 - Catálogo de Produtos** | 5 cenários | Detalhes, Busca, Categorias, Marcas, Avaliação |
 | **F03 - Gestão de Carrinho** | 5 cenários | Adição, Remoção, Quantidade, Persistência, Recomendados |
 | **F04 - Fluxo de Checkout e Pedidos** | 5 cenários | Checkout (3 fluxos), Endereço, Fatura |
-| **F05 - Comunicação e UX** | 6 cenários | Contato, Casos de Teste, Newsletter (2x), Scroll UP/DOWN |
+| **F05 - Comunicação e Experiência do Usuário** | 6 cenários | Contato, Casos de Teste, Newsletter (2x), Scroll UP/DOWN |
 
 ### 5.2 Cobertura por Área Funcional - API
 

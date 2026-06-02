@@ -80,8 +80,7 @@ Os cenários validam o fluxo esperado de funcionamento da aplicação de forma i
 - **Catálogo:** Busca, Detalhes de Produtos, Categorias, Marcas e Avaliações.
 - **Carrinho:** Adição, Remoção e Gestão de Quantidades.
 - **Transacional:** Checkout Completo e Geração de Faturas.
-- **Comunicação e UX:** Formulário de Contato, Casos de Teste, Newsletter e Suporte.
-- **UX/UI:** Rolagem de Página e Navegação.
+- **Comunicação e Experiência do Usuário:** Formulário de Contato, Casos de Teste, Newsletter, Suporte, Rolagem de Página e Navegação.
 
 #### API Tests
 - **Catálogo:** Listar produtos, Listar marcas, Pesquisar produto.

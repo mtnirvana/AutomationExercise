@@ -305,8 +305,8 @@ npx cypress open
 | TC_WEB_022 | Itens recomendados | ✅ | Carrinho |
 | TC_WEB_023 | Detalhes de endereço no checkout | ✅ | Checkout |
 | TC_WEB_024 | Baixar fatura | ✅ | Checkout |
-| TC_WEB_025 | Scroll com seta | ✅ | UX/UI |
-| TC_WEB_026 | Scroll sem seta | ✅ | UX/UI |
+| TC_WEB_025 | Scroll com seta | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_026 | Scroll sem seta | ✅ | Comunicação e Experiência do Usuário |
 
 **24 Sucesso · 2 Erro**
 
