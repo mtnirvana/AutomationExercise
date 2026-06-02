@@ -649,4 +649,4 @@ automationexercise/
 
  ---
  
- **Documento gerado em:** 2026-05-22
+ **Documento gerado em:** 2026-06-02

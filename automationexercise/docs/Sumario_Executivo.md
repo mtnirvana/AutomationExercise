@@ -188,4 +188,4 @@ Todas as evidências dos 3 tipos de teste (E2E Web, API e Performance) são cent
 
 ---
 
-**Documento gerado em:** 2026-05-22
+**Documento gerado em:** 2026-06-02

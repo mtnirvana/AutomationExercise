@@ -1102,4 +1102,4 @@ Um cenário é considerado **CONCLUÍDO** quando:
 
 ---
 
-**Documento gerado em:** 2026-05-22
+**Documento gerado em:** 2026-06-02

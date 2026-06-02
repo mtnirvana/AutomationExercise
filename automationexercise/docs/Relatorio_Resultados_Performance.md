@@ -845,5 +845,5 @@ k6 run Cypress\cypress\e2e\performance\TC_PF_001_smoke_test.js --summary-export=
 
 ---
 
-**Documento gerado em:** 2026-05-24
+**Documento gerado em:** 2026-06-02
 

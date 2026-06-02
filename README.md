@@ -286,12 +286,10 @@ npx cypress open
 | TC_WEB_003 | Login com credenciais incorretas | ❌ | Identidade |
 | TC_WEB_004 | Logout | ✅ | Identidade |
 | TC_WEB_005 | Registrar com email existente | ❌ | Identidade |
-| TC_WEB_006 | Formulário de contato | ✅ | Comunicação |
-| TC_WEB_007 | Verificar página de casos de teste | ✅ | Comunicação |
-| TC_WEB_008 | Listar produtos + detalhes | ✅ | Catálogo |
-| TC_WEB_009 | Pesquisar produto | ✅ | Catálogo |
-| TC_WEB_010 | Assinatura na página inicial | ✅ | Comunicação |
-| TC_WEB_011 | Assinatura na página do carrinho | ✅ | Comunicação |
+| TC_WEB_006 | Formulário de contato | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_007 | Verificar página de casos de teste | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_010 | Assinatura na página inicial | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_011 | Assinatura na página do carrinho | ✅ | Comunicação e Experiência do Usuário |
 | TC_WEB_012 | Adicionar produtos ao carrinho | ✅ | Carrinho |
 | TC_WEB_013 | Verificar quantidade no carrinho | ✅ | Carrinho |
 | TC_WEB_014 | Fazer pedido (registrar no checkout) | ✅ | Checkout |
