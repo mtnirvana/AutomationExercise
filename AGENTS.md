@@ -112,7 +112,7 @@ Before making ANY changes to documentation files:
 - [`Especificacao_Tecnica_Web_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Web_TEMPLATE.md)
 
 ### BDD Documentation Files (Backup MANDATORY):
-- `automationexercise/docs/Suite_BDD.md`
+- [`Suite_BDD.md`](automationexercise/docs/Suite_BDD.md)
 - [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md)
 
 ### API Documentation Files (Backup MANDATORY):

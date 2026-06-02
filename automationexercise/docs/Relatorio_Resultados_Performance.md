@@ -329,8 +329,6 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 
 ---
 
-> ¹ A execução original de 2026-05-24 registrou TC_PF_007 como aprovado (0% erro) porque o k6 executou com apenas 1 VU efetivo. Testes posteriores (2026-05-24) com spike real de 200 VUs confirmaram ~80% de falha por rate limiting do Cloudflare, consistente com os demais cenários de alta carga.
-
 ### 2.8 TC_PF_008 - Core Web Vitals (Lighthouse / Chrome DevTools)
 
 | Parâmetro | Valor |
