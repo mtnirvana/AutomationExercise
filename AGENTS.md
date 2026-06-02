@@ -158,8 +158,8 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 4. **SUMARIO_EXECUTIVO MUST BE COMPLETE** — The executive summary must include: visão geral, escopo, tabela de casos de teste, e configuração do ambiente. Never output a minimal table-only version.
 5. **ESPECIFICAÇÃO TÉCNICA MUST BE COMPLETE** — Every TC must have: objetivo, tipo, criticidade, dados, pós-condição, tabela de passos detalhados, e asserção chave.
 6. **EXECUTE AND INCLUDE EVIDENCE** — After generating scripts, run the tests, collect screenshots/HTML reports/videos, and include them in the output folder.
-7. **PERFORMANCE TESTS** — Seguir `Especificacao_Tecnica_Performance_TEMPLATE.md` para criar novos TCs de performance. Cada TC de performance deve ter: objetivo, tipo (smoke/carga/estresse/resistência/pico), configuração (VUs, stages, thresholds), script k6, passos de validação.
-8. **RELATÓRIO DE RESULTADOS** — Após executar testes de performance, atualizar `Relatorio_Resultados_Performance.md` com métricas coletadas (avg, p95, taxa de erro) e gerar evidências via `--summary-export`.
+7. **PERFORMANCE TESTS** — Follow `Especificacao_Tecnica_Performance_TEMPLATE.md` to create new performance TCs. Each performance TC must have: objective, type (smoke/carga/estresse/resistência/pico), configuration (VUs, stages, thresholds), k6 script, validation steps.
+8. **PERFORMANCE RESULTS REPORT** — After executing performance tests, update `Relatorio_Resultados_Performance.md` with collected metrics (avg, p95, error rate) and generate evidence via `--summary-export`.
 9. **HEADING STANDARDIZATION** — All documents MUST follow this heading hierarchy:
 
    | Level | Format | Usage |
@@ -271,11 +271,11 @@ The BDD document must follow the structure defined in:
 Template file for increment:
 📄 `Suite_BDD_TEMPLATE.md`
 
-## BeforeEach Centralizado (MANDATORY)
-O `beforeEach()` com `cy.visit('/')` e `cy.fixture('users').as('usersData')` deve ser centralizado em `cypress/support/e2e.js`.
-- **NAO** repetir `beforeEach` individual nos arquivos de teste em `cypress/e2e/`
-- O passo `// 2. Navegar para url... (via beforeEach)` permanece nos testes para rastreabilidade
-- O passo `// 1. Abrir navegador (via beforeEach cy.visit('/'))` permanece nos testes para rastreabilidade
+## Centralized BeforeEach (MANDATORY)
+The `beforeEach()` with `cy.visit('/')` and `cy.fixture('users').as('usersData')` must be centralized in `cypress/support/e2e.js`.
+- **DO NOT** repeat individual `beforeEach` in test files inside `cypress/e2e/`
+- The step `// 2. Navegar para url... (via beforeEach)` remains in tests for traceability
+- The step `// 1. Abrir navegador (via beforeEach cy.visit('/'))` remains in tests for traceability
 
 ## Coding & Naming Standards
 The Agent **MUST** follow the appropriate standards based on the test type:
@@ -355,38 +355,38 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
 ## Test Case Classification (MANDATORY)
 
 ### Classification Rules
-1. **Sucesso**: Teste que verifica fluxo bem-sucedido (sucesso esperado)
-2. **Erro**: Teste que verifica tratamento de erros/validações negativas
+1. **Sucesso**: Test that verifies a successful flow (expected success)
+2. **Erro**: Test that verifies error handling/negative validations
 
 ### Classification Criteria
-| Tipo | Características |
+| Type | Characteristics |
 |------|-----------------|
-| **Sucesso** | Login válido, Registro bem-sucedido, Checkout completo, Busca com resultados |
-| **Erro** | Credenciais inválidas, Email duplicado, Formulário inválido, Busca sem resultados |
+| **Sucesso** | Valid login, Successful registration, Complete checkout, Search with results |
+| **Erro** | Invalid credentials, Duplicate email, Invalid form, Search without results |
 
 ### Naming Convention (MANDATORY)
 - **Test ID Format (MANDATORY):**
   - **E2E Tests:** `TC_WEB_###` (ex: TC_WEB_001, TC_WEB_014)
   - **API Tests:** `TC_API_###` (ex: TC_API_001, TC_API_014)
   - **Performance Tests:** `TC_PF_###` (ex: TC_PF_001, TC_PF_014)
-- Arquivo: `TC_[TIPO]_[###]_[sucesso/erro]_[titulo_original_traduzido].cy.js` (mesmo título da linha 1 do JSDoc: "Test Case #: Título")
-- Exemplos:
+- File: `TC_[TYPE]_[###]_[sucesso/erro]_[translated_original_title].cy.js` (same as JSDoc line 1: "Test Case #: Title")
+- Examples:
   - E2E: `TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js`
   - API: `TC_API_012_erro_validar_metodo_post_em_productslist.cy.js`
   - Performance: `TC_PF_005_estresse_api_produtos.js`
 
 ### Test Documentation (MANDATORY)
-- **Titulo do Test Case DEVE estar em PORTUGUÊS** (traduzir do .txt original), com prefixo `TC_[TIPO]_### - ` no JSDoc (ex: `TC_WEB_003 - Login de usuário com credenciais incorretas`)
-- Adicionar tag `@sucesso` ou `@erro` no JSDoc (APENAS estas tags são permitidas)
-- Adicionar tag `@TC_[TIPO]_###` no JSDoc (ex: `@TC_WEB_003`)
-- **Formato describe():**
-  - **E2E:** `TC_WEB_### - [Descrição em português]` (ex: `describe('TC_WEB_003 - Login de usuário com email e senha incorretos')`)
-  - **API:** `TC_API_### - [Descrição em português]` (ex: `describe('TC_API_012 - Validar método POST em productsList via API')`)
-  - **Performance:** `TC_PF_### - [Descrição em português]` (ex: `describe('TC_PF_005 - Estresse progressivo no /api/productsList')`)
-  - **Regra:** NÃO incluir "Test Case ## -" nem "Sucesso/Erro -" no describe(). Apenas o ID + descrição.
-- Formato it(): `[verbo] [resultado em português]` (sem `[TC##]` no início)
-- Exemplo: `it('deve mostrar erro com credenciais incorretas')`
-- **Screenshot Command:** Helper `takeScreenshot` DEVE usar `cy.captura(`${stepName}`)`.
+- **Test Case Title MUST be in PORTUGUESE** (translate from the original .txt), with prefix `TC_[TYPE]_### - ` in JSDoc (ex: `TC_WEB_003 - Login de usuário com credenciais incorretas`)
+- Add tag `@sucesso` or `@erro` in JSDoc (ONLY these tags are allowed)
+- Add tag `@TC_[TYPE]_###` in JSDoc (ex: `@TC_WEB_003`)
+- **describe() format:**
+  - **E2E:** `TC_WEB_### - [Description in Portuguese]` (ex: `describe('TC_WEB_003 - Login de usuário com email e senha incorretos')`)
+  - **API:** `TC_API_### - [Description in Portuguese]` (ex: `describe('TC_API_012 - Validar método POST em productsList via API')`)
+  - **Performance:** `TC_PF_### - [Description in Portuguese]` (ex: `describe('TC_PF_005 - Estresse progressivo no /api/productsList')`)
+  - **Rule:** Do NOT include "Test Case ## -" nor "Sucesso/Erro -" in describe(). Only ID + description.
+- it() format: `[verb] [result in Portuguese]` (without `[TC##]` at the start)
+- Example: `it('deve mostrar erro com credenciais incorretas')`
+- **Screenshot Command:** Helper `takeScreenshot` MUST use `cy.captura(`${stepName}`)`.
 
 ## API Evidence Structure (MANDATORY)
 API tests MUST generate HTML-only evidence in the following structure:
@@ -424,7 +424,7 @@ Before creating any selector or when identifying a failure, the Agent must use i
 ## Self-Healing Policy (Failure/Restoration)
 If a test fails due to a selector error:
 1. **Step 1:** Consult `Seletores.md` for documented alternatives (Skip `[QUEBRADO]`).
-2. **Step 2:** If failed, use inspection tools to find a new selector.
+2. **Step 2:** Consult `playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
 3. **Step 3:** Update Page Object and `Seletores.md` (Marking old as `[QUEBRADO]`).
 
 ## Golden Rules
