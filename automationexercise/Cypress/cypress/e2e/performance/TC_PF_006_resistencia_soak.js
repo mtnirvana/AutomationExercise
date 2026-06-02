@@ -31,7 +31,7 @@ export default function () {
 
   // 1. Alternar entre endpoints conforme iteracao
   if (endpoint === 0) {
-    // 1a. Enviar GET para /api/productsList
+    // 2. Enviar GET para /api/productsList
     res = http.get(`${BASE_URL}/api/productsList`, {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     })
@@ -39,7 +39,7 @@ export default function () {
       'GET productsList status 200': (r) => r.status === 200,
     })
   } else if (endpoint === 1) {
-    // 1b. Enviar GET para /api/brandsList
+    // 3. Enviar GET para /api/brandsList
     res = http.get(`${BASE_URL}/api/brandsList`, {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     })
@@ -47,7 +47,7 @@ export default function () {
       'GET brandsList status 200': (r) => r.status === 200,
     })
   } else if (endpoint === 2) {
-    // 1c. Enviar POST para /api/verifyLogin
+    // 4. Enviar POST para /api/verifyLogin
       res = http.post(`${BASE_URL}/api/verifyLogin`, {
         email: testUser.email,
         password: testUser.password,
@@ -58,7 +58,7 @@ export default function () {
       'POST verifyLogin status 200': (r) => r.status === 200,
     })
   } else {
-    // 1d. Enviar POST para /api/searchProduct
+    // 5. Enviar POST para /api/searchProduct
     res = http.post(`${BASE_URL}/api/searchProduct`, {
       search_product: 'top',
     }, {

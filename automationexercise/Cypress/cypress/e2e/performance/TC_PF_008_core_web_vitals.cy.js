@@ -68,17 +68,17 @@ describe('TC_PF_008 - Core Web Vitals - Metricas de Frontend', () => {
         win.__collectedMetrics = metrics
 
         // 5. Validar metricas contra SLAs
-        // 5a. LCP deve ser menor que 2500ms
+        // 6. LCP deve ser menor que 2500ms
         if (metrics.lcp !== null) {
           expect(metrics.lcp, `LCP (${metrics.lcp}ms) deve ser < 2500ms`).to.be.lessThan(2500)
         }
 
-        // 5b. CLS deve ser menor que 0,1
+        // 7. CLS deve ser menor que 0,1
         if (metrics.cls !== null) {
           expect(metrics.cls, `CLS (${metrics.cls}) deve ser < 0,1`).to.be.lessThan(0.1)
         }
 
-        // 5c. TTFB deve ser menor que 1000ms (ajustado para Cloudflare)
+        // 8. TTFB deve ser menor que 1000ms (ajustado para Cloudflare)
         if (metrics.ttfb !== null) {
           expect(metrics.ttfb, `TTFB (${metrics.ttfb}ms) deve ser < 1000ms`).to.be.lessThan(1000)
         }
@@ -87,7 +87,7 @@ describe('TC_PF_008 - Core Web Vitals - Metricas de Frontend', () => {
         cy.log(`📊 ${page.name}: LCP=${metrics.lcp}ms | CLS=${metrics.cls} | FCP=${metrics.fcp}ms | TTFB=${metrics.ttfb}ms | DOM=${metrics.domComplete}ms`)
       })
 
-      // 6. Screenshot de evidencia
+      // 9. Screenshot de evidencia
       cy.captura(`metricas_${page.name.toLowerCase().replace(/\s+/g, '_')}`)
     })
   })
