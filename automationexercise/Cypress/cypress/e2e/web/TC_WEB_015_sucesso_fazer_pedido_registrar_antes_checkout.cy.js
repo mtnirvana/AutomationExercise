@@ -65,10 +65,8 @@ describe('TC_WEB_015 - Fazer pedido registrando antes do checkout', () => {
     // 11. Adicionar produtos ao carrinho
     HomePage.clickProducts()
     ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
-    ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
     ProductsPage.productOverlay.first().find('.btn').click({ force: true })
     CheckoutPage.clickContinueShopping()
-    ProductsPage.productsItems.eq(1).scrollIntoView().trigger('mouseover')
     ProductsPage.productsItems.eq(1).scrollIntoView().trigger('mouseover')
     ProductsPage.productOverlay.eq(1).find('.btn').click({ force: true })
     takeScreenshot('11_produtos_adicionados_ao_carrinho')

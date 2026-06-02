@@ -34,13 +34,11 @@ describe('TC_WEB_014 - Fazer pedido registrando durante o checkout', () => {
 
     // 5. Adicionar primeiro produto ao carrinho
     ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
-    ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
     ProductsPage.productOverlay.first().find('.btn').click({ force: true })
     CheckoutPage.clickContinueShopping()
     takeScreenshot('05_adicionou_primeiro_produto')
 
     // 6. Adicionar segundo produto ao carrinho
-    ProductsPage.productsItems.eq(1).scrollIntoView().trigger('mouseover')
     ProductsPage.productsItems.eq(1).scrollIntoView().trigger('mouseover')
     ProductsPage.productOverlay.eq(1).find('.btn').click({ force: true })
     takeScreenshot('06_adicionou_segundo_produto')

@@ -15,7 +15,13 @@ describe('TC_PF_008 - Core Web Vitals - Metricas de Frontend', () => {
     { name: 'Checkout', url: '/checkout' },
     { name: 'Contato', url: '/contact_us' },
     { name: 'Casos de Teste', url: '/test_cases' },
-  ]
+  ])
+
+  afterEach(function () {
+    if (this.currentTest.state === 'failed') {
+      cy.screenshot(`ERROR_${this.currentTest.title}`, { capture: 'runner' })
+    }
+  })
 
   pages.forEach((page) => {
     it(`${page.name} deve ter LCP < 2500ms e CLS < 0,1`, () => {
