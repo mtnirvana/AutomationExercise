@@ -424,7 +424,7 @@ Before creating any selector or when identifying a failure, the Agent must use i
 ## Self-Healing Policy (Failure/Restoration)
 If a test fails due to a selector error:
 1. **Step 1:** Consult `Seletores.md` for documented alternatives (Skip `[QUEBRADO]`).
-2. **Step 2:** Consult `playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
+2. **Step 2:** If failed, consult `playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
 3. **Step 3:** Update Page Object and `Seletores.md` (Marking old as `[QUEBRADO]`).
 
 ## Golden Rules
