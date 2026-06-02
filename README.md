@@ -288,6 +288,8 @@ npx cypress open
 | TC_WEB_005 | Registrar com email existente | ❌ | Identidade |
 | TC_WEB_006 | Formulário de contato | ✅ | Comunicação e Experiência do Usuário |
 | TC_WEB_007 | Verificar página de casos de teste | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_008 | Verificar todos os produtos + detalhes | ✅ | Catálogo |
+| TC_WEB_009 | Pesquisar produto | ✅ | Catálogo |
 | TC_WEB_010 | Assinatura na página inicial | ✅ | Comunicação e Experiência do Usuário |
 | TC_WEB_011 | Assinatura na página do carrinho | ✅ | Comunicação e Experiência do Usuário |
 | TC_WEB_012 | Adicionar produtos ao carrinho | ✅ | Carrinho |

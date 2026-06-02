@@ -148,4 +148,4 @@
 
 ---
 
-**Documento gerado em:** 2026-05-27
+**Documento gerado em:** AAAA-MM-DD

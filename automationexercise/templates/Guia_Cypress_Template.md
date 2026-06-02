@@ -950,4 +950,4 @@ Os comentários numerados correspondem aos passos definidos na Especificacao_Tec
 
 ---
 
-**Documento gerado em:** 2026-05-22
+**Documento gerado em:** AAAA-MM-DD
