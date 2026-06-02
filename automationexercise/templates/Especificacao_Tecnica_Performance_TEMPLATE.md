@@ -155,16 +155,11 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 | Cenário Funcional | Testável com k6? | Coberto por teste funcional? | Alternativa |
 |:------------------|:----------------:|:----------------------------:|:------------|
-| **Homepage (/)** | ✅ HTTP response time | — | k6 HTTP GET |
-| **Produtos (/products)** | ✅ HTTP response time | — | k6 HTTP GET |
-| **Detalhe Produto (/product_details/1)** | ✅ HTTP response time | — | k6 HTTP GET |
-| **Login via API (/api/verifyLogin)** | ✅ Sim | — | k6 HTTP POST |
-| **CRUD de contas via API** | ✅ Sim | — | k6 HTTP POST/PUT/DELETE |
-| **Carrinho (adicionar/remover)** | ❌ Browser-only | ✅ TC_WEB_012, TC_WEB_017, TC_WEB_020 | Cypress E2E |
-| **Checkout visual** | ❌ Browser-only | ✅ TC_WEB_014, TC_WEB_015, TC_WEB_016 | Cypress E2E |
-| **Formulário de Contato** | ❌ Browser-only | ✅ TC_WEB_006 | Cypress E2E |
-| **Scroll / UX** | ❌ Não é carga | ✅ TC_WEB_025, TC_WEB_026 | Cypress E2E |
-| **LCP, FCP, CLS** | ❌ Requer browser | ✅ TC_PF_008 | Cypress + Lighthouse |
+| **[Endpoint/nome da página]** | ✅ HTTP response time | — | k6 HTTP GET |
+| **[Endpoint/nome da página]** | ✅ HTTP response time | — | k6 HTTP GET |
+| **[Endpoint/nome da página]** | ❌ Browser-only | ✅ [TC_WEB_###] | Cypress E2E |
+| **[Endpoint/nome da página]** | ❌ Browser-only | ✅ [TC_WEB_###] | Cypress E2E |
+| **[Métrica]** | ❌ Requer browser | ✅ [TC_PF_###] | Cypress + Lighthouse |
 
 > **Prática de mercado:** k6 testa **carga e volume** (APIs + HTTP response time). Fluxos que dependem de JavaScript no browser (localStorage, DOM, modais) são testados funcionalmente com Cypress. Ambos se complementam.
 
@@ -182,43 +177,29 @@ Para adicionar um novo TC, insira-o abaixo do grupo funcional correspondente, se
 
 | Grupo Funcional | TCs E2E | Coberto por Performance | Status |
 |:----------------|:--------|:------------------------|:------:|
-| **Identidade** (Registro, Login, Logout) | TC_WEB_001 - TC_WEB_005 | TC_PF_004 (login), TC_PF_009 (createAccount) | ⚠️ Parcial |
-| **Catálogo** (Busca, Detalhes, Categorias, Marcas) | TC_WEB_008, TC_WEB_009, TC_WEB_018, TC_WEB_019, TC_WEB_021 | TC_PF_003 (productsList), TC_PF_006 (mix) | ⚠️ Parcial |
-| **Carrinho** (Adição, Remoção, Quantidade) | TC_WEB_012, TC_WEB_013, TC_WEB_017, TC_WEB_020, TC_WEB_022 | ❌ Não coberto¹ | ❌ |
-| **Transacional** (Checkout, Fatura) | TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023, TC_WEB_024 | TC_PF_009 (createAccount) | ⚠️ Parcial² |
-| **Comunicação e UX** | TC_WEB_006, TC_WEB_007, TC_WEB_010, TC_WEB_011, TC_WEB_025, TC_WEB_026 | ❌ Não coberto³ | ❌ |
+| **[Grupo Funcional]** | TC_WEB_### - TC_WEB_### | [TC_PF_###] | ⚠️ Parcial |
+| **[Grupo Funcional]** | TC_WEB_### - TC_WEB_### | ❌ Não coberto | ❌ |
 
-> ¹ **Carrinho:** Funcionalidade browser-only (localStorage + JavaScript). k6 é protocol-level HTTP — não executa JavaScript de página.
-> ² **Checkout completo:** O fluxo de checkout envolve interações JavaScript no browser. A API de criação de conta é coberta, mas o fluxo visual completo não.
-> ³ **Comunicação e UX:** Não há endpoints HTTP que justifiquem teste de carga específico.
+> **Nota:** Substituir os placeholders pelos grupos reais conforme o documento [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
 
 ### 5.2 Cobertura dos Cenários API (TC_API_001 - TC_API_014)
 
 | Grupo Funcional | TCs API | Coberto por Performance | Status |
 |:----------------|:--------|:------------------------|:------:|
-| **Catálogo** (Listar produtos, Listar marcas, Pesquisar) | TC_API_001 - TC_API_004 | TC_PF_003, TC_PF_005, TC_PF_006 | ✅ Coberto |
-| **Autenticação** (Login válido, sem email, inválido) | TC_API_005 - TC_API_007 | TC_PF_004 | ⚠️ Parcial |
-| **Gestão de Usuários** (Criar, Excluir, Atualizar, Obter) | TC_API_008 - TC_API_011 | TC_PF_009 | ⚠️ Parcial |
-| **Métodos HTTP** (POST, PUT, DELETE não suportados) | TC_API_012 - TC_API_014 | ❌ Não coberto | ❌ |
+| **[Grupo Funcional]** | TC_API_### - TC_API_### | [TC_PF_###] | ✅ Coberto |
+| **[Grupo Funcional]** | TC_API_### - TC_API_### | ❌ Não coberto | ❌ |
+
+> **Nota:** Substituir os placeholders pelos grupos reais conforme o documento [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
 
 ### 5.3 Mapa Detalhado: Performance TC → Funcional TC
 
 | Performance TC | TCs Funcionais Cobertos | Endpoints |
 |:---------------|:------------------------|:----------|
-| TC_PF_001 - Smoke | TC_API_001, TC_API_002, TC_API_005 | GET productsList, GET brandsList, POST verifyLogin |
-| TC_PF_002 - Carga Homepage | - | GET / |
-| TC_PF_003 - Carga API Produtos | TC_API_001 | GET productsList |
-| TC_PF_004 - Carga API Login | TC_WEB_002, TC_WEB_016, TC_API_005 | POST verifyLogin |
-| TC_PF_005 - Estresse API Produtos | TC_API_001 | GET productsList |
-| TC_PF_006 - Resistência (Soak) | TC_API_001, TC_API_002, TC_API_003, TC_API_005 | Mix de 4 endpoints |
-| TC_PF_007 - Pico (Spike) | TC_API_001 | GET productsList |
-| TC_PF_008 - Core Web Vitals | TC_WEB_008, TC_WEB_009, TC_WEB_010 | Homepage (Lighthouse) |
-| TC_PF_009 - Fluxo Checkout | TC_WEB_001, TC_WEB_014, TC_WEB_015, TC_API_008, TC_API_009 | POST createAccount + verifyLogin + GET productsList + DELETE deleteAccount |
-| TC_PF_010 - Análise de Imagens | TC_WEB_008, TC_API_001 | GET productsList + GET product pictures |
-| TC_PF_011 - Carga Update Account | TC_API_010 | PUT /api/updateAccount |
-| TC_PF_012 - Carga User Details | TC_API_011 | GET /api/getUserDetailByEmail |
-| TC_PF_013 - Carga Search Product | TC_WEB_009, TC_API_003 | POST /api/searchProduct |
-| TC_PF_014 - Carga Pagina Produtos | TC_WEB_008, TC_WEB_009 | GET /products |
+| TC_PF_### - [Tipo] | [TC_WEB_###, TC_API_###] | [endpoints] |
+| TC_PF_### - [Tipo] | [TC_WEB_###, TC_API_###] | [endpoints] |
+| TC_PF_### - [Tipo] | [TC_API_###] | [endpoint] |
+
+> **Nota:** Substituir os placeholders pelos dados reais conforme o documento [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
 
 ---
 
@@ -283,20 +264,11 @@ automationexercise/
 
 | Arquivo | TC | Tipo | VUs | Duração |
 |:--------|:---|:----:|:---:|:--------|
-| `TC_PF_001_smoke_test.js` | TC_PF_001 | Smoke | 1 | ~1s |
-| `TC_PF_002_carga_homepage.js` | TC_PF_002 | Carga | 50 | ~3,5min |
-| `TC_PF_003_carga_api_produtos.js` | TC_PF_003 | Carga | 50→100 | ~3,5min |
-| `TC_PF_004_carga_api_login.js` | TC_PF_004 | Carga | 30 | ~2,5min |
-| `TC_PF_005_estresse_api_produtos.js` | TC_PF_005 | Estresse | 25→300 | ~5,5min |
-| `TC_PF_006_resistencia_soak.js` | TC_PF_006 | Resistência | 50 | ~5,5min |
-| `TC_PF_007_pico_spike.js` | TC_PF_007 | Pico | 10→200 | ~3,5min |
-| `TC_PF_008_core_web_vitals.cy.js` | TC_PF_008 | Front-end | 1 | ~5min |
-| `TC_PF_009_carga_checkout.js` | TC_PF_009 | Carga | 20 | ~2,5min |
-| `TC_PF_010_auditoria_imagens.js` | TC_PF_010 | Auditoria | 1 | ~1min |
-| `TC_PF_011_carga_atualizar_conta.js` | TC_PF_011 | Carga | 20 | ~2,5min |
-| `TC_PF_012_carga_detalhes_usuario.js` | TC_PF_012 | Carga | 20 | ~2,5min |
-| `TC_PF_013_carga_pesquisar_produto.js` | TC_PF_013 | Carga | 30 | ~2,5min |
-| `TC_PF_014_carga_pagina_produtos.js` | TC_PF_014 | Carga | 30 | ~2,5min |
+| `TC_PF_###_[tipo].js` | TC_PF_### | [Tipo] | [VUs] | [duração] |
+| `TC_PF_###_[tipo].js` | TC_PF_### | [Tipo] | [VUs] | [duração] |
+| `TC_PF_###_[tipo].cy.js` | TC_PF_### | [Tipo] | [VUs] | [duração] |
+
+> **Nota:** Substituir os placeholders pelos valores reais conforme o documento [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
 
 > **Exemplo de preenchimento:** Substituir os placeholders pelos nomes reais dos arquivos conforme o documento completo [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
 
@@ -331,15 +303,15 @@ automationexercise/
 
 | Tipo | Quando usar | Exemplo no Projeto |
 |:----|:------------|:-------------------|
-| **Smoke** | Primeira execução, validação de ambiente | TC_PF_001 |
-| **Carga (Load)** | Tráfego esperado (50-100 usuários) | TC_PF_002, TC_PF_003, TC_PF_004 |
-| **Estresse (Stress)** | Encontrar limite do servidor | TC_PF_005 |
-| **Resistência (Soak)** | Detectar memory leak | TC_PF_006 |
-| **Pico (Spike)** | Pico repentino de tráfego | TC_PF_007 |
-| **Front-end** | Métricas de experiência do usuário | TC_PF_008 |
-| **Fluxo de Negócio** | Funil de conversão completo | TC_PF_009 |
-| **Auditoria** | Análise de recursos estáticos | TC_PF_010 |
+| **Smoke** | Primeira execução, validação de ambiente | TC_PF_### |
+| **Carga (Load)** | Tráfego esperado (50-100 usuários) | TC_PF_###, TC_PF_### |
+| **Estresse (Stress)** | Encontrar limite do servidor | TC_PF_### |
+| **Resistência (Soak)** | Detectar memory leak | TC_PF_### |
+| **Pico (Spike)** | Pico repentino de tráfego | TC_PF_### |
+| **Front-end** | Métricas de experiência do usuário | TC_PF_### |
+| **Fluxo de Negócio** | Funil de conversão completo | TC_PF_### |
+| **Auditoria** | Análise de recursos estáticos | TC_PF_### |
 
 ---
 
-**Documento gerado em:** 2026-06-02
+**Documento gerado em:** AAAA-MM-DD
