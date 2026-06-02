@@ -149,6 +149,25 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ### 4.12 Grupo: Páginas Web (TC_PF_014)
 
+### 4.13 Grupo: Limitações do k6 — Cenários que são apenas funcionais (não carga)
+
+> **Nota:** Todos os cenários marcados como "Teste funcional" já possuem testes Cypress automatizados no projeto. Esta seção apenas documenta por que NÃO são testados sob carga com k6 — não porque não são testados.
+
+| Cenário Funcional | Testável com k6? | Coberto por teste funcional? | Alternativa |
+|:------------------|:----------------:|:----------------------------:|:------------|
+| **Homepage (/)** | ✅ HTTP response time | — | k6 HTTP GET |
+| **Produtos (/products)** | ✅ HTTP response time | — | k6 HTTP GET |
+| **Detalhe Produto (/product_details/1)** | ✅ HTTP response time | — | k6 HTTP GET |
+| **Login via API (/api/verifyLogin)** | ✅ Sim | — | k6 HTTP POST |
+| **CRUD de contas via API** | ✅ Sim | — | k6 HTTP POST/PUT/DELETE |
+| **Carrinho (adicionar/remover)** | ❌ Browser-only | ✅ TC_WEB_012, TC_WEB_017, TC_WEB_020 | Cypress E2E |
+| **Checkout visual** | ❌ Browser-only | ✅ TC_WEB_014, TC_WEB_015, TC_WEB_016 | Cypress E2E |
+| **Formulário de Contato** | ❌ Browser-only | ✅ TC_WEB_006 | Cypress E2E |
+| **Scroll / UX** | ❌ Não é carga | ✅ TC_WEB_025, TC_WEB_026 | Cypress E2E |
+| **LCP, FCP, CLS** | ❌ Requer browser | ✅ TC_PF_008 | Cypress + Lighthouse |
+
+> **Prática de mercado:** k6 testa **carga e volume** (APIs + HTTP response time). Fluxos que dependem de JavaScript no browser (localStorage, DOM, modais) são testados funcionalmente com Cypress. Ambos se complementam.
+
 ---
 
 Para adicionar um novo TC, insira-o abaixo do grupo funcional correspondente, seguindo o formato do template acima.
@@ -158,6 +177,31 @@ Para adicionar um novo TC, insira-o abaixo do grupo funcional correspondente, se
 ---
 
 ## 5. Mapeamento com os Testes Funcionais Existentes
+
+### 5.1 Cobertura dos Cenários E2E (TC_WEB_001 - TC_WEB_026)
+
+| Grupo Funcional | TCs E2E | Coberto por Performance | Status |
+|:----------------|:--------|:------------------------|:------:|
+| **Identidade** (Registro, Login, Logout) | TC_WEB_001 - TC_WEB_005 | TC_PF_004 (login), TC_PF_009 (createAccount) | ⚠️ Parcial |
+| **Catálogo** (Busca, Detalhes, Categorias, Marcas) | TC_WEB_008, TC_WEB_009, TC_WEB_018, TC_WEB_019, TC_WEB_021 | TC_PF_003 (productsList), TC_PF_006 (mix) | ⚠️ Parcial |
+| **Carrinho** (Adição, Remoção, Quantidade) | TC_WEB_012, TC_WEB_013, TC_WEB_017, TC_WEB_020, TC_WEB_022 | ❌ Não coberto¹ | ❌ |
+| **Transacional** (Checkout, Fatura) | TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023, TC_WEB_024 | TC_PF_009 (createAccount) | ⚠️ Parcial² |
+| **Comunicação e UX** | TC_WEB_006, TC_WEB_007, TC_WEB_010, TC_WEB_011, TC_WEB_025, TC_WEB_026 | ❌ Não coberto³ | ❌ |
+
+> ¹ **Carrinho:** Funcionalidade browser-only (localStorage + JavaScript). k6 é protocol-level HTTP — não executa JavaScript de página.
+> ² **Checkout completo:** O fluxo de checkout envolve interações JavaScript no browser. A API de criação de conta é coberta, mas o fluxo visual completo não.
+> ³ **Comunicação e UX:** Não há endpoints HTTP que justifiquem teste de carga específico.
+
+### 5.2 Cobertura dos Cenários API (TC_API_001 - TC_API_014)
+
+| Grupo Funcional | TCs API | Coberto por Performance | Status |
+|:----------------|:--------|:------------------------|:------:|
+| **Catálogo** (Listar produtos, Listar marcas, Pesquisar) | TC_API_001 - TC_API_004 | TC_PF_003, TC_PF_005, TC_PF_006 | ✅ Coberto |
+| **Autenticação** (Login válido, sem email, inválido) | TC_API_005 - TC_API_007 | TC_PF_004 | ⚠️ Parcial |
+| **Gestão de Usuários** (Criar, Excluir, Atualizar, Obter) | TC_API_008 - TC_API_011 | TC_PF_009 | ⚠️ Parcial |
+| **Métodos HTTP** (POST, PUT, DELETE não suportados) | TC_API_012 - TC_API_014 | ❌ Não coberto | ❌ |
+
+### 5.3 Mapa Detalhado: Performance TC → Funcional TC
 
 | Performance TC | TCs Funcionais Cobertos | Endpoints |
 |:---------------|:------------------------|:----------|
@@ -169,7 +213,7 @@ Para adicionar um novo TC, insira-o abaixo do grupo funcional correspondente, se
 | TC_PF_006 - Resistência (Soak) | TC_API_001, TC_API_002, TC_API_003, TC_API_005 | Mix de 4 endpoints |
 | TC_PF_007 - Pico (Spike) | TC_API_001 | GET productsList |
 | TC_PF_008 - Core Web Vitals | TC_WEB_008, TC_WEB_009, TC_WEB_010 | Homepage (Lighthouse) |
-| TC_PF_009 - Fluxo Checkout | TC_WEB_001, TC_WEB_014, TC_WEB_015, TC_API_008, TC_API_009 | CRUD completo |
+| TC_PF_009 - Fluxo Checkout | TC_WEB_001, TC_WEB_014, TC_WEB_015, TC_API_008, TC_API_009 | POST createAccount + verifyLogin + GET productsList + DELETE deleteAccount |
 | TC_PF_010 - Análise de Imagens | TC_WEB_008, TC_API_001 | GET productsList + GET product pictures |
 | TC_PF_011 - Carga Update Account | TC_API_010 | PUT /api/updateAccount |
 | TC_PF_012 - Carga User Details | TC_API_011 | GET /api/getUserDetailByEmail |
@@ -179,6 +223,8 @@ Para adicionar um novo TC, insira-o abaixo do grupo funcional correspondente, se
 ---
 
 ## 6. Estrutura de Arquivos
+
+### 6.1 Estrutura Completa
 
 ```
 automationexercise/
@@ -233,6 +279,25 @@ automationexercise/
         └── videos/                                     # Videos das execucoes
 ```
 
+### 6.2 Arquivos de Script e suas Configurações
+
+| Arquivo | TC | Tipo | VUs | Duração |
+|:--------|:---|:----:|:---:|:--------|
+| `TC_PF_001_smoke_test.js` | TC_PF_001 | Smoke | 1 | ~1s |
+| `TC_PF_002_carga_homepage.js` | TC_PF_002 | Carga | 50 | ~3,5min |
+| `TC_PF_003_carga_api_produtos.js` | TC_PF_003 | Carga | 50→100 | ~3,5min |
+| `TC_PF_004_carga_api_login.js` | TC_PF_004 | Carga | 30 | ~2,5min |
+| `TC_PF_005_estresse_api_produtos.js` | TC_PF_005 | Estresse | 25→300 | ~5,5min |
+| `TC_PF_006_resistencia_soak.js` | TC_PF_006 | Resistência | 50 | ~5,5min |
+| `TC_PF_007_pico_spike.js` | TC_PF_007 | Pico | 10→200 | ~3,5min |
+| `TC_PF_008_core_web_vitals.cy.js` | TC_PF_008 | Front-end | 1 | ~5min |
+| `TC_PF_009_carga_checkout.js` | TC_PF_009 | Carga | 20 | ~2,5min |
+| `TC_PF_010_auditoria_imagens.js` | TC_PF_010 | Auditoria | 1 | ~1min |
+| `TC_PF_011_carga_atualizar_conta.js` | TC_PF_011 | Carga | 20 | ~2,5min |
+| `TC_PF_012_carga_detalhes_usuario.js` | TC_PF_012 | Carga | 20 | ~2,5min |
+| `TC_PF_013_carga_pesquisar_produto.js` | TC_PF_013 | Carga | 30 | ~2,5min |
+| `TC_PF_014_carga_pagina_produtos.js` | TC_PF_014 | Carga | 30 | ~2,5min |
+
 > **Exemplo de preenchimento:** Substituir os placeholders pelos nomes reais dos arquivos conforme o documento completo [`Especificacao_Tecnica_Performance.md`](Especificacao_Tecnica_Performance.md).
 
 ---
@@ -257,6 +322,8 @@ automationexercise/
 | **TTFB (Time to First Byte)** | Tempo entre requisição HTTP e primeiro byte de resposta do servidor. Objetivo: < 500ms. |
 | **FCP (First Contentful Paint)** | Primeiro conteúdo renderizado (texto, imagem). Objetivo: < 1,5s. |
 | **INP (Interaction to Next Paint)** | Mede a responsividade — tempo entre interagir e a página responder. Objetivo: < 200ms. |
+| **Lazy Loading** | Carregamento sob demanda de imagens e recursos conforme o usuário rola a página |
+| **Throughput (http_reqs)** | Taxa de transferência — requisições por segundo que o sistema consegue processar |
 
 ---
 
@@ -275,4 +342,4 @@ automationexercise/
 
 ---
 
-**Documento gerado em:** AAAA-MM-DD
+**Documento gerado em:** 2026-06-02

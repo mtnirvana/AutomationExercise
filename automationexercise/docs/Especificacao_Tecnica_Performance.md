@@ -281,9 +281,11 @@ export default function () {
 
 | Passo | Ação | Validação |
 |:----:|:-----|:----------|
-| 1 | 50 VUs por 5min com mix de endpoints | Estabilidade |
-| 2 | Comparar latência minuto 1 vs minuto 5 | Degradação < 20% |
-| 3 | Verificar taxa de erro contínua | < 1% |
+| 1 | Alternar entre endpoints conforme iteração (`__ITER % 4`) | Mix correto de endpoints |
+| 2 | Enviar GET para /api/productsList | Status 200 |
+| 3 | Enviar GET para /api/brandsList | Status 200 |
+| 4 | Enviar POST para /api/verifyLogin com credenciais válidas | Status 200 |
+| 5 | Enviar POST para /api/searchProduct com termo de busca | Status 200 |
 
 ---
 
@@ -361,11 +363,15 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 | Passo | Ação | Validação |
 |:----:|:-----|:----------|
-| 1 | Visitar pagina via Cypress com `onBeforeLoad` injetando PerformanceObservers | LCP e CLS capturados |
+| 1 | Visitar pagina com `onBeforeLoad` injetando PerformanceObservers para LCP e CLS | LCP e CLS capturados |
 | 2 | Aguardar carregamento completo (body visivel + 2s) | - |
-| 3 | Coletar metricas de performance (`window.__perfMetrics` e `performance.getEntriesByType('navigation')`) | LCP, CLS, FCP, TTFB lidos |
-| 4 | Validar LCP, CLS e TTFB contra SLAs | LCP < 2500ms, CLS < 0,1, TTFB < 1000ms |
-| 5 | Screenshot via `cy.captura()` | Evidencia visual |
+| 3 | Coletar metricas via `window.__perfMetrics` e `performance.getEntriesByType('navigation')` | LCP, CLS, FCP, TTFB lidos |
+| 4 | Salvar metricas no contexto do teste (`window.__collectedMetrics`) | Dados disponiveis |
+| 5 | Validar LCP < 2500ms | LCP dentro do SLA |
+| 6 | Validar CLS < 0,1 | CLS dentro do SLA |
+| 7 | Validar TTFB < 1000ms (ajustado para Cloudflare) | TTFB dentro do SLA |
+| 8 | Registrar metricas no console via `cy.log()` | Log visivel para debug |
+| 9 | Screenshot via `cy.captura()` | Evidencia visual |
 
 **Evidências:** Lighthouse (gerado sob demanda via Chrome DevTools) + screenshots do Cypress em [`cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/`](../Cypress/cypress/screenshots/performance/TC_PF_008_core_web_vitals.cy.js/)
 
@@ -721,4 +727,4 @@ automationexercise/
 
 ---
 
-**Documento gerado em:** 2026-05-24
+**Documento gerado em:** 2026-06-02
