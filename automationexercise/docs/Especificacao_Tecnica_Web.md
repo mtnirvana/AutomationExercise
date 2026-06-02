@@ -562,7 +562,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Evidência em GIF:** ![TC_WEB_017](../Cypress/cypress/screenshots/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js/TC_WEB_017_sucesso_remover_produtos_carrinho.gif)
 
 ---
-### 4.6 Grupo: Catálogo, Carrinho e Experiência do Usuário (TC_WEB_018 - TC_WEB_026)
+### 4.6 Grupo: Catálogo, Carrinho e Navegação (TC_WEB_018 - TC_WEB_026)
 ---
 #### TC_WEB_018 - Visualizar produtos por categoria
 **Objetivo:** Validar que categorias e subcategorias de produtos são exibidas corretamente.<br>

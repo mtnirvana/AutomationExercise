@@ -97,7 +97,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 
 ---
 
-### 4.6 Grupo: Catálogo, Carrinho e Experiência do Usuário (TC_WEB_018 - TC_WEB_026)
+### 4.6 Grupo: Catálogo, Carrinho e Navegação (TC_WEB_018 - TC_WEB_026)
 
 ---
 
