@@ -432,8 +432,10 @@ Before creating any selector or when identifying a failure, the Agent must use i
 If a test fails due to a selector error:
 1. **Step 1:** Consult `Seletores.md` for documented alternatives (Skip `[QUEBRADO]`).
 2. **Step 2:** If failed, consult `playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
-3. **Step 3:** Preencher o `Seletores_TEMPLATE.md` com os seletores descobertos (usar como rascunho/rascunho).
+3. **Step 3:** Preencher o `Seletores_TEMPLATE.md` com os seletores descobertos (usar como modelo de estrutura).
 4. **Step 4:** Copiar o bloco do template para o `Seletores.md` oficial e atualizar o Page Object (marcando o seletor antigo como `[QUEBRADO]`).
+
+> **O fluxo completo de investigação de seletores (hierarquia, ferramentas, como inspecionar) está detalhado no `Guia_Cypress_Template.md` (seção 8). Consulte-o SEMPRE antes de criar ou substituir seletores.**
 
 ## Golden Rules
 - **NEVER** use a selector marked as `[QUEBRADO]` during execution.
