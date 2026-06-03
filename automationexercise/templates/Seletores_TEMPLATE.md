@@ -7,7 +7,7 @@
 
 ## Estrutura por Página
 
-Cada pagina e dividida em duas seções:
+Cada página é dividida em duas seções:
 - **Seletores (Getters):** Referências diretas a elementos DOM
 - **Métodos:** Ações encapsuladas que utilizam os seletores
 
@@ -21,9 +21,9 @@ Cada pagina e dividida em duas seções:
 | `[nomeGetter]` | `[seletor]` | `[alternativa]` | `[alternativa]` | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
-| `[nomeMetodo()]` | [descricao em portugues] | `[getterUtilizado]` | OK |
+| `[nomeMetodo()]` | [descrição em português] | `[getterUtilizado]` | OK |
 
 ---
 
@@ -35,7 +35,7 @@ Cada pagina e dividida em duas seções:
 3. Preencha este template com os seletores encontrados
 4. Copie o bloco completo para o `Seletores.md` oficial
 5. Crie/atualize o getter no Page Object correspondente
-6. Remova ou adicione seções de pagina conforme necessario, seguindo sempre o formato acima
+6. Remova ou adicione seções de página conforme necessário, seguindo sempre o formato acima
 -->
 
 **Documento gerado em:** AAAA-MM-DD

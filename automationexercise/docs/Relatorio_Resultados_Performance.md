@@ -119,7 +119,7 @@
 | Check | Resultado |
 |:------|:---------:|
 | GET / status 200 | ✅ 99% |
-| pagina carregada em menos de 5s | ✅ 98% |
+| página carregada em menos de 5s | ✅ 98% |
 
 #### Thresholds
 
@@ -205,7 +205,7 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 
 | Check | Resultado |
 |:------|:---------:|
-| status 200 e login valido | ✅ 100% |
+| status 200 e login válido | ✅ 100% |
 
 #### Thresholds
 
@@ -243,7 +243,7 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 
 | Check | Acerto | Resultado |
 |:------|:------:|:---------:|
-| status 200 e JSON valido | 13% | 🔴 24.898 falhas (rate limit Cloudflare) |
+| status 200 e JSON válido | 13% | 🔴 24.898 falhas (rate limit Cloudflare) |
 
 #### Thresholds
 
@@ -716,7 +716,7 @@ O spike de 10→200 VUs em 5s dispara rate limiting imediato do Cloudflare. O ch
 | Check | Resultado |
 |:------|:---------:|
 | GET /products status 200 | ✅ 99% |
-| pagina produtos carregada | ✅ 99% |
+| página produtos carregada | ✅ 99% |
 
 #### Thresholds
 

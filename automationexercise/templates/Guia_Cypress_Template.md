@@ -600,14 +600,14 @@ describe('[Título em português]', () => {
 | Nivel | Tipo | Robustez | Exemplo |
 |-------|------|----------|---------|
 | 1 | data-qa / data-testid / data-cy | [ROBUSTO] | `cy.get('[data-qa="login-button"]')` |
-| 2 | ID unico e estavel | [ROBUSTO] | `cy.get('#search_product')` |
+| 2 | ID único e estável | [ROBUSTO] | `cy.get('#search_product')` |
 | 3 | name attribute | [ROBUSTO] | `cy.get('input[name="email"]')` |
 | 4 | Tag semantica + texto de confirmacao | [ROBUSTO] | `cy.get('h2').contains('Account Created!')` |
 | 5 | href de rota estavel | [MEDIO] | `cy.get('a[href="/login"]')` |
-| 6 | placeholder unico na pagina | [MEDIO] | `cy.get('[placeholder="Name"]')` |
-| 7 | Classe funcional unica | [MEDIO] | `cy.get('button.close-modal')` |
+| 6 | placeholder único na página | [MEDIO] | `cy.get('[placeholder="Name"]')` |
+| 7 | Classe funcional única | [MEDIO] | `cy.get('button.close-modal')` |
 | 8 | Classe CSS visual | [FRAGIL] | `cy.get('.logo')` |
-| 9 | Texto de botao de acao | [FRAGIL] | `cy.get('button').contains('Login')` |
+| 9 | Texto de botão de ação | [FRAGIL] | `cy.get('button').contains('Login')` |
 | 10 | Posicao no DOM (.eq, :nth-child) | [FRAGIL] | `cy.get('input').eq(1)` |
 | 11 | XPath | [NUNCA USAR] | nao usar no Cypress |
 
@@ -623,7 +623,7 @@ Antes de criar qualquer seletor, o agente DEVE:
 
 ### Selector Comment Pattern (MANDATORY)
 
-Todo seletor DEVE ter um comentario de uma unica linha. Nao escrever `[ROBUSTO]`.
+Todo seletor DEVE ter um comentário de uma única linha. Nao escrever `[ROBUSTO]`.
 
 ```javascript
 static get seletor() {
@@ -637,7 +637,7 @@ static get seletorMedio() {
 }
 ```
 
-Niveis validos para marcar: `[MEDIO]`, `[MEDIO-ALTO]`, `[FRAGIL]`. Omita o colchete se o seletor for robusto.
+Níveis válidos para marcar: `[MEDIO]`, `[MEDIO-ALTO]`, `[FRAGIL]`. Omita o colchete se o seletor for robusto.
 
 Os níveis `[MEDIO]` e `[MEDIO-ALTO]` diferenciam o grau de confiabilidade dentro da categoria médio. Use `[MEDIO-ALTO]` para seletores funcionais únicos na página com boa estabilidade, e `[MEDIO]` para seletores funcionais com menor garantia de singularidade.
 
@@ -664,13 +664,13 @@ Sempre que um seletor quebrar:
 1. **Nomenclatura:** `[PageName]Page.js` (PascalCase)
 2. **Classe:** nome da classe em PascalCase
 3. **Seletores:** usar getters estaticos (`static get name()`)
-4. **Comentarios de Seletor:** OBRIGATORIO em uma unica linha (ver padrao acima)
+4. **Comentarios de Seletor:** OBRIGATÓRIO em uma única linha (ver padrão acima)
 5. **Comentarios de Metodo:** OBRIGATORIO em uma unica linha, em PORTUGUES, usando `//` (nao usar JSDoc de 3 linhas). Se houver parametros, usar `// @param` logo abaixo da descrição.
 6. **Investigacao:** inspecionar o site ao vivo antes de escrever seletores
 7. **Sem emoticons:** comentarios em texto limpo sem emojis
 8. **Timeouts:** `cy.get(..., { timeout: 10000 })` para seletores criticos
-9. **Metodos:** usar verbos (click, fill, select, verify, check)
-10. **Exemplo de Metodo:**
+9. **Métodos:** usar verbos (click, fill, select, verify, check)
+10. **Exemplo de Método:**
 ```javascript
 // Clica no botao de login
 static clickLogin() {

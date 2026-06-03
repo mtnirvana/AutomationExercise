@@ -7,7 +7,7 @@
 
 ## Estrutura por Página
 
-Cada pagina e dividida em duas seções:
+Cada página é dividida em duas seções:
 - **Seletores (Getters):** Referências diretas a elementos DOM
 - **Métodos:** Ações encapsuladas que utilizam os seletores
 
@@ -35,10 +35,10 @@ Cada pagina e dividida em duas seções:
 | scrollUpIcon | `i[class*="angle-up"]` | `a#scrollUp` | - | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `clickSignupLogin()` | Clica no link Signup / Login | `signupLoginLink` | OK |
-| `verifyLoggedInAs(username)` | Verifica usuario logado com nome | `loggedInIndicator` | OK |
+| `verifyLoggedInAs(username)` | Verifica usuário logado com nome | `loggedInIndicator` | OK |
 | `clickDeleteAccount()` | Clica em Delete Account | `deleteAccountLink` | OK |
 | `clickLogout()` | Clica em Logout | `logoutLink` | OK |
 | `clickContactUs()` | Clica em Contact Us | `contactUsLink` | OK |
@@ -64,15 +64,15 @@ Cada pagina e dividida em duas seções:
 | loginButton | `button[data-qa="login-button"]` | `button.btn-default`.contains('Login') | - | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyNewUserSignupHeader()` | Valida header "New User Signup!" | `newUserSignupHeader` | OK |
 | `verifyLoginHeader()` | Valida header "Login to your account" | `loginToYourAccountHeader` | OK |
-| `clickSignup()` | Clica no botao Signup | `signupButton` | OK |
+| `clickSignup()` | Clica no botão Signup | `signupButton` | OK |
 | `login(email, password)` | Preenche email/senha e clica Login | `loginEmail` + `loginPassword` + `loginButton` | OK |
 | `fillEmail(email)` | Preenche apenas o email | `loginEmail` | OK |
 | `fillPassword(password)` | Preenche apenas a senha | `loginPassword` | OK |
-| `clickLogin()` | Clica no botao Login | `loginButton` | OK |
+| `clickLogin()` | Clica no botão Login | `loginButton` | OK |
 | `verifyLoginErrorMessage()` | Valida mensagem de erro de login | `cy.contains(uiData.errors.login)` | OK |
 | `verifyEmailExistError()` | Valida erro de email ja existente | `cy.contains(uiData.errors.emailExist)` | OK |
 
@@ -105,12 +105,12 @@ Cada pagina e dividida em duas seções:
 | createAccountButton | `button[data-qa="create-account"]` | `button`.contains('Create Account') | - | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyAccountInfoHeader()` | Valida header "Enter Account Information" | `accountInfoHeader` | OK |
 | `selectGender(gender)` | Seleciona genero (male/female) | `genderMale` ou `genderFemale` | OK |
 | `fillDateOfBirth(day, month, year)` | Preenche data de nascimento | `days` + `months` + `years` | OK |
-| `fillAddress(address)` | Preenche endereco completo | `firstName` a `mobileNumber` | OK |
+| `fillAddress(address)` | Preenche endereço completo | `firstName` a `mobileNumber` | OK |
 | `clickCreateAccount()` | Clica em Create Account | `createAccountButton` | OK |
 
 ---
@@ -125,7 +125,7 @@ Cada pagina e dividida em duas seções:
 | continueButton | `a[data-qa="continue-button"]` | `a.btn-primary` | `a.contains('Continue')` | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyAccountCreated()` | Valida "Account Created!" | `accountCreatedHeader` | OK |
 | `verifyAccountDeleted()` | Valida "Account Deleted!" | `accountDeletedHeader` | OK |
@@ -149,7 +149,7 @@ Cada pagina e dividida em duas seções:
 | successMessage | `.status.alert.alert-success` | `.contact-form .alert-success` | - | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyGetInTouchHeader()` | Valida header "Get In Touch" | `getInTouchHeader` | OK |
 | `verifySuccessMessage()` | Valida mensagem de sucesso | `successMessage` | OK |
@@ -168,7 +168,7 @@ Cada pagina e dividida em duas seções:
 | pageTitle | `h2.contains('Test Cases')` | `b.contains('Test Cases')` | - | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyPageTitle()` | Valida titulo "Test Cases" | `pageTitle` | OK |
 
@@ -210,26 +210,26 @@ Cada pagina e dividida em duas seções:
 | reviewSuccessMessage | `span.contains('Thank you for your review.')` | `.alert-success span` | - | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyAllProductsPage()` | Valida header "All Products" | `productsHeader` | OK |
 | `verifyProductsList()` | Valida lista de produtos visivel | `productsItems` | OK |
 | `clickViewProduct()` | Clica no primeiro "View Product" | `viewProductLinks` | OK |
 | `clickProductByName(name)` | Clica "View Product" por nome do produto | `product-image-wrapper` + `a[href*="/product_details/"]` | OK |
-| `verifyProductDetailPage()` | Valida pagina de detalhes do produto | `productName` | OK |
+| `verifyProductDetailPage()` | Valida página de detalhes do produto | `productName` | OK |
 | `verifyProductDetails()` | Valida todos os detalhes (nome, categoria, preco, etc) | `productName` a `productBrand` | OK |
 | `searchProduct(searchTerm)` | Digita termo e clica em buscar | `searchInput` + `searchButton` | OK |
 | `verifySearchedProducts()` | Valida header "Searched Products" | `searchedProductsHeader` | OK |
-| `verifyReviewSectionVisible()` | Valida secao "Write Your Review" | `reviewLink` | OK |
+| `verifyReviewSectionVisible()` | Valida seção "Write Your Review" | `reviewLink` | OK |
 | `fillReview(name, email, text)` | Preenche formulario de review | `reviewNameInput` + `reviewEmailInput` + `reviewTextInput` | OK |
 | `submitReview()` | Clica em Submit do review | `reviewSubmitButton` | OK |
 | `verifyReviewSuccess()` | Valida mensagem de sucesso do review | `reviewSuccessMessage` | OK |
 | `clickCategory(categoryName)` | Clica em categoria na sidebar | `categoryPanel` | OK |
 | `clickSubcategory(subcategoryName)` | Clica em subcategoria | `subcategoryLinks` | OK |
-| `verifyCategoryPageHeader(category, subcategory)` | Valida header da pagina de categoria | `h2.contains(...)` | OK |
+| `verifyCategoryPageHeader(category, subcategory)` | Valida header da página de categoria | `h2.contains(...)` | OK |
 | `verifyCategoryHeaderVisible()` | Valida header "Category" na sidebar | `leftSidebar.find('h2')` | OK |
 | `verifyBrandsHeaderVisible()` | Valida header "Brands" na sidebar | `h2.contains(uiData.headers.brandsHeader)` | OK |
-| `verifyBrandPageHeader(brandName)` | Valida header da pagina de marca | `productsList` | OK |
+| `verifyBrandPageHeader(brandName)` | Valida header da página de marca | `productsList` | OK |
 | `clickBrand(brandName)` | Clica em marca na sidebar | `brandLinks` | OK |
 | `addToCartOverlay(index)` | Passa mouse e clica "Add to cart" no overlay | `productsItems` + `productOverlay.find('.btn')` | OK |
 
@@ -264,7 +264,7 @@ Cada pagina e dividida em duas seções:
 | checkoutStepHeaders | `.step-one h2` | `.step h2` | - | OK |
 
 #### Métodos
-| Metodo | Descrição | Seletor Interno | Status |
+| Método | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `fillPaymentDetails(paymentData)` | Preenche dados de pagamento | `nameOnCard` + `cardNumber` + `cardCvc` + `cardExpiryMonth` + `cardExpiryYear` | OK |
 | `clickProceedToCheckout()` | Clica em "Proceed To Checkout" | `proceedToCheckoutButton` | OK |
@@ -273,7 +273,7 @@ Cada pagina e dividida em duas seções:
 | `clickDownloadInvoice()` | Clica em "Download Invoice" | `downloadInvoiceLink` | OK |
 | `clickViewCart()` | Clica em "View Cart" | `viewCartLink` | OK |
 | `clickContinueShopping()` | Clica em "Continue Shopping" | `continueShoppingButton` | OK |
-| `verifyCartPageVisible()` | Valida pagina do carrinho | URL + `h2` | OK |
+| `verifyCartPageVisible()` | Valida página do carrinho | URL + `h2` | OK |
 | `verifyOrderPlaced()` | Valida "Order Placed!" | `h2.contains(uiData.checkout.orderPlaced)` | OK |
 | `verifyAddressDetailsHeader()` | Valida "Address Details" | `checkoutStepHeaders` | OK |
 | `clickContinueAfterOrder()` | Clica em "Continue" apos pedido | `a.contains(uiData.buttons.continue)` | OK |

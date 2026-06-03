@@ -335,7 +335,7 @@ Nota: Spike reduzido de 500 para 200 VUs para evitar bloqueio total do Cloudflar
 **Objetivo:** Coletar LCP, FCP, CLS e TTFB da homepage via Lighthouse.<br>
 **Tipo:** Front-end<br>
 **Criticidade:** Média<br>
-**Configuração:** 8 paginas criticas, 1 execucao cada, navegacao real via Cypress<br>
+**Configuração:** 8 páginas críticas, 1 execução cada, navegação real via Cypress<br>
 **Ferramenta:** Cypress + Chrome DevTools (Lighthouse)
 
 **Script (Cypress):** [`TC_PF_008_core_web_vitals.cy.js`](../Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js)
@@ -363,10 +363,10 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 | Passo | Ação | Validação |
 |:----:|:-----|:----------|
-| 1 | Visitar pagina com `onBeforeLoad` injetando PerformanceObservers para LCP e CLS | LCP e CLS capturados |
+| 1 | Visitar página com `onBeforeLoad` injetando PerformanceObservers para LCP e CLS | LCP e CLS capturados |
 | 2 | Aguardar carregamento completo (body visivel + 2s) | - |
 | 3 | Coletar metricas via `window.__perfMetrics` e `performance.getEntriesByType('navigation')` | LCP, CLS, FCP, TTFB lidos |
-| 4 | Salvar metricas no contexto do teste (`window.__collectedMetrics`) | Dados disponiveis |
+| 4 | Salvar metricas no contexto do teste (`window.__collectedMetrics`) | Dados disponíveis |
 | 5 | Validar LCP < 2500ms | LCP dentro do SLA |
 | 6 | Validar CLS < 0,1 | CLS dentro do SLA |
 | 7 | Validar TTFB < 1000ms (ajustado para Cloudflare) | TTFB dentro do SLA |
