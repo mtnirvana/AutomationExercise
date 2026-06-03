@@ -320,8 +320,8 @@ Nota: Spike reduzido de 500 para 200 VUs para evitar bloqueio total do Cloudflar
 | Passo | Fase | VUs | Validação |
 |:----:|:-----|:---:|:----------|
 | 1 | Baseline | 10 | Latência normal |
-| 2 | Spike | 200 | Sem crash |
-| 3 | Hold pico | 200 | Erro < 30% |
+| 2 | Spike | 200 | Sem crash + body JSON válido |
+| 3 | Hold pico | 200 | Erro < 30% + body JSON válido |
 | 4 | Recuperação | 10 | Recuperar baseline |
 
 ---

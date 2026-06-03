@@ -33,7 +33,13 @@ export default function () {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   })
   check(res, {
-    'status 200': (r) => r.status === 200,
+    'status 200 e resposta valida': (r) => {
+      if (r.status !== 200) return false
+      try {
+        const body = r.json()
+        return body.responseCode !== undefined
+      } catch { return false }
+    },
   })
   sleep(0.2)
 }

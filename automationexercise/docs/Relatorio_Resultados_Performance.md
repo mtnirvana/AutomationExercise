@@ -322,7 +322,7 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 
 | Check | Resultado |
 |:------|:---------:|
-| status 200 | ✅ Passou (178/178) |
+| status 200 e resposta valida | ✅ Passou (178/178) |
 
 #### Thresholds
 
