@@ -417,18 +417,20 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Objetivo:** Identificar imagens que excedem thresholds de performance e recomendar compressão.<br>
 **Tipo:** Auditoria<br>
 **Criticidade:** Baixa<br>
-**Configuração:** 1 VU, lista todos os produtos e verifica Content-Length de cada imagem
+**Configuração:** 1 VU, lista todos os 34 produtos e verifica Content-Length + Content-Type de cada imagem (37 checks no total)
 
 **Script:** [`TC_PF_010_auditoria_imagens.js`](../Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js)<br>
 
 **Passos de Validação:**
 
-| Passo | Ação | Endpoint | Validação |
-|:----:|:-----|:---------|:----------|
-| 1 | Listar todos os produtos | GET /api/productsList | Lista completa |
-| 2 | Para cada produto, HEAD da imagem | GET /get_product_picture/{id} | Content-Length |
-| 3 | Reportar imagens > 200 KB | - | Threshold violado |
-| 4 | Verificar Content-Type | - | JPEG → recomendar WebP |
+| Passo | Ação | Checks | Validação |
+|:----:|:-----|:------:|:----------|
+| 1 | Listar todos os produtos via GET /api/productsList | 1 | Status 200 e JSON válido |
+| 2 | Para cada produto, GET da imagem via /get_product_picture/{id} e verificar Content-Length | 34 (1 por produto) | Cada imagem carregada com sucesso |
+| 3 | Contar total de imagens analisadas | 1 | 34 imagens processadas |
+| 4 | Reportar imagens > 200 KB com Content-Type | 1 | Identificar oportunidades de compressão (JPEG → WebP) |
+
+> **Total:** 37 checks executados (1 + 34 + 1 + 1). 3 imagens excedem 200 KB (IDs 11, 29, 41 — JPEG).
 
 ---
 
