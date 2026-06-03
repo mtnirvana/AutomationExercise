@@ -1,0 +1,71 @@
+{
+  "name": "Pico (Spike) - endpoint /api/productsList",
+  "status": "failed",
+  "stage": "finished",
+  "start": 1780483030786,
+  "stop": 1780483031786,
+  "uuid": "tc-pf-007-1780483434307-99u2vk",
+  "historyId": "tc_pf_007",
+  "fullName": "Performance - Pico (Spike) - endpoint /api/productsList",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_007"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Pico"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_007"
+    },
+    {
+      "name": "p95",
+      "value": "6885ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "89.3%"
+    },
+    {
+      "name": "Checks",
+      "value": "-8563/10891"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. status 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780483031286,
+      "stop": 1780483031586
+    },
+    {
+      "name": "2. Resumo: p95=6885ms | Erro=89.3% | -8563/10891 checks | Falhou",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780483031686,
+      "stop": 1780483031786
+    }
+  ],
+  "attachments": []
+}

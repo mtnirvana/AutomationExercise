@@ -45,8 +45,7 @@ describe('TC_WEB_020 - Pesquisar produtos e verificar carrinho após login', () 
     takeScreenshot('08_produtos_pesquisados_visivel')
 
     // 9. Adicionar esses produtos ao carrinho
-    ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
-    ProductsPage.productOverlay.first().find('.btn').click({ force: true })
+    ProductsPage.addToCartOverlay(0)
     CheckoutPage.clickContinueShopping()
     takeScreenshot('09_produto_adicionado_ao_carrinho')
 
@@ -56,8 +55,7 @@ describe('TC_WEB_020 - Pesquisar produtos e verificar carrinho após login', () 
     takeScreenshot('10_clicou_carrinho')
 
     // 11. Validar que produtos estão no carrinho
-    cy.url().should('include', '/view_cart')
-    cy.get('h2').should('be.visible')
+    CheckoutPage.verifyCartPageVisible()
     takeScreenshot('11_produtos_no_carrinho')
 
     // 12. Clicar no botão 'Signup / Login'

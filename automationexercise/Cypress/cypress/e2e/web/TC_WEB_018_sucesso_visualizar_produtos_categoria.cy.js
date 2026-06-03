@@ -26,7 +26,7 @@ describe('TC_WEB_018 - Visualizar produtos por categoria', () => {
     // 2. Navegar para url 'http://automationexercise.com' (via beforeEach)
     // 3. Verificar que página inicial está visível (via beforeEach)
     // 4. Verificar que as categorias estão visíveis na barra lateral esquerda
-    ProductsPage.leftSidebar.find('h2').contains(uiData.headers.categoryHeader).should('be.visible')
+    ProductsPage.verifyCategoryHeaderVisible()
     ProductsPage.leftSidebar.should('be.visible')
     takeScreenshot('04_categorias_visiveis')
 

@@ -31,8 +31,7 @@ describe('TC_WEB_024 - Baixar fatura após pedido', () => {
     // 3. Verificar que página inicial está visível (via beforeEach)
     // 4. Adicionar primeiro produto ao carrinho
     HomePage.clickProducts()
-    ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
-    cy.get('.btn.btn-default.add-to-cart').first().scrollIntoView().should('be.visible').click({ force: true })
+    ProductsPage.addToCartOverlay(0)
     takeScreenshot('04_produto_adicionado_ao_carrinho')
 
     // 5. Clicar em 'Continue Shopping'
@@ -44,8 +43,7 @@ describe('TC_WEB_024 - Baixar fatura após pedido', () => {
     takeScreenshot('06_clicou_carrinho')
 
     // 7. Verificar que a página do carrinho está visível
-    cy.url().should('include', '/view_cart')
-    cy.get('h2').should('be.visible')
+    CheckoutPage.verifyCartPageVisible()
     takeScreenshot('07_pagina_carrinho_exibida')
 
     // 8. Clicar em 'Proceed To Checkout'
@@ -124,7 +122,7 @@ describe('TC_WEB_024 - Baixar fatura após pedido', () => {
     takeScreenshot('23_clicou_pagar_confirmar')
 
     // 24. Verificar mensagem de sucesso
-    cy.contains('h2', uiData.checkout.orderPlaced).should('be.visible')
+    CheckoutPage.verifyOrderPlaced()
     takeScreenshot('24_pedido_colocado_sucesso')
 
     // 25. Clicar no botão 'Download Invoice' e verificar que a fatura foi baixada com sucesso
@@ -136,7 +134,7 @@ describe('TC_WEB_024 - Baixar fatura após pedido', () => {
     takeScreenshot('26_fatura_baixada_sucesso')
 
     // 27. Clicar no botão 'Continue'
-    cy.contains('a', uiData.buttons.continue).click()
+    CheckoutPage.clickContinueAfterOrder()
     takeScreenshot('27_clicou_continuar')
 
     // 28. Clicar em 'Delete Account'

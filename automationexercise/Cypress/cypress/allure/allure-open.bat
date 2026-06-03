@@ -7,11 +7,11 @@ echo ============================================
 echo.
 if not exist "allure-report\index.html" (
   echo Gerando relatorio Allure...
-  call npm run generate
+  call allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
 )
 echo Iniciando servidor em http://localhost:8765 ...
 echo.
-start "Allure Server" /MIN cmd /c "npm run open"
+start "Allure Server" /MIN cmd /c "allure.cmd open allure-report -p 8765"
 timeout /t 4 /nobreak >nul
 start http://localhost:8765
 echo.

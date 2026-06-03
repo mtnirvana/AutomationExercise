@@ -30,7 +30,7 @@ describe('TC_WEB_025 - Verificar scroll up usando botão de seta e funcionalidad
 
     // 5. Verificar que 'SUBSCRIPTION' está visível
     HomePage.subscriptionWidget.should('be.visible')
-    HomePage.subscriptionWidget.find('h2').should('contain.text', uiData.subscription.header)
+    HomePage.subscriptionHeader.should('contain.text', uiData.subscription.header)
     takeScreenshot('05_assinatura_visivel')
 
     // 6. Clicar na seta no lado direito inferior para mover para cima
@@ -38,7 +38,7 @@ describe('TC_WEB_025 - Verificar scroll up usando botão de seta e funcionalidad
     takeScreenshot('06_clicou_seta_para_cima')
 
     // 7. Verificar que a página rolou para cima e o texto 'Full-Fledged practice website for Automation Engineers' está visível na tela
-    cy.get('h2').contains(uiData.homepage.title).should('be.visible')
+    HomePage.verifyHomePageTitle()
     takeScreenshot('07_texto_visivel_no_topo')
   })
 })

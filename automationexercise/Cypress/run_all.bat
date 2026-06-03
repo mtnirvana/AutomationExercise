@@ -58,7 +58,9 @@ echo.
 REM === 5. Allure Generate ===
 echo [5/5] Gerando relatorio Allure completo...
 cd cypress\allure
-call npm run pre-generate
+if not exist "allure-results" mkdir "allure-results"
+copy /y allure.properties allure-results\allure.properties >nul 2>&1
+if exist "allure-report\history" copy /y allure-report\history\*.json allure-results\history\ >nul 2>&1
 call allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
 cd ..\..\
 echo.
@@ -66,6 +68,6 @@ echo.
 echo ============================================
 echo   CONCLUIDO
 echo   Relatorio Allure: allure-report\ (ou atalho em docs\Relatorio_Testes.lnk)
-echo   Abra: http://localhost:8765 (ou sirva com: cd cypress\allure ^&^& npm run serve)
+echo   Abra: http://localhost:8765 (ou sirva com: cd cypress\allure ^&^& allure.cmd serve allure-results -p 8765 --lang br --name "AutomationExercise")
 echo ============================================
 pause

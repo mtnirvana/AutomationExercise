@@ -130,4 +130,10 @@ export class HomePage {
   static clickCart() {
     this.cartLink.click()
   }
+
+  // Verifica se o titulo da homepage (hero) esta visivel
+  static verifyHomePageTitle() {
+    cy.get('h2').contains(uiData.homepage.title).should('be.visible')
+  }
+
 }

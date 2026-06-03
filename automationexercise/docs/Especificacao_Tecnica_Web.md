@@ -254,7 +254,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar a funcionalidade de assinatura na página inicial.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Média<br>
-**Dados:** `cypress/fixtures/contact.json` → `subscribe.email` + `ui_texts.json`<br>
+**Dados:** `UserFactory.generate().email` - email dinâmico + `ui_texts.json`<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -263,10 +263,10 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
 | 4 | Rolar para o rodapé | `cy.scrollTo('bottom')` | Scroll executado |
-| 5 | Validar texto "SUBSCRIPTION" | `.single-widget h2:contains('SUBSCRIPTION')` | Rodapé visível |
-| 6 | Inserir email no campo de assinatura | `#susbscribe_email` | Email inserido |
-| 7 | Clicar no botão de seta | `#subscribe` | Assinatura enviada |
-| 8 | Validar mensagem de sucesso | `#success-subscribe:contains('You have been successfully subscribed!')` | Confirmação visível |
+| 5 | Validar texto "SUBSCRIPTION" | `HomePage.subscriptionHeader` via `ui_texts.json` | Rodapé visível |
+| 6 | Inserir email no campo de assinatura | `HomePage.subscribeEmail` | Email inserido |
+| 7 | Clicar no botão de seta | `HomePage.subscribeButton` | Assinatura enviada |
+| 8 | Validar mensagem de sucesso | `HomePage.subscribeSuccess` → `ui_data.subscription.successMessage` | Confirmação visível |
 
 **Asserção Chave:** Mensagem "You have been successfully subscribed!" visível após assinatura.<br>
 **Resultado esperado:** Usuário consegue assinar newsletter na home<br>
@@ -279,7 +279,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 **Objetivo:** Validar a funcionalidade de assinatura na página do carrinho.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Média<br>
-**Dados:** `cypress/fixtures/contact.json` → `subscribe.email` + `ui_texts.json`<br>
+**Dados:** `UserFactory.generate().email` - email dinâmico + `ui_texts.json`<br>
 **Pós-condição:** Nenhuma<br>
 **Passos Detalhados:**
 | Passo | Ação | Elemento/Localizador | Validação |
@@ -287,12 +287,12 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 1 | Abrir navegador (beforeEach) | `cy.visit('/')` | Página inicial carrega |
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
-| 4 | Clicar no botão "Cart" | `HomePage.clickCart()` → `a[href="/view_cart"]` | Abre carrinho |
+| 4 | Clicar no botão "Cart" | `HomePage.clickCart()` | Abre carrinho |
 | 5 | Rolar para o rodapé | `cy.scrollTo('bottom')` | Scroll executado |
-| 6 | Validar texto "SUBSCRIPTION" | `.single-widget h2:contains('SUBSCRIPTION')` | Rodapé visível |
-| 7 | Inserir email no campo de assinatura | `#susbscribe_email` | Email inserido |
-| 8 | Clicar no botão de seta | `#subscribe` | Assinatura enviada |
-| 9 | Validar mensagem de sucesso | `#success-subscribe:contains('You have been successfully subscribed!')` | Confirmação visível |
+| 6 | Validar texto "SUBSCRIPTION" | `HomePage.subscriptionWidget` → `subscriptionHeader` via `ui_texts.json` | Rodapé visível |
+| 7 | Inserir email no campo de assinatura | `HomePage.subscribeEmail` | Email inserido |
+| 8 | Clicar no botão de seta | `HomePage.subscribeButton` | Assinatura enviada |
+| 9 | Validar mensagem de sucesso | `HomePage.subscribeSuccess` → `ui_data.subscription.successMessage` | Confirmação visível |
 
 **Asserção Chave:** Mensagem "You have been successfully subscribed!" visível após assinatura.<br>
 **Resultado esperado:** Usuário consegue assinar newsletter no carrinho<br>

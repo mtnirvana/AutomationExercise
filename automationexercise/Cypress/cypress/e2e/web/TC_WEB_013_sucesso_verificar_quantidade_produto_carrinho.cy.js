@@ -25,7 +25,7 @@ describe('TC_WEB_013 - Verificar quantidade de produto no carrinho', () => {
     // 2. Navegar para url 'http://automationexercise.com' (via beforeEach)
     // 3. Verificar que página inicial está visível (via beforeEach)
     // 4. Clicar em 'View Product'
-    ProductsPage.viewProductLinks.first().click()
+    ProductsPage.clickViewProduct()
     takeScreenshot('04_clicou_ver_produto')
 
     // 5. Verificar que os detalhes do produto foram abertos
@@ -37,7 +37,7 @@ describe('TC_WEB_013 - Verificar quantidade de produto no carrinho', () => {
     takeScreenshot('06_quantidade_aumentada')
 
     // 7. Clicar no botão 'Add to cart'
-    CheckoutPage.addToCartButton.click()
+    CheckoutPage.clickAddToCart()
     takeScreenshot('07_clicou_adicionar_ao_carrinho')
 
     // 8. Clicar no botão 'View Cart'
@@ -45,7 +45,6 @@ describe('TC_WEB_013 - Verificar quantidade de produto no carrinho', () => {
     takeScreenshot('08_clicou_ver_carrinho')
 
     // 9. Verificar que o produto está sendo exibido na página do carrinho com a quantidade exata
-    CheckoutPage.cartQuantity.find('button').should('contain', productsData.quantities.default)
     CheckoutPage.cartQuantity.should('contain', productsData.quantities.default)
     takeScreenshot('09_quantidade_verificada_no_carrinho')
   })

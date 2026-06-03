@@ -30,7 +30,7 @@ describe('TC_WEB_022 - Adicionar ao carrinho itens recomendados', () => {
 
     // 5. Verificar que 'RECOMMENDED ITEMS' está visível
     ProductsPage.recommendedItems.should('be.visible')
-    ProductsPage.recommendedItems.find('.productinfo').should('be.visible')
+    ProductsPage.recommendedProductInfo.should('be.visible')
     takeScreenshot('05_itens_recomendados_visivel')
 
     // 6. Clicar em 'Add To Cart' no produto recomendado
@@ -38,7 +38,7 @@ describe('TC_WEB_022 - Adicionar ao carrinho itens recomendados', () => {
     takeScreenshot('06_clicou_adicionar_ao_carrinho')
 
     // 7. Clicar no botão 'View Cart'
-    cy.get('a[href="/view_cart"]').contains(uiData.buttons.viewCart).should('be.visible').click()
+    CheckoutPage.clickViewCart()
     takeScreenshot('07_clicou_ver_carrinho')
 
     // 8. Verificar que o produto está exibido na página do carrinho

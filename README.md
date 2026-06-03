@@ -114,10 +114,9 @@ antigravity PORTFOLIO/
 │   │   │   │   └── k6/                            # JSONs do k6 --summary-export
 │   │   │   │
 │   │   │   ├── allure/                            # Relatórios Allure (dark mode + pt-BR)
-│   │   │   │   ├── package.json                   # allure-commandline
 │   │   │   │   ├── allure.properties              # Tema escuro + idioma pt-BR
 │   │   │   │   ├── allure-results/                # Resultados das execuções (gerado pelo Cypress)
-│   │   │   │   ├── allure-report/                 # Relatório HTML estático (gerado via npm run generate)
+│   │   │   │   ├── allure-report/                 # Relatório HTML estático (gerado via allure.cmd)
 │   │   │   │   └── scripts/                       # Conversores k6 → Allure
 │   │   │   │
 │   │   │   └── videos/                            # Vídeos das execuções (auto)
@@ -241,7 +240,7 @@ O `run_all.bat` executa em sequência:
 | 2. GIFs | `node scripts/gerar_gifs.js` | GIFs em `screenshots/web/` e `screenshots/performance/` |
 | 3. k6 | 13 scripts de performance | JSONs em `reports/k6/` |
 | 4. k6 → Allure | `node cypress/allure/scripts/convert_k6_to_allure.js` | Resultados k6 em allure-results |
-| 5. Allure Generate | `npm run pre-generate` + `allure generate` | Relatório em `allure-report/` |
+| 5. Allure Generate | `allure.cmd generate` | Relatório em `allure-report/` |
 | — | Atalho do relatório | `docs/Relatorio_Testes.lnk` — abre servidor + navegador |
 
 ### Execuções Individuais
@@ -263,9 +262,9 @@ npx cypress run --spec "cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.
 
 # Relatório Allure (após rodar os testes)
 cd automationexercise/Cypress/cypress/allure
-npm run generate              # Gera o relatório HTML a partir dos resultados
-npm run open                  # Abre o relatório em http://localhost:8765
-npm run serve                 # Gera + serve diretamente em http://localhost:8765
+allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
+allure.cmd open allure-report -p 8765
+allure.cmd serve allure-results -p 8765 --lang br --name "AutomationExercise"
 
 # Teste de performance (k6)
 k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js
@@ -446,23 +445,22 @@ O [Allure](https://allurereport.org/) gera um **relatório único** com todos os
 - **Histórico** — Acumula execuções ao longo de dias/meses (append-only via `history/`)
 
 ```bash
-# Tudo de uma vez:
+# Tudo de uma vez (passo a passo):
 cd automationexercise/Cypress/cypress/allure
-npm run full
 
-# Ou passo a passo:
-npm run k6-to-allure       # Converte resultados k6 para Allure
-npm run pre-generate       # Prepara config + restaura histórico
-npm run generate           # Gera relatório em allure-report/
-npm run open               # Abre http://localhost:8765
+node scripts/convert_k6_to_allure.js      # Converte resultados k6 para Allure
+copy /y allure.properties allure-results\allure.properties >nul
+if exist allure-report\history copy /y allure-report\history\*.json allure-results\history\ >nul
+allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
+allure.cmd open allure-report -p 8765
 
 # Gera relatório estático:
-npm run generate           # Gera em allure-report/ (acessível via docs/Relatorio_Testes.lnk)
+allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
 ```
 
 O **histórico** funciona assim:
 1. Ao gerar o relatório, o Allure salva `history/` dentro do `allure-report/`
-2. O script `pre-generate` copia esse `history/` de volta pra `allure-results/` antes da próxima geração
+2. O comando `copy` acima restaura esse `history/` de volta pra `allure-results/` antes da próxima geração
 3. Isso acumula dados de múltiplas execuções — dias, semanas, meses
 4. Os gráficos de tendência mostram a evolução ao longo do tempo
 

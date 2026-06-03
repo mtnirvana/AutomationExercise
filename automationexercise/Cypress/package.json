@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.42.0",
     "canvas": "^3.2.3",
     "cypress": "^15.15.0",
     "gifencoder": "^2.0.1"

@@ -129,6 +129,11 @@ export class ProductsPage {
     return cy.get('.recommended_items .btn-default.add-to-cart')
   }
 
+  static get recommendedProductInfo() {
+    // [MEDIO] informacao de produto nos recomendados
+    return this.recommendedItems.find('.productinfo')
+  }
+
   // ============================================
   // SELETORES - Review / Avaliação
   // ============================================
@@ -215,6 +220,11 @@ export class ProductsPage {
     cy.get('h2').contains(`${category} - ${subcategory} ${uiData.headers.productsSuffix}`).should('be.visible')
   }
 
+  // Verifica se o header de categorias esta visivel na barra lateral
+  static verifyCategoryHeaderVisible() {
+    this.leftSidebar.find('h2').contains(uiData.headers.categoryHeader).should('be.visible')
+  }
+
   // Verifica se o header de marcas esta visivel na barra lateral
   static verifyBrandsHeaderVisible() {
     cy.get('h2').contains(uiData.headers.brandsHeader).should('be.visible')
@@ -230,6 +240,17 @@ export class ProductsPage {
   // @param {string} brandName - Nome da marca
   static clickBrand(brandName) {
     this.brandLinks.contains(brandName).click()
+  }
+
+  // ============================================
+  // METODOS - Adicionar ao carrinho via Overlay
+  // ============================================
+
+  // Adiciona produto ao carrinho passando o mouse e clicando no overlay
+  // @param {number} index - Indice do produto (0-based)
+  static addToCartOverlay(index = 0) {
+    this.productsItems.eq(index).scrollIntoView().trigger('mouseover')
+    this.productOverlay.eq(index).find('.btn').click({ force: true })
   }
 
   // ============================================
@@ -249,6 +270,12 @@ export class ProductsPage {
   // Clica no link View Product do primeiro item da lista
   static clickViewProduct() {
     this.viewProductLinks.first().click()
+  }
+
+  // Clica no link View Product de um produto especifico pelo nome
+  // @param {string} name - Nome do produto
+  static clickProductByName(name) {
+    cy.contains('.product-image-wrapper', name).scrollIntoView().find('a[href*="/product_details/"]').first().click()
   }
 
   // ============================================

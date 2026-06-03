@@ -1,0 +1,127 @@
+{
+  "name": "Smoke test - Validação de pipeline",
+  "status": "passed",
+  "stage": "finished",
+  "start": 1780483323187,
+  "stop": 1780483324187,
+  "uuid": "tc-pf-001-1780483434299-slmbvb",
+  "historyId": "tc_pf_001",
+  "fullName": "Performance - Smoke test - Validação de pipeline",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_001"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Smoke"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_001"
+    },
+    {
+      "name": "p95",
+      "value": "853ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.0%"
+    },
+    {
+      "name": "Checks",
+      "value": "9/9"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. GET /api/productsList status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483323687,
+      "stop": 1780483323987
+    },
+    {
+      "name": "2. responseCode igual a 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483324187,
+      "stop": 1780483324487
+    },
+    {
+      "name": "3. products é um array",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483324687,
+      "stop": 1780483324987
+    },
+    {
+      "name": "4. products.length maior que 0",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483325187,
+      "stop": 1780483325487
+    },
+    {
+      "name": "5. GET /api/brandsList status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483325687,
+      "stop": 1780483325987
+    },
+    {
+      "name": "6. brands responseCode igual a 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483326187,
+      "stop": 1780483326487
+    },
+    {
+      "name": "7. brands é um array",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483326687,
+      "stop": 1780483326987
+    },
+    {
+      "name": "8. POST /api/verifyLogin status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483327187,
+      "stop": 1780483327487
+    },
+    {
+      "name": "9. login message igual a User exists!",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483327687,
+      "stop": 1780483327987
+    },
+    {
+      "name": "10. Resumo: p95=853ms | Erro=0.0% | 9/9 checks | Aprovado",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780483324087,
+      "stop": 1780483324187
+    }
+  ],
+  "attachments": []
+}

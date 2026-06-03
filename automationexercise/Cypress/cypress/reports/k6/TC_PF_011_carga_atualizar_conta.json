@@ -1,0 +1,175 @@
+{
+    "metrics": {
+        "http_req_sending": {
+            "max": 1.4751,
+            "p(90)": 0.5713,
+            "p(95)": 0.6360999999999999,
+            "avg": 0.25413842139595566,
+            "min": 0,
+            "med": 0.0246
+        },
+        "vus": {
+            "value": 2,
+            "min": 1,
+            "max": 20
+        },
+        "http_req_waiting": {
+            "max": 5487.7925,
+            "p(90)": 2157.68824,
+            "p(95)": 2989.9556999999977,
+            "avg": 1451.7230159165033,
+            "min": 184.4015,
+            "med": 1315.6544
+        },
+        "vus_max": {
+            "value": 20,
+            "min": 20,
+            "max": 20
+        },
+        "http_req_tls_handshaking": {
+            "med": 0,
+            "max": 283.6566,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.40043463796477496,
+            "min": 0
+        },
+        "http_req_connecting": {
+            "min": 0,
+            "med": 0,
+            "max": 1017.9736,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 1.0452931506849317
+        },
+        "iterations": {
+            "count": 511,
+            "rate": 3.370081355544592
+        },
+        "http_reqs": {
+            "count": 1533,
+            "rate": 10.110244066633776
+        },
+        "data_sent": {
+            "count": 479045,
+            "rate": 3159.335857078002
+        },
+        "iteration_duration": {
+            "avg": 5361.363787279836,
+            "min": 1901.1067,
+            "med": 4934.6233,
+            "max": 12505.0244,
+            "p(90)": 6733.6369,
+            "p(95)": 10283.0622
+        },
+        "checks": {
+            "passes": 3529,
+            "fails": 48,
+            "value": 0.9865809337433603
+        },
+        "http_req_duration": {
+            "max": 5488.3463,
+            "p(90)": 2158.51836,
+            "p(95)": 2989.9556999999977,
+            "avg": 1452.0338247879952,
+            "min": 184.9463,
+            "med": 1316.1769,
+            "thresholds": {
+                "p(95)<5000": false
+            }
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 1463.7350530961776,
+            "min": 229.0277,
+            "med": 1322.49725,
+            "max": 5488.3463,
+            "p(90)": 2162.02693,
+            "p(95)": 3016.5258899999853
+        },
+        "http_req_blocked": {
+            "avg": 1.452203783431181,
+            "min": 0,
+            "med": 0,
+            "max": 1036.9854,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_failed": {
+            "passes": 15,
+            "fails": 1518,
+            "thresholds": {
+                "rate<0.15": false
+            },
+            "value": 0.009784735812133072
+        },
+        "data_received": {
+            "rate": 5542.3065339341765,
+            "count": 840371
+        },
+        "http_req_receiving": {
+            "p(95)": 0.06467999999999963,
+            "avg": 0.05667045009784736,
+            "min": 0,
+            "med": 0,
+            "max": 31.923,
+            "p(90)": 0
+        }
+    },
+    "root_group": {
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "createAccount status 200": {
+                    "name": "createAccount status 200",
+                    "path": "::createAccount status 200",
+                    "id": "e1da921121bf5aa6bb0528f74b6acbe9",
+                    "passes": 507,
+                    "fails": 4
+                },
+                "createAccount responseCode 201": {
+                    "name": "createAccount responseCode 201",
+                    "path": "::createAccount responseCode 201",
+                    "id": "5838b7e2d790b3aafa4a4ed8f6f02153",
+                    "passes": 503,
+                    "fails": 8
+                },
+                "updateAccount status 200": {
+                    "name": "updateAccount status 200",
+                    "path": "::updateAccount status 200",
+                    "id": "5bf0506a6c15fde7111afff1d83e6b05",
+                    "passes": 509,
+                    "fails": 2
+                },
+                "updateAccount responseCode 200": {
+                    "id": "4152883de3cb4a658bf3369f65af0aa5",
+                    "passes": 507,
+                    "fails": 4,
+                    "name": "updateAccount responseCode 200",
+                    "path": "::updateAccount responseCode 200"
+                },
+                "updateAccount message User updated!": {
+                    "id": "13dfd81231fb3dd951aceed710521b05",
+                    "passes": 507,
+                    "fails": 4,
+                    "name": "updateAccount message User updated!",
+                    "path": "::updateAccount message User updated!"
+                },
+                "deleteAccount status 200": {
+                    "name": "deleteAccount status 200",
+                    "path": "::deleteAccount status 200",
+                    "id": "3af17241f51807ffd8d299517858caa9",
+                    "passes": 502,
+                    "fails": 9
+                },
+                "deleteAccount message Account deleted!": {
+                    "name": "deleteAccount message Account deleted!",
+                    "path": "::deleteAccount message Account deleted!",
+                    "id": "0fd83b472ba9c2e2c4b18ab0fc4e9e1d",
+                    "passes": 494,
+                    "fails": 17
+                }
+            },
+        "name": "",
+        "path": ""
+    }
+}

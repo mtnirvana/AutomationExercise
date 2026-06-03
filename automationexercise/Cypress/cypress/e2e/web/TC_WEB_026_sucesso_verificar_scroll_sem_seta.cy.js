@@ -38,7 +38,7 @@ describe('TC_WEB_026 - Verificar scroll up sem botão de seta e funcionalidade s
     takeScreenshot('06_rolou_para_cima')
 
     // 7. Verificar que a página rolou para cima e o texto 'Full-Fledged practice website for Automation Engineers' está visível na tela
-    cy.get('h2').contains(uiData.homepage.title).should('be.visible')
+    HomePage.verifyHomePageTitle()
     takeScreenshot('07_texto_visivel_no_topo')
   })
 })

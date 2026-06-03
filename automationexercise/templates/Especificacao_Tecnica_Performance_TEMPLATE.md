@@ -247,7 +247,6 @@ automationexercise/
         ├── support/                                    # Comandos customizados
         │   └── e2e.js                                  # beforeEach centralizado + cy.captura()
         ├── allure/                                     # Relatorios Allure (dark mode + pt-BR)
-        │   ├── package.json                            # allure-commandline
         │   ├── allure.properties                       # Tema escuro + idioma pt-BR
         │   ├── allure-results/                         # Resultados das execucoes
         │   ├── allure-report/                          # Relatorio HTML estatico

@@ -15,7 +15,7 @@ describe('TC_PF_008 - Core Web Vitals - Metricas de Frontend', () => {
     { name: 'Checkout', url: '/checkout' },
     { name: 'Contato', url: '/contact_us' },
     { name: 'Casos de Teste', url: '/test_cases' },
-  ])
+  ];
 
   afterEach(function () {
     if (this.currentTest.state === 'failed') {

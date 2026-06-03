@@ -1,0 +1,127 @@
+{
+  "name": "Carga no endpoint /api/getUserDetailByEmail",
+  "status": "failed",
+  "stage": "finished",
+  "start": 1780482885336,
+  "stop": 1780482886336,
+  "uuid": "tc-pf-012-1780483434312-b6z3ki",
+  "historyId": "tc_pf_012",
+  "fullName": "Performance - Carga no endpoint /api/getUserDetailByEmail",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_012"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Carga"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_012"
+    },
+    {
+      "name": "p95",
+      "value": "1208ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.6%"
+    },
+    {
+      "name": "Checks",
+      "value": "8699/8919"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. createAccount status 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482885836,
+      "stop": 1780482886136
+    },
+    {
+      "name": "2. createAccount responseCode 201",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482886336,
+      "stop": 1780482886636
+    },
+    {
+      "name": "3. getUserDetail status 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482886836,
+      "stop": 1780482887136
+    },
+    {
+      "name": "4. getUserDetail responseCode 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482887336,
+      "stop": 1780482887636
+    },
+    {
+      "name": "5. getUserDetail possui user",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482887836,
+      "stop": 1780482888136
+    },
+    {
+      "name": "6. getUserDetail user.name existe",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482888336,
+      "stop": 1780482888636
+    },
+    {
+      "name": "7. getUserDetail user.email existe",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482888836,
+      "stop": 1780482889136
+    },
+    {
+      "name": "8. deleteAccount status 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482889336,
+      "stop": 1780482889636
+    },
+    {
+      "name": "9. deleteAccount message Account deleted!",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482889836,
+      "stop": 1780482890136
+    },
+    {
+      "name": "10. Resumo: p95=1208ms | Erro=0.6% | 8699/8919 checks | Falhou",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482886236,
+      "stop": 1780482886336
+    }
+  ],
+  "attachments": []
+}

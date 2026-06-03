@@ -1,0 +1,78 @@
+{
+  "name": "Carga no endpoint /api/searchProduct",
+  "status": "failed",
+  "stage": "finished",
+  "start": 1780482941963,
+  "stop": 1780482943189,
+  "uuid": "tc-pf-013-1780483434313-eos0q0",
+  "historyId": "tc_pf_013",
+  "fullName": "Performance - Carga no endpoint /api/searchProduct",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_013"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Carga"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_013"
+    },
+    {
+      "name": "p95",
+      "value": "1993ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "1.1%"
+    },
+    {
+      "name": "Checks",
+      "value": "4610/4718"
+    },
+    {
+      "name": "Duration",
+      "value": "1.2s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. search status 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482942463,
+      "stop": 1780482942763
+    },
+    {
+      "name": "2. resposta contem produtos",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482942963,
+      "stop": 1780482943263
+    },
+    {
+      "name": "3. Resumo: p95=1993ms | Erro=1.1% | 4610/4718 checks | Falhou",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482943089,
+      "stop": 1780482943189
+    }
+  ],
+  "attachments": []
+}

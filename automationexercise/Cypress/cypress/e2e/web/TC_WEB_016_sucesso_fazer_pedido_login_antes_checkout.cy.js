@@ -46,8 +46,7 @@ describe('TC_WEB_016 - Fazer pedido fazendo login antes do checkout', () => {
     takeScreenshot('07_clicou_produtos')
 
     // 8. Adicionar primeiro produto ao carrinho
-    ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
-    ProductsPage.productOverlay.first().find('.btn').click({ force: true })
+    ProductsPage.addToCartOverlay(0)
     takeScreenshot('08_adicionou_primeiro_produto')
 
     // 9. Clicar em 'Continue Shopping'
@@ -55,8 +54,7 @@ describe('TC_WEB_016 - Fazer pedido fazendo login antes do checkout', () => {
     takeScreenshot('09_clicou_continue_shopping')
 
     // 10. Adicionar segundo produto ao carrinho
-    ProductsPage.productsItems.eq(1).scrollIntoView().trigger('mouseover')
-    ProductsPage.productOverlay.eq(1).find('.btn').click({ force: true })
+    ProductsPage.addToCartOverlay(1)
     takeScreenshot('10_adicionou_segundo_produto')
 
     // 11. Clicar no botão 'Cart'
@@ -65,8 +63,7 @@ describe('TC_WEB_016 - Fazer pedido fazendo login antes do checkout', () => {
     takeScreenshot('11_clicou_carrinho')
 
     // 12. Validar página do carrinho
-    cy.url().should('include', '/view_cart')
-    cy.get('h2').should('be.visible')
+    CheckoutPage.verifyCartPageVisible()
     takeScreenshot('12_pagina_carrinho_exibida')
 
     // 13. Clicar em 'Proceed To Checkout'
@@ -98,7 +95,7 @@ describe('TC_WEB_016 - Fazer pedido fazendo login antes do checkout', () => {
     takeScreenshot('18_clicou_pagar_confirmar')
 
     // 19. Verificar mensagem de sucesso
-    cy.contains('h2', uiData.checkout.orderPlaced).should('be.visible')
+    CheckoutPage.verifyOrderPlaced()
     takeScreenshot('19_pedido_colocado_sucesso')
   })
 })

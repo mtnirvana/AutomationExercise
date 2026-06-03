@@ -176,4 +176,30 @@ export class CheckoutPage {
   static clickContinueShopping() {
     this.continueShoppingButton.click()
   }
+
+  // Verifica se a pagina do carrinho esta visivel
+  static verifyCartPageVisible() {
+    cy.url().should('include', '/view_cart')
+    cy.get('h2').should('be.visible')
+  }
+
+  // Verifica se o cabecalho "Order Placed!" esta visivel
+  static verifyOrderPlaced() {
+    cy.contains('h2', uiData.checkout.orderPlaced).should('be.visible')
+  }
+
+  // Verifica se o cabecalho "Address Details" esta visivel
+  static verifyAddressDetailsHeader() {
+    this.checkoutStepHeaders.contains(uiData.checkout.addressDetails).should('be.visible')
+  }
+
+  // Clica no link "Continue" apos pedido finalizado
+  static clickContinueAfterOrder() {
+    cy.contains('a', uiData.buttons.continue).click()
+  }
+
+  // Clica no botao "Add to cart"
+  static clickAddToCart() {
+    this.addToCartButton.click()
+  }
 }

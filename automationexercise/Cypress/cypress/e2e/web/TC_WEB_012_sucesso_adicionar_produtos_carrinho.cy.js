@@ -27,24 +27,16 @@ describe('TC_WEB_012 - Adicionar produtos ao carrinho', () => {
     HomePage.clickProducts()
     takeScreenshot('04_clicou_produtos')
 
-    // 5. Passar o mouse sobre o primeiro produto
-    ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
-    takeScreenshot('05_passou_mouse_primeiro_produto')
-
-    // 6. Clicar em 'Add to cart' no primeiro produto
-    ProductsPage.productOverlay.first().find('.btn').click({ force: true })
+    // 5. Passar o mouse sobre o primeiro produto e clicar em Add to cart
+    ProductsPage.addToCartOverlay(0)
     takeScreenshot('06_clicou_adicionar_ao_carrinho_primeiro')
 
     // 7. Clicar no botão 'Continue Shopping'
     CheckoutPage.clickContinueShopping()
     takeScreenshot('07_clicou_continuar_comprando')
 
-    // 8. Passar o mouse sobre o segundo produto
-    ProductsPage.productsItems.eq(1).scrollIntoView().trigger('mouseover')
-    takeScreenshot('08_passou_mouse_segundo_produto')
-
-    // 9. Clicar em 'Add to cart' no segundo produto
-    ProductsPage.productOverlay.eq(1).find('.btn').click({ force: true })
+    // 8. Passar o mouse sobre o segundo produto e clicar em Add to cart
+    ProductsPage.addToCartOverlay(1)
     takeScreenshot('09_clicou_adicionar_ao_carrinho_segundo')
 
     // 10. Clicar no botão 'View Cart'

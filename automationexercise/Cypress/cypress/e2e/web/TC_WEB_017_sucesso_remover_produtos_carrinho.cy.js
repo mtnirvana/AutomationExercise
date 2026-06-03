@@ -30,7 +30,7 @@ describe('TC_WEB_017 - Remover produtos do carrinho', () => {
     takeScreenshot('04_clicou_produtos')
 
     // 5. Clicar em "View Product" do primeiro produto
-    cy.contains('.product-image-wrapper', productsData.products.firstProd).scrollIntoView().find('a[href*="/product_details/"]').first().click()
+    ProductsPage.clickProductByName(productsData.products.firstProd)
     takeScreenshot('05_detalhes_produto')
 
     // 6. Alterar quantidade para 4
@@ -46,12 +46,11 @@ describe('TC_WEB_017 - Remover produtos do carrinho', () => {
     takeScreenshot('08_mensagem_added')
 
     // 9. Clicar em "View Cart"
-    CheckoutPage.viewCartLink.should('be.visible').click({ force: true })
+    CheckoutPage.clickViewCart()
     takeScreenshot('09_ver_carrinho')
 
     // 10. Validar página do carrinho
-    cy.url().should('include', '/view_cart')
-    cy.get('h2').should('be.visible')
+    CheckoutPage.verifyCartPageVisible()
     takeScreenshot('10_pagina_carrinho_exibida')
 
     // 11. Clicar no botão 'X' do produto

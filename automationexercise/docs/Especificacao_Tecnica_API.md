@@ -406,9 +406,14 @@ expect(response.body.message).to.eq('Account deleted!')
 **Resultado esperado:** API permite alteração de dados cadastrais<br>
 **Script:** [`TC_API_010_sucesso_atualizar_conta_usuario.cy.js`](../Cypress/cypress/e2e/api/TC_API_010_sucesso_atualizar_conta_usuario.cy.js)<br>
 ```javascript
+// Validações do PUT
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(200)
 expect(response.body.message).to.eq('User updated!')
+// Validações de persistência via GET
+expect(getResponse.body.responseCode).to.eq(200)
+expect(getResponse.body.user.first_name).to.eq('Updated')
+expect(getResponse.body.user.last_name).to.eq('Name')
 ```
 
 **Evidência:**
@@ -433,8 +438,8 @@ expect(response.body.message).to.eq('User updated!')
 | 3 | Validar status code 200 | response.status | Igual a 200 |
 | 4 | Validar responseCode | body.responseCode | Igual a 200 |
 | 5 | Validar propriedade user | body.user | Existe e não é null |
-| 6 | Validar propriedade name do usuário | body.user | Possui propriedade name |
-| 7 | Validar propriedade email do usuário | body.user | Possui propriedade email |
+| 6 | Validar que o nome retornado é "TestUser" | body.user.name | Igual a "TestUser" |
+| 7 | Validar que o email retornado é o email consultado | body.user.email | Igual ao email usado no cadastro |
 | 8 | Gerar evidência do teste | cy.task('generateEvidenceReport') | HTML salvo em screenshots/api/ |
 
 **Asserção Chave:** Response status 200 com objeto user contendo name e email<br>
@@ -444,8 +449,8 @@ expect(response.body.message).to.eq('User updated!')
 expect(response.status).to.eq(200)
 expect(response.body.responseCode).to.eq(200)
 expect(response.body).to.have.property('user')
-expect(response.body.user).to.have.property('name')
-expect(response.body.user).to.have.property('email')
+expect(response.body.user.name).to.eq('TestUser')
+expect(response.body.user.email).to.eq(testEmail)
 ```
 
 **Evidência:**

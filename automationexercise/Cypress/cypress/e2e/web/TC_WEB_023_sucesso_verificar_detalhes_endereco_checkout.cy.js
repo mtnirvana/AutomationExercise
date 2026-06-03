@@ -63,11 +63,9 @@ describe('TC_WEB_023 - Verificar detalhes do endereço na página de checkout', 
 
     // 11. Adicionar produtos ao carrinho
     HomePage.clickProducts()
-    ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
-    ProductsPage.productOverlay.first().find('.btn').click({ force: true })
+    ProductsPage.addToCartOverlay(0)
     CheckoutPage.clickContinueShopping()
-    ProductsPage.productsItems.eq(1).scrollIntoView().trigger('mouseover')
-    ProductsPage.productOverlay.eq(1).find('.btn').click({ force: true })
+    ProductsPage.addToCartOverlay(1)
     takeScreenshot('11_produtos_adicionados_ao_carrinho')
 
     // 12. Clicar no botão 'Cart'
@@ -76,8 +74,7 @@ describe('TC_WEB_023 - Verificar detalhes do endereço na página de checkout', 
     takeScreenshot('12_clicou_carrinho')
 
     // 13. Verificar que a página do carrinho está visível
-    cy.url().should('include', '/view_cart')
-    cy.get('h2').should('be.visible')
+    CheckoutPage.verifyCartPageVisible()
     takeScreenshot('13_pagina_carrinho_exibida')
 
     // 14. Clicar em 'Proceed To Checkout'
@@ -85,7 +82,7 @@ describe('TC_WEB_023 - Verificar detalhes do endereço na página de checkout', 
     takeScreenshot('14_clicou_proceder_checkout')
 
     // 15. Verificar que o endereço de entrega é o mesmo preenchido no registro da conta
-    cy.contains('h2', uiData.checkout.addressDetails).should('be.visible')
+    CheckoutPage.verifyAddressDetailsHeader()
     CheckoutPage.deliveryAddress.should('contain', userData.address.address1)
     CheckoutPage.deliveryAddress.should('contain', userData.address.city)
     CheckoutPage.deliveryAddress.should('contain', userData.address.state)

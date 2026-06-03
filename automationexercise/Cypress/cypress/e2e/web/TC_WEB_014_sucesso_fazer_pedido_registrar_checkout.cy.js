@@ -33,14 +33,12 @@ describe('TC_WEB_014 - Fazer pedido registrando durante o checkout', () => {
     takeScreenshot('04_clicou_produtos')
 
     // 5. Adicionar primeiro produto ao carrinho
-    ProductsPage.productsItems.first().scrollIntoView().trigger('mouseover')
-    ProductsPage.productOverlay.first().find('.btn').click({ force: true })
+    ProductsPage.addToCartOverlay(0)
     CheckoutPage.clickContinueShopping()
     takeScreenshot('05_adicionou_primeiro_produto')
 
     // 6. Adicionar segundo produto ao carrinho
-    ProductsPage.productsItems.eq(1).scrollIntoView().trigger('mouseover')
-    ProductsPage.productOverlay.eq(1).find('.btn').click({ force: true })
+    ProductsPage.addToCartOverlay(1)
     takeScreenshot('06_adicionou_segundo_produto')
 
     // 7. Clicar em 'View Cart'
@@ -48,7 +46,7 @@ describe('TC_WEB_014 - Fazer pedido registrando durante o checkout', () => {
     takeScreenshot('07_clicou_ver_carrinho')
 
     // 8. Verificar que a página do carrinho está visível
-    cy.url().should('include', '/view_cart')
+    CheckoutPage.verifyCartPageVisible()
     takeScreenshot('08_pagina_carrinho_visivel')
 
     // 9. Clicar em 'Proceed To Checkout'
@@ -93,7 +91,7 @@ describe('TC_WEB_014 - Fazer pedido registrando durante o checkout', () => {
 
     // 18. Clicar no botão 'Cart'
     HomePage.clickCart()
-    cy.url().should('include', '/view_cart')
+    CheckoutPage.verifyCartPageVisible()
     takeScreenshot('18_clicou_carrinho')
 
     // 19. Clicar no botão 'Proceed To Checkout'
@@ -125,7 +123,7 @@ describe('TC_WEB_014 - Fazer pedido registrando durante o checkout', () => {
     takeScreenshot('24_clicou_pagar_confirmar')
 
     // 25. Verificar mensagem de sucesso
-    cy.contains('h2', uiData.checkout.orderPlaced).should('be.visible')
+    CheckoutPage.verifyOrderPlaced()
     takeScreenshot('25_pedido_colocado_sucesso')
 
     // 26. Clicar no botão 'Delete Account'
