@@ -5,11 +5,11 @@
 
 ---
 
-## Estrutura por Pagina
+## Estrutura por Página
 
-Cada pagina e dividida em duas secoes:
-- **Seletores (Getters):** Referencias diretas a elementos DOM
-- **Metodos:** Ações encapsuladas que utilizam os seletores
+Cada pagina e dividida em duas seções:
+- **Seletores (Getters):** Referências diretas a elementos DOM
+- **Métodos:** Ações encapsuladas que utilizam os seletores
 
 ---
 
@@ -34,8 +34,8 @@ Cada pagina e dividida em duas secoes:
 | subscriptionHeader | `.single-widget h2` | `.single-widget .title` | - | OK |
 | scrollUpIcon | `i[class*="angle-up"]` | `a#scrollUp` | - | OK |
 
-#### Metodos
-| Metodo | Descricao | Seletor Interno | Status |
+#### Métodos
+| Metodo | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `clickSignupLogin()` | Clica no link Signup / Login | `signupLoginLink` | OK |
 | `verifyLoggedInAs(username)` | Verifica usuario logado com nome | `loggedInIndicator` | OK |
@@ -63,8 +63,8 @@ Cada pagina e dividida em duas secoes:
 | loginPassword | `input[data-qa="login-password"]` | `[placeholder="Password"]` | `input[name="password"]` | OK |
 | loginButton | `button[data-qa="login-button"]` | `button.btn-default`.contains('Login') | - | OK |
 
-#### Metodos
-| Metodo | Descricao | Seletor Interno | Status |
+#### Métodos
+| Metodo | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyNewUserSignupHeader()` | Valida header "New User Signup!" | `newUserSignupHeader` | OK |
 | `verifyLoginHeader()` | Valida header "Login to your account" | `loginToYourAccountHeader` | OK |
@@ -104,8 +104,8 @@ Cada pagina e dividida em duas secoes:
 | mobileNumber | `#mobile_number` | `input[name="mobile_number"]` | - | OK |
 | createAccountButton | `button[data-qa="create-account"]` | `button`.contains('Create Account') | - | OK |
 
-#### Metodos
-| Metodo | Descricao | Seletor Interno | Status |
+#### Métodos
+| Metodo | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyAccountInfoHeader()` | Valida header "Enter Account Information" | `accountInfoHeader` | OK |
 | `selectGender(gender)` | Seleciona genero (male/female) | `genderMale` ou `genderFemale` | OK |
@@ -124,8 +124,8 @@ Cada pagina e dividida em duas secoes:
 | accountDeletedHeader | `h2.contains('Account Deleted!')` | `b.contains('Account Deleted!')` | - | OK |
 | continueButton | `a[data-qa="continue-button"]` | `a.btn-primary` | `a.contains('Continue')` | OK |
 
-#### Metodos
-| Metodo | Descricao | Seletor Interno | Status |
+#### Métodos
+| Metodo | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyAccountCreated()` | Valida "Account Created!" | `accountCreatedHeader` | OK |
 | `verifyAccountDeleted()` | Valida "Account Deleted!" | `accountDeletedHeader` | OK |
@@ -148,8 +148,8 @@ Cada pagina e dividida em duas secoes:
 | homeButton | `a.btn-success[href="/"]` | `span.contains(' Home')` | - | OK |
 | successMessage | `.status.alert.alert-success` | `.contact-form .alert-success` | - | OK |
 
-#### Metodos
-| Metodo | Descricao | Seletor Interno | Status |
+#### Métodos
+| Metodo | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyGetInTouchHeader()` | Valida header "Get In Touch" | `getInTouchHeader` | OK |
 | `verifySuccessMessage()` | Valida mensagem de sucesso | `successMessage` | OK |
@@ -167,8 +167,8 @@ Cada pagina e dividida em duas secoes:
 |----------|---------------|---------------|---------------|--------|
 | pageTitle | `h2.contains('Test Cases')` | `b.contains('Test Cases')` | - | OK |
 
-#### Metodos
-| Metodo | Descricao | Seletor Interno | Status |
+#### Métodos
+| Metodo | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyPageTitle()` | Valida titulo "Test Cases" | `pageTitle` | OK |
 
@@ -209,8 +209,8 @@ Cada pagina e dividida em duas secoes:
 | reviewSubmitButton | `button.contains('Submit')` | `input[value="Submit"]` | - | OK |
 | reviewSuccessMessage | `span.contains('Thank you for your review.')` | `.alert-success span` | - | OK |
 
-#### Metodos
-| Metodo | Descricao | Seletor Interno | Status |
+#### Métodos
+| Metodo | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `verifyAllProductsPage()` | Valida header "All Products" | `productsHeader` | OK |
 | `verifyProductsList()` | Valida lista de produtos visivel | `productsItems` | OK |
@@ -263,8 +263,8 @@ Cada pagina e dividida em duas secoes:
 | invoiceAddress | `#address_invoice` | `.address_invoice` | - | OK |
 | checkoutStepHeaders | `.step-one h2` | `.step h2` | - | OK |
 
-#### Metodos
-| Metodo | Descricao | Seletor Interno | Status |
+#### Métodos
+| Metodo | Descrição | Seletor Interno | Status |
 |--------|-----------|-----------------|--------|
 | `fillPaymentDetails(paymentData)` | Preenche dados de pagamento | `nameOnCard` + `cardNumber` + `cardCvc` + `cardExpiryMonth` + `cardExpiryYear` | OK |
 | `clickProceedToCheckout()` | Clica em "Proceed To Checkout" | `proceedToCheckoutButton` | OK |
