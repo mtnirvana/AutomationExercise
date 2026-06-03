@@ -425,13 +425,15 @@ Before creating any selector or when identifying a failure, the Agent must use i
 1. Open the site and inspect the complete HTML.
 2. Search for the most robust level available (data-qa, ID, etc.).
 3. **MANDATORY CHECK:** Verify if the selector (or an equivalent one) ALREADY EXISTS in the target Page Object. If it exists, **REUSE it**. Do not create redundant selectors with different names to avoid polluting the Page Objects.
-4. **Register ALL found alternatives and history in the `Seletores.md` file**.
+4. **Preencher o template `Seletores_TEMPLATE.md`** — Usar como modelo de estrutura, seguindo o formato de tabelas (Elemento/Seletor Atual/Alternativas/Status).
+5. **Incrementar o `Seletores.md` oficial** — Copiar o bloco preenchido do template para o documento oficial, na seção da página correspondente.
 
 ## Self-Healing Policy (Failure/Restoration)
 If a test fails due to a selector error:
 1. **Step 1:** Consult `Seletores.md` for documented alternatives (Skip `[QUEBRADO]`).
 2. **Step 2:** If failed, consult `playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
-3. **Step 3:** Update Page Object and `Seletores.md` (Marking old as `[QUEBRADO]`).
+3. **Step 3:** Preencher o `Seletores_TEMPLATE.md` com os seletores descobertos (usar como rascunho/rascunho).
+4. **Step 4:** Copiar o bloco do template para o `Seletores.md` oficial e atualizar o Page Object (marcando o seletor antigo como `[QUEBRADO]`).
 
 ## Golden Rules
 - **NEVER** use a selector marked as `[QUEBRADO]` during execution.
