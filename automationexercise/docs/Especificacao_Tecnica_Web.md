@@ -370,14 +370,12 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
 | 4 | Clicar em "Products" | `HomePage.clickProducts()` → `a[href="/products"]` | Redireciona para produtos |
-| 5 | Passar mouse sobre primeiro produto | `cy.get('.single-products').first().trigger('mouseover')` | Overlay aparece |
-| 6 | Clicar em "Add to cart" | `.product-overlay:first .btn` | Produto adicionado |
-| 7 | Clicar em "Continue Shopping" | `cy.contains('button', 'Continue Shopping')` | Modal fechado |
-| 8 | Passar mouse sobre segundo produto | `cy.get('.single-products').eq(1).trigger('mouseover')` | Overlay aparece |
-| 9 | Clicar em "Add to cart" | `.product-overlay:eq(1) .btn` | Produto adicionado |
-| 10 | Clicar em "View Cart" | `cy.contains('a', 'View Cart')` | Abre carrinho |
-| 11 | Validar produtos no carrinho | `cy.get('tbody tr').should('have.length.gte', 1)` | Produtos listados |
-| 12 | Validar preços, quantidade e total | `.cart_price`, `.cart_quantity`, `.cart_total` | Detalhes visíveis |
+| 5 | Passar mouse sobre primeiro produto e clicar em "Add to cart" | `ProductsPage.addToCartOverlay(0)` | Produto adicionado |
+| 6 | Clicar em "Continue Shopping" | `CheckoutPage.clickContinueShopping()` | Modal fechado |
+| 7 | Passar mouse sobre segundo produto e clicar em "Add to cart" | `ProductsPage.addToCartOverlay(1)` | Produto adicionado |
+| 8 | Clicar em "View Cart" | `CheckoutPage.clickViewCart()` | Abre carrinho |
+| 9 | Validar produtos no carrinho | `CheckoutPage.cartTableRows.should('have.length', 2)` | Produtos listados |
+| 10 | Validar preços, quantidade e total | `CheckoutPage.cartPrice`, `.cart_quantity`, `.cart_total` | Detalhes visíveis |
 
 **Asserção Chave:** Ambos os produtos listados com preços, quantidades e totais visíveis no carrinho.<br>
 **Resultado esperado:** Carrinho aceita múltiplos produtos com preços e quantidades<br>
@@ -1047,5 +1045,6 @@ automationexercise/
 │       └── videos/                      # Videos das execucoes
 ```
 ---
+
 **Documento gerado em:** 2026-06-02
 

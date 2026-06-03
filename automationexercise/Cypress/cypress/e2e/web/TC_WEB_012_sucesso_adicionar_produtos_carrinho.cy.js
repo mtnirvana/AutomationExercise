@@ -31,29 +31,29 @@ describe('TC_WEB_012 - Adicionar produtos ao carrinho', () => {
     ProductsPage.addToCartOverlay(0)
     takeScreenshot('05_clicou_adicionar_ao_carrinho_primeiro')
 
-    // 7. Clicar no botão 'Continue Shopping'
+    // 6. Clicar no botão 'Continue Shopping'
     CheckoutPage.clickContinueShopping()
-    takeScreenshot('07_clicou_continuar_comprando')
+    takeScreenshot('06_clicou_continuar_comprando')
 
-    // 8. Passar o mouse sobre o segundo produto e clicar em Add to cart
+    // 7. Passar o mouse sobre o segundo produto e clicar em Add to cart
     ProductsPage.addToCartOverlay(1)
-    takeScreenshot('08_clicou_adicionar_ao_carrinho_segundo')
+    takeScreenshot('07_clicou_adicionar_ao_carrinho_segundo')
 
-    // 10. Clicar no botão 'View Cart'
+    // 8. Clicar no botão 'View Cart'
     CheckoutPage.clickViewCart()
-    takeScreenshot('10_clicou_ver_carrinho')
+    takeScreenshot('08_clicou_ver_carrinho')
 
-    // 11. Verificar que ambos os produtos foram adicionados ao Carrinho
+    // 9. Verificar que ambos os produtos foram adicionados ao Carrinho
     CheckoutPage.cartTableRows.should('have.length', 2)
-    takeScreenshot('11_produtos_no_carrinho')
+    takeScreenshot('09_produtos_no_carrinho')
 
-    // 12. Verificar preços, quantidade e preço total
+    // 10. Verificar preços, quantidade e preço total
     CheckoutPage.cartTableRows.each(() => {
       CheckoutPage.cartPrice.should('be.visible')
       CheckoutPage.cartQuantity.should('be.visible')
       CheckoutPage.cartTotal.should('be.visible')
     })
-    takeScreenshot('12_precos_quantidade_total_verificados')
+    takeScreenshot('10_precos_quantidade_total_verificados')
   })
 })
 

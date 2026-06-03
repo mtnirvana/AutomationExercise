@@ -113,7 +113,7 @@ antigravity PORTFOLIO/
 │   │   │   ├── reports/                           # Relatórios de execução
 │   │   │   │   └── k6/                            # JSONs do k6 --summary-export
 │   │   │   │
-│   │   │   ├── allure/                            # Relatórios Allure (dark mode + pt-BR)
+│   │   │   ├── allure/                            # Relatórios Allure
 │   │   │   │   ├── allure.properties              # Tema escuro + idioma pt-BR
 │   │   │   │   ├── allure-results/                # Resultados das execuções (gerado pelo Cypress)
 │   │   │   │   ├── allure-report/                 # Relatório HTML estático (gerado via allure.cmd)

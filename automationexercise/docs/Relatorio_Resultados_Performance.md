@@ -35,7 +35,7 @@
 | TC_PF_007 | Pico (Spike - 200 VUs) | ⚠️ Rate limited | 13% | 6,66s | 86,45% |
 | TC_PF_008 | Core Web Vitals | ✅ Passou (8/8) | Cypress | - | 0% |
 | TC_PF_009 | Fluxo Checkout (20 VUs) | ✅ Passou | 8/8 | 1,36s | 0% |
-| TC_PF_010 | Análise de Imagens (1 VU) | ✅ Passou | 37/37 | 562ms | 0% |
+| TC_PF_010 | Análise de Imagens (1 VU) | ✅ Passou | 37/37 | 500ms | 0% |
 | TC_PF_011 | Carga Update Account (20 VUs) | ✅ Passou | 7/7 | 2,42s | 0,21% |
 | TC_PF_012 | Carga User Details (20 VUs) | ✅ Passou | 9/9 | 2,32s | 0% |
 | TC_PF_013 | Carga Search Product (30 VUs) | ✅ Passou | 2/2 | 2,09s | 0,67% |
@@ -441,7 +441,7 @@ O spike de 10→200 VUs em 5s dispara rate limiting imediato do Cloudflare. O ch
 | **Carrinho** (/view_cart) | TC_WEB_012, TC_WEB_017, TC_WEB_020 | 1.096ms | 0,01 | 758ms | 54 | Lighthouse |
 | **Checkout** (/checkout) | **TC_WEB_014, TC_WEB_015, TC_WEB_016, TC_WEB_023** | 1.500ms | **0,00** | 703ms | 54 | Lighthouse |
 | **Contato** (/contact_us) | TC_WEB_006 | 1.120ms | 0,01 | 732ms | 54 | Lighthouse |
-| **Casos de Teste** (/test_cases) | TC_WEB_007 | - | - | - | 54 | Lighthouse |
+| **Casos de Teste** (/test_cases) | TC_WEB_007 | 1.020ms | 0,00 | 715ms | 54 | Lighthouse |
 
 > **Nota:** Carrinho e checkout foram testados via Lighthouse (páginas vazias). A adição de itens ao carrinho depende de interação JavaScript no browser (hover, modal, localStorage) — não é possível via Lighthouse simples. Para testar com itens, seria necessário usar um teste E2E (Cypress) que adiciona produtos e então coleta as métricas de performance.
 
@@ -511,54 +511,47 @@ O spike de 10→200 VUs em 5s dispara rate limiting imediato do Cloudflare. O ch
 
 ---
 
-### 2.10 TC_PF_010 - Análise de Imagens
+### 2.10 TC_PF_010 - Análise de Imagens (1 VU)
 
 | Parâmetro | Valor |
 |:----------|:------|
-| **Script** | [`TC_PF_010_auditoria_imagens.js`](../Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js) |
-| **Data/Hora** | 2026-05-24 10:27 |
-| **Duração** | 30s |
-| **VUs** | 1 (validação do fluxo — carga documentada: 20 VUs, não testada) |
-| **Iterações** | 37 |
-| **Status** | ✅ **APROVADO (validação de fluxo a 1 VU)** |
+| **Script** | [TC_PF_010_auditoria_imagens.js](../Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js) |
+| **Data/Hora** | 2026-06-03 |
+| **Duração** | 12,5s |
+| **VUs** | 1 (auditoria, sem carga) |
+| **Iterações** | 1 |
+| **Status** | ✅ **APROVADO** |
 
 #### Métricas de Rede
 
 | Métrica | Valor |
 |:--------|:-----:|
-| **http_req_duration avg** | 217ms |
-| **http_req_duration min** | 113ms |
-| **http_req_duration max** | 2,1s |
-| **http_req_duration p(90)** | 458ms |
-| **http_req_duration p(95)** | 659ms |
+| **http_req_duration avg** | 272ms |
+| **http_req_duration min** | 182ms |
+| **http_req_duration max** | 1,25s |
+| **http_req_duration p(90)** | 391ms |
+| **http_req_duration p(95)** | 500ms |
 | **http_req_failed** | 0% |
-| **http_reqs (throughput)** | 1,23 req/s |
+| **http_reqs (throughput)** | 2,8 req/s |
 
-#### Checks
+#### Checks (37)
 
 | Check | Resultado |
 |:------|:---------:|
-| GET /products status 200 (home) | ✅ Passou |
-| response body contem HTML | ✅ Passou |
-| GET /view_cart status 200 | ✅ Passou |
-| cart body contem HTML | ✅ Passou |
-| GET /login status 200 | ✅ Passou |
-| login body contem HTML | ✅ Passou |
-| GET /product_details/1 status 200 | ✅ Passou |
-| product_details body contem HTML | ✅ Passou |
-| GET /contact_us status 200 | ✅ Passou |
-| contact_us body contem HTML | ✅ Passou |
-| GET /test_cases status 200 | ✅ Passou |
-| test_cases body contem HTML | ✅ Passou |
 | GET /api/productsList status 200 | ✅ Passou |
-| api responseCode igual a 200 | ✅ Passou |
+| imagem 1 carregada | ✅ Passou |
+| imagem 2 carregada | ✅ Passou |
+| imagem 3 carregada | ✅ Passou |
+| ... (34 no total: 1 por produto) | ✅ Passou |
+| total 34 imagens analisadas | ✅ Passou |
+| 3 imagens > 200KB | ✅ Passou |
 
 #### Thresholds
 
 | Threshold | Resultado |
 |:----------|:---------:|
-| `http_req_duration p(95) < 5000` | ✅ p(95)=659ms |
-| `http_req_failed rate < 0,05` | ✅ rate=0,00% |
+| http_req_duration p(95) < 5000 | ✅ p(95)=500ms |
+| http_req_failed rate < 0,01 | ✅ rate=0,00% |
 
 ---
 

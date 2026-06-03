@@ -651,7 +651,6 @@ automationexercise/
     ├── screenshots/             # Evidencias visuais
     └── videos/                  # Videos das execucoes
 ```
+---
 
- ---
- 
- **Documento gerado em:** 2026-06-02
+**Documento gerado em:** 2026-06-02
