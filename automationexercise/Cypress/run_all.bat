@@ -28,7 +28,9 @@ node scripts\gerar_gifs.js
 echo.
 
 REM === 3. k6 (carga, estresse, pico - ~25min total) ===
-echo [3/5] k6 Performance...
+echo [3/5] Limpando reports anteriores e executando k6 Performance...
+if exist "cypress\reports\k6" rmdir /s /q "cypress\reports\k6"
+mkdir "cypress\reports\k6"
 echo NOTA: Os testes de carga levam varios minutos cada um.
 echo       Se um teste parecer travado, aguarde - ele esta gerando
 echo       requisicoes simultaneas para medir a performance.
