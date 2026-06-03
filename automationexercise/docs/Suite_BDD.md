@@ -963,7 +963,7 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 
 > **Nota:** Performance tests são 14 scripts (13 k6 + 1 Cypress), que geram 21 checks individuais no Allure (13 k6 + 8 Core Web Vitals). Os 8 checks do TC_PF_008 elevam o total para 61 casos no Allure (26 E2E + 14 API + 21 Performance). Em termos BDD (cenários descritíveis em Gherkin), o total é de 40 cenários (26 E2E + 14 API).
 >
-> ¹ Os 2 cenários classificados como "Erro" (TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare, não erros funcionais. Os scripts executam corretamente e os thresholds foram ajustados para tolerar a degradação esperada sob carga.
+> ¹ Os 2 cenários classificados como "Erro" (TC_PF_005 e TC_PF_007) são Limitação de Rate Limiting do Cloudflare sob carga extrema (300 VUs e 200 VUs), não erros funcionais. Thresholds ampliados para `rate<0.90`. Testes executados sequencialmente (3 rodadas) com resultados consistentes.
 
 ### 5.1 Cobertura por Área Funcional - E2E
 
