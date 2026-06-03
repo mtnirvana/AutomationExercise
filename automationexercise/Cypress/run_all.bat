@@ -37,7 +37,7 @@ set K6_REPORT=cypress\reports\k6
 set PASS=0
 set FAIL=0
 for %%f in (cypress\e2e\performance\TC_PF_*.js) do (
-  echo %%~nf | findstr /v "\.cy$" >nul
+  echo %%f | findstr /v /c:".cy.js" >nul
   if not errorlevel 1 (
     echo [k6] Rodando: %%~nf...
     k6 run "%%f" --quiet --summary-export="%K6_REPORT%\%%~nf.json"
@@ -60,7 +60,10 @@ echo [5/5] Gerando relatorio Allure completo...
 cd cypress\allure
 if not exist "allure-results" mkdir "allure-results"
 copy /y allure.properties allure-results\allure.properties >nul 2>&1
-if exist "allure-report\history" copy /y allure-report\history\*.json allure-results\history\ >nul 2>&1
+if exist "allure-report\history" (
+  if not exist "allure-results\history" mkdir "allure-results\history"
+  copy /y "allure-report\history\*.json" "allure-results\history\" >nul 2>&1
+)
 call allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
 cd ..\..\
 echo.
