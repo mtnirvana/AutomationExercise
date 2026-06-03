@@ -34,106 +34,109 @@ describe('TC_WEB_014 - Fazer pedido registrando durante o checkout', () => {
 
     // 5. Adicionar primeiro produto ao carrinho
     ProductsPage.addToCartOverlay(0)
-    CheckoutPage.clickContinueShopping()
     takeScreenshot('05_adicionou_primeiro_produto')
 
-    // 6. Adicionar segundo produto ao carrinho
+    // 6. Clicar em 'Continue Shopping'
+    CheckoutPage.clickContinueShopping()
+    takeScreenshot('06_clicou_continuar_comprando')
+
+    // 7. Adicionar segundo produto ao carrinho
     ProductsPage.addToCartOverlay(1)
     takeScreenshot('06_adicionou_segundo_produto')
 
-    // 7. Clicar em 'View Cart'
+    // 8. Clicar em 'View Cart'
     CheckoutPage.clickViewCart()
-    takeScreenshot('07_clicou_ver_carrinho')
+    takeScreenshot('08_clicou_ver_carrinho')
 
-    // 8. Verificar que a página do carrinho está visível
+    // 9. Verificar que a página do carrinho está visível
     CheckoutPage.verifyCartPageVisible()
-    takeScreenshot('08_pagina_carrinho_visivel')
+    takeScreenshot('09_pagina_carrinho_visivel')
 
-    // 9. Clicar em 'Proceed To Checkout'
+    // 10. Clicar em 'Proceed To Checkout'
     CheckoutPage.clickProceedToCheckout()
-    takeScreenshot('09_clicou_proceder_checkout')
+    takeScreenshot('10_clicou_proceder_checkout')
 
-    // 10. Clicar no botão 'Register / Login'
+    // 11. Clicar no botão 'Register / Login'
     HomePage.signupLoginLink.click({ force: true })
-    takeScreenshot('10_clicou_registrar_login')
+    takeScreenshot('11_clicou_registrar_login')
 
-    // 11. Preencher email no formulário de signup
+    // 12. Preencher email no formulário de signup
     LoginPage.nameInput.type(userData.username)
     LoginPage.emailInput.type(userData.email)
     LoginPage.clickSignup()
-    takeScreenshot('11_preencheu_email_signup')
+    takeScreenshot('12_preencheu_email_signup')
 
-    // 12. Selecionar gênero e preencher senha
+    // 13. Selecionar gênero e preencher senha
     SignupPage.selectGender(userData.gender)
     SignupPage.password.type(userData.password)
-    takeScreenshot('12_selecionou_genero_e_senha')
+    takeScreenshot('13_selecionou_genero_e_senha')
 
-    // 13. Preencher data de nascimento
+    // 14. Preencher data de nascimento
     SignupPage.fillDateOfBirth(userData.day, userData.month, userData.year)
-    takeScreenshot('13_preencheu_data_nascimento')
+    takeScreenshot('14_preencheu_data_nascimento')
 
-    // 14. Preencher endereço
+    // 15. Preencher endereço
     SignupPage.fillAddress(userData.address)
-    takeScreenshot('14_preencheu_endereco')
+    takeScreenshot('15_preencheu_endereco')
 
-    // 15. Clicar em 'Create Account'
+    // 16. Clicar em 'Create Account'
     SignupPage.clickCreateAccount()
-    takeScreenshot('15_criou_conta')
+    takeScreenshot('16_criou_conta')
 
-    // 16. Verificar 'ACCOUNT CREATED!' e clicar no botão 'Continue'
+    // 17. Verificar 'ACCOUNT CREATED!' e clicar no botão 'Continue'
     AccountPage.verifyAccountCreated()
     AccountPage.clickContinue()
-    takeScreenshot('16_conta_criada_clicou_continuar')
+    takeScreenshot('17_conta_criada_clicou_continuar')
 
-    // 17. Verificar 'Logged in as username' no topo
+    // 18. Verificar 'Logged in as username' no topo
     HomePage.verifyLoggedInAs(userData.username)
-    takeScreenshot('17_logado_como_visivel')
+    takeScreenshot('18_logado_como_visivel')
 
-    // 18. Clicar no botão 'Cart'
+    // 19. Clicar no botão 'Cart'
     HomePage.clickCart()
     CheckoutPage.verifyCartPageVisible()
-    takeScreenshot('18_clicou_carrinho')
+    takeScreenshot('19_clicou_carrinho')
 
-    // 19. Clicar no botão 'Proceed To Checkout'
+    // 20. Clicar no botão 'Proceed To Checkout'
     CheckoutPage.clickProceedToCheckout()
-    takeScreenshot('19_clicou_proceder_checkout')
+    takeScreenshot('20_clicou_proceder_checkout')
 
-    // 20. Verificar Detalhes do Endereço e Revisão do Pedido
+    // 21. Verificar Detalhes do Endereço e Revisão do Pedido
     CheckoutPage.checkoutStepHeaders.contains(uiData.checkout.addressDetails).should('be.visible')
     CheckoutPage.checkoutStepHeaders.contains(uiData.checkout.reviewOrder).should('be.visible')
-    takeScreenshot('20_detalhes_endereco_revisao_visivel')
+    takeScreenshot('21_detalhes_endereco_revisao_visivel')
 
-    // 21. Inserir descrição na área de texto de comentários
+    // 22. Inserir descrição na área de texto de comentários
     CheckoutPage.commentInput.type(contactData.checkout.message)
-    takeScreenshot('21_comentario_inserido')
+    takeScreenshot('22_comentario_inserido')
 
-    // 22. Clicar em 'Place Order'
+    // 23. Clicar em 'Place Order'
     CheckoutPage.clickPlaceOrder()
-    takeScreenshot('22_clicou_place_order')
+    takeScreenshot('23_clicou_place_order')
 
-    // 23. Inserir detalhes do pagamento: Nome no Cartão, Número do Cartão, CVC, Data de Validade
+    // 24. Inserir detalhes do pagamento: Nome no Cartão, Número do Cartão, CVC, Data de Validade
     cy.get('@usersData').then((usersData) => {
       CheckoutPage.fillPaymentDetails(usersData.paymentData)
     })
     cy.scrollTo('top')
-    takeScreenshot('23_detalhes_pagamento_inseridos')
+    takeScreenshot('24_detalhes_pagamento_inseridos')
 
-    // 24. Clicar no botão 'Pay and Confirm Order'
+    // 25. Clicar no botão 'Pay and Confirm Order'
     CheckoutPage.clickPayAndConfirm()
-    takeScreenshot('24_clicou_pagar_confirmar')
+    takeScreenshot('25_clicou_pagar_confirmar')
 
-    // 25. Verificar mensagem de sucesso
+    // 26. Verificar mensagem de sucesso
     CheckoutPage.verifyOrderPlaced()
-    takeScreenshot('25_pedido_colocado_sucesso')
+    takeScreenshot('26_pedido_colocado_sucesso')
 
-    // 26. Clicar no botão 'Delete Account'
+    // 27. Clicar no botão 'Delete Account'
     HomePage.clickDeleteAccount()
-    takeScreenshot('26_clicou_excluir_conta')
+    takeScreenshot('27_clicou_excluir_conta')
 
-    // 27. Verificar 'ACCOUNT DELETED!' e clicar no botão 'Continue'
+    // 28. Verificar 'ACCOUNT DELETED!' e clicar no botão 'Continue'
     AccountPage.verifyAccountDeleted()
     AccountPage.clickContinue()
-    takeScreenshot('27_conta_excluida_teste_concluido')
+    takeScreenshot('28_conta_excluida_teste_concluido')
   })
 })
 
