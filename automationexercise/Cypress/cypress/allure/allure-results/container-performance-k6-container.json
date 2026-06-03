@@ -1,0 +1,23 @@
+{
+  "uuid": "container-performance-k6",
+  "name": "Performance (k6)",
+  "children": [
+    "tc-pf-001-1780483434299-slmbvb",
+    "tc-pf-002-1780483434301-e8vjxq",
+    "tc-pf-003-1780483434302-idwcey",
+    "tc-pf-004-1780483434303-l1hznl",
+    "tc-pf-005-1780483434304-tmr9ug",
+    "tc-pf-006-1780483434306-fglbl9",
+    "tc-pf-007-1780483434307-99u2vk",
+    "tc-pf-009-1780483434308-qvuku2",
+    "tc-pf-010-1780483434309-ckc7dt",
+    "tc-pf-011-1780483434311-0i4xxt",
+    "tc-pf-012-1780483434312-b6z3ki",
+    "tc-pf-013-1780483434313-eos0q0",
+    "tc-pf-014-1780483434314-2ug5cy"
+  ],
+  "befores": [],
+  "afters": [],
+  "start": 1780482834315,
+  "stop": 1780483434315
+}

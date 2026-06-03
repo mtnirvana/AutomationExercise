@@ -1,0 +1,71 @@
+{
+  "name": "Estresse no endpoint /api/productsList",
+  "status": "failed",
+  "stage": "finished",
+  "start": 1780482883528,
+  "stop": 1780482884528,
+  "uuid": "tc-pf-005-1780483434304-tmr9ug",
+  "historyId": "tc_pf_005",
+  "fullName": "Performance - Estresse no endpoint /api/productsList",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_005"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Estresse"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_005"
+    },
+    {
+      "name": "p95",
+      "value": "6776ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "89.3%"
+    },
+    {
+      "name": "Checks",
+      "value": "-24166/30748"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. status 200 e JSON valido",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482884028,
+      "stop": 1780482884328
+    },
+    {
+      "name": "2. Resumo: p95=6776ms | Erro=89.3% | -24166/30748 checks | Falhou",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780482884428,
+      "stop": 1780482884528
+    }
+  ],
+  "attachments": []
+}
