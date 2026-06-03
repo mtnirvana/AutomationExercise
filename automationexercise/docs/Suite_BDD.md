@@ -956,7 +956,7 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 |-----------|-------|---------|------|
 | **E2E Tests** | 26 | 24 (92,3%) | 2 (7,7%) |
 | **API Tests** | 14 | 8 (57,1%) | 6 (42,9%) |
-| **Performance Tests** | 14 (21 checks no Allure) | 12 (85,7%) | 2 (14,3%) ⚠️¹ |
+| **Performance Tests** | 21 checks (14 scripts) | 19 (90,5%) | 2 (9,5%) ⚠️¹ |
 | **Total Consolidado** | **61** | **51 (83,6%)** | **10 (16,4%)** |
 
 > **Nota:** Os 2 cenários com rate limit (TC_PF_005 e TC_PF_007) são limitação do Cloudflare sob carga extrema (300 VUs e 200 VUs). API e HTML pages rodam sem erro em seus respectivos níveis de carga. Thresholds ajustados para refletir o comportamento real do ambiente com Cloudflare.
