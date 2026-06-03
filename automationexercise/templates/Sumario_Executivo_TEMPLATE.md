@@ -122,20 +122,20 @@ O projeto adota uma postura rigorosa na detecção de desvios operacionais:
 ## 6. Definição de Pronto
 O cenário de teste é considerado **Concluído** quando:
 
-#### E2E Tests
+### E2E Tests
 1. Cobre integralmente os requisitos de negócio e os critérios de aceitação definidos.
 2. Garante a entrega de evidências visuais (capturas de tela, vídeos e GIFs animados) para cada ação relevante.
 3. Permite a execução independente e atômica, sem conflitos de massa de dados.
 4. Apresenta resultados consistentes e validados em ambiente de teste.
 5. Documentação atualizada com os resultados.
 
-#### API Tests
+### API Tests
 1. Validações de status code passam.
 2. Validações de response body passam.
 3. Cleanup executado com sucesso (quando aplicável).
 4. Documentação atualizada com os resultados.
 
-#### Performance Tests
+### Performance Tests
 1. Script k6 criado e executado com sucesso.
 2. Métricas coletadas (avg, p95, p99, taxa de erro).
 3. Thresholds validados (aprovado/reprovado documentado).
@@ -147,7 +147,7 @@ O cenário de teste é considerado **Concluído** quando:
 ## 7. Configuração do Ambiente e Tecnologias
 Este projeto utiliza uma stack moderna de automação para garantir escalabilidade e manutenção simplificada.
 
-#### E2E Tests
+### E2E Tests
 - **Framework de Testes:** Cypress (v15+)
 - **Linguagem e Ambiente:** JavaScript (Node.js)
 - **Padrão de Design:** Modelo de Objetos de Página (POM)
@@ -155,7 +155,7 @@ Este projeto utiliza uma stack moderna de automação para garantir escalabilida
 - **Navegadores:** Chrome, Edge, Firefox e Electron (Resolução: 1280x720)
 - **Integração:** Preparado para execução em fluxos de Integração Contínua (CI/CD)
 
-#### API Tests
+### API Tests
 - **Framework de Testes:** Cypress (v15+)
 - **Linguagem e Ambiente:** JavaScript (Node.js)
 - **Padrão de Design:** API Testing com cy.task() via Node.js HTTPS
@@ -163,7 +163,7 @@ Este projeto utiliza uma stack moderna de automação para garantir escalabilida
 - **Método de Request:** Node.js HTTPS (via cy.task)
 - **Integração:** Preparado para execução em fluxos de Integração Contínua (CI/CD)
 
-#### Performance Tests
+### Performance Tests
 - **Ferramenta Principal:** k6 (Grafana Labs) v2.0.0
 - **Linguagem e Ambiente:** JavaScript (Node.js)
 - **Arquitetura:** Go (event-loop), single binary

@@ -20,6 +20,8 @@
 | **Taxa de Passagem Geral** | 100% (12+2/14 executados) |
 | **Thresholds Violados** | TC_PF_005 e TC_PF_007 (esperado — limitação do servidor) |
 
+> **⚠️ Nota sobre a execução:** A maioria dos scripts foi validada com **1 VU** (validação de fluxo/script), não necessariamente na carga documentada. Apenas **TC_PF_003** foi executado na carga real (100 VUs). Os demais testes de carga (TC_PF_002, TC_PF_004, TC_PF_007, TC_PF_009) foram verificados a 1 VU para confirmar funcionamento do script, sem gerar carga efetiva. O rate limiting do Cloudflare (~50 VUs para `/api/productsList`) limita a execução real de carga no ambiente atual. Para detalhes, veja a seção 3.1.
+
 ### 1.2 Matriz de Resultados
 
 | ID | Cenário | Status | Checks | p95 | Erro |
@@ -96,9 +98,9 @@
 | **Script** | [`TC_PF_002_carga_homepage.js`](../Cypress/cypress/e2e/performance/TC_PF_002_carga_homepage.js) |
 | **Data/Hora** | 2026-05-24 10:25 |
 | **Duração** | 31s (30s de execução) |
-| **VUs** | 1 (validação rápida) |
+| **VUs** | 1 (validação de script — carga documentada: 50 VUs, não testada) |
 | **Iterações** | 24 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de script a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -125,6 +127,8 @@
 |:----------|:---------:|
 | `http_req_duration p(95) < 3000` | ✅ p(95)=480ms |
 | `http_req_failed rate < 0,05` | ✅ rate=0,00% |
+
+> **Observação:** Este teste foi validado com 1 VU. Para confirmar o comportamento sob a carga documentada de 50 VUs, é necessário executar com `k6 run` sem o modo de validação rápida.
 
 ---
 
@@ -183,9 +187,9 @@ O Cloudflare começou a rate limitar as requisições a partir de aproximadament
 | **Script** | [`TC_PF_004_carga_api_login.js`](../Cypress/cypress/e2e/performance/TC_PF_004_carga_api_login.js) |
 | **Data/Hora** | 2026-05-24 10:25 |
 | **Duração** | 31s (30s de execução) |
-| **VUs** | 1 (validação rápida) |
+| **VUs** | 1 (validação de script — carga documentada: 30 VUs, não testada) |
 | **Iterações** | 25 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de script a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -247,9 +251,9 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 | **Script** | [`TC_PF_006_resistencia_soak.js`](../Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js) |
 | **Data/Hora** | 2026-05-24 10:25 |
 | **Duração** | 3min 30s |
-| **VUs** | 1 (validação de fluxo) |
+| **VUs** | 1 (validação de fluxo — carga documentada: 50 VUs, não testada) |
 | **Iterações** | 14 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de fluxo a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -298,9 +302,9 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 | **Script** | [`TC_PF_007_pico_spike.js`](../Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js) |
 | **Data/Hora** | 2026-05-24 10:26 |
 | **Duração** | 1min 30s |
-| **VUs** | 1 (validação do script) |
+| **VUs** | 1 (validação do script — spike documentado: 200 VUs, não testado) |
 | **Iterações** | 178 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de script a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -461,9 +465,9 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 | **Script** | [`TC_PF_009_carga_checkout.js`](../Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js) |
 | **Data/Hora** | 2026-05-24 10:25 |
 | **Duração** | 30s |
-| **VUs** | 1 (validação do fluxo) |
+| **VUs** | 1 (validação do fluxo — carga documentada: 20 VUs, não testada) |
 | **Iterações** | 39 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de fluxo a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -507,9 +511,9 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 | **Script** | [`TC_PF_010_auditoria_imagens.js`](../Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js) |
 | **Data/Hora** | 2026-05-24 10:27 |
 | **Duração** | 30s |
-| **VUs** | 1 (validação do fluxo) |
+| **VUs** | 1 (validação do fluxo — carga documentada: 20 VUs, não testada) |
 | **Iterações** | 37 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de fluxo a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -558,9 +562,9 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 | **Script** | [`TC_PF_011_carga_atualizar_conta.js`](../Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js) |
 | **Data/Hora** | 2026-05-24 11:19 |
 | **Duração** | 20s |
-| **VUs** | 1 (validação do fluxo) |
+| **VUs** | 1 (validação do fluxo — carga documentada: 20 VUs, não testada) |
 | **Iterações** | 11 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de fluxo a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -604,9 +608,9 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 | **Script** | [`TC_PF_012_carga_detalhes_usuario.js`](../Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js) |
 | **Data/Hora** | 2026-05-24 11:19 |
 | **Duração** | 20s |
-| **VUs** | 1 (validação do fluxo) |
+| **VUs** | 1 (validação do fluxo — carga documentada: 20 VUs, não testada) |
 | **Iterações** | 12 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de fluxo a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -650,9 +654,9 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 | **Script** | [`TC_PF_013_carga_pesquisar_produto.js`](../Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js) |
 | **Data/Hora** | 2026-05-24 11:19 |
 | **Duração** | 20s |
-| **VUs** | 1 (validação do fluxo) |
+| **VUs** | 1 (validação do fluxo — carga documentada: 30 VUs, não testada) |
 | **Iterações** | 24 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de fluxo a 1 VU)** |
 
 #### Métricas de Rede
 
@@ -691,9 +695,9 @@ O servidor com Cloudflare começa a rate limitar a partir de ~50 requisições s
 | **Script** | [`TC_PF_014_carga_pagina_produtos.js`](../Cypress/cypress/e2e/performance/TC_PF_014_carga_pagina_produtos.js) |
 | **Data/Hora** | 2026-05-24 11:24 |
 | **Duração** | 20s |
-| **VUs** | 1 (validação do fluxo) |
+| **VUs** | 1 (validação do fluxo — carga documentada: 30 VUs, não testada) |
 | **Iterações** | 16 |
-| **Status** | ✅ **APROVADO** |
+| **Status** | ✅ **APROVADO (validação de fluxo a 1 VU)** |
 
 #### Métricas de Rede
 

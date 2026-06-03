@@ -554,7 +554,7 @@ Então a página de casos de teste é carregada com header "Test Cases" visível
 ```
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo para o rodapé da página
-Então o texto "SUBSCRIPTION" deve estar visível
+Então o texto "Subscription" deve estar visível
 Quando insiro email válido no campo de assinatura
 E clico no botão de inscrição
 Então a mensagem "You have been successfully subscribed!" deve estar visível
@@ -576,7 +576,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 ```
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Cart" e rolo para o rodapé
-Então o texto "SUBSCRIPTION" deve estar visível
+Então o texto "Subscription" deve estar visível
 Quando insiro email e clico no botão de inscrição
 Então a mensagem "You have been successfully subscribed!" deve estar visível
 ```
@@ -597,7 +597,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 ```
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo a página para baixo até o rodapé
-Então o texto "SUBSCRIPTION" deve estar visível
+Então o texto "Subscription" deve estar visível
 Quando clico no botão de seta para cima (scroll up)
 Então o texto do cabeçalho "Full-Fledged practice website for Automation Engineers" deve estar visível no topo
 ```
@@ -618,7 +618,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 ```
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo para o rodapé da página
-Então o texto "SUBSCRIPTION" deve estar visível
+Então o texto "Subscription" deve estar visível
 Quando rolo para o topo da página
 Então o texto do cabeçalho "Full-Fledged practice website for Automation Engineers" deve estar visível
 ```

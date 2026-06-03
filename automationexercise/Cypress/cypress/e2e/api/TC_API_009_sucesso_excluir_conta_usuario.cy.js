@@ -9,10 +9,25 @@ import { UserFactory } from '../../data/userFactory'
 
 describe('TC_API_009 - Excluir conta de usuário via API', () => {
   const testId = 'TC_API_009'
+  let createdEmail = ''
+  let userPassword = ''
+
+  afterEach(() => {
+    if (createdEmail) {
+      cy.task('apiRequest', {
+        hostname: 'automationexercise.com',
+        path: '/api/deleteAccount',
+        method: 'DELETE',
+        body: `email=${createdEmail}&password=${userPassword}`
+      })
+    }
+  })
 
   it('deve excluir usuário e retornar status 200', () => {
     // 1. Gerar dados de usuário dinâmico via UserFactory
     const userData = UserFactory.generate()
+    createdEmail = userData.email
+    userPassword = userData.password
 
     // 2. Enviar requisição POST para /api/createAccount para criar usuário
     cy.task('apiRequest', {

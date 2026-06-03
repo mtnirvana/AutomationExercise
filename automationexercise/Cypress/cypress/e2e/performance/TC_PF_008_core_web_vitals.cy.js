@@ -1,7 +1,7 @@
 /**
  * TC_PF_008 - Core Web Vitals - Metricas de Frontend
  * @description Coletar LCP, CLS, FCP, TTFB das paginas criticas via Performance API
- * @tags @frontend @TC_PF_008
+ * @tags @sucesso @TC_PF_008
  * @author Rafael Barelli
  */
 
@@ -24,7 +24,7 @@ describe('TC_PF_008 - Core Web Vitals - Metricas de Frontend', () => {
   })
 
   pages.forEach((page) => {
-    it(`${page.name} deve ter LCP < 2500ms e CLS < 0,1`, () => {
+    it(`deve validar ${page.name} com LCP < 2500ms e CLS < 0,1`, () => {
       // 1. Visitar pagina com observers de performance
       cy.visit(page.url, {
         onBeforeLoad(win) {

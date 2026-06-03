@@ -19,13 +19,13 @@ Cada pagina e dividida em duas secoes:
 | Elemento | Seletor Atual | Alternativa 1 | Alternativa 2 | Status |
 |----------|---------------|---------------|---------------|--------|
 | logo | `img[alt="Website for automation practice"]` | `.logo img` | `a[href="/"] img` | OK |
-| signupLoginLink | `a[href="/login"]` | `i.fa-lock` | `contains('Signup / Login')` | OK |
+| signupLoginLink | `a[href="/login"]` (`.first()`) | `i.fa-lock` | `contains('Signup / Login')` | OK |
 | deleteAccountLink | `a[href="/delete_account"]` | `i.fa-trash-o` | `contains('Delete Account')` | OK |
 | logoutLink | `a[href="/logout"]` | `i.fa-lock` | `contains('Logout')` | OK |
 | contactUsLink | `a[href="/contact_us"]` | `i.fa-envelope` | `contains('Contact us')` | OK |
-| testCasesLink | `a[href="/test_cases"]` | `i.fa-list` | `contains('Test Cases')` | OK |
+| testCasesLink | `a[href="/test_cases"]` (`.first()`) | `i.fa-list` | `contains('Test Cases')` | OK |
 | productsLink | `a[href="/products"]` | `i.fa-card` | `contains('Products')` | OK |
-| cartLink | `a[href="/view_cart"]` | `i.fa-shopping-cart` | `contains('Cart')` | OK |
+| cartLink | `a[href="/view_cart"]` (`.first()`) | `i.fa-shopping-cart` | `contains('Cart')` | OK |
 | loggedInIndicator | `li.contains('Logged in as')` | `ul.nav` | - | OK |
 | subscribeEmail | `#susbscribe_email` | `input[name="email"]` | - | OK |
 | subscribeButton | `#subscribe` | `button#subscribe` | - | OK |
@@ -181,7 +181,7 @@ Cada pagina e dividida em duas secoes:
 |----------|---------------|---------------|---------------|--------|
 | productsHeader | `h2.contains('All Products')` | `.features_items h2.title` | - | OK |
 | productsList | `.features_items` | `.padding-right` | - | OK |
-| productsItems | `.single-products` | `.product-image-wrapper` | - | OK |
+| productsItems | `.single-products` (timeout: 10000) | `.product-image-wrapper` | - | OK |
 | viewProductLinks | `.choose a[href*="/product_details/"]` | `a[href*="/product_details/"]` | - | OK |
 | searchInput | `#search_product` | `input[name="search"]` | - | OK |
 | searchButton | `#submit_search` | `button#submit_search` | - | OK |

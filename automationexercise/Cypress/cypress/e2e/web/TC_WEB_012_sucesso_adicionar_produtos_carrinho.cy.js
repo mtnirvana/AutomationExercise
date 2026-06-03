@@ -29,7 +29,7 @@ describe('TC_WEB_012 - Adicionar produtos ao carrinho', () => {
 
     // 5. Passar o mouse sobre o primeiro produto e clicar em Add to cart
     ProductsPage.addToCartOverlay(0)
-    takeScreenshot('06_clicou_adicionar_ao_carrinho_primeiro')
+    takeScreenshot('05_clicou_adicionar_ao_carrinho_primeiro')
 
     // 7. Clicar no botão 'Continue Shopping'
     CheckoutPage.clickContinueShopping()
@@ -37,7 +37,7 @@ describe('TC_WEB_012 - Adicionar produtos ao carrinho', () => {
 
     // 8. Passar o mouse sobre o segundo produto e clicar em Add to cart
     ProductsPage.addToCartOverlay(1)
-    takeScreenshot('09_clicou_adicionar_ao_carrinho_segundo')
+    takeScreenshot('08_clicou_adicionar_ao_carrinho_segundo')
 
     // 10. Clicar no botão 'View Cart'
     CheckoutPage.clickViewCart()

@@ -263,7 +263,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
 | 4 | Rolar para o rodapé | `cy.scrollTo('bottom')` | Scroll executado |
-| 5 | Validar texto "SUBSCRIPTION" | `HomePage.subscriptionHeader` via `ui_texts.json` | Rodapé visível |
+| 5 | Validar texto "SUBSCRIPTION" | `HomePage.subscriptionHeader` via `ui_texts.json` (Subscription) | Rodapé visível |
 | 6 | Inserir email no campo de assinatura | `HomePage.subscribeEmail` | Email inserido |
 | 7 | Clicar no botão de seta | `HomePage.subscribeButton` | Assinatura enviada |
 | 8 | Validar mensagem de sucesso | `HomePage.subscribeSuccess` → `ui_data.subscription.successMessage` | Confirmação visível |
@@ -289,7 +289,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
 | 4 | Clicar no botão "Cart" | `HomePage.clickCart()` | Abre carrinho |
 | 5 | Rolar para o rodapé | `cy.scrollTo('bottom')` | Scroll executado |
-| 6 | Validar texto "SUBSCRIPTION" | `HomePage.subscriptionWidget` → `subscriptionHeader` via `ui_texts.json` | Rodapé visível |
+| 6 | Validar texto "SUBSCRIPTION" | `HomePage.subscriptionWidget` → `subscriptionHeader` via `ui_texts.json` (Subscription) | Rodapé visível |
 | 7 | Inserir email no campo de assinatura | `HomePage.subscribeEmail` | Email inserido |
 | 8 | Clicar no botão de seta | `HomePage.subscribeButton` | Assinatura enviada |
 | 9 | Validar mensagem de sucesso | `HomePage.subscribeSuccess` → `ui_data.subscription.successMessage` | Confirmação visível |
@@ -428,28 +428,29 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
 | 4 | Clicar em "Products" | `HomePage.clickProducts()` | Redireciona para produtos |
 | 5 | Adicionar primeiro produto ao carrinho | Hover + `.product-overlay .btn` | Produto adicionado |
-| 6 | Adicionar segundo produto ao carrinho | Hover + `.product-overlay .btn` | Produto adicionado |
-| 7 | Clicar em "View Cart" | `cy.contains('a', 'View Cart')` | Abre carrinho |
-| 8 | Validar página do carrinho | URL contém `/view_cart` | Carrinho visível |
-| 9 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança para checkout |
-| 10 | Clicar em "Register / Login" | `cy.contains('a', 'Register / Login')` | Abre modal de registro |
-| 11 | Preencher email no formulário de signup | `LoginPage.nameInput` + `LoginPage.emailInput` | Dados inseridos |
-| 12 | Selecionar gênero e preencher senha | `SignupPage.selectGender()` + `SignupPage.password` | Dados preenchidos |
-| 13 | Preencher data de nascimento | `SignupPage.fillDateOfBirth()` | Data selecionada |
-| 14 | Preencher endereço | `SignupPage.fillAddress()` | Endereço preenchido |
-| 15 | Clicar em "Create Account" | `SignupPage.createAccountButton` | Conta criada |
-| 16 | Validar "ACCOUNT CREATED!" e clicar "Continue" | `AccountPage.accountCreatedHeader` + `AccountPage.continueButton` | Retorna à home |
-| 17 | Validar "Logged in as [username]" | `HomePage.verifyLoggedInAs()` | Nome do usuário visível |
-| 18 | Clicar em "Cart" | `HomePage.clickCart()` | Abre carrinho |
-| 19 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança checkout |
-| 20 | Validar detalhes de endereço | `.step-one h2:contains('Address Details')` + `.step-one h2:contains('Review Your Order')` | Dados visíveis |
-| 21 | Inserir comentário na área de texto de comentários | `textarea[name="message"]` | Comentário inserido |
-| 22 | Clicar em "Place Order" | `cy.contains('a', 'Place Order')` | Order initiated |
-| 23 | Inserir dados de pagamento | `[name="name_on_card"]`, `[name="card_number"]`, `[name="cvc"]`, `[name="expiry_month"]`, `[name="expiry_year"]` | Dados inseridos |
-| 24 | Clicar em "Pay and Confirm Order" | `cy.contains('button', 'Pay and Confirm Order')` | Pagamento processado |
-| 25 | Validar sucesso | `h2:contains('Order Placed!')` | Pedido confirmado |
-| 26 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
-| 27 | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
+| 6 | Clicar em "Continue Shopping" | `CheckoutPage.clickContinueShopping()` | Modal fechado |
+| 7 | Adicionar segundo produto ao carrinho | Hover + `.product-overlay .btn` | Produto adicionado |
+| 8 | Clicar em "View Cart" | `cy.contains('a', 'View Cart')` | Abre carrinho |
+| 9 | Validar página do carrinho | URL contém `/view_cart` | Carrinho visível |
+| 10 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança para checkout |
+| 11 | Clicar em "Register / Login" | `cy.contains('a', 'Register / Login')` | Abre modal de registro |
+| 12 | Preencher email no formulário de signup | `LoginPage.nameInput` + `LoginPage.emailInput` | Dados inseridos |
+| 13 | Selecionar gênero e preencher senha | `SignupPage.selectGender()` + `SignupPage.password` | Dados preenchidos |
+| 14 | Preencher data de nascimento | `SignupPage.fillDateOfBirth()` | Data selecionada |
+| 15 | Preencher endereço | `SignupPage.fillAddress()` | Endereço preenchido |
+| 16 | Clicar em "Create Account" | `SignupPage.createAccountButton` | Conta criada |
+| 17 | Validar "ACCOUNT CREATED!" e clicar "Continue" | `AccountPage.accountCreatedHeader` + `AccountPage.continueButton` | Retorna à home |
+| 18 | Validar "Logged in as [username]" | `HomePage.verifyLoggedInAs()` | Nome do usuário visível |
+| 19 | Clicar em "Cart" | `HomePage.clickCart()` | Abre carrinho |
+| 20 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança checkout |
+| 21 | Validar detalhes de endereço | `.step-one h2:contains('Address Details')` + `.step-one h2:contains('Review Your Order')` | Dados visíveis |
+| 22 | Inserir comentário na área de texto de comentários | `textarea[name="message"]` | Comentário inserido |
+| 23 | Clicar em "Place Order" | `cy.contains('a', 'Place Order')` | Order initiated |
+| 24 | Inserir dados de pagamento | `[name="name_on_card"]`, `[name="card_number"]`, `[name="cvc"]`, `[name="expiry_month"]`, `[name="expiry_year"]` | Dados inseridos |
+| 25 | Clicar em "Pay and Confirm Order" | `cy.contains('button', 'Pay and Confirm Order')` | Pagamento processado |
+| 26 | Validar sucesso | `h2:contains('Order Placed!')` | Pedido confirmado |
+| 27 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
+| 28 | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
 
 **Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Fluxo completo de compra com registro no checkout<br>
@@ -553,7 +554,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 9 | Clicar em "View Cart" | `.modal-body a[href="/view_cart"]` | Abre carrinho |
 | 10 | Validar página do carrinho | URL contém `/view_cart` + `h2` | Carrinho visível |
 | 11 | Clicar no botão "X" do produto | `.cart_quantity_delete` | Produto marcado |
-| 12 | Validar que o produto foi removido | `.table-responsive` | Carrinho atualizado |
+| 12 | Validar que o produto foi removido | `CheckoutPage.cartTableRows` (`tbody tr`) | Carrinho vazio |
 
 **Asserção Chave:** Mensagem "Added!" visível após adicionar, produto removido ao clicar "X".<br>
 **Resultado esperado:** Usuário consegue remover itens do carrinho<br>
@@ -795,7 +796,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
 | 4 | Rolar a página para baixo | `cy.scrollTo('bottom')` | Scroll down |
-| 5 | Validar "SUBSCRIPTION" | `.single-widget h2:contains('SUBSCRIPTION')` | Rodapé visível |
+| 5 | Validar "Subscription" | `.single-widget h2` via `ui_texts.json` | Rodapé visível |
 | 6 | Clicar na seta para cima | `i[class*="angle-up"]` | Scroll up acionado |
 | 7 | Validar texto do cabeçalho | `h2:contains('Full-Fledged practice website for Automation Engineers')` | Topo visível |
 
@@ -819,7 +820,7 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 2 | Navegar para URL (beforeEach) | `cy.visit('/')` | URL correta |
 | 3 | Verificar página inicial visível (beforeEach) | `HomePage.logo` | Logo visível |
 | 4 | Rolar para o rodapé | `cy.scrollTo('bottom')` | Scroll down |
-| 5 | Validar "SUBSCRIPTION" | `.single-widget h2:contains('SUBSCRIPTION')` | Rodapé visível |
+| 5 | Validar "Subscription" | `.single-widget h2` via `ui_texts.json` | Rodapé visível |
 | 6 | Rolar para o topo | `cy.scrollTo('top')` | Scroll up manual |
 | 7 | Validar texto do cabeçalho | `h2:contains('Full-Fledged practice website for Automation Engineers')` | Topo visível |
 
@@ -836,13 +837,13 @@ Este glossário consolida todos os seletores extraídos dos Page Objects do proj
 | Seletor | Tipo | Descrição | Nível |
 |:---|:---|:---|:---:|
 | `img[alt="Website for automation practice"]` | alt | Logo do site | Médio |
-| `a[href="/login"]` | href | Link Signup/Login | Médio |
+| `a[href="/login"]` (`.first()`) | href + first() | Link Signup/Login | Médio |
 | `a[href="/delete_account"]` | href | Link Delete Account | Médio |
 | `a[href="/logout"]` | href | Link Logout | Médio |
 | `a[href="/contact_us"]` | href | Link Contact Us | Médio |
-| `a[href="/test_cases"]` | href | Link Test Cases | Médio |
+| `a[href="/test_cases"]` (`.first()`) | href + first() | Link Test Cases | Médio |
 | `a[href="/products"]` | href | Link Products | Médio |
-| `a[href="/view_cart"]` | href | Link Cart | Médio |
+| `a[href="/view_cart"]` (`.first()`) | href + first() | Link Cart | Médio |
 | `li:contains('Logged in as')` | texto | Indicador de usuário logado | Médio |
 | `#susbscribe_email` | id | Campo email newsletter | Robusto |
 | `#subscribe` | id | Botão newsletter | Robusto |
@@ -895,7 +896,7 @@ Este glossário consolida todos os seletores extraídos dos Page Objects do proj
 |:---|:---|:---|:---:|
 | `h2:contains('All Products')` | h2+texto | Header lista produtos | Robusto |
 | `.features_items` | classe | Container lista produtos | Médio |
-| `.single-products` | classe | Card de produto | Médio |
+| `.single-products` (timeout: 10000) | classe | Card de produto | Médio |
 | `.choose a[href*="/product_details/"]` | href parcial | Link Ver Produto | Médio |
 | `#search_product` | id | Campo busca | Robusto |
 | `#submit_search` | id | Botão buscar | Robusto |
@@ -914,7 +915,8 @@ Este glossário consolida todos os seletores extraídos dos Page Objects do proj
 | `.brands-name` | classe | Container marcas | Médio |
 | `.brands-name a` | seletor | Links marcas | Médio |
 | `.recommended_items` | classe | Seção recomendados | Médio |
-| `.recommended_items .btn-default.add-to-cart` | seletor | Add to cart recomendados | Médio |
+| `.recommended_items .productinfo` | seletor | Informação do produto (recomendados) | Médio |
+| `.recommended_items .btn-default.add-to-cart` | seletor | Botão adicionar ao carrinho (recomendados) | Médio |
 | `a[href="#reviews"]` | href | Link seção de avaliação | Médio |
 | `#name` | id | Campo nome avaliação | Robusto |
 | `#email` | id | Campo email avaliação | Robusto |

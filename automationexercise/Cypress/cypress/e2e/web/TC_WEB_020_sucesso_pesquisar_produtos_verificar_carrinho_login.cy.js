@@ -59,7 +59,7 @@ describe('TC_WEB_020 - Pesquisar produtos e verificar carrinho após login', () 
     takeScreenshot('11_produtos_no_carrinho')
 
     // 12. Clicar no botão 'Signup / Login'
-    HomePage.signupLoginLink.first().should('be.visible').click({ force: true })
+    HomePage.signupLoginLink.should('be.visible').click({ force: true })
     takeScreenshot('12_clicou_signup_login')
 
     // 13. Inserir credenciais e clicar em 'Login'

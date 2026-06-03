@@ -7,7 +7,7 @@
 
 import { HomePage, LoginPage, SignupPage, AccountPage, CheckoutPage, ProductsPage } from '../../pages'
 import { UserFactory } from '../../data/userFactory'
-import uiData from '../../fixtures/ui_texts.json'
+
 
 describe('TC_WEB_023 - Verificar detalhes do endereço na página de checkout', () => {
 

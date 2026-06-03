@@ -6,7 +6,6 @@
  */
 
 import { HomePage, ProductsPage, CheckoutPage } from '../../pages'
-import uiData from '../../fixtures/ui_texts.json'
 
 describe('TC_WEB_022 - Adicionar ao carrinho itens recomendados', () => {
 

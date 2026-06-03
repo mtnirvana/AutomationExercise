@@ -7,7 +7,7 @@
 
 import { HomePage, ProductsPage } from '../../pages'
 import productsData from '../../fixtures/products.json'
-import uiData from '../../fixtures/ui_texts.json'
+
 
 describe('TC_WEB_018 - Visualizar produtos por categoria', () => {
 
