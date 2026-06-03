@@ -9,7 +9,7 @@
 
 Cada pagina e dividida em duas secoes:
 - **Seletores (Getters):** Referencias diretas a elementos DOM
-- **Metodos:** Acoes encapsuladas que utilizam os seletores
+- **Metodos:** Ações encapsuladas que utilizam os seletores
 
 ---
 

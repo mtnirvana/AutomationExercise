@@ -1,4 +1,4 @@
-# Repositório de Seletores - Automation Exercise (Template)
+# Repositório de Seletores - Automation Exercise
 **Versão:** 1.0.0<br>
 **Metodologia:** POM (Page Object Model)<br>
 **Responsável:** Rafael Barelli
@@ -9,7 +9,7 @@
 
 Cada pagina e dividida em duas secoes:
 - **Seletores (Getters):** Referencias diretas a elementos DOM
-- **Metodos:** Acoes encapsuladas que utilizam os seletores
+- **Metodos:** Ações encapsuladas que utilizam os seletores
 
 ---
 
