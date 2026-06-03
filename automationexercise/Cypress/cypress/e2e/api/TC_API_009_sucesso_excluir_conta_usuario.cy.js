@@ -5,7 +5,7 @@
  * @author Rafael Barelli
  */
 
-import { UserFactory } from '../../data/userFactory'
+import { UserFactory } from '../../data/UserFactory'
 
 describe('TC_API_009 - Excluir conta de usuário via API', () => {
   const testId = 'TC_API_009'

@@ -52,8 +52,10 @@ describe('TC_WEB_004 - Logout de usuário', () => {
     LoginPage.verifyLoginHeader()
     takeScreenshot('10_navegou_para_pagina_login')
   })
-})
-
+})
+
+
+
 
 
 

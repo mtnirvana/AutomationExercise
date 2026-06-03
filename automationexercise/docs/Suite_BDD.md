@@ -59,7 +59,7 @@
 - **Script:** [TC_WEB_001_sucesso_registrar_usuario.cy.js](../Cypress/cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho nome e email e clico em "Signup"
 Então o header "Enter Account Information" deve estar visível
@@ -82,7 +82,7 @@ Então o header "Account Deleted!" deve estar visível após exclusão
 - **Script:** [TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js](../Cypress/cypress/e2e/web/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho email e senha e clico em "Login"
 Então o texto "Logged in as [username]" deve estar visível no topo
@@ -103,7 +103,7 @@ Então o sistema redireciona para a página de login e o header "Login to your a
 - **Script:** [TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js](../Cypress/cypress/e2e/web/TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login"
 E preencho email e senha incorretos
@@ -124,7 +124,7 @@ Então o sistema exibe a mensagem de erro e o usuário permanece na página de l
 - **Script:** [TC_WEB_004_sucesso_logout_usuario.cy.js](../Cypress/cypress/e2e/web/TC_WEB_004_sucesso_logout_usuario.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho email e senha e clico em "Login"
 Então o texto "Logged in as [username]" deve estar visível no topo
@@ -145,7 +145,7 @@ Então o sistema redireciona para a página de login e o header "Login to your a
 - **Script:** [TC_WEB_005_erro_registrar_usuario_email_existente.cy.js](../Cypress/cypress/e2e/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login"
 E preencho nome e email já existente
@@ -170,7 +170,7 @@ Então o sistema exibe a mensagem de erro "Email Address already exist!"
 - **Script:** [TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
 Então o header "ALL PRODUCTS" e a lista de produtos devem estar visíveis
@@ -191,7 +191,7 @@ Então as informações do produto devem estar visíveis (nome, categoria, preç
 - **Script:** [TC_WEB_009_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_009_sucesso_pesquisar_produto.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
 E insiro o termo de busca "winter"
@@ -212,7 +212,7 @@ Então o header "SEARCHED PRODUCTS" deve estar visível e os produtos relacionad
 - **Script:** [TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js](../Cypress/cypress/e2e/web/TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
 Então as categorias devem estar visíveis na barra lateral esquerda
@@ -233,7 +233,7 @@ Então as páginas das categorias devem exibir os produtos corretamente
 - **Script:** [TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js](../Cypress/cypress/e2e/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
 Então as marcas devem estar visíveis na barra lateral esquerda
@@ -254,7 +254,7 @@ Então as páginas das marcas devem exibir os produtos corretamente
 - **Script:** [TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products" e em "View Product" do primeiro produto
 Então a página de detalhes e a seção "Write Your Review" devem estar visíveis
@@ -279,7 +279,7 @@ Então o sistema exibe a mensagem "Thank you for your review."
 - **Script:** [TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
 E adiciono dois produtos ao carrinho via hover
@@ -300,7 +300,7 @@ Então a página do carrinho deve estar visível e os dois produtos devem estar 
 - **Script:** [TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "View Product", altero a quantidade para "4" e clico em "Add to cart"
 E clico em "View Cart"
@@ -320,7 +320,7 @@ Então a quantidade do produto no carrinho deve ser exatamente "4"
 - **Script:** [TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "View Product", altero a quantidade e adiciono ao carrinho
 Então a mensagem "Added!" deve estar visível
@@ -341,7 +341,7 @@ Então o produto deve ser removido do carrinho
 - **Script:** [TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js](../Cypress/cypress/e2e/web/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando busco por produto, adiciono ao carrinho e verifico no carrinho
 Então os produtos devem estar no carrinho
@@ -364,7 +364,7 @@ Então os produtos devem persistir no carrinho após login
 - **Script:** [TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo para o final da página
 Então a seção "RECOMMENDED ITEMS" deve estar visível
@@ -389,7 +389,7 @@ Então o produto recomendado deve estar na página do carrinho
 - **Script:** [TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando adiciono produtos ao carrinho, prossigo para checkout, clico em "Register / Login" e crio a conta
 Então o header "Account Created!" deve estar visível e o nome do usuário exibido
@@ -413,7 +413,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Script:** [TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho dados de registro e crio a conta
 Então o header "Account Created!" deve estar visível e o nome do usuário exibido
@@ -436,7 +436,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Script:** [TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho email e senha e clico em "Login"
 Então o texto "Logged in as [username]" deve estar visível
@@ -458,7 +458,7 @@ Então a mensagem de confirmação do pedido deve estar visível
 - **Script:** [TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho dados de registro e crio a conta
 Então o header "Account Created!" deve estar visível e o nome do usuário exibido
@@ -481,7 +481,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Script:** [TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js](../Cypress/cypress/e2e/web/TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando adiciono produto ao carrinho, prossigo para checkout e clico em "Register / Login"
 E preencho dados de registro e crio a conta
@@ -509,7 +509,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Script:** [TC_WEB_006_sucesso_formulario_contato.cy.js](../Cypress/cypress/e2e/web/TC_WEB_006_sucesso_formulario_contato.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Contact Us"
 Então o header "GET IN TOUCH" e o formulário devem estar visíveis
@@ -532,7 +532,7 @@ Então a página inicial deve estar carregada
 - **Script:** [TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js](../Cypress/cypress/e2e/web/TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Test Cases"
 Então a página de casos de teste é carregada com header "Test Cases" visível
@@ -551,7 +551,7 @@ Então a página de casos de teste é carregada com header "Test Cases" visível
 - **Script:** [TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js](../Cypress/cypress/e2e/web/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo para o rodapé da página
 Então o texto "Subscription" deve estar visível
@@ -573,7 +573,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 - **Script:** [TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Cart" e rolo para o rodapé
 Então o texto "Subscription" deve estar visível
@@ -594,7 +594,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 - **Script:** [TC_WEB_025_sucesso_verificar_scroll_seta.cy.js](../Cypress/cypress/e2e/web/TC_WEB_025_sucesso_verificar_scroll_seta.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo a página para baixo até o rodapé
 Então o texto "Subscription" deve estar visível
@@ -615,7 +615,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **Script:** [TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js](../Cypress/cypress/e2e/web/TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo para o rodapé da página
 Então o texto "Subscription" deve estar visível
@@ -642,7 +642,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **Script:** [TC_API_001_sucesso_listar_todos_produtos.cy.js](../Cypress/cypress/e2e/api/TC_API_001_sucesso_listar_todos_produtos.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição GET para /api/productsList
 Então a resposta deve conter status 200
@@ -665,7 +665,7 @@ E cada produto deve possuir as propriedades id, name, price, brand e category
 - **Script:** [TC_API_002_sucesso_listar_todas_marcas.cy.js](../Cypress/cypress/e2e/api/TC_API_002_sucesso_listar_todas_marcas.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição GET para /api/brandsList
 Então a resposta deve conter status 200
@@ -688,7 +688,7 @@ E cada marca deve possuir as propriedades id e brand
 - **Script:** [TC_API_003_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/api/TC_API_003_sucesso_pesquisar_produto.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/searchProduct com o parâmetro "search_product" contendo "top"
 Então a resposta deve conter status 200
@@ -711,7 +711,7 @@ E cada produto deve possuir as propriedades id e name
 - **Script:** [TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js](../Cypress/cypress/e2e/api/TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/searchProduct sem o parâmetro "search_product"
 Então a resposta deve conter status 200
@@ -736,7 +736,7 @@ E o body.message deve ser igual a "Bad request, search_product parameter is miss
 - **Script:** [TC_API_005_sucesso_verificar_login_valido.cy.js](../Cypress/cypress/e2e/api/TC_API_005_sucesso_verificar_login_valido.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/verifyLogin de usuário com email e senha válidos
 Então a resposta deve conter status 200
@@ -757,7 +757,7 @@ E o body.message deve ser igual a "User exists!"
 - **Script:** [TC_API_006_erro_verificar_login_sem_email.cy.js](../Cypress/cypress/e2e/api/TC_API_006_erro_verificar_login_sem_email.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/verifyLogin sem email
 Então a resposta deve conter status 200
@@ -778,7 +778,7 @@ E o body.message deve ser igual a "Bad request, email or password parameter is m
 - **Script:** [TC_API_007_erro_verificar_login_invalido.cy.js](../Cypress/cypress/e2e/api/TC_API_007_erro_verificar_login_invalido.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/verifyLogin com credenciais inválidas
 Então a resposta deve conter status 200
@@ -803,7 +803,7 @@ E o body.message deve ser igual a "User not found!"
 - **Script:** [TC_API_008_sucesso_criar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_008_sucesso_criar_conta_usuario.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 E utilizo um e-mail único
 Quando envio uma requisição POST para /api/createAccount com o e-mail único
@@ -826,7 +826,7 @@ E o usuário criado deve ser excluído após a execução
 - **Script:** [TC_API_009_sucesso_excluir_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_009_sucesso_excluir_conta_usuario.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 E gero um novo usuário para o teste
 Quando envio POST para /api/createAccount e DELETE para /api/deleteAccount
@@ -848,7 +848,7 @@ E o body.message deve ser igual a "Account deleted!"
 - **Script:** [TC_API_010_sucesso_atualizar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_010_sucesso_atualizar_conta_usuario.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 E utilizo um e-mail único
 Quando envio POST para /api/createAccount e PUT para /api/updateAccount
@@ -870,7 +870,7 @@ E o body.message deve ser igual a "User updated!"
 - **Script:** [TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js](../Cypress/cypress/e2e/api/TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 E utilizo um e-mail único
 Quando envio POST para /api/createAccount e GET para /api/getUserDetailByEmail
@@ -896,7 +896,7 @@ E o body deve possuir user com as propriedades name e email
 - **Script:** [TC_API_012_erro_validar_metodo_post_em_productslist.cy.js](../Cypress/cypress/e2e/api/TC_API_012_erro_validar_metodo_post_em_productslist.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/productsList
 Então a resposta deve conter status 200
@@ -917,7 +917,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **Script:** [TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js](../Cypress/cypress/e2e/api/TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição PUT para /api/brandsList
 Então a resposta deve conter status 200
@@ -938,7 +938,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **Script:** [TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js](../Cypress/cypress/e2e/api/TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js)
 
 **Cenário:**
-```
+```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição DELETE para /api/verifyLogin
 Então a resposta deve conter status 200
@@ -959,7 +959,7 @@ Este projeto abrange um total de **61 casos de teste individuais no Allure**, or
 | **Performance Tests** | 21 checks (14 scripts) | 19 (90,5%) | 2 (9,5%) ⚠️¹ |
 | **Total Consolidado** | **61** | **51 (83,6%)** | **10 (16,4%)** |
 
-> **Nota:** Os 2 cenários com rate limit (TC_PF_005 e TC_PF_007) são limitação do Cloudflare sob carga extrema (300 VUs e 200 VUs). API e HTML pages rodam sem erro em seus respectivos níveis de carga. Thresholds ajustados para refletir o comportamento real do ambiente com Cloudflare.
+> **Nota:** Os 2 cenários com rate limit (TC_PF_005 e TC_PF_007) são limitação do Cloudflare sob carga extrema (300 VUs e 200 VUs). API e HTML pages rodam sem erro em seus respectivos níveis de carga. Thresholds ampliados para `rate<0.90`.
 
 > **Nota:** Performance tests são 14 scripts (13 k6 + 1 Cypress), que geram 21 checks individuais no Allure (13 k6 + 8 Core Web Vitals). Os 8 checks do TC_PF_008 elevam o total para 61 casos no Allure (26 E2E + 14 API + 21 Performance). Em termos BDD (cenários descritíveis em Gherkin), o total é de 40 cenários (26 E2E + 14 API).
 >

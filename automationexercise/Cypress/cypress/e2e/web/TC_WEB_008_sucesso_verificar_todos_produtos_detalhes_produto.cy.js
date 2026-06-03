@@ -47,8 +47,10 @@ describe('TC_WEB_008 - Verificar todos os produtos e página de detalhes do prod
     ProductsPage.verifyProductDetails()
     takeScreenshot('09_detalhes_produto_verificados')
   })
-})
-
+})
+
+
+
 
 
 

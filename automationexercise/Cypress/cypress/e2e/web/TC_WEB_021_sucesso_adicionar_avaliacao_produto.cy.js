@@ -6,7 +6,7 @@
  */
 
 import { HomePage, ProductsPage } from '../../pages'
-import { UserFactory } from '../../data/userFactory'
+import { UserFactory } from '../../data/UserFactory'
 import contactData from '../../fixtures/contact.json'
 
 describe('TC_WEB_021 - Adicionar avaliação em produto', () => {

@@ -31,8 +31,10 @@ describe('TC_WEB_007 - Verificar página de casos de teste', () => {
     TestCasesPage.verifyPageTitle()
     takeScreenshot('05_pagina_casos_de_teste_visivel')
   })
-})
-
+})
+
+
+
 
 
 

@@ -1,7 +1,7 @@
 # 🧪 Automation Exercise — Framework de Automação com IA
 
 [![Cypress](https://img.shields.io/badge/Cypress-15.15.0-69D3A7)](https://www.cypress.io/)
-[![k6](https://img.shields.io/badge/k6-2.0+-7D64FF)](https://k6.io/)
+[![k6](https://img.shields.io/badge/k6-v2.0.0-7D64FF)](https://k6.io/)
 [![Node](https://img.shields.io/badge/Node-20.19.5-339933)](https://nodejs.org/)
 [![Allure](https://img.shields.io/badge/Allure-2.42.0-orange)](https://allurereport.org/)
 [![Playwright CLI](https://img.shields.io/badge/Playwright_CLI-1.0+-45ba4b)](https://github.com/microsoft/playwright-cli)
@@ -43,7 +43,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: Page Objects
 | Ferramenta | Versão | Finalidade |
 |:-----------|:------:|:-----------|
 | [Cypress](https://www.cypress.io/) | 15.15.0 | Testes E2E, API e Core Web Vitals |
-| [k6](https://k6.io/) | 2.0+ | Testes de performance e carga |
+| [k6](https://k6.io/) | v2.0.0 | Testes de performance e carga |
 | [Playwright CLI](https://github.com/microsoft/playwright-cli) | 1.0+ | Self-healing e inspeção de seletores  |
 | [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) | latest | Debugging ativo — console, network, performance, Lighthouse |
 | [Playwright MCP](https://github.com/microsoft/playwright-mcp) | latest | Automação de navegação, formulários e fluxos E2E |
@@ -92,7 +92,7 @@ antigravity PORTFOLIO/
 │   │   │   │   └── CheckoutPage.js                # Página de checkout e pagamento
 │   │   │   │
 │   │   │   ├── data/                              # Factories
-│   │   │   │   └── userFactory.js                 # Dados dinâmicos únicos por execução
+│   │   │   │   └── UserFactory.js                 # Dados dinâmicos únicos por execução
 │   │   │   │
 │   │   │   ├── fixtures/                          # Dados estáticos
 │   │   │   │   ├── users.json                     # Credenciais e dados de pagamento
@@ -395,7 +395,7 @@ Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_
 O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework**:
 
 1. **Geração de scripts de teste** — Cria arquivos `.cy.js` no padrão Page Object Model, com steps numerados e comentados em português, seguindo a nomenclatura definida no projeto
-2. **Page Objects e abstração** — Mantém `pages/*.js`, `fixtures/*.json`, `data/userFactory.js`, garantindo isolamento total entre camadas
+2. **Page Objects e abstração** — Mantém `pages/*.js`, `fixtures/*.json`, `data/UserFactory.js`, garantindo isolamento total entre camadas
 3. **Self-healing de seletores** — Consulta [`templates/Seletores.md`](automationexercise/templates/Seletores.md) para alternativas antes de inspecionar o live site; marca seletores como `[QUEBRADO]` e `[RESTAURADO]` com datas. Não reutiliza seletores quebrados a menos que o seletor volte a funcionar — nesse caso, reutiliza mantendo o histórico de quebra/restauração
 4. **Documentação completa** — Gera Sumário Executivo, BDD, Especificações Técnicas e Relatório de Resultados seguindo o padrão ouro do mercado em 2026 para cada documentação e scripts.
 5. **Evidências visuais** — Screenshots numerados, GIFs animados, HTML reports, consolidado histórico

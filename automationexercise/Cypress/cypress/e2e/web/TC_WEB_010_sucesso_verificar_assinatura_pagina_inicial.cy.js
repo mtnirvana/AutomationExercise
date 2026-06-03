@@ -6,7 +6,7 @@
  */
 
 import { HomePage } from '../../pages'
-import { UserFactory } from '../../data/userFactory'
+import { UserFactory } from '../../data/UserFactory'
 import uiData from '../../fixtures/ui_texts.json'
 
 describe('TC_WEB_010 - Verificar assinatura na página inicial', () => {

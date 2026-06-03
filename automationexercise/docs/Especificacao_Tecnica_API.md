@@ -353,7 +353,7 @@ expect(response.body.message).to.eq('User created!')
 **Objetivo:** Validar a exclusão de usuário via endpoint.<br>
 **Tipo:** Sucesso<br>
 **Criticidade:** Crítica<br>
-**Dados:** `cypress/data/userFactory.js` → `UserFactory.generate()` (usuário dinâmico)<br>
+**Dados:** `cypress/data/UserFactory.js` → `UserFactory.generate()` (usuário dinâmico)<br>
 **Pós-condição:** Nenhuma (usuário temporário criado e excluído no mesmo teste)
 
 **Passos Detalhados:**

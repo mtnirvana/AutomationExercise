@@ -6,7 +6,7 @@
  */
 
 import { HomePage, LoginPage, SignupPage, AccountPage, CheckoutPage, ProductsPage } from '../../pages'
-import { UserFactory } from '../../data/userFactory'
+import { UserFactory } from '../../data/UserFactory'
 import contactData from '../../fixtures/contact.json'
 import uiData from '../../fixtures/ui_texts.json'
 
