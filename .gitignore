@@ -6,3 +6,9 @@ corrigir.txt
 Backup/*
 !Backup/.gitkeep
 
+# Cypress generated artifacts (mantidos no remote, mas ignorados em novos commits)
+automationexercise/Cypress/cypress/screenshots/
+automationexercise/Cypress/cypress/videos/
+automationexercise/Cypress/cypress/allure/allure-report/
+automationexercise/Cypress/cypress/allure/allure-results/
+
