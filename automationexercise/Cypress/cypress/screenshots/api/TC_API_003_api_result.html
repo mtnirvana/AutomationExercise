@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <title>Evidência de Teste API - TC_API_003</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Consolas', 'Courier New', monospace; background: #0d1117; color: #c9d1d9; padding: 20px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { color: #58a6ff; font-size: 24px; margin-bottom: 20px; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+    .header { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 15px; margin-bottom: 20px; }
+    .header-item { display: flex; margin-bottom: 8px; }
+    .header-label { color: #8b949e; width: 120px; flex-shrink: 0; }
+    .header-value { color: #c9d1d9; }
+    .pass { color: #3fb950; font-weight: bold; }
+    .fail { color: #f85149; font-weight: bold; }
+    .section { background: #161b22; border: 1px solid #30363d; border-radius: 6px; margin-bottom: 15px; overflow: hidden; }
+    .section-title { background: #21262d; padding: 10px 15px; font-weight: bold; color: #58a6ff; border-bottom: 1px solid #30363d; }
+    .section-content { padding: 15px; }
+    .json { background: #0d1117; padding: 15px; border-radius: 4px; white-space: pre-wrap; word-break: break-all; font-size: 12px; overflow-x: auto; max-height: 400px; overflow-y: auto; }
+    .assertion { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid #21262d; }
+    .assertion:last-child { border-bottom: none; }
+    .assertion-icon { margin-right: 10px; font-size: 16px; }
+    .assertion-text { color: #c9d1d9; }
+    .timestamp { color: #8b949e; font-size: 12px; margin-top: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Relatório de Evidência de Teste API</h1>
+    <div class="header">
+      <div class="header-item">
+        <span class="header-label">Test ID:</span>
+        <span class="header-value">TC_API_003</span>
+      </div>
+      <div class="header-item">
+        <span class="header-label">Test Name:</span>
+        <span class="header-value">Pesquisar produto por termo via API</span>
+      </div>
+      <div class="header-item">
+        <span class="header-label">Horário:</span>
+        <span class="header-value">03/06/2026 - 06:58:30</span>
+      </div>
+      <div class="header-item">
+        <span class="header-label">Duração:</span>
+        <span class="header-value">223ms</span>
+      </div>
+      <div class="header-item">
+        <span class="header-label">Status:</span>
+        <span class="header-value pass">PASS</span>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">REQUISIÇÃO</div>
+      <div class="section-content">
+        <div class="json">Method: POST
+URL: https://automationexercise.com/api/searchProduct
+Body: search_product=top</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">RESPOSTA</div>
+      <div class="section-content">
+        <div class="json">Status: 200
+Body: {
+  "responseCode": 200,
+  "products": [
+    {
+      "id": 1,
+      "name": "Blue Top",
+      "price": "Rs. 500",
+      "brand": "Polo",
+      "category": {
+        "usertype": {
+          "usertype": "Women"
+        },
+        "category": "Tops"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Winter Top",
+      "price": "Rs. 600",
+      "brand": "Mast & Harbour",
+      "category": {
+        "usertype": {
+          "usertype": "Women"
+        },
+        "category": "Tops"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Summer White Top",
+      "price": "Rs. 400",
+      "brand": "H&M",
+      "category": {
+        "usertype": {
+          "usertype": "Women"
+        },
+        "category": "Tops"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Madame Top For Women",
+      "price": "Rs. 1000",
+      "brand": "Madame",
+      "category": {
+        "usertype": {
+          "usertype": "Women"
+        },
+        "category": "Tops"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Fancy Green Top",
+      "price": "Rs. 700",
+      "brand": "Polo",
+      "category": {
+        "usertype": {
+          "usertype": "Women"
+        },
+        "category": "Tops"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Sleeves Printed Top - White",
+      "price": "Rs. 499",
+      "brand": "Babyhug",
+      "category": {
+        "usertype": {
+          "usertype": "Kids"
+        },
+        "category": "Tops & Shirts"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Half Sleeves Top Schiffli Detailing - Pink",
+      "price": "Rs. 359",
+      "brand": "Babyhug",
+      "category": {
+        "usertype": {
+          "usertype": "Kids"
+        },
+        "category": "Tops & Shirts"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Frozen Tops For Kids",
+      "price": "Rs. 278",
+      "brand": "Allen Solly Junior",
+      "category": {
+        "usertype": {
+          "usertype": "Kids"
+        },
+        "category": "Tops & Shirts"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Full Sleeves Top Cherry - Pink",
+      "price": "Rs. 679",
+      "brand": "Kookie Kids",
+      "category": {
+        "usertype": {
+          "usertype": "Kids"
+        },
+        "category": "Tops & Shirts"
+      }
+    },
+    {
+      "id": 15,
+      "name": "Printed Off Shoulder Top - White",
+      "price": "Rs. 315",
+      "brand": "Babyhug",
+      "category": {
+        "usertype": {
+          "usertype": "Kids"
+        },
+        "category": "Tops & Shirts"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Sleeves Top and Short - Blue & Pink",
+      "price": "Rs. 478",
+      "brand": "Babyhug",
+      "category": {
+        "usertype": {
+          "usertype": "Kids"
+        },
+        "category": "Dress"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Little Girls Mr. Panda Shirt",
+      "price": "Rs. 1200",
+      "brand": "Kookie Kids",
+      "category": {
+        "usertype": {
+          "usertype": "Kids"
+        },
+        "category": "Tops & Shirts"
+      }
+    },
+    {
+      "id": 24,
+      "name": "Colour Blocked Shirt – Sky Blue",
+      "price": "Rs. 849",
+      "brand": "Allen Solly Junior",
+      "category": {
+        "usertype": {
+          "usertype": "Kids"
+        },
+        "category": "Tops & Shirts"
+      }
+    },
+    {
+      "id": 42,
+      "name": "Lace Top For Women",
+      "price": "Rs. 1400",
+      "brand": "Mast & Harbour",
+      "category": {
+        "usertype": {
+          "usertype": "Women"
+        },
+        "category": "Tops"
+      }
+    }
+  ]
+}</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">ASSERÇÕES (6)</div>
+      <div class="section-content">
+        
+        <div class="assertion">
+          <span class="assertion-icon">✓</span>
+          <span class="assertion-text">response.status é igual a 200</span>
+        </div>
+        
+        <div class="assertion">
+          <span class="assertion-icon">✓</span>
+          <span class="assertion-text">response.body.responseCode é igual a 200</span>
+        </div>
+        
+        <div class="assertion">
+          <span class="assertion-icon">✓</span>
+          <span class="assertion-text">response.body.products é um array</span>
+        </div>
+        
+        <div class="assertion">
+          <span class="assertion-icon">✓</span>
+          <span class="assertion-text">response.body.products.length é igual a 14</span>
+        </div>
+        
+        <div class="assertion">
+          <span class="assertion-icon">✓</span>
+          <span class="assertion-text">response.body.products[0] possui propriedade id</span>
+        </div>
+        
+        <div class="assertion">
+          <span class="assertion-icon">✓</span>
+          <span class="assertion-text">products[0].name contém "top"</span>
+        </div>
+        
+      </div>
+    </div>
+    <div class="timestamp">Gerado em: 2026-06-03T09:58:30.960Z | Sistema de Evidências API v1.0</div>
+  </div>
+</body>
+</html>

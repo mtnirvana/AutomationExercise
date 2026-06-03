@@ -1,0 +1,182 @@
+{
+    "metrics": {
+        "http_req_duration{expected_response:true}": {
+            "p(95)": 1311.3848249999992,
+            "avg": 905.7069144067802,
+            "min": 294.0096,
+            "med": 893.0834500000001,
+            "max": 2793.8023,
+            "p(90)": 1209.7188199999998
+        },
+        "http_req_failed": {
+            "passes": 1,
+            "fails": 2360,
+            "thresholds": {
+                "rate<0.05": false
+            },
+            "value": 0.00042354934349851756
+        },
+        "vus": {
+            "min": 1,
+            "max": 20,
+            "value": 2
+        },
+        "http_reqs": {
+            "count": 2361,
+            "rate": 15.534175529614522
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0.15882884371029224,
+            "min": 0,
+            "med": 0,
+            "max": 39.8596,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_sending": {
+            "med": 0,
+            "max": 1.4613,
+            "p(90)": 0.5542,
+            "p(95)": 0.6302,
+            "avg": 0.20469195256247372,
+            "min": 0
+        },
+        "iteration_duration": {
+            "avg": 4623.746890524538,
+            "min": 1523.2311,
+            "med": 4593.7564,
+            "max": 6691.7661,
+            "p(90)": 5285.1775,
+            "p(95)": 5473.68955
+        },
+        "http_req_waiting": {
+            "avg": 905.5721443456174,
+            "min": 293.4635,
+            "med": 892.8953,
+            "max": 2793.7203,
+            "p(90)": 1210.3215,
+            "p(95)": 1313.8743
+        },
+        "data_received": {
+            "count": 4704916,
+            "rate": 30955.947054676762
+        },
+        "http_req_blocked": {
+            "avg": 1.1905842016094876,
+            "min": 0,
+            "med": 0,
+            "max": 1035.5268,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "data_sent": {
+            "count": 449230,
+            "rate": 2955.7042241290687
+        },
+        "iterations": {
+            "count": 591,
+            "rate": 3.8884784997891497
+        },
+        "checks": {
+            "passes": 4712,
+            "fails": 10,
+            "value": 0.9978822532825075
+        },
+        "http_req_connecting": {
+            "p(95)": 0,
+            "avg": 1.027557983905125,
+            "min": 0,
+            "med": 0,
+            "max": 1019.7003,
+            "p(90)": 0
+        },
+        "http_req_receiving": {
+            "p(90)": 0.0122,
+            "p(95)": 0.522,
+            "avg": 0.19163007200338836,
+            "min": 0,
+            "med": 0,
+            "max": 169.0302
+        },
+        "http_req_duration": {
+            "med": 893.245,
+            "max": 2793.8023,
+            "p(90)": 1210.8584,
+            "p(95)": 1313.8743,
+            "avg": 905.9684663701827,
+            "min": 294.0096,
+            "thresholds": {
+                "p(95)<4000": false
+            }
+        },
+        "vus_max": {
+            "value": 20,
+            "min": 20,
+            "max": 20
+        }
+    },
+    "root_group": {
+        "checks": {
+            "createAccount status 200": {
+                "name": "createAccount status 200",
+                "path": "::createAccount status 200",
+                "id": "e1da921121bf5aa6bb0528f74b6acbe9",
+                "passes": 590,
+                "fails": 1
+            },
+            "createAccount responseCode 201": {
+                "passes": 586,
+                "fails": 5,
+                "name": "createAccount responseCode 201",
+                "path": "::createAccount responseCode 201",
+                "id": "5838b7e2d790b3aafa4a4ed8f6f02153"
+            },
+            "login status 200": {
+                "name": "login status 200",
+                "path": "::login status 200",
+                "id": "a9f04e9f501317c68a9f824e04811bea",
+                "passes": 590,
+                "fails": 0
+            },
+            "login message User exists!": {
+                "name": "login message User exists!",
+                "path": "::login message User exists!",
+                "id": "6a406397bb0c2d44af82225378cf3180",
+                "passes": 590,
+                "fails": 0
+            },
+            "listProducts status 200": {
+                "name": "listProducts status 200",
+                "path": "::listProducts status 200",
+                "id": "beedf72946129d6b3a6dbf321607c1ef",
+                "passes": 590,
+                "fails": 0
+            },
+            "listProducts responseCode 200": {
+                "name": "listProducts responseCode 200",
+                "path": "::listProducts responseCode 200",
+                "id": "e89a4b06babcdeedc2790ba2baedb5d0",
+                "passes": 590,
+                "fails": 0
+            },
+            "deleteAccount status 200": {
+                "fails": 0,
+                "name": "deleteAccount status 200",
+                "path": "::deleteAccount status 200",
+                "id": "3af17241f51807ffd8d299517858caa9",
+                "passes": 590
+            },
+            "deleteAccount message Account deleted!": {
+                "id": "0fd83b472ba9c2e2c4b18ab0fc4e9e1d",
+                "passes": 586,
+                "fails": 4,
+                "name": "deleteAccount message Account deleted!",
+                "path": "::deleteAccount message Account deleted!"
+            }
+        },
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {}
+    }
+}
