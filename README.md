@@ -140,6 +140,7 @@ antigravity PORTFOLIO/
 │       ├── Suite_BDD_TEMPLATE.md                  # Template de cenários BDD (Gherkin)
 │       ├── Relatorio_Resultados_Performance_TEMPLATE.md # Template de relatório de resultados
 │       ├── Guia_Cypress_Template.md               # Template de codificação e padrões do projeto
+│       ├── Seletores_TEMPLATE.md                  # Template de estrutura para novos seletores (IA)
 │       └── Seletores.md                           # Histórico de seletores e self-healing (IA)
 │
 └── Backup/                                        # Backups automáticos de documentação
@@ -420,6 +421,7 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 | Documento | Conteúdo |
 |:----------|:---------|
 | [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md) | Padrões de codificação, nomenclatura e boas práticas |
+| [`Seletores_TEMPLATE.md`](automationexercise/templates/Seletores_TEMPLATE.md) | Template de estrutura para novos seletores |
 | [`Seletores.md`](automationexercise/templates/Seletores.md) | Histórico de seletores e self-healing |
 | [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md) | Template do Sumário Executivo |
 | [`Especificacao_Tecnica_Web_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Web_TEMPLATE.md) | Template de especificação técnica (E2E Web) |

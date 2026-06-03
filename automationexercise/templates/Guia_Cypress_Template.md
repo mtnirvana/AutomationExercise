@@ -619,7 +619,7 @@ Antes de criar qualquer seletor, o agente DEVE:
 3. Verificar se existe `data-qa`, `id`, `name`, `data-testid` ou `data-cy`.
 4. Registrar o HTML exato encontrado no comentario do seletor.
 5. Usar sempre o nível mais robusto disponível na hierarquia acima.
-6. **Registrar TODAS as alternativas de seletores usando o `automationexercise/templates/Seletores_TEMPLATE.md` como modelo de rascunho, depois copiar o bloco preenchido para o `automationexercise/templates/Seletores.md` oficial**.
+6. **Registrar TODAS as alternativas de seletores usando o `automationexercise/templates/Seletores_TEMPLATE.md` como modelo de estrutura de seções e categorias, depois copiar o bloco preenchido para o `automationexercise/templates/Seletores.md` oficial**.
 
 ### Selector Comment Pattern (MANDATORY)
 
@@ -651,7 +651,7 @@ Sempre que um seletor quebrar:
 
 #### Level 2: Dynamic Recovery
 1. Se falhar, usar ferramenta live para redescobrir o seletor.
-2. Preencher o `automationexercise/templates/Seletores_TEMPLATE.md` com os novos seletores encontrados (rascunho).
+2. Preencher o `automationexercise/templates/Seletores_TEMPLATE.md` com os novos seletores encontrados (seguir o modelo de estrutura de seções e categorias).
 3. Copiar o bloco preenchido para o `automationexercise/templates/Seletores.md` oficial e atualizar o Page Object (marcando o antigo como `[QUEBRADO]`).
 3. **Restauração:** Se um seletor `[QUEBRADO]` voltar a funcionar, restaure-o no arquivo mas **mantenha o histórico** de quando quebrou e quando foi recuperado.
 
