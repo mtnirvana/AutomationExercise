@@ -13,7 +13,7 @@ Framework de automação de testes para o site [Automation Exercise](https://www
 
 Cada teste, documento e relatório são gerados e mantidos por IA, desde os scripts até a documentação técnica, BDD e relatórios de performance. A IA codifica, executa, documenta, corrige seletores e mantém a rastreabilidade entre execuções no Allure. Tudo dentro de uma governança rígida e pré-definida. O ciclo completo de QA é padronizado e automatizado, garantindo consistência em cada etapa.
 
-Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os componentes são separados por responsabilidade, os dados organizados de forma centralizada e cada fluxo de teste é independente e rastreável. Um ecossistema pensado para crescer sem perder a qualidade, onde cada peça tem seu lugar e cada execução deixa um rastro claro do que foi feito.
+Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os componentes são separados por responsabilidade, os dados organizados de forma centralizada e cada fluxo de teste é independente e rastreável. Um ecossistema escalável pensado para crescer sem perder a qualidade.
 
 **61 casos individuais no Allure** · 26 E2E · 14 API · 21 performance (13 k6 + 8 Core Web Vitals)
 
