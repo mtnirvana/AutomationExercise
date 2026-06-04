@@ -7,9 +7,7 @@ Backup/*
 !Backup/.gitkeep
 
 ABOUT.md
-# Cypress generated artifacts (presentes no remote via skip-worktree, ignorados em novos commits)
-automationexercise/Cypress/cypress/screenshots/
-automationexercise/Cypress/cypress/videos/
+# Cypress generated artifacts (temporariamente removido para commit de evidencias)
 automationexercise/Cypress/cypress/reports/
 automationexercise/Cypress/cypress/allure/allure-report/
 automationexercise/Cypress/cypress/allure/allure-results/
