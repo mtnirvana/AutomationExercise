@@ -668,7 +668,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna catálogo completo com 34 produtos
 - **Script:** [TC_API_001_sucesso_listar_todos_produtos.cy.js](../Cypress/cypress/e2e/api/TC_API_001_sucesso_listar_todos_produtos.cy.js)
-- **Evidência:** [\TC_API_001_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_001_api_result.html)
+- **Evidência:** [`TC_API_001_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_001_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -692,7 +692,7 @@ E cada produto deve possuir as propriedades id, name, price, brand e category
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna lista de marcas disponíveis
 - **Script:** [TC_API_002_sucesso_listar_todas_marcas.cy.js](../Cypress/cypress/e2e/api/TC_API_002_sucesso_listar_todas_marcas.cy.js)
-- **Evidência:** [\TC_API_002_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_002_api_result.html)
+- **Evidência:** [`TC_API_002_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_002_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -716,7 +716,7 @@ E cada marca deve possuir as propriedades id e brand
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna produtos filtrados pelo termo buscado
 - **Script:** [TC_API_003_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/api/TC_API_003_sucesso_pesquisar_produto.cy.js)
-- **Evidência:** [\TC_API_003_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_003_api_result.html)
+- **Evidência:** [`TC_API_003_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_003_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -740,7 +740,7 @@ E cada produto deve possuir as propriedades id e name
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente
 - **Script:** [TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js](../Cypress/cypress/e2e/api/TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js)
-- **Evidência:** [\TC_API_004_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_004_api_result.html)
+- **Evidência:** [`TC_API_004_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_004_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -766,7 +766,7 @@ E o body.message deve ser igual a "Bad request, search_product parameter is miss
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** API autentica usuário com credenciais corretas
 - **Script:** [TC_API_005_sucesso_verificar_login_valido.cy.js](../Cypress/cypress/e2e/api/TC_API_005_sucesso_verificar_login_valido.cy.js)
-- **Evidência:** [\TC_API_005_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_005_api_result.html)
+- **Evidência:** [`TC_API_005_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_005_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -788,7 +788,7 @@ E o body.message deve ser igual a "User exists!"
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna erro quando campo obrigatório está ausente
 - **Script:** [TC_API_006_erro_verificar_login_sem_email.cy.js](../Cypress/cypress/e2e/api/TC_API_006_erro_verificar_login_sem_email.cy.js)
-- **Evidência:** [\TC_API_006_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_006_api_result.html)
+- **Evidência:** [`TC_API_006_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_006_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -810,7 +810,7 @@ E o body.message deve ser igual a "Bad request, email or password parameter is m
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita autenticação com dados incorretos
 - **Script:** [TC_API_007_erro_verificar_login_invalido.cy.js](../Cypress/cypress/e2e/api/TC_API_007_erro_verificar_login_invalido.cy.js)
-- **Evidência:** [\TC_API_007_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_007_api_result.html)
+- **Evidência:** [`TC_API_007_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_007_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -836,7 +836,7 @@ E o body.message deve ser igual a "User not found!"
 - **Pós-condição:** Usuário criado deve ser excluído após a execução
 - **Resultado esperado:** API cria nova conta com dados fornecidos
 - **Script:** [TC_API_008_sucesso_criar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_008_sucesso_criar_conta_usuario.cy.js)
-- **Evidência:** [\TC_API_008_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_008_api_result.html)
+- **Evidência:** [`TC_API_008_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_008_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -860,7 +860,7 @@ E o usuário criado deve ser excluído após a execução
 - **Pós-condição:** Nenhuma (usuário temporário criado e excluído no mesmo teste)
 - **Resultado esperado:** API remove conta existente do sistema
 - **Script:** [TC_API_009_sucesso_excluir_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_009_sucesso_excluir_conta_usuario.cy.js)
-- **Evidência:** [\TC_API_009_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_009_api_result.html)
+- **Evidência:** [`TC_API_009_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_009_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -883,7 +883,7 @@ E o body.message deve ser igual a "Account deleted!"
 - **Pós-condição:** Usuário atualizado deve ser excluído após a execução
 - **Resultado esperado:** API permite alteração de dados cadastrais
 - **Script:** [TC_API_010_sucesso_atualizar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_010_sucesso_atualizar_conta_usuario.cy.js)
-- **Evidência:** [\TC_API_010_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_010_api_result.html)
+- **Evidência:** [`TC_API_010_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_010_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -906,7 +906,7 @@ E o body.message deve ser igual a "User updated!"
 - **Pós-condição:** Usuário criado deve ser excluído após a execução
 - **Resultado esperado:** API retorna dados do usuário pelo email
 - **Script:** [TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js](../Cypress/cypress/e2e/api/TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js)
-- **Evidência:** [\TC_API_011_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_011_api_result.html)
+- **Evidência:** [`TC_API_011_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_011_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -933,7 +933,7 @@ E o body deve possuir user com as propriedades name e email
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
 - **Script:** [TC_API_012_erro_validar_metodo_post_em_productslist.cy.js](../Cypress/cypress/e2e/api/TC_API_012_erro_validar_metodo_post_em_productslist.cy.js)
-- **Evidência:** [\TC_API_012_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_012_api_result.html)
+- **Evidência:** [`TC_API_012_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_012_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -955,7 +955,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
 - **Script:** [TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js](../Cypress/cypress/e2e/api/TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js)
-- **Evidência:** [\TC_API_013_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_013_api_result.html)
+- **Evidência:** [`TC_API_013_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_013_api_result.html)
 
 **Cenário:**
 ```gherkin
@@ -977,7 +977,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
 - **Script:** [TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js](../Cypress/cypress/e2e/api/TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js)
-- **Evidência:** [\TC_API_014_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_014_api_result.html)
+- **Evidência:** [`TC_API_014_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_014_api_result.html)
 
 **Cenário:**
 ```gherkin
