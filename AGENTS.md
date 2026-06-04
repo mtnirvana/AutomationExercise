@@ -139,12 +139,13 @@ The standard pipeline for ALL new test cases MUST follow this exact order:
 
 1. **CODE** — Create the test file, Page Objects (if E2E), and all supporting code
 2. **RUN** — Execute the test and verify it passes completely
-3. **BACKUP** — Create backups of all documentation files before any changes
-4. **UPDATE DOCS** — Increment Sumario_Executivo, Especificacao_Tecnica, Suite_BDD, and Relatorio (if applicable) using their respective templates
-5. **ALLURE** — Ensure Allure results are generated (Cypress auto-generates for .cy.js; k6 requires conversion via `convert_k6_to_allure.js`)
-6. **VERIFY** — Confirm all documents compile correctly with no broken links or numbering gaps
+3. **GIF** — Gerar GIF do teste executado com `node scripts/gerar_gifs.js` em `automationexercise/Cypress/`
+4. **BACKUP** — Create backups of all documentation files before any changes
+5. **UPDATE DOCS** — Increment Sumario_Executivo, Especificacao_Tecnica, Suite_BDD, and Relatorio (if applicable) using their respective templates
+6. **ALLURE** — Ensure Allure results are generated (Cypress auto-generates for .cy.js; k6 requires conversion via `convert_k6_to_allure.js`)
+7. **VERIFY** — Confirm all documents compile correctly with no broken links or numbering gaps
 
-> **NEVER** update documentation with unexecuted tests. Code first, document after, Allure last.
+> **NEVER** update documentation with unexecuted tests. Code first, document after, GIF third, Allure last.
 
 ---
 
@@ -324,35 +325,38 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
     1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_Web.md` — if yes, skip increment.
     2. **CODE FIRST — DOCUMENT AFTER:** Create the test file (`.cy.js`), Page Objects, and all supporting code first.
     3. **RUN AND CONFIRM:** Execute the test with `npx cypress run --spec "cypress/e2e/TC[##]_[sucesso/erro]_[titulo].cy.js"` and verify it **passes completely** (all steps, assertions, screenshots, and cleanup) before proceeding to documentation.
-    4. **CREATE BACKUP** of all E2E documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
-    5. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_WEB_001 - TC_WEB_###`).
-    6. **Increment `Especificacao_Tecnica_Web.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Web_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
-    7. **Update `Suite_BDD.md`:** Add new entry to section 8.1 (E2E) mapping table. Update totals in Meta e Escopo and Cobertura sections.
-    8. **Verify** both documents compile correctly with no broken links or numbering gaps.
-    9. **Allure** — Confirm allure-results were generated for the test. If not, check `@shelex/cypress-allure-plugin` configuration in `cypress.config.js`.
+    4. **GIF** — Gerar GIF do teste executado com `node scripts/gerar_gifs.js` em `automationexercise/Cypress/`
+    5. **CREATE BACKUP** of all E2E documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+    6. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_WEB_001 - TC_WEB_###`).
+    7. **Increment `Especificacao_Tecnica_Web.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Web_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
+    8. **Update `Suite_BDD.md`:** Add new entry to section 8.1 (E2E) mapping table. Update totals in Meta e Escopo and Cobertura sections.
+    9. **Verify** both documents compile correctly with no broken links or numbering gaps.
+    10. **Allure** — Confirm allure-results were generated for the test. If not, check `@shelex/cypress-allure-plugin` configuration in `cypress.config.js`.
 
 #### For API Tests:
     1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_API.md` — if yes, skip increment.
     2. **CODE FIRST — DOCUMENT AFTER:** Create the test file (`TC_API_*.cy.js`) in `automationexercise/Cypress/cypress/e2e/` first.
     3. **RUN AND CONFIRM:** Execute the test with `npx cypress run --spec "cypress/e2e/TC_API_*.cy.js"` and verify it **passes completely** (all assertions, responses, and cleanup) before proceeding to documentation.
-    4. **CREATE BACKUP** of all API documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
-    5. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_API_001 - TC_API_###`).
-    6. **Increment `Especificacao_Tecnica_API.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_API_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
-    7. **Update `Suite_BDD.md`:** Add new entry to section 8.2 (API) mapping table. Update totals in Meta e Escopo and Cobertura sections.
-    8. **Verify** both documents compile correctly with no broken links or numbering gaps.
-    9. **Allure** — Confirm allure-results were generated for the test. If not, check `@shelex/cypress-allure-plugin` configuration in `cypress.config.js`.
+    4. **GIF** — Gerar GIF do teste executado com `node scripts/gerar_gifs.js` em `automationexercise/Cypress/`
+    5. **CREATE BACKUP** of all API documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+    6. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_API_001 - TC_API_###`).
+    7. **Increment `Especificacao_Tecnica_API.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_API_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
+    8. **Update `Suite_BDD.md`:** Add new entry to section 8.2 (API) mapping table. Update totals in Meta e Escopo and Cobertura sections.
+    9. **Verify** both documents compile correctly with no broken links or numbering gaps.
+    10. **Allure** — Confirm allure-results were generated for the test. If not, check `@shelex/cypress-allure-plugin` configuration in `cypress.config.js`.
 
 #### For Performance Tests:
     1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_Performance.md` — if yes, skip increment.
     2. **CODE FIRST — DOCUMENT AFTER:** Create the k6 script (`TC_PF_*.js`) or Cypress script (`TC_PF_*.cy.js`) in `automationexercise/Cypress/cypress/e2e/performance/` first.
     3. **RUN AND CONFIRM:** Execute the test with `k6 run "cypress/e2e/performance/TC_PF_*.js"` (or `npx cypress run --spec "cypress/e2e/performance/TC_PF_*.cy.js"`) and verify it **passes completely** (all checks pass, thresholds met) before proceeding to documentation.
-    4. **CREATE BACKUP** of all Performance documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
-    5. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate line in the catalog table using `Sumario_Executivo_TEMPLATE.md` as base. Update total count.
-    6. **Increment `Especificacao_Tecnica_Performance.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Performance_TEMPLATE.md` as base. Each TC must include: objective, type (smoke/carga/estresse/resistência/pico/auditoria), configuration (VUs, stages, thresholds), script path, validation steps table, and key assertion.
-    7. **Update `Suite_BDD.md`:** Add new entry to section 8.3 (Performance) mapping table.
-    8. **Update `Relatorio_Resultados_Performance.md`:** After execution, populate metrics (avg, p95, taxa de erro) using `Relatorio_Resultados_Performance_TEMPLATE.md` as base.
-    9. **Verify** all documents compile correctly with no broken links or numbering gaps.
-    10. **Allure** — Confirm allure-results are generated (k6 requires conversion via `convert_k6_to_allure.js`).
+    4. **GIF** — Gerar GIF do teste executado com `node scripts/gerar_gifs.js` em `automationexercise/Cypress/`
+    5. **CREATE BACKUP** of all Performance documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+    6. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate line in the catalog table using `Sumario_Executivo_TEMPLATE.md` as base. Update total count.
+    7. **Increment `Especificacao_Tecnica_Performance.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Performance_TEMPLATE.md` as base. Each TC must include: objective, type (smoke/carga/estresse/resistência/pico/auditoria), configuration (VUs, stages, thresholds), script path, validation steps table, and key assertion.
+    8. **Update `Suite_BDD.md`:** Add new entry to section 8.3 (Performance) mapping table.
+    9. **Update `Relatorio_Resultados_Performance.md`:** After execution, populate metrics (avg, p95, taxa de erro) using `Relatorio_Resultados_Performance_TEMPLATE.md` as base.
+    10. **Verify** all documents compile correctly with no broken links or numbering gaps.
+    11. **Allure** — Confirm allure-results are generated (k6 requires conversion via `convert_k6_to_allure.js`).
 
 **Critical Rule:** NEVER update any test plan or technical test plan with a test case that has not been executed and confirmed passing. Documentation reflects the validated, working state of the test — not a planned or in-progress state.
 
@@ -443,6 +447,7 @@ If a test fails due to a selector error:
 2. **Step 2:** If failed, consult `automationexercise/Cypress/playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
 3. **Step 3:** Preencher o `Seletores_TEMPLATE.md` com os seletores descobertos (usar como modelo de estrutura de seções e categorias).
 4. **Step 4:** Copiar o bloco do template para o `Seletores.md` oficial e atualizar o Page Object (marcando o seletor antigo como `[QUEBRADO]`).
+5. **Step 5:** GERAR GIF — Após restaurar o seletor com sucesso, executar `node scripts/gerar_gifs.js` no diretório `automationexercise/Cypress/` para gerar novo GIF evidenciando o fluxo corrigido.
 
 > **O fluxo completo de investigação de seletores (hierarquia, ferramentas, como inspecionar) está detalhado no `Guia_Cypress_Template.md` (seção 8). Consulte-o SEMPRE antes de criar ou substituir seletores.**
 
@@ -534,4 +539,4 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
  
  ---
  
- **Documento gerado em:** 2026-05-22
+ **Documento gerado em:** 2026-06-04
