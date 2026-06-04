@@ -1,4 +1,4 @@
-# 🧪 Automation Exercise — Framework de Automação com IA
+# 🧪 Framework de Automação com IA — Automation Exercise
 
 [![Cypress](https://img.shields.io/badge/Cypress-15.15.0-69D3A7)](https://www.cypress.io/)
 [![k6](https://img.shields.io/badge/k6-v2.0.0-7D64FF)](https://k6.io/)
