@@ -25,7 +25,6 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 
 - [Stack](#stack)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Como Executar](#como-executar)
 - [Testes E2E Web](#testes-e2e-web-26)
 - [Testes de API](#testes-de-api-14)
 - [Testes de Performance](#testes-de-performance-14)
@@ -34,6 +33,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 - [🤖 Uso com Agentes de IA](#uso-com-agentes-de-ia)
 - [Documentação IA](#documentacao-ia)
 - [Rastreabilidade Histórica](#rastreabilidade-historica)
+- [Como Executar](#como-executar)
 
 ---
 
@@ -145,6 +145,196 @@ antigravity PORTFOLIO/
 │
 └── Backup/                                        # Backups automáticos de documentação
 ```
+
+---
+
+<a name="testes-e2e-web-26"></a>
+## 📊 Testes E2E Web (26)
+
+| ID | Teste | Tipo | Grupo |
+|:---|:------|:----:|:------|
+| TC_WEB_001 | Registrar novo usuário | ✅ | Identidade |
+| TC_WEB_002 | Login com credenciais corretas | ✅ | Identidade |
+| TC_WEB_003 | Login com credenciais incorretas | ❌ | Identidade |
+| TC_WEB_004 | Logout | ✅ | Identidade |
+| TC_WEB_005 | Registrar com email existente | ❌ | Identidade |
+| TC_WEB_006 | Formulário de contato | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_007 | Verificar página de casos de teste | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_008 | Verificar todos os produtos + detalhes | ✅ | Catálogo |
+| TC_WEB_009 | Pesquisar produto | ✅ | Catálogo |
+| TC_WEB_010 | Assinatura na página inicial | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_011 | Assinatura na página do carrinho | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_012 | Adicionar produtos ao carrinho | ✅ | Carrinho |
+| TC_WEB_013 | Verificar quantidade no carrinho | ✅ | Carrinho |
+| TC_WEB_014 | Fazer pedido (registrar no checkout) | ✅ | Checkout |
+| TC_WEB_015 | Fazer pedido (registrar antes) | ✅ | Checkout |
+| TC_WEB_016 | Fazer pedido (login antes) | ✅ | Checkout |
+| TC_WEB_017 | Remover produtos do carrinho | ✅ | Carrinho |
+| TC_WEB_018 | Visualizar por categoria | ✅ | Catálogo |
+| TC_WEB_019 | Visualizar por marca | ✅ | Catálogo |
+| TC_WEB_020 | Pesquisar + verificar carrinho + login | ✅ | Carrinho |
+| TC_WEB_021 | Adicionar avaliação | ✅ | Catálogo |
+| TC_WEB_022 | Itens recomendados | ✅ | Carrinho |
+| TC_WEB_023 | Detalhes de endereço no checkout | ✅ | Checkout |
+| TC_WEB_024 | Baixar fatura | ✅ | Checkout |
+| TC_WEB_025 | Scroll com seta | ✅ | Comunicação e Experiência do Usuário |
+| TC_WEB_026 | Scroll sem seta | ✅ | Comunicação e Experiência do Usuário |
+
+**24 Sucesso · 2 Erro**
+
+---
+
+<a name="testes-de-api-14"></a>
+## 📊 Testes de API (14)
+
+| ID | Teste | Tipo |
+|:---|:------|:----:|
+| TC_API_001 | Listar todos os produtos | ✅ |
+| TC_API_002 | Listar todas as marcas | ✅ |
+| TC_API_003 | Pesquisar produto | ✅ |
+| TC_API_004 | Pesquisar sem parâmetro | ❌ |
+| TC_API_005 | Verificar login válido | ✅ |
+| TC_API_006 | Verificar login sem email | ❌ |
+| TC_API_007 | Verificar login inválido | ❌ |
+| TC_API_008 | Criar conta | ✅ |
+| TC_API_009 | Excluir conta | ✅ |
+| TC_API_010 | Atualizar conta | ✅ |
+| TC_API_011 | Obter detalhes do usuário | ✅ |
+| TC_API_012 | Método POST em productsList | ❌ |
+| TC_API_013 | Método PUT em brandsList | ❌ |
+| TC_API_014 | Método DELETE em verifyLogin | ❌ |
+
+**8 Sucesso · 6 Erro**
+
+---
+
+<a name="testes-de-performance-14"></a>
+## 📊 Testes de Performance (14)
+
+| ID | Cenário | Tipo | Status |
+|:---|:--------|:----:|:------:|
+| TC_PF_001 | Smoke test | Validação | ✅ |
+| TC_PF_002 | Carga Homepage | Carga | ✅ |
+| TC_PF_003 | Carga API Produtos | Carga | ✅ |
+| TC_PF_004 | Carga API Login | Carga | ✅ |
+| TC_PF_005 | Estresse API Produtos | Estresse | ⚠️ |
+| TC_PF_006 | Resistência (Soak) | Resistência | ✅ |
+| TC_PF_007 | Pico (Spike) | Pico | ⚠️ |
+| TC_PF_008 | Core Web Vitals | Lighthouse | ✅ |
+| TC_PF_009 | Fluxo Checkout | Carga | ✅ |
+| TC_PF_010 | Auditoria de Imagens | Auditoria | ✅ |
+| TC_PF_011 | Carga Update Account | Carga | ✅ |
+| TC_PF_012 | Carga User Details | Carga | ✅ |
+| TC_PF_013 | Carga Search Product | Carga | ✅ |
+| TC_PF_014 | Carga Página Produtos | Carga | ✅ |
+
+**12 ✅ · 2 ⚠️** (rate limiting Cloudflare)
+
+---
+
+<a name="evidencias"></a>
+## 📸 Evidências
+
+Cada execução gera screenshots PNG de cada passo, vídeos e relatórios HTML. O GIF abaixo ilustra o fluxo completo do checkout — 26 steps, ~50s de execução:
+
+### TC_WEB_015 — Pedido registrando antes do checkout
+
+![TC_WEB_015](automationexercise/Cypress/cypress/screenshots/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.gif)
+
+> GIF gerado automaticamente via `scripts/gerar_gifs.js` a partir dos PNGs de cada passo.
+
+Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_Tecnica_Web.md) possui seu próprio GIF inline.
+
+---
+
+<a name="documentacao"></a>
+## 📄 Documentação
+
+| Documento | Conteúdo |
+|:----------|:---------|
+| [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md) | Visão geral, escopo, KPIs, riscos, ambiente |
+| [`Especificacao_Tecnica_Web.md`](automationexercise/docs/Especificacao_Tecnica_Web.md) | Plano detalhado dos 26 testes E2E com GIFs |
+| [`Especificacao_Tecnica_API.md`](automationexercise/docs/Especificacao_Tecnica_API.md) | Plano detalhado dos 14 testes de API |
+| [`Especificacao_Tecnica_Performance.md`](automationexercise/docs/Especificacao_Tecnica_Performance.md) | Plano detalhado dos 14 testes de performance |
+| [`Suite_BDD.md`](automationexercise/docs/Suite_BDD.md) | Cenários em Gherkin para stakeholders |
+| [`Relatorio_Resultados_Performance.md`](automationexercise/docs/Relatorio_Resultados_Performance.md) | Métricas e resultados consolidados (k6 + Lighthouse) |
+| [`Relatorio_Testes.lnk`](automationexercise/docs/Relatorio_Testes.lnk) | Atalho → abre servidor Allure com relatório completo |
+
+---
+
+<a name="uso-com-agentes-de-ia"></a>
+## 🤖 Uso com Agentes de IA
+
+O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework** em 8 etapas:
+
+1. **📖 Estudar** — Lê governança (AGENTS.md), padrões (Guia_Cypress), templates de docs, Page Objects, base de seletores (Seletores.md) e dados disponíveis (fixtures + UserFactory)
+2. **🧠 Planejar** — Define tipo do teste (E2E, API ou Performance), gera ID sequencial do TC (ex: TC_WEB_027), classifica como sucesso ou erro, decompõe a história em steps numerados, mapeia quais Page Objects usar e decide entre dados dinâmicos (factory) ou estáticos (fixture)
+3. **✍️ Criar** — Gera o arquivo .cy.js com JSDoc contendo @tags, importa os Page Objects necessários, implementa cada passo com comentário numerado em português, adiciona cy.captura() em cada interação e mantém a abstração entre camadas (pages, fixtures, factory)
+4. **▶️ Executar** — Roda `npx cypress run --spec` no navegador configurado, executando cada passo automaticamente como um usuário real, enquanto gera screenshots por passo, grava vídeo da execução e exporta resultados para o Allure
+5. **🔀 Decidir** — Se passa: screenshots numerados são salvos, um GIF animado é gerado via `gerar_gifs.js` e HTML reports são consolidados como evidência. Se falha: dispara a cadeia de auto-correção em 5 níveis — 1º consulta `Seletores.md` por alternativas, 2º Playwright CLI, 3º Chrome DevTools MCP, 4º Playwright MCP, 5º Selenium MCP. Após encontrar o seletor, atualiza o `Seletores.md` marcando o antigo como `[QUEBRADO]` e incluindo data de restauração se voltar a funcionar `[RESTAURADO]`, corrige o Page Object e reexecuta
+6. **📄 Documentação completa** — Gera Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e relatório de resultados utilizando o Allure Report
+7. **📦 Entregar** — Disponibiliza 4 artefatos: script .cy.js validado, pasta com prints numerados + GIF animado, 3 documentos técnicos consistentes e relatório Allure com histórico
+8. **🔄 Funciona para projetos novos ou incrementos** — Se o projeto não tem nada, a IA cria toda a estrutura do zero (pastas, pages, fixtures, factory, docs, configurações). Se já existe, identifica o próximo ID disponível, integra ao ecossistema existente e mantém a rastreabilidade com o histórico sem quebrar nada. O padrão é sempre o mesmo, independente do ponto de partida
+
+Isso transforma o projeto em um **framework dirigido por IA**: todo artefato — script, documento, GIF, relatório — segue o mesmo padrão, independentemente do modelo de IA usado, garantindo consistência e rastreabilidade em toda a suíte.
+
+![Fluxo da IA Orquestradora](diagrama_ia.png)
+
+---
+
+<a name="documentacao-ia"></a>
+## 📋 Documentação IA
+
+Documentos de suporte utilizados exclusivamente pelo agente de IA para geração e manutenção de testes:
+
+| Documento | Conteúdo |
+|:----------|:---------|
+| [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md) | Padrões de codificação, nomenclatura e boas práticas |
+| [`Seletores_TEMPLATE.md`](automationexercise/templates/Seletores_TEMPLATE.md) | Template de estrutura para novos seletores |
+| [`Seletores.md`](automationexercise/templates/Seletores.md) | Histórico de seletores e self-healing |
+| [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md) | Template do Sumário Executivo |
+| [`Especificacao_Tecnica_Web_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Web_TEMPLATE.md) | Template de especificação técnica (E2E Web) |
+| [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md) | Template de especificação técnica (API) |
+| [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md) | Template de especificação técnica (Performance) |
+| [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
+| [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
+
+---
+
+<a name="rastreabilidade-historica"></a>
+## 📈 Rastreabilidade Histórica
+
+### Relatório Unificado: Allure (Cypress + k6)
+
+O [Allure](https://allurereport.org/) gera um **relatório único** com todos os testes — Cypress E2E, API e performance k6:
+
+- **Visão geral** — Status geral, contagem de testes, tempo de execução
+- **Suítes** — Navegação por grupo (Performance com steps de checks, testes de API)
+- **Comportamentos** — Organização por funcionalidade (Performance - Carga, Smoke, API - Catálogo, etc.)
+- **Gráficos** — Status, duração, severidade, tendências históricas
+- **Linha do tempo** — Timeline completa de execução
+- **Histórico** — Acumula execuções ao longo de dias/meses (append-only via `history/`)
+
+```bash
+# Tudo de uma vez (passo a passo):
+cd automationexercise/Cypress/cypress/allure
+
+node scripts/convert_k6_to_allure.js      # Converte resultados k6 para Allure
+copy /y allure.properties allure-results\allure.properties >nul
+if exist allure-report\history copy /y allure-report\history\*.json allure-results\history\ >nul
+allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
+allure.cmd open allure-report -p 8765
+
+# Gera relatório estático:
+allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
+```
+
+O **histórico** funciona assim:
+1. Ao gerar o relatório, o Allure salva `history/` dentro do `allure-report/`
+2. O `run_all.bat` copia o `history/` do relatório anterior para `allure-results/history/` (criando o diretório se necessário) antes de gerar o novo relatório
+3. O `before:run` do `cypress.config.js` preserva esse histórico durante a execução dos testes
+4. Isso acumula dados de múltiplas execuções — dias, semanas, meses
+5. Os gráficos de tendência mostram a evolução ao longo do tempo
 
 ---
 
@@ -276,198 +466,4 @@ npx cypress open
 
 ---
 
-<a name="testes-e2e-web-26"></a>
-## 📊 Testes E2E Web (26)
-
-| ID | Teste | Tipo | Grupo |
-|:---|:------|:----:|:------|
-| TC_WEB_001 | Registrar novo usuário | ✅ | Identidade |
-| TC_WEB_002 | Login com credenciais corretas | ✅ | Identidade |
-| TC_WEB_003 | Login com credenciais incorretas | ❌ | Identidade |
-| TC_WEB_004 | Logout | ✅ | Identidade |
-| TC_WEB_005 | Registrar com email existente | ❌ | Identidade |
-| TC_WEB_006 | Formulário de contato | ✅ | Comunicação e Experiência do Usuário |
-| TC_WEB_007 | Verificar página de casos de teste | ✅ | Comunicação e Experiência do Usuário |
-| TC_WEB_008 | Verificar todos os produtos + detalhes | ✅ | Catálogo |
-| TC_WEB_009 | Pesquisar produto | ✅ | Catálogo |
-| TC_WEB_010 | Assinatura na página inicial | ✅ | Comunicação e Experiência do Usuário |
-| TC_WEB_011 | Assinatura na página do carrinho | ✅ | Comunicação e Experiência do Usuário |
-| TC_WEB_012 | Adicionar produtos ao carrinho | ✅ | Carrinho |
-| TC_WEB_013 | Verificar quantidade no carrinho | ✅ | Carrinho |
-| TC_WEB_014 | Fazer pedido (registrar no checkout) | ✅ | Checkout |
-| TC_WEB_015 | Fazer pedido (registrar antes) | ✅ | Checkout |
-| TC_WEB_016 | Fazer pedido (login antes) | ✅ | Checkout |
-| TC_WEB_017 | Remover produtos do carrinho | ✅ | Carrinho |
-| TC_WEB_018 | Visualizar por categoria | ✅ | Catálogo |
-| TC_WEB_019 | Visualizar por marca | ✅ | Catálogo |
-| TC_WEB_020 | Pesquisar + verificar carrinho + login | ✅ | Carrinho |
-| TC_WEB_021 | Adicionar avaliação | ✅ | Catálogo |
-| TC_WEB_022 | Itens recomendados | ✅ | Carrinho |
-| TC_WEB_023 | Detalhes de endereço no checkout | ✅ | Checkout |
-| TC_WEB_024 | Baixar fatura | ✅ | Checkout |
-| TC_WEB_025 | Scroll com seta | ✅ | Comunicação e Experiência do Usuário |
-| TC_WEB_026 | Scroll sem seta | ✅ | Comunicação e Experiência do Usuário |
-
-**24 Sucesso · 2 Erro**
-
----
-
-<a name="testes-de-api-14"></a>
-## 📊 Testes de API (14)
-
-| ID | Teste | Tipo |
-|:---|:------|:----:|
-| TC_API_001 | Listar todos os produtos | ✅ |
-| TC_API_002 | Listar todas as marcas | ✅ |
-| TC_API_003 | Pesquisar produto | ✅ |
-| TC_API_004 | Pesquisar sem parâmetro | ❌ |
-| TC_API_005 | Verificar login válido | ✅ |
-| TC_API_006 | Verificar login sem email | ❌ |
-| TC_API_007 | Verificar login inválido | ❌ |
-| TC_API_008 | Criar conta | ✅ |
-| TC_API_009 | Excluir conta | ✅ |
-| TC_API_010 | Atualizar conta | ✅ |
-| TC_API_011 | Obter detalhes do usuário | ✅ |
-| TC_API_012 | Método POST em productsList | ❌ |
-| TC_API_013 | Método PUT em brandsList | ❌ |
-| TC_API_014 | Método DELETE em verifyLogin | ❌ |
-
-**8 Sucesso · 6 Erro**
-
----
-
-<a name="testes-de-performance-14"></a>
-## 📊 Testes de Performance (14)
-
-| ID | Cenário | Tipo | Status |
-|:---|:--------|:----:|:------:|
-| TC_PF_001 | Smoke test | Validação | ✅ |
-| TC_PF_002 | Carga Homepage | Carga | ✅ |
-| TC_PF_003 | Carga API Produtos | Carga | ✅ |
-| TC_PF_004 | Carga API Login | Carga | ✅ |
-| TC_PF_005 | Estresse API Produtos | Estresse | ⚠️ |
-| TC_PF_006 | Resistência (Soak) | Resistência | ✅ |
-| TC_PF_007 | Pico (Spike) | Pico | ⚠️ |
-| TC_PF_008 | Core Web Vitals | Lighthouse | ✅ |
-| TC_PF_009 | Fluxo Checkout | Carga | ✅ |
-| TC_PF_010 | Auditoria de Imagens | Auditoria | ✅ |
-| TC_PF_011 | Carga Update Account | Carga | ✅ |
-| TC_PF_012 | Carga User Details | Carga | ✅ |
-| TC_PF_013 | Carga Search Product | Carga | ✅ |
-| TC_PF_014 | Carga Página Produtos | Carga | ✅ |
-
-**12 ✅ · 2 ⚠️** (rate limiting Cloudflare)
-
----
-
-<a name="evidencias"></a>
-## 📸 Evidências
-
-Cada execução gera screenshots PNG de cada passo, vídeos e relatórios HTML. O GIF abaixo ilustra o fluxo completo do checkout — 26 steps, ~50s de execução:
-
-### TC_WEB_015 — Pedido registrando antes do checkout
-
-![TC_WEB_015](automationexercise/Cypress/cypress/screenshots/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.gif)
-
-> GIF gerado automaticamente via `scripts/gerar_gifs.js` a partir dos PNGs de cada passo.
-
-Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_Tecnica_Web.md) possui seu próprio GIF inline.
-
----
-
-<a name="documentacao"></a>
-## 📄 Documentação
-
-| Documento | Conteúdo |
-|:----------|:---------|
-| [`Sumario_Executivo.md`](automationexercise/docs/Sumario_Executivo.md) | Visão geral, escopo, KPIs, riscos, ambiente |
-| [`Especificacao_Tecnica_Web.md`](automationexercise/docs/Especificacao_Tecnica_Web.md) | Plano detalhado dos 26 testes E2E com GIFs |
-| [`Especificacao_Tecnica_API.md`](automationexercise/docs/Especificacao_Tecnica_API.md) | Plano detalhado dos 14 testes de API |
-| [`Especificacao_Tecnica_Performance.md`](automationexercise/docs/Especificacao_Tecnica_Performance.md) | Plano detalhado dos 14 testes de performance |
-| [`Suite_BDD.md`](automationexercise/docs/Suite_BDD.md) | Cenários em Gherkin para stakeholders |
-| [`Relatorio_Resultados_Performance.md`](automationexercise/docs/Relatorio_Resultados_Performance.md) | Métricas e resultados consolidados (k6 + Lighthouse) |
-| [`Relatorio_Testes.lnk`](automationexercise/docs/Relatorio_Testes.lnk) | Atalho → abre servidor Allure com relatório completo |
-
----
-
-<a name="uso-com-agentes-de-ia"></a>
-## 🤖 Uso com Agentes de IA
-
-O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework**:
-
-1. **Geração de scripts de teste** — Cria arquivos `.cy.js` no padrão Page Object Model, com steps numerados e comentados em português, seguindo a nomenclatura definida no projeto
-2. **Page Objects e abstração** — Mantém `pages/*.js`, `fixtures/*.json`, `data/UserFactory.js`, garantindo isolamento total entre camadas
-3. **Self-healing de seletores** — Consulta [`templates/Seletores.md`](automationexercise/templates/Seletores.md) para alternativas antes de inspecionar o live site; marca seletores como `[QUEBRADO]` e `[RESTAURADO]` com datas. Não reutiliza seletores quebrados a menos que o seletor volte a funcionar — nesse caso, reutiliza mantendo o histórico de quebra/restauração
-4. **Documentação completa** — Gera Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e Relatório de Resultados de Performance seguindo o padrão ouro do mercado em 2026 para cada documentação e scripts.
-5. **Evidências visuais** — Screenshots numerados, GIFs animados, HTML reports, consolidado histórico
-
-O agente utiliza **ferramentas atuais de IA**: skills, MCPs (Chrome DevTools, Playwright, Selenium) e live inspection do DOM para decisões de implementação.
-
-Os [**templates**](automationexercise/templates/) são a fonte única de verdade para estrutura. Cada template mapeia seção por seção, tabela por tabela. O agente DEVE:
-
-1. Ler o template correspondente ao tipo de teste
-2. Espelhar a estrutura sem desvios
-3. Preencher cada campo com os dados reais
-
-Isso transforma o projeto em um **framework dirigido por IA**: todo artefato — script, documento, GIF, relatório — segue o mesmo padrão, independentemente do modelo de IA usado, garantindo consistência e rastreabilidade em toda a suíte.
-
----
-
-<a name="documentacao-ia"></a>
-## 📋 Documentação IA
-
-Documentos de suporte utilizados exclusivamente pelo agente de IA para geração e manutenção de testes:
-
-| Documento | Conteúdo |
-|:----------|:---------|
-| [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md) | Padrões de codificação, nomenclatura e boas práticas |
-| [`Seletores_TEMPLATE.md`](automationexercise/templates/Seletores_TEMPLATE.md) | Template de estrutura para novos seletores |
-| [`Seletores.md`](automationexercise/templates/Seletores.md) | Histórico de seletores e self-healing |
-| [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md) | Template do Sumário Executivo |
-| [`Especificacao_Tecnica_Web_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Web_TEMPLATE.md) | Template de especificação técnica (E2E Web) |
-| [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md) | Template de especificação técnica (API) |
-| [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md) | Template de especificação técnica (Performance) |
-| [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
-| [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
-
----
-
-<a name="rastreabilidade-historica"></a>
-## 📈 Rastreabilidade Histórica
-
-### Relatório Unificado: Allure (Cypress + k6)
-
-O [Allure](https://allurereport.org/) gera um **relatório único** com todos os testes — Cypress E2E, API e performance k6:
-
-- **Visão geral** — Status geral, contagem de testes, tempo de execução
-- **Suítes** — Navegação por grupo (Performance com steps de checks, testes de API)
-- **Comportamentos** — Organização por funcionalidade (Performance - Carga, Smoke, API - Catálogo, etc.)
-- **Gráficos** — Status, duração, severidade, tendências históricas
-- **Linha do tempo** — Timeline completa de execução
-- **Histórico** — Acumula execuções ao longo de dias/meses (append-only via `history/`)
-
-```bash
-# Tudo de uma vez (passo a passo):
-cd automationexercise/Cypress/cypress/allure
-
-node scripts/convert_k6_to_allure.js      # Converte resultados k6 para Allure
-copy /y allure.properties allure-results\allure.properties >nul
-if exist allure-report\history copy /y allure-report\history\*.json allure-results\history\ >nul
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-allure.cmd open allure-report -p 8765
-
-# Gera relatório estático:
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-```
-
-O **histórico** funciona assim:
-1. Ao gerar o relatório, o Allure salva `history/` dentro do `allure-report/`
-2. O `run_all.bat` copia o `history/` do relatório anterior para `allure-results/history/` (criando o diretório se necessário) antes de gerar o novo relatório
-3. O `before:run` do `cypress.config.js` preserva esse histórico durante a execução dos testes
-4. Isso acumula dados de múltiplas execuções — dias, semanas, meses
-5. Os gráficos de tendência mostram a evolução ao longo do tempo
-
----
-
-**Documento gerado em:** 2026-06-01
-
+**Documento gerado em:** 2026-06-04
