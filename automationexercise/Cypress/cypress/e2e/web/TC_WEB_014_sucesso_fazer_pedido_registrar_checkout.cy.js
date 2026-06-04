@@ -42,7 +42,7 @@ describe('TC_WEB_014 - Fazer pedido registrando durante o checkout', () => {
 
     // 7. Adicionar segundo produto ao carrinho
     ProductsPage.addToCartOverlay(1)
-    takeScreenshot('06_adicionou_segundo_produto')
+    takeScreenshot('07_adicionou_segundo_produto')
 
     // 8. Clicar em 'View Cart'
     CheckoutPage.clickViewCart()

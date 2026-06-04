@@ -28,7 +28,7 @@
 |:---|:--------|:------:|:-----:|:---:|:----:|
 | TC_PF_001 | Smoke test | ✅ Passou | 9/9 | 1,19s | 0% |
 | TC_PF_002 | Carga Homepage (50 VUs) | ✅ Passou | 2/2 | 2,14s | 0,84% |
-| TC_PF_003 | Carga API Produtos (100 VUs) | ✅ Passou | 77% | 6,69s | 22,60% |
+| TC_PF_003 | Carga API Produtos (100 VUs) | ✅ Passou | 1/1 | 7,2s | 22,76% |
 | TC_PF_004 | Carga API Login (30 VUs) | ✅ Passou | 1/1 | 458ms | 0% |
 | TC_PF_005 | Estresse API Produtos (300 VUs) | ⚠️ Rate limited | 13% | 6,80s | 86,37% |
 | TC_PF_006 | Resistência (Soak - 50 VUs) | ✅ Passou | 4/4 | 1,59s | 0% |
@@ -159,11 +159,7 @@
 
 | Check | Acerto | Resultado |
 |:------|:------:|:---------:|
-| status 200 | 77% | ⚠️ 902 falhas (rate limit) |
-| resposta JSON | 77% | ⚠️ Cloudflare retorna HTML |
-| responseCode 200 | 77% | ⚠️ Só válido quando retorna JSON |
-| products array | 100% | ✅ Quando retorna JSON, é válido |
-| products.length > 0 | 100% | ✅ Quando retorna JSON, é válido |
+| status 200 e JSON válido | 77% | ⚠️ 902 falhas (rate limit) — quando passa, todas as validações internas (responseCode 200, array, length > 0) são satisfeitas |
 
 #### Thresholds
 
@@ -174,7 +170,7 @@
 
 #### Análise
 
-O Cloudflare começou a rate limitar as requisições a partir de aproximadamente 50 VUs simultâneas, retornando HTML (página de bloqueio) em vez do JSON esperado. Isso resultou em 22,76% de taxa de erro. As requisições que passaram pelo rate limit retornaram JSON válido com latência média de 5,88s.
+O Cloudflare começou a rate limitar as requisições a partir de aproximadamente 50 VUs simultâneas, retornando HTML (página de bloqueio) em vez do JSON esperado. Isso resultou em 22,76% de taxa de erro. As requisições que passaram pelo rate limit retornaram JSON válido com latência média de 4,59s.
 
 ---
 

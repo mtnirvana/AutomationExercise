@@ -1077,7 +1077,7 @@ Um cenário é considerado **CONCLUÍDO** quando:
 | TC_WEB_011 | F05 | Verificar assinatura na página do carrinho | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
 | TC_WEB_012 | F03 | Adicionar produtos ao carrinho | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
 | TC_WEB_013 | F03 | Verificar quantidade de produto no carrinho | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
-| TC_WEB_014 | F04 | Fazer pedido registrando durante checkout | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
+| TC_WEB_014 | F04 | Fazer pedido registrando durante o checkout | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
 | TC_WEB_015 | F04 | Fazer pedido registrando antes do checkout | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
 | TC_WEB_016 | F04 | Fazer pedido fazendo login antes do checkout | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
 | TC_WEB_017 | F03 | Remover produtos do carrinho | Sucesso | [`Especificacao_Tecnica_Web.md`](Especificacao_Tecnica_Web.md) |
