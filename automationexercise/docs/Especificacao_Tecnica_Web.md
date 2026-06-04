@@ -477,18 +477,17 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 9 | Validar "ACCOUNT CREATED!" e clicar "Continue" | `AccountPage.accountCreatedHeader` + `AccountPage.continueButton` | Usuário logado |
 | 10 | Validar "Logged in as [username]" | `HomePage.verifyLoggedInAs()` | Nome visível |
 | 11 | Clicar em "Products" e adicionar produtos ao carrinho | `HomePage.clickProducts()` + hover + add to cart | Produtos adicionados |
-| 12 | Fechar modal (ESC) | `body.type('{esc}')` | Modal fechado |
-| 13 | Clicar em "Cart" | `a[href="/view_cart"]` | Abre carrinho |
-| 14 | Validar página do carrinho | URL contém `/view_cart` | Carrinho visível |
-| 15 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança checkout |
-| 16 | Validar detalhes de endereço e revisão do pedido | `.step-one h2:contains('Address Details')` + `.step-one h2:contains('Review Your Order')` | Dados visíveis |
-| 17 | Inserir descrição na área de texto de comentários | `textarea[name="message"]` | Comentário inserido |
-| 18 | Clicar em "Place Order" | `cy.contains('a', 'Place Order')` | Order initiated |
-| 19 | Inserir dados de pagamento | `[name="name_on_card"]`, `[name="card_number"]`, `[name="cvc"]`, `[name="expiry_month"]`, `[name="expiry_year"]` | Dados inseridos |
-| 20 | Clicar em "Pay and Confirm Order" | `cy.contains('button', 'Pay and Confirm Order')` | Pagamento processado |
-| 21 | Validar mensagem de sucesso | `h2:contains('Order Placed!')` | Pedido confirmado |
-| 22 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
-| 23 | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
+| 12 | Fechar modal (ESC) e clicar em "Cart" | `body.type('{esc}')` + `a[href="/view_cart"]` | Modal fechado, carrinho aberto |
+| 13 | Validar página do carrinho | URL contém `/view_cart` | Carrinho visível |
+| 14 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança checkout |
+| 15 | Validar detalhes de endereço e revisão do pedido | `.step-one h2:contains('Address Details')` + `.step-one h2:contains('Review Your Order')` | Dados visíveis |
+| 16 | Inserir descrição na área de texto de comentários | `textarea[name="message"]` | Comentário inserido |
+| 17 | Clicar em "Place Order" | `cy.contains('a', 'Place Order')` | Order initiated |
+| 18 | Inserir dados de pagamento | `[name="name_on_card"]`, `[name="card_number"]`, `[name="cvc"]`, `[name="expiry_month"]`, `[name="expiry_year"]` | Dados inseridos |
+| 19 | Clicar em "Pay and Confirm Order" | `cy.contains('button', 'Pay and Confirm Order')` | Pagamento processado |
+| 20 | Validar mensagem de sucesso | `h2:contains('Order Placed!')` | Pedido confirmado |
+| 21 | Clicar em "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
+| 22 | Validar "ACCOUNT DELETED!" e clicar em "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
 
 **Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Fluxo completo de compra com registro prévio<br>
@@ -516,16 +515,15 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 8 | Adicionar primeiro produto ao carrinho | Hover + `.product-overlay .btn` | Produto adicionado |
 | 9 | Clicar em "Continue Shopping" | `cy.contains('button', 'Continue Shopping')` | Modal fechado |
 | 10 | Adicionar segundo produto ao carrinho | Hover + `.product-overlay .btn` | Produto adicionado |
-| 11 | Fechar modal (ESC) | `body.type('{esc}')` | Modal fechado |
-| 12 | Clicar no botão "Cart" | `a[href="/view_cart"]` | Abre carrinho |
-| 13 | Validar página do carrinho | URL contém `/view_cart` + `h2` | Carrinho visível |
-| 14 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança checkout |
-| 15 | Verificar Detalhes do Endereço e Revisão do Pedido | `.step-one h2:contains('Address Details')` + `.step-one h2:contains('Review Your Order')` | Dados visíveis |
-| 16 | Inserir descrição na área de texto de comentários | `textarea[name="message"]` | Comentário inserido |
-| 17 | Clicar em "Place Order" | `cy.contains('a', 'Place Order')` | Order initiated |
-| 18 | Inserir detalhes do pagamento | `[name="name_on_card"]`, `[name="card_number"]`, `[name="cvc"]`, `[name="expiry_month"]`, `[name="expiry_year"]` | Dados inseridos |
-| 19 | Clicar no botão "Pay and Confirm Order" | `cy.contains('button', 'Pay and Confirm Order')` | Pagamento processado |
-| 20 | Verificar mensagem de sucesso | `h2:contains('Order Placed!')` | Pedido confirmado |
+| 11 | Fechar modal (ESC) e clicar no botão "Cart" | `body.type('{esc}')` + `a[href="/view_cart"]` | Modal fechado, carrinho aberto |
+| 12 | Validar página do carrinho | URL contém `/view_cart` + `h2` | Carrinho visível |
+| 13 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança checkout |
+| 14 | Verificar Detalhes do Endereço e Revisão do Pedido | `.step-one h2:contains('Address Details')` + `.step-one h2:contains('Review Your Order')` | Dados visíveis |
+| 15 | Inserir descrição na área de texto de comentários | `textarea[name="message"]` | Comentário inserido |
+| 16 | Clicar em "Place Order" | `cy.contains('a', 'Place Order')` | Order initiated |
+| 17 | Inserir detalhes do pagamento | `[name="name_on_card"]`, `[name="card_number"]`, `[name="cvc"]`, `[name="expiry_month"]`, `[name="expiry_year"]` | Dados inseridos |
+| 18 | Clicar no botão "Pay and Confirm Order" | `cy.contains('button', 'Pay and Confirm Order')` | Pagamento processado |
+| 19 | Verificar mensagem de sucesso | `h2:contains('Order Placed!')` | Pedido confirmado |
 
 **Asserção Chave:** Mensagem "Order Placed!" visível.<br>
 **Resultado esperado:** Usuário logado consegue finalizar compra<br>
@@ -639,13 +637,12 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 7 | Verificar que "SEARCHED PRODUCTS" está visível | `ProductsPage.verifySearchedProducts()` | Header correto |
 | 8 | Verificar que todos os produtos relacionados à busca estão visíveis | `ProductsPage.verifyProductsList()` | Lista preenchida |
 | 9 | Adicionar esses produtos ao carrinho | Hover + `.product-overlay .btn` + `.modal-footer button` | Produto adicionado |
-| 10 | Fechar modal (ESC) | `body.type('{esc}')` | Modal fechado |
-| 11 | Clicar no botão "Cart" e verificar que os produtos estão visíveis no carrinho | `a[href="/view_cart"]` | Abre carrinho |
-| 12 | Validar que produtos estão no carrinho | URL contém `/view_cart` + `h2` | Carrinho com itens |
-| 13 | Clicar no botão "Signup / Login" | `a[href="/login"]` | Abre login |
-| 14 | Inserir credenciais e clicar em "Login" | `LoginPage.loginEmail` + `LoginPage.loginPassword` + `LoginPage.loginButton` | Usuário logado |
-| 15 | Ir para a página do Carrinho | `a[href="/view_cart"]` | Abre carrinho |
-| 16 | Verificar que produtos estão visíveis no carrinho após login | URL contém `/view_cart` + `h2` | Carrinho persistido |
+| 10 | Fechar modal (ESC) e clicar no botão "Cart" | `body.type('{esc}')` + `a[href="/view_cart"]` | Modal fechado, carrinho aberto |
+| 11 | Validar que produtos estão no carrinho | URL contém `/view_cart` + `h2` | Carrinho com itens |
+| 12 | Clicar no botão "Signup / Login" | `a[href="/login"]` | Abre login |
+| 13 | Inserir credenciais e clicar em "Login" | `LoginPage.loginEmail` + `LoginPage.loginPassword` + `LoginPage.loginButton` | Usuário logado |
+| 14 | Ir para a página do Carrinho | `a[href="/view_cart"]` | Abre carrinho |
+| 15 | Verificar que produtos estão visíveis no carrinho após login | URL contém `/view_cart` + `h2` | Carrinho persistido |
 
 **Asserção Chave:** Carrinho mantém produtos após login (persistência verificada).<br>
 **Resultado esperado:** Carrinho persiste itens após autenticação<br>
@@ -726,14 +723,13 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 9 | Verificar "ACCOUNT CREATED!" e clicar no botão "Continue" | `AccountPage.accountCreatedHeader` + `AccountPage.continueButton` | Retorna à home |
 | 10 | Verificar "Logged in as username" no topo | `HomePage.verifyLoggedInAs()` | Nome visível |
 | 11 | Adicionar produtos ao carrinho | Hover + `.btn` em 2 produtos | Carrinho com itens |
-| 12 | Fechar modal (ESC) | `body.type('{esc}')` | Modal fechado |
-| 13 | Clicar no botão "Cart" | `a[href="/view_cart"]` | Abre carrinho |
-| 14 | Verificar que a página do carrinho está visível | URL contém `/view_cart` + `h2` | Carrinho visível |
-| 15 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança checkout |
-| 16 | Verificar que o endereço de entrega é o mesmo preenchido no registro da conta | `h2:contains('Address Details')` + `#address_delivery` | Endereço correto |
-| 17 | Verificar que o endereço de cobrança é o mesmo preenchido no registro da conta | `#address_invoice` | Endereço correto |
-| 18 | Clicar no botão "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
-| 19 | Verificar "ACCOUNT DELETED!" e clicar no botão "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
+| 12 | Fechar modal (ESC) e clicar no botão "Cart" | `body.type('{esc}')` + `a[href="/view_cart"]` | Modal fechado, carrinho aberto |
+| 13 | Verificar que a página do carrinho está visível | URL contém `/view_cart` + `h2` | Carrinho visível |
+| 14 | Clicar em "Proceed To Checkout" | `cy.contains('a', 'Proceed To Checkout')` | Avança checkout |
+| 15 | Verificar que o endereço de entrega é o mesmo preenchido no registro da conta | `h2:contains('Address Details')` + `#address_delivery` | Endereço correto |
+| 16 | Verificar que o endereço de cobrança é o mesmo preenchido no registro da conta | `#address_invoice` | Endereço correto |
+| 17 | Clicar no botão "Delete Account" | `HomePage.deleteAccountLink` | Conta excluída |
+| 18 | Verificar "ACCOUNT DELETED!" e clicar no botão "Continue" | `AccountPage.accountDeletedHeader` + `AccountPage.continueButton` | Conta removida |
 
 **Asserção Chave:** Endereço de entrega e cobrança correspondem aos dados preenchidos no registro.<br>
 **Resultado esperado:** Endereços de entrega e cobrança conferem com cadastro<br>
