@@ -9,7 +9,7 @@
 [![Playwright MCP](https://img.shields.io/badge/Playwright_MCP-latest-45ba4b)](https://github.com/microsoft/playwright-mcp)
 [![Selenium MCP](https://img.shields.io/badge/Selenium_MCP-latest-43B02A)](https://github.com/angiejones/mcp-selenium)
 
-Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes E2E, API, performance, documentação ISTQB/BDD e IA.
+Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes funcionais (E2E e API), testes de performance, documentação ISTQB/BDD e inteligência artificial em um único ecossistema.
 
 Cada teste, documento e relatório são gerados e mantidos por IA, desde os scripts até a documentação técnica, BDD e relatórios de performance. A IA codifica, executa, documenta, corrige seletores e mantém a rastreabilidade entre execuções no Allure. Tudo dentro de uma governança rígida e pré-definida. O ciclo completo de QA é padronizado e automatizado, garantindo consistência em cada etapa.
 
