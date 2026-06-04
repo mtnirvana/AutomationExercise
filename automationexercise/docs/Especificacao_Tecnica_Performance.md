@@ -332,8 +332,7 @@ Nota: Spike reduzido de 500 para 200 VUs para evitar bloqueio total do Cloudflar
 **Tipo:** Front-end<br>
 **Criticidade:** Média<br>
 **Configuração:** 8 páginas críticas, 1 execução cada, navegação real via Cypress<br>
-**Ferramenta:** Cypress + Chrome DevTools (Lighthouse)
-
+**Ferramenta:** Cypress + Chrome DevTools (Lighthouse)<br>
 **Script (Cypress):** [`TC_PF_008_core_web_vitals.cy.js`](../Cypress/cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js)
 
 **Execução:**
@@ -412,10 +411,8 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Objetivo:** Identificar imagens que excedem thresholds de performance e recomendar compressão.<br>
 **Tipo:** Auditoria<br>
 **Criticidade:** Baixa<br>
-**Configuração:** 1 VU, lista todos os 34 produtos e verifica Content-Length + Content-Type de cada imagem (37 checks no total)
-
+**Configuração:** 1 VU, lista todos os 34 produtos e verifica Content-Length + Content-Type de cada imagem (37 checks no total)<br>
 **Script:** [`TC_PF_010_auditoria_imagens.js`](../Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js)<br>
-
 **Passos de Validação:**
 
 | Passo | Ação | Checks | Validação |
@@ -442,7 +439,6 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Dados:** Email único via `Date.now()` por iteração. Password consistente em todo o fluxo.<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,15`<br>
 **Script:** [`TC_PF_011_carga_atualizar_conta.js`](../Cypress/cypress/e2e/performance/TC_PF_011_carga_atualizar_conta.js)<br>
-
 **Cobre:** TC_API_010 (Atualizar conta de usuário via API)
 
 **Passos de Validação:**
@@ -465,7 +461,6 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Dados:** Email único via `Date.now()`. Password consistente.<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,15`<br>
 **Script:** [`TC_PF_012_carga_detalhes_usuario.js`](../Cypress/cypress/e2e/performance/TC_PF_012_carga_detalhes_usuario.js)<br>
-
 **Cobre:** TC_API_011 (Obter detalhes do usuário por email via API)
 
 **Passos de Validação:**
@@ -493,7 +488,6 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 **Dados:** Termos de busca: 'top', 'winter', 'dress', 'shirt', 'blue'<br>
 **Thresholds:** `http_req_duration p(95) < 5000`, `http_req_failed rate < 0,05`<br>
 **Script:** [`TC_PF_013_carga_pesquisar_produto.js`](../Cypress/cypress/e2e/performance/TC_PF_013_carga_pesquisar_produto.js)<br>
-
 **Cobre:** TC_API_003 (Pesquisar produto por termo via API) + TC_WEB_009 (Pesquisar produto - E2E)
 
 **Observação:** A API retorna `Content-Type: text/html` mesmo quando o body é JSON válido. O script usa `r.json()` dentro de try/catch para contornar essa limitação.
