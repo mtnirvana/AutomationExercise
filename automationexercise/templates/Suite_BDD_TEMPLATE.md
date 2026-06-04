@@ -264,7 +264,7 @@ Então a mensagem "Success! Your details have been submitted successfully." deve
 - **Pós-condição:** [O que permanece ou é alterado após o teste]
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
-- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
+- **Evidência:** [TC_API_XXX_api_result.html](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_XXX_api_result.html)
 
 **Cenário:**
 ```
@@ -287,7 +287,7 @@ Máximo de 7 blocos por cenário. Agrupar ações relacionadas por intenção de
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
-- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
+- **Evidência:** [TC_API_XXX_api_result.html](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_XXX_api_result.html)
 
 **Cenário:**
 ```
@@ -308,7 +308,7 @@ E cada produto deve possuir id, name, price, brand e category
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
-- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
+- **Evidência:** [TC_API_XXX_api_result.html](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_XXX_api_result.html)
 
 **Cenário:**
 ```
@@ -336,7 +336,7 @@ E a mensagem de erro deve conter "Bad request, search_product parameter is missi
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
-- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
+- **Evidência:** [TC_API_XXX_api_result.html](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_XXX_api_result.html)
 
 **Cenário:**
 ```
@@ -364,7 +364,7 @@ E a mensagem deve ser "User exists!"
 - **Pós-condição:** Usuário criado deve ser excluído no afterEach
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
-- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
+- **Evidência:** [TC_API_XXX_api_result.html](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_XXX_api_result.html)
 
 **Cenário:**
 ```
@@ -392,7 +392,7 @@ E a mensagem deve ser "User created!"
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
-- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
+- **Evidência:** [TC_API_XXX_api_result.html](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_XXX_api_result.html)
 
 **Cenário:**
 ```

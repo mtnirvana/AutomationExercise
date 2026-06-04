@@ -81,9 +81,7 @@ expect(response.body.products).to.be.an('array')
 ```
 
 **Evidência:**
-```
-cypress/screenshots/api/{testId}_api_result.html
-```
+[`{testId}_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/{testId}_api_result.html)
 
 ---
 

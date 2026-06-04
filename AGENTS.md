@@ -402,6 +402,15 @@ API tests MUST generate HTML-only evidence in the following structure:
 A `generateEvidenceReport` task em `cypress.config.js` salva os HTMLs diretamente em `screenshots/api/`.
 All 14 API tests pass successfully with this structure.
 
+### Evidence Format Standards (MANDATORY)
+
+As evidências nos documentos devem seguir o formato exato abaixo:
+
+- **WEB (E2E) em Especificações Técnicas:** `**Evidência em GIF:** ![TC_WEB_###](../Cypress/cypress/screenshots/web/TC_WEB_###_sucesso/erro_titulo.cy.js/TC_WEB_###_sucesso/erro_titulo.gif)`
+- **WEB (E2E) em BDD:** `- **Evidência:** ![TC_WEB_###](../Cypress/cypress/screenshots/web/TC_WEB_###_sucesso/erro_titulo.cy.js/TC_WEB_###_sucesso/erro_titulo.gif)`
+- **API em Especificações Técnicas:** `**Evidência:**` (linha separada) + `` [`TC_API_###_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_###_api_result.html) ``
+- **API em BDD:** `- **Evidência:** [`TC_API_###_api_result.html`](https://htmlpreview.github.io/?...)``
+
 ### Test ID Format (MANDATORY)
 - **E2E Tests:** `TC_WEB_###` (ex: TC_WEB_001, TC_WEB_014)
 - **API Tests:** `TC_API_###` (ex: TC_API_001, TC_API_014)
