@@ -684,7 +684,7 @@ O spike de 10→200 VUs em 5s dispara rate limiting imediato do Cloudflare. O ch
 | `http_req_duration p(95) < 5000` | ✅ p(95)=2,09s |
 | `http_req_failed rate < 0,05` | ✅ rate=0,67% |
 
-**Observação:** A API retorna `Content-Type: text/html` mesmo quando o body é JSON válido. O script usa `JSON.parse()` diretamente para contornar essa limitação do servidor.
+**Observação:** A API retorna `Content-Type: text/html` mesmo quando o body é JSON válido. O script usa `r.json()` dentro de try/catch para contornar essa limitação do servidor.
 
 ---
 
@@ -757,7 +757,7 @@ O spike de 10→200 VUs em 5s dispara rate limiting imediato do Cloudflare. O ch
 |:-----|:---------|
 | **Problema** | Endpoint POST /api/searchProduct retorna `Content-Type: text/html` em vez de `application/json` |
 | **Sintoma** | `r.json()` do k6 falha com erro de parse |
-| **Impacto** | Necessário usar `JSON.parse(r.body)` diretamente |
+| **Impacto** | Necessário usar `r.json()` dentro de try/catch |
 | **Severidade** | Baixa (o body é JSON válido, apenas o header está errado) |
 
 ### 3.4 Imagens sem Otimização

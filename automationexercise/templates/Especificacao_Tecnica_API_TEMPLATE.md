@@ -1,6 +1,6 @@
 # Especificação Técnica API - Automation Exercise
 **Versão:** 1.0.0<br>
-**Metodologia:** API Testing (Cypress)<br>
+**Metodologia:** Teste de API REST<br>
 **Responsável:** Rafael Barelli
 
 ---
@@ -25,7 +25,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 | **Validação de Body** | Verificação de `responseCode`, `products`, `brands`, `message` |
 | **Cleanup** | afterEach com DELETE para usuários criados |
 | **Evidências** | HTML report gerado via `cy.task('generateEvidenceReport')`:<br>- Folder: `cypress/screenshots/api/` (plano)<br>- HTML Report: `{testId}_api_result.html` (request, response, assertions, sobrescrito a cada execução)<br>- Relatório unificado no **Allure Report** |
-| **Asserções em PT-BR** | Descrições em **PORTUGUÊS (BRASIL)** conforme padrão do projeto (ex: 'é igual a 200', 'é um array', 'possui propriedade id') |
+
 
 ---
 

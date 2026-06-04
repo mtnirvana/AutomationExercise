@@ -48,23 +48,26 @@ const BASE_URL = 'https://www.automationexercise.com'
 
 export const options = {
   stages: [
-    { duration: '20s', target: 100 },  // ramp-up
-    { duration: '3m', target: 100 },   // hold
-    { duration: '10s', target: 0 },    // ramp-down
+    { duration: '20s', target: 100 },  // subida gradual ate 100 VUs
+    { duration: '3m', target: 100 },   // sustentar 100 VUs por 3min
+    { duration: '10s', target: 0 },    // redução gradual para 0
   ],
   thresholds: {
-    http_req_duration: ['p(95)<2000'],
-    http_req_failed: ['rate<0.01'],
+    http_req_duration: ['p(95)<2000'],  // 95% das requests em < 2s
+    http_req_failed: ['rate<0.01'],      // menos de 1% de erro
   },
 }
 
 export default function () {
+  // 1. Enviar requisição GET para /api/productsList
   const res = http.get(`${BASE_URL}/api/productsList`, {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
   })
+  // 2. Validar status code da resposta
   check(res, {
     'status 200': (r) => r.status === 200,
   })
+  // 3. Aguardar 0.5s entre iterações
   sleep(0.5)
 }
 ```
@@ -504,7 +507,7 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
 
 **Cobre:** TC_API_003 (Pesquisar produto por termo via API) + TC_WEB_009 (Pesquisar produto - E2E)
 
-**Observação:** A API retorna `Content-Type: text/html` mesmo quando o body é JSON válido. O script usa `JSON.parse()` diretamente para contornar essa limitação.
+**Observação:** A API retorna `Content-Type: text/html` mesmo quando o body é JSON válido. O script usa `r.json()` dentro de try/catch para contornar essa limitação.
 
 ### 4.12 Grupo: Páginas Web (TC_PF_014)
 
@@ -626,7 +629,6 @@ automationexercise/
 ├── templates/                                          # Templates para novos TCs
 │   ├── Especificacao_Tecnica_Performance_TEMPLATE.md   # Template especificacao tecnica de performance
 │   ├── Relatorio_Resultados_Performance_TEMPLATE.md    # Template metricas e resultados k6 + Lighthouse
-│   ├── Seletores_TEMPLATE.md                          # Template de estrutura para novos seletores
 │   └── ...
 └── Cypress/
     └── cypress/

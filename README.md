@@ -398,7 +398,7 @@ O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define 
 1. **Geração de scripts de teste** — Cria arquivos `.cy.js` no padrão Page Object Model, com steps numerados e comentados em português, seguindo a nomenclatura definida no projeto
 2. **Page Objects e abstração** — Mantém `pages/*.js`, `fixtures/*.json`, `data/UserFactory.js`, garantindo isolamento total entre camadas
 3. **Self-healing de seletores** — Consulta [`templates/Seletores.md`](automationexercise/templates/Seletores.md) para alternativas antes de inspecionar o live site; marca seletores como `[QUEBRADO]` e `[RESTAURADO]` com datas. Não reutiliza seletores quebrados a menos que o seletor volte a funcionar — nesse caso, reutiliza mantendo o histórico de quebra/restauração
-4. **Documentação completa** — Gera Sumário Executivo, BDD, Especificações Técnicas e Relatório de Resultados seguindo o padrão ouro do mercado em 2026 para cada documentação e scripts.
+4. **Documentação completa** — Gera Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e Relatório de Resultados de Performance seguindo o padrão ouro do mercado em 2026 para cada documentação e scripts.
 5. **Evidências visuais** — Screenshots numerados, GIFs animados, HTML reports, consolidado histórico
 
 O agente utiliza **ferramentas atuais de IA**: skills, MCPs (Chrome DevTools, Playwright, Selenium) e live inspection do DOM para decisões de implementação.
@@ -462,9 +462,10 @@ allure.cmd generate --clean -o allure-report allure-results --lang br --name "Au
 
 O **histórico** funciona assim:
 1. Ao gerar o relatório, o Allure salva `history/` dentro do `allure-report/`
-2. O comando `copy` acima restaura esse `history/` de volta pra `allure-results/` antes da próxima geração
-3. Isso acumula dados de múltiplas execuções — dias, semanas, meses
-4. Os gráficos de tendência mostram a evolução ao longo do tempo
+2. O `run_all.bat` copia o `history/` do relatório anterior para `allure-results/history/` (criando o diretório se necessário) antes de gerar o novo relatório
+3. O `before:run` do `cypress.config.js` preserva esse histórico durante a execução dos testes
+4. Isso acumula dados de múltiplas execuções — dias, semanas, meses
+5. Os gráficos de tendência mostram a evolução ao longo do tempo
 
 ---
 

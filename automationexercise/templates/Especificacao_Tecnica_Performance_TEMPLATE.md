@@ -216,7 +216,6 @@ automationexercise/
 ├── templates/                                          # Templates para novos TCs
 │   ├── Especificacao_Tecnica_Performance_TEMPLATE.md   # Template especificacao tecnica de performance
 │   ├── Relatorio_Resultados_Performance_TEMPLATE.md    # Template metricas e resultados k6 + Lighthouse
-│   ├── Seletores_TEMPLATE.md                          # Template de estrutura para novos seletores
 │   └── ...
 
 └── Cypress/
