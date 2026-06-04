@@ -5,7 +5,7 @@
  * @author Rafael Barelli
  */
 
-import { HomePage, ProductsPage } from '../../pages'
+import { HomePage, ProductsPage, CheckoutPage } from '../../pages'
 import productsData from '../../fixtures/products.json'
 
 describe('TC_WEB_019 - Visualizar e adicionar ao carrinho produtos de marcas', () => {
@@ -50,6 +50,18 @@ describe('TC_WEB_019 - Visualizar e adicionar ao carrinho produtos de marcas', (
     ProductsPage.verifyBrandPageHeader(productsData.brands["h&m"])
     ProductsPage.productsItems.should('be.visible')
     takeScreenshot('09_outros_produtos_da_marca_exibidos')
+
+    // 10. Passar o mouse sobre o primeiro produto e clicar em Add to cart
+    ProductsPage.addToCartOverlay(0)
+    takeScreenshot('10_adicionou_ao_carrinho')
+
+    // 11. Clicar em 'View Cart'
+    CheckoutPage.clickViewCart()
+    takeScreenshot('11_clicou_ver_carrinho')
+
+    // 12. Validar que o produto está no carrinho
+    CheckoutPage.cartTableRows.should('have.length', 1)
+    takeScreenshot('12_produto_no_carrinho')
   })
 })
 

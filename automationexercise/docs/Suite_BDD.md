@@ -225,11 +225,11 @@ Então as páginas das categorias devem exibir os produtos corretamente
 **F02.04** - Visualizar e adicionar ao carrinho produtos de marcas
 - **Tipo:** Sucesso
 - **Criticidade:** Média
-- **Objetivo:** Validar que produtos de diferentes marcas são exibidos corretamente
+- **Objetivo:** Validar que produtos de diferentes marcas são exibidos e podem ser adicionados ao carrinho
 - **TC:** TC_WEB_019
 - **Dado:** Que existem marcas de produto válidas disponíveis
 - **Pós-condição:** Nenhuma
-- **Resultado esperado:** Marcas exibem produtos corretamente
+- **Resultado esperado:** Marcas exibem produtos e permitem adicionar ao carrinho
 - **Script:** [TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js](../Cypress/cypress/e2e/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js)
 
 **Cenário:**
@@ -239,6 +239,8 @@ Quando clico em "Products"
 Então as marcas devem estar visíveis na barra lateral esquerda
 Quando filtro por "Polo" e por "H&M"
 Então as páginas das marcas devem exibir os produtos corretamente
+Quando adiciono o primeiro produto ao carrinho e clico em "View Cart"
+Então o produto deve estar no carrinho
 ```
 
 ---

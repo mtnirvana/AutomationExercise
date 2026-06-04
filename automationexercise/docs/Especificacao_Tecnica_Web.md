@@ -608,9 +608,12 @@ Esta seção fornece a especificação técnica passo a passo para cada cenário
 | 7 | Verificar que o usuário foi redirecionado para a página da marca e os produtos da marca são exibidos | `ProductsPage.verifyBrandPageHeader()` → `.features_items` | Produtos da marca visíveis |
 | 8 | Na barra lateral esquerda, clicar em qualquer outro link de marca | `ProductsPage.clickBrand('H&M')` → `.brands-name a` | Navega para outra marca |
 | 9 | Verificar que o usuário foi redirecionado para essa página de marca e pode ver os produtos | `ProductsPage.verifyBrandPageHeader()` → `.features_items` | Produtos da marca visíveis |
+| 10 | Adicionar o primeiro produto ao carrinho | `ProductsPage.addToCartOverlay(0)` | Produto adicionado |
+| 11 | Clicar em "View Cart" | `CheckoutPage.clickViewCart()` | Abre carrinho |
+| 12 | Validar que o produto está no carrinho | `CheckoutPage.cartTableRows.should('have.length', 1)` | Produto no carrinho |
 
-**Asserção Chave:** Produtos de diferentes marcas são exibidos corretamente após clicar nos links.<br>
-**Resultado esperado:** Marcas exibem produtos corretamente<br>
+**Asserção Chave:** Produtos de diferentes marcas são exibidos corretamente após clicar nos links, e é possível adicioná-los ao carrinho.<br>
+**Resultado esperado:** Marcas exibem produtos corretamente e permitem adicionar ao carrinho<br>
 **Script:** [`TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js`](../Cypress/cypress/e2e/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js)<br>
 
 **Evidência em GIF:** ![TC_WEB_019](../Cypress/cypress/screenshots/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js/TC_WEB_019_sucesso_visualizar_adicionar_marcas.gif)
