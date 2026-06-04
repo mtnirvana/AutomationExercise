@@ -278,7 +278,7 @@ O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define 
 
 Isso transforma o projeto em um **framework dirigido por IA**: todo artefato — script, documento, GIF, relatório — segue o mesmo padrão, independentemente do modelo de IA usado, garantindo consistência e rastreabilidade em toda a suíte.
 
-![Fluxo da IA Orquestradora](diagrama_ia.png)
+![Fluxo da IA Orquestradora](automationexercise/docs/diagrama_ia.png)
 
 ---
 
