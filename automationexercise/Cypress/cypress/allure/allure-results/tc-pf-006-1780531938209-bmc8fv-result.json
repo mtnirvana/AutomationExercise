@@ -1,0 +1,92 @@
+{
+  "name": "Resistência (Soak) - endpoint /api/productsList",
+  "status": "passed",
+  "stage": "finished",
+  "start": 1780531704919,
+  "stop": 1780531705919,
+  "uuid": "tc-pf-006-1780531938209-bmc8fv",
+  "historyId": "tc_pf_006",
+  "fullName": "Performance - Resistência (Soak) - endpoint /api/productsList",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_006"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Resistência"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_006"
+    },
+    {
+      "name": "p95",
+      "value": "1504ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.0%"
+    },
+    {
+      "name": "Checks",
+      "value": "10869/10869"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. GET productsList status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531705419,
+      "stop": 1780531705719
+    },
+    {
+      "name": "2. GET brandsList status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531705919,
+      "stop": 1780531706219
+    },
+    {
+      "name": "3. POST verifyLogin status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531706419,
+      "stop": 1780531706719
+    },
+    {
+      "name": "4. POST searchProduct status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531706919,
+      "stop": 1780531707219
+    },
+    {
+      "name": "5. Resumo: p95=1504ms | Erro=0.0% | 10869/10869 checks | Aprovado",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531705819,
+      "stop": 1780531705919
+    }
+  ],
+  "attachments": []
+}

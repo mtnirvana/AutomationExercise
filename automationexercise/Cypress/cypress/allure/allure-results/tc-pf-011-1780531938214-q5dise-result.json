@@ -1,0 +1,113 @@
+{
+  "name": "Carga no endpoint /api/updateAccount",
+  "status": "failed",
+  "stage": "finished",
+  "start": 1780531655614,
+  "stop": 1780531656614,
+  "uuid": "tc-pf-011-1780531938214-q5dise",
+  "historyId": "tc_pf_011",
+  "fullName": "Performance - Carga no endpoint /api/updateAccount",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_011"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Carga"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_011"
+    },
+    {
+      "name": "p95",
+      "value": "2015ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.1%"
+    },
+    {
+      "name": "Checks",
+      "value": "5191/5243"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. createAccount status 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780531656114,
+      "stop": 1780531656414
+    },
+    {
+      "name": "2. createAccount responseCode 201",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780531656614,
+      "stop": 1780531656914
+    },
+    {
+      "name": "3. updateAccount status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531657114,
+      "stop": 1780531657414
+    },
+    {
+      "name": "4. updateAccount responseCode 200",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780531657614,
+      "stop": 1780531657914
+    },
+    {
+      "name": "5. updateAccount message User updated!",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780531658114,
+      "stop": 1780531658414
+    },
+    {
+      "name": "6. deleteAccount status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531658614,
+      "stop": 1780531658914
+    },
+    {
+      "name": "7. deleteAccount message Account deleted!",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780531659114,
+      "stop": 1780531659414
+    },
+    {
+      "name": "8. Resumo: p95=2015ms | Erro=0.1% | 5191/5243 checks | Falhou",
+      "status": "failed",
+      "stage": "finished",
+      "start": 1780531656514,
+      "stop": 1780531656614
+    }
+  ],
+  "attachments": []
+}

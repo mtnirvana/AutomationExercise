@@ -1,0 +1,71 @@
+{
+  "name": "Carga no endpoint /api/verifyLogin",
+  "status": "passed",
+  "stage": "finished",
+  "start": 1780531905716,
+  "stop": 1780531906716,
+  "uuid": "tc-pf-004-1780531938204-mdrbpc",
+  "historyId": "tc_pf_004",
+  "fullName": "Performance - Carga no endpoint /api/verifyLogin",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_004"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Carga"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_004"
+    },
+    {
+      "name": "p95",
+      "value": "517ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.0%"
+    },
+    {
+      "name": "Checks",
+      "value": "3148/3148"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. status 200 e login valido",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531906216,
+      "stop": 1780531906516
+    },
+    {
+      "name": "2. Resumo: p95=517ms | Erro=0.0% | 3148/3148 checks | Aprovado",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531906616,
+      "stop": 1780531906716
+    }
+  ],
+  "attachments": []
+}

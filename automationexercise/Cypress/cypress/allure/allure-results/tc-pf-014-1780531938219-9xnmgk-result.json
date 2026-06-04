@@ -1,0 +1,78 @@
+{
+  "name": "Carga na página de produtos",
+  "status": "passed",
+  "stage": "finished",
+  "start": 1780531799625,
+  "stop": 1780531800625,
+  "uuid": "tc-pf-014-1780531938219-9xnmgk",
+  "historyId": "tc_pf_014",
+  "fullName": "Performance - Carga na página de produtos",
+  "labels": [
+    {
+      "name": "epic",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "performance"
+    },
+    {
+      "name": "tag",
+      "value": "TC_PF_014"
+    },
+    {
+      "name": "feature",
+      "value": "Performance - Carga"
+    },
+    {
+      "name": "suite",
+      "value": "Performance"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "Test Case",
+      "value": "TC_PF_014"
+    },
+    {
+      "name": "p95",
+      "value": "695ms"
+    },
+    {
+      "name": "Error Rate",
+      "value": "0.0%"
+    },
+    {
+      "name": "Checks",
+      "value": "6194/6194"
+    },
+    {
+      "name": "Duration",
+      "value": "1.0s"
+    }
+  ],
+  "steps": [
+    {
+      "name": "1. GET /products status 200",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531800125,
+      "stop": 1780531800425
+    },
+    {
+      "name": "2. pagina produtos carregada",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531800625,
+      "stop": 1780531800925
+    },
+    {
+      "name": "3. Resumo: p95=695ms | Erro=0.0% | 6194/6194 checks | Aprovado",
+      "status": "passed",
+      "stage": "finished",
+      "start": 1780531800525,
+      "stop": 1780531800625
+    }
+  ],
+  "attachments": []
+}
