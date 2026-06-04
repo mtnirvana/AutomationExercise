@@ -56,9 +56,7 @@
 - **Dado:** Que existem dados de registro disponíveis
 - **Pós-condição:** Conta criada e excluída ao final do teste
 - **Resultado esperado:** Usuário consegue se registrar, acessar o sistema e excluir sua conta
-- **Script:** [TC_WEB_001_sucesso_registrar_usuario.cy.js](../Cypress/cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_001_sucesso_registrar_usuario.cy.js](../Cypress/cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js)\r\n- **Evidência:** ![TC_WEB_001](../Cypress/cypress/screenshots/web/TC_WEB_001_sucesso_registrar_usuario.cy.js/TC_WEB_001_sucesso_registrar_usuario.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho nome e email e clico em "Signup"
@@ -79,9 +77,7 @@ Então o header "Account Deleted!" deve estar visível após exclusão
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário cadastrado consegue acessar sua conta
-- **Script:** [TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js](../Cypress/cypress/e2e/web/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js](../Cypress/cypress/e2e/web/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js)\r\n- **Evidência:** ![TC_WEB_002](../Cypress/cypress/screenshots/web/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.cy.js/TC_WEB_002_sucesso_login_usuario_email_senha_corretos.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho email e senha e clico em "Login"
@@ -100,9 +96,7 @@ Então o sistema redireciona para a página de login e o header "Login to your a
 - **Dado:** Que existem credenciais inexistentes no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Sistema impede acesso com credenciais inválidas
-- **Script:** [TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js](../Cypress/cypress/e2e/web/TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js](../Cypress/cypress/e2e/web/TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js)\r\n- **Evidência:** ![TC_WEB_003](../Cypress/cypress/screenshots/web/TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js/TC_WEB_003_erro_login_usuario_email_senha_incorretos.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login"
@@ -121,9 +115,7 @@ Então o sistema exibe a mensagem de erro e o usuário permanece na página de l
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Sessão encerrada
 - **Resultado esperado:** Usuário consegue encerrar a sessão com segurança
-- **Script:** [TC_WEB_004_sucesso_logout_usuario.cy.js](../Cypress/cypress/e2e/web/TC_WEB_004_sucesso_logout_usuario.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_004_sucesso_logout_usuario.cy.js](../Cypress/cypress/e2e/web/TC_WEB_004_sucesso_logout_usuario.cy.js)\r\n- **Evidência:** ![TC_WEB_004](../Cypress/cypress/screenshots/web/TC_WEB_004_sucesso_logout_usuario.cy.js/TC_WEB_004_sucesso_logout_usuario.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho email e senha e clico em "Login"
@@ -142,9 +134,7 @@ Então o sistema redireciona para a página de login e o header "Login to your a
 - **Dado:** Que existe um email já cadastrado no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Sistema impede duplicidade de cadastro
-- **Script:** [TC_WEB_005_erro_registrar_usuario_email_existente.cy.js](../Cypress/cypress/e2e/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_005_erro_registrar_usuario_email_existente.cy.js](../Cypress/cypress/e2e/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js)\r\n- **Evidência:** ![TC_WEB_005](../Cypress/cypress/screenshots/web/TC_WEB_005_erro_registrar_usuario_email_existente.cy.js/TC_WEB_005_erro_registrar_usuario_email_existente.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login"
@@ -167,9 +157,7 @@ Então o sistema exibe a mensagem de erro "Email Address already exist!"
 - **Dado:** Que existem produtos disponíveis no catálogo
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Catálogo de produtos exibe informações completas
-- **Script:** [TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js)\r\n- **Evidência:** ![TC_WEB_008](../Cypress/cypress/screenshots/web/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.cy.js/TC_WEB_008_sucesso_verificar_todos_produtos_detalhes_produto.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
@@ -188,9 +176,7 @@ Então as informações do produto devem estar visíveis (nome, categoria, preç
 - **Dado:** Que existe um termo de busca válido disponível
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Busca retorna produtos relacionados ao termo
-- **Script:** [TC_WEB_009_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_009_sucesso_pesquisar_produto.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_009_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_009_sucesso_pesquisar_produto.cy.js)\r\n- **Evidência:** ![TC_WEB_009](../Cypress/cypress/screenshots/web/TC_WEB_009_sucesso_pesquisar_produto.cy.js/TC_WEB_009_sucesso_pesquisar_produto.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
@@ -209,9 +195,7 @@ Então o header "SEARCHED PRODUCTS" deve estar visível e os produtos relacionad
 - **Dado:** Que existem categorias de produto válidas disponíveis
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Categorias e subcategorias exibem produtos corretamente
-- **Script:** [TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js](../Cypress/cypress/e2e/web/TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js](../Cypress/cypress/e2e/web/TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js)\r\n- **Evidência:** ![TC_WEB_018](../Cypress/cypress/screenshots/web/TC_WEB_018_sucesso_visualizar_produtos_categoria.cy.js/TC_WEB_018_sucesso_visualizar_produtos_categoria.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
@@ -230,9 +214,7 @@ Então as páginas das categorias devem exibir os produtos corretamente
 - **Dado:** Que existem marcas de produto válidas disponíveis
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Marcas exibem produtos e permitem adicionar ao carrinho
-- **Script:** [TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js](../Cypress/cypress/e2e/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js](../Cypress/cypress/e2e/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js)\r\n- **Evidência:** ![TC_WEB_019](../Cypress/cypress/screenshots/web/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js/TC_WEB_019_sucesso_visualizar_adicionar_marcas.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
@@ -253,9 +235,7 @@ Então o produto deve estar no carrinho
 - **Dado:** Que existe um texto de avaliação de produto disponível
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário consegue avaliar produto
-- **Script:** [TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js](../Cypress/cypress/e2e/web/TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js)\r\n- **Evidência:** ![TC_WEB_021](../Cypress/cypress/screenshots/web/TC_WEB_021_sucesso_adicionar_avaliacao_produto.cy.js/TC_WEB_021_sucesso_adicionar_avaliacao_produto.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products" e em "View Product" do primeiro produto
@@ -278,9 +258,7 @@ Então o sistema exibe a mensagem "Thank you for your review."
 - **Dado:** Que existem produtos disponíveis no catálogo
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Carrinho aceita múltiplos produtos com preços e quantidades
-- **Script:** [TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js)\r\n- **Evidência:** ![TC_WEB_012](../Cypress/cypress/screenshots/web/TC_WEB_012_sucesso_adicionar_produtos_carrinho.cy.js/TC_WEB_012_sucesso_adicionar_produtos_carrinho.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Products"
@@ -299,9 +277,7 @@ Então a página do carrinho deve estar visível e os dois produtos devem estar 
 - **Dado:** Que existe um produto disponível com campo de quantidade editável
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Seletor de quantidade reflete valor escolhido no carrinho
-- **Script:** [TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js)\r\n- **Evidência:** ![TC_WEB_013](../Cypress/cypress/screenshots/web/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.cy.js/TC_WEB_013_sucesso_verificar_quantidade_produto_carrinho.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "View Product", altero a quantidade para "4" e clico em "Add to cart"
@@ -319,9 +295,7 @@ Então a quantidade do produto no carrinho deve ser exatamente "4"
 - **Dado:** Que existe um produto disponível no catálogo com quantidade configurável
 - **Pós-condição:** Carrinho atualizado
 - **Resultado esperado:** Usuário consegue remover itens do carrinho
-- **Script:** [TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js)\r\n- **Evidência:** ![TC_WEB_017](../Cypress/cypress/screenshots/web/TC_WEB_017_sucesso_remover_produtos_carrinho.cy.js/TC_WEB_017_sucesso_remover_produtos_carrinho.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "View Product", altero a quantidade e adiciono ao carrinho
@@ -340,9 +314,7 @@ Então o produto deve ser removido do carrinho
 - **Dado:** Que existem credenciais pré-cadastradas e termos de busca válidos disponíveis
 - **Pós-condição:** Carrinho persiste após login
 - **Resultado esperado:** Carrinho persiste itens após autenticação
-- **Script:** [TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js](../Cypress/cypress/e2e/web/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js](../Cypress/cypress/e2e/web/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js)\r\n- **Evidência:** ![TC_WEB_020](../Cypress/cypress/screenshots/web/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.cy.js/TC_WEB_020_sucesso_pesquisar_produtos_verificar_carrinho_login.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando busco por produto, adiciono ao carrinho e verifico no carrinho
@@ -363,9 +335,7 @@ Então os produtos devem persistir no carrinho após login
 - **Dado:** Que existem itens recomendados disponíveis na seção inferior da página inicial
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Produtos recomendados são adicionados ao carrinho
-- **Script:** [TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js)\r\n- **Evidência:** ![TC_WEB_022](../Cypress/cypress/screenshots/web/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.cy.js/TC_WEB_022_sucesso_adicionar_itens_recomendados_carrinho.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo para o final da página
@@ -388,9 +358,7 @@ Então o produto recomendado deve estar na página do carrinho
 - **Dado:** Que existem dados de registro e dados de pagamento disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** Fluxo completo de compra com registro no checkout
-- **Script:** [TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js)\r\n- **Evidência:** ![TC_WEB_014](../Cypress/cypress/screenshots/web/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.cy.js/TC_WEB_014_sucesso_fazer_pedido_registrar_checkout.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando adiciono produtos ao carrinho, prossigo para checkout, clico em "Register / Login" e crio a conta
@@ -412,9 +380,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Diferencial:** Foco no fluxo completo de compra com registro prévio ao checkout, incluindo fechamento de pedido com pagamento.
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** Fluxo completo de compra com registro prévio
-- **Script:** [TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js)\r\n- **Evidência:** ![TC_WEB_015](../Cypress/cypress/screenshots/web/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.cy.js/TC_WEB_015_sucesso_fazer_pedido_registrar_antes_checkout.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho dados de registro e crio a conta
@@ -435,9 +401,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Dado:** Que existem credenciais pré-cadastradas e dados de pagamento disponíveis
 - **Pós-condição:** Sessão permanece ativa
 - **Resultado esperado:** Usuário logado consegue finalizar compra
-- **Script:** [TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js)\r\n- **Evidência:** ![TC_WEB_016](../Cypress/cypress/screenshots/web/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.cy.js/TC_WEB_016_sucesso_fazer_pedido_login_antes_checkout.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho email e senha e clico em "Login"
@@ -457,9 +421,7 @@ Então a mensagem de confirmação do pedido deve estar visível
 - **Dado:** Que existem dados de registro disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** Endereços de entrega e cobrança conferem com cadastro
-- **Script:** [TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js](../Cypress/cypress/e2e/web/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js)\r\n- **Evidência:** ![TC_WEB_023](../Cypress/cypress/screenshots/web/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.cy.js/TC_WEB_023_sucesso_verificar_detalhes_endereco_checkout.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Signup / Login", preencho dados de registro e crio a conta
@@ -480,9 +442,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Dado:** Que existem dados de registro, dados de contato e dados de pagamento disponíveis
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** Fatura é gerada e disponível para download
-- **Script:** [TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js](../Cypress/cypress/e2e/web/TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js](../Cypress/cypress/e2e/web/TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js)\r\n- **Evidência:** ![TC_WEB_024](../Cypress/cypress/screenshots/web/TC_WEB_024_sucesso_baixar_fatura_pedido.cy.js/TC_WEB_024_sucesso_baixar_fatura_pedido.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando adiciono produto ao carrinho, prossigo para checkout e clico em "Register / Login"
@@ -508,9 +468,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Dado:** Que existem dados de contato disponíveis
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário consegue enviar mensagem com arquivo anexado
-- **Script:** [TC_WEB_006_sucesso_formulario_contato.cy.js](../Cypress/cypress/e2e/web/TC_WEB_006_sucesso_formulario_contato.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_006_sucesso_formulario_contato.cy.js](../Cypress/cypress/e2e/web/TC_WEB_006_sucesso_formulario_contato.cy.js)\r\n- **Evidência:** ![TC_WEB_006](../Cypress/cypress/screenshots/web/TC_WEB_006_sucesso_formulario_contato.cy.js/TC_WEB_006_sucesso_formulario_contato.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Contact Us"
@@ -531,9 +489,7 @@ Então a página inicial deve estar carregada
 - **Dado:** Que existem links de navegação acessíveis na página inicial
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Navegação para página de casos de teste funciona
-- **Script:** [TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js](../Cypress/cypress/e2e/web/TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js](../Cypress/cypress/e2e/web/TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js)\r\n- **Evidência:** ![TC_WEB_007](../Cypress/cypress/screenshots/web/TC_WEB_007_sucesso_verificar_pagina_casos_teste.cy.js/TC_WEB_007_sucesso_verificar_pagina_casos_teste.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Test Cases"
@@ -550,9 +506,7 @@ Então a página de casos de teste é carregada com header "Test Cases" visível
 - **Dado:** Que existe um campo de assinatura de newsletter acessível na página inicial
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário consegue assinar newsletter na home
-- **Script:** [TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js](../Cypress/cypress/e2e/web/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js](../Cypress/cypress/e2e/web/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js)\r\n- **Evidência:** ![TC_WEB_010](../Cypress/cypress/screenshots/web/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.cy.js/TC_WEB_010_sucesso_verificar_assinatura_pagina_inicial.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo para o rodapé da página
@@ -572,9 +526,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 - **Dado:** Que existe um campo de assinatura de newsletter acessível na página do carrinho
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Usuário consegue assinar newsletter no carrinho
-- **Script:** [TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js](../Cypress/cypress/e2e/web/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js)\r\n- **Evidência:** ![TC_WEB_011](../Cypress/cypress/screenshots/web/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.cy.js/TC_WEB_011_sucesso_verificar_assinatura_pagina_carrinho.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando clico em "Cart" e rolo para o rodapé
@@ -593,9 +545,7 @@ Então a mensagem "You have been successfully subscribed!" deve estar visível
 - **Dado:** Que existem botões de navegação acessíveis na página
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Botão de scroll up retorna ao topo da página
-- **Script:** [TC_WEB_025_sucesso_verificar_scroll_seta.cy.js](../Cypress/cypress/e2e/web/TC_WEB_025_sucesso_verificar_scroll_seta.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_025_sucesso_verificar_scroll_seta.cy.js](../Cypress/cypress/e2e/web/TC_WEB_025_sucesso_verificar_scroll_seta.cy.js)\r\n- **Evidência:** ![TC_WEB_025](../Cypress/cypress/screenshots/web/TC_WEB_025_sucesso_verificar_scroll_seta.cy.js/TC_WEB_025_sucesso_verificar_scroll_seta.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo a página para baixo até o rodapé
@@ -614,9 +564,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **Dado:** Que existe uma área navegável com scroll
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** Scroll manual retorna ao topo da página
-- **Script:** [TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js](../Cypress/cypress/e2e/web/TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js)
-
-**Cenário:**
+- **Script:** [TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js](../Cypress/cypress/e2e/web/TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js)\r\n- **Evidência:** ![TC_WEB_026](../Cypress/cypress/screenshots/web/TC_WEB_026_sucesso_verificar_scroll_sem_seta.cy.js/TC_WEB_026_sucesso_verificar_scroll_sem_seta.gif)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que o navegador está aberto e a página inicial carrega
 Quando rolo para o rodapé da página
@@ -641,9 +589,7 @@ Então o texto do cabeçalho "Full-Fledged practice website for Automation Engin
 - **Dado:** Que a API de catálogo de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna catálogo completo com 34 produtos
-- **Script:** [TC_API_001_sucesso_listar_todos_produtos.cy.js](../Cypress/cypress/e2e/api/TC_API_001_sucesso_listar_todos_produtos.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_001_sucesso_listar_todos_produtos.cy.js](../Cypress/cypress/e2e/api/TC_API_001_sucesso_listar_todos_produtos.cy.js)\r\n- **Evidência:** [\TC_API_001_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_001_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição GET para /api/productsList
@@ -664,9 +610,7 @@ E cada produto deve possuir as propriedades id, name, price, brand e category
 - **Dado:** Que a API de catálogo de marcas está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna lista de marcas disponíveis
-- **Script:** [TC_API_002_sucesso_listar_todas_marcas.cy.js](../Cypress/cypress/e2e/api/TC_API_002_sucesso_listar_todas_marcas.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_002_sucesso_listar_todas_marcas.cy.js](../Cypress/cypress/e2e/api/TC_API_002_sucesso_listar_todas_marcas.cy.js)\r\n- **Evidência:** [\TC_API_002_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_002_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição GET para /api/brandsList
@@ -687,9 +631,7 @@ E cada marca deve possuir as propriedades id e brand
 - **Dado:** Que existe um termo de busca 'top' disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna produtos filtrados pelo termo buscado
-- **Script:** [TC_API_003_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/api/TC_API_003_sucesso_pesquisar_produto.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_003_sucesso_pesquisar_produto.cy.js](../Cypress/cypress/e2e/api/TC_API_003_sucesso_pesquisar_produto.cy.js)\r\n- **Evidência:** [\TC_API_003_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_003_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/searchProduct com o parâmetro "search_product" contendo "top"
@@ -710,9 +652,7 @@ E cada produto deve possuir as propriedades id e name
 - **Dado:** Que a API de busca de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna erro quando parâmetro obrigatório está ausente
-- **Script:** [TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js](../Cypress/cypress/e2e/api/TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js](../Cypress/cypress/e2e/api/TC_API_004_erro_pesquisar_produto_sem_parametro.cy.js)\r\n- **Evidência:** [\TC_API_004_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_004_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/searchProduct sem o parâmetro "search_product"
@@ -735,9 +675,7 @@ E o body.message deve ser igual a "Bad request, search_product parameter is miss
 - **Dado:** Que existem credenciais pré-cadastradas no sistema
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** API autentica usuário com credenciais corretas
-- **Script:** [TC_API_005_sucesso_verificar_login_valido.cy.js](../Cypress/cypress/e2e/api/TC_API_005_sucesso_verificar_login_valido.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_005_sucesso_verificar_login_valido.cy.js](../Cypress/cypress/e2e/api/TC_API_005_sucesso_verificar_login_valido.cy.js)\r\n- **Evidência:** [\TC_API_005_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_005_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/verifyLogin de usuário com email e senha válidos
@@ -756,9 +694,7 @@ E o body.message deve ser igual a "User exists!"
 - **Dado:** Que a API de autenticação está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API retorna erro quando campo obrigatório está ausente
-- **Script:** [TC_API_006_erro_verificar_login_sem_email.cy.js](../Cypress/cypress/e2e/api/TC_API_006_erro_verificar_login_sem_email.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_006_erro_verificar_login_sem_email.cy.js](../Cypress/cypress/e2e/api/TC_API_006_erro_verificar_login_sem_email.cy.js)\r\n- **Evidência:** [\TC_API_006_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_006_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/verifyLogin sem email
@@ -777,9 +713,7 @@ E o body.message deve ser igual a "Bad request, email or password parameter is m
 - **Dado:** Que existem credenciais inexistentes no sistema
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita autenticação com dados incorretos
-- **Script:** [TC_API_007_erro_verificar_login_invalido.cy.js](../Cypress/cypress/e2e/api/TC_API_007_erro_verificar_login_invalido.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_007_erro_verificar_login_invalido.cy.js](../Cypress/cypress/e2e/api/TC_API_007_erro_verificar_login_invalido.cy.js)\r\n- **Evidência:** [\TC_API_007_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_007_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/verifyLogin com credenciais inválidas
@@ -802,9 +736,7 @@ E o body.message deve ser igual a "User not found!"
 - **Dado:** Que existem dados de registro e a API de criação de conta está disponível
 - **Pós-condição:** Usuário criado deve ser excluído após a execução
 - **Resultado esperado:** API cria nova conta com dados fornecidos
-- **Script:** [TC_API_008_sucesso_criar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_008_sucesso_criar_conta_usuario.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_008_sucesso_criar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_008_sucesso_criar_conta_usuario.cy.js)\r\n- **Evidência:** [\TC_API_008_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_008_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 E utilizo um e-mail único
@@ -825,9 +757,7 @@ E o usuário criado deve ser excluído após a execução
 - **Dado:** Que existem credenciais pré-cadastradas e a API de exclusão de conta está disponível
 - **Pós-condição:** Nenhuma (usuário temporário criado e excluído no mesmo teste)
 - **Resultado esperado:** API remove conta existente do sistema
-- **Script:** [TC_API_009_sucesso_excluir_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_009_sucesso_excluir_conta_usuario.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_009_sucesso_excluir_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_009_sucesso_excluir_conta_usuario.cy.js)\r\n- **Evidência:** [\TC_API_009_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_009_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 E gero um novo usuário para o teste
@@ -847,9 +777,7 @@ E o body.message deve ser igual a "Account deleted!"
 - **Dado:** Que existem dados de registro e a API de atualização de conta está disponível
 - **Pós-condição:** Usuário atualizado deve ser excluído após a execução
 - **Resultado esperado:** API permite alteração de dados cadastrais
-- **Script:** [TC_API_010_sucesso_atualizar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_010_sucesso_atualizar_conta_usuario.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_010_sucesso_atualizar_conta_usuario.cy.js](../Cypress/cypress/e2e/api/TC_API_010_sucesso_atualizar_conta_usuario.cy.js)\r\n- **Evidência:** [\TC_API_010_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_010_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 E utilizo um e-mail único
@@ -869,9 +797,7 @@ E o body.message deve ser igual a "User updated!"
 - **Dado:** Que existem dados de registro e a API de consulta de conta está disponível
 - **Pós-condição:** Usuário criado deve ser excluído após a execução
 - **Resultado esperado:** API retorna dados do usuário pelo email
-- **Script:** [TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js](../Cypress/cypress/e2e/api/TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js](../Cypress/cypress/e2e/api/TC_API_011_sucesso_obter_detalhes_usuario_por_email.cy.js)\r\n- **Evidência:** [\TC_API_011_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_011_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 E utilizo um e-mail único
@@ -895,9 +821,7 @@ E o body deve possuir user com as propriedades name e email
 - **Dado:** Que a API de catálogo de produtos está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
-- **Script:** [TC_API_012_erro_validar_metodo_post_em_productslist.cy.js](../Cypress/cypress/e2e/api/TC_API_012_erro_validar_metodo_post_em_productslist.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_012_erro_validar_metodo_post_em_productslist.cy.js](../Cypress/cypress/e2e/api/TC_API_012_erro_validar_metodo_post_em_productslist.cy.js)\r\n- **Evidência:** [\TC_API_012_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_012_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição POST para /api/productsList
@@ -916,9 +840,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **Dado:** Que a API de catálogo de marcas está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
-- **Script:** [TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js](../Cypress/cypress/e2e/api/TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js](../Cypress/cypress/e2e/api/TC_API_013_erro_validar_metodo_put_em_brandslist.cy.js)\r\n- **Evidência:** [\TC_API_013_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_013_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição PUT para /api/brandsList
@@ -937,9 +859,7 @@ E o body.message deve ser igual a "This request method is not supported."
 - **Dado:** Que a API de autenticação está disponível
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** API rejeita método não permitido com erro 405
-- **Script:** [TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js](../Cypress/cypress/e2e/api/TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js)
-
-**Cenário:**
+- **Script:** [TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js](../Cypress/cypress/e2e/api/TC_API_014_erro_validar_metodo_delete_em_verifilogin.cy.js)\r\n- **Evidência:** [\TC_API_014_api_result.html\](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_014_api_result.html)\r\n\r\n**Cenário:**
 ```gherkin
 Dado que a API do Automation Exercise está disponível
 Quando envio uma requisição DELETE para /api/verifyLogin

@@ -57,6 +57,7 @@
 - **Pós-condição:** [O que permanece ou é alterado após o teste]
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -80,6 +81,7 @@ E [validação agrupada 2 - se necessário]
 - **Pós-condição:** Conta criada e excluída ao final do teste
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -106,6 +108,7 @@ Então o header "Account Deleted!" deve estar visível
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -136,6 +139,7 @@ E o header "Login to your account" deve estar visível
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -164,6 +168,7 @@ E as informações do produto devem estar visíveis (nome, categoria, preço, di
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -192,6 +197,7 @@ E os preços, quantidades e totais devem estar corretos
 - **Pós-condição:** Conta criada e excluída ao final
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -226,6 +232,7 @@ Então a mensagem "Congratulations! Your order has been placed successfully!" de
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -257,6 +264,7 @@ Então a mensagem "Success! Your details have been submitted successfully." deve
 - **Pós-condição:** [O que permanece ou é alterado após o teste]
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -279,6 +287,7 @@ Máximo de 7 blocos por cenário. Agrupar ações relacionadas por intenção de
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -299,6 +308,7 @@ E cada produto deve possuir id, name, price, brand e category
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -326,6 +336,7 @@ E a mensagem de erro deve conter "Bad request, search_product parameter is missi
 - **Pós-condição:** Nenhuma
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -353,6 +364,7 @@ E a mensagem deve ser "User exists!"
 - **Pós-condição:** Usuário criado deve ser excluído no afterEach
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
@@ -380,6 +392,7 @@ E a mensagem deve ser "User created!"
 - **Pós-condição:** Nenhuma alteração
 - **Resultado esperado:** [Qual o resultado de negócio esperado com o teste]
 - **Script:** `TCXXX_nome_do_teste.cy.js`
+- **Evidência:** ![TCXXX](caminho/para/o/arquivo.gif)
 
 **Cenário:**
 ```
