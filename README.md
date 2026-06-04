@@ -9,11 +9,11 @@
 [![Playwright MCP](https://img.shields.io/badge/Playwright_MCP-latest-45ba4b)](https://github.com/microsoft/playwright-mcp)
 [![Selenium MCP](https://img.shields.io/badge/Selenium_MCP-latest-43B02A)](https://github.com/angiejones/mcp-selenium)
 
-Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — que integra **testes funcionais (E2E + API)**, **testes de performance (k6)**, **auditoria front-end (Lighthouse/Core Web Vitals)** e **geração automatizada de todo o ciclo de QA** — scripts, Page Objects, documentação técnica e executiva, evidências visuais e manutenção contínua via self-healing.
+Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes E2E, API, performance, documentação ISTQB/BDD e IA.
 
-**Stack:** Cypress (Page Object Model - POM, data factories, screenshots numerados, GIFs, scripts comentados) · k6 (smoke, carga, estresse, resistência, pico, auditoria de imagens) · Lighthouse (LCP, CLS, TTFB, FCP, INP) · Playwright CLI (self-healing e inspeção de seletores) · governança por IA que padronizam e automatizam o ciclo completo de QA.
+Cada teste, documento e relatório são gerados e mantidos por IA, desde os scripts até a documentação técnica, BDD e relatórios de performance. A IA codifica, executa, documenta, corrige seletores e mantém a rastreabilidade entre execuções no Allure. Tudo dentro de uma governança rígida e pré-definida.
 
-Arquitetura orientada a **alta manutenibilidade e repetibilidade**: Page Objects centralizam seletores, fixtures isolam dados, factories geram dados únicos, `beforeEach` global e `cy.captura()` eliminam duplicação. Framework escalável do Automation Exercise para E2E, API, performance e auditoria visual.
+Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os componentes são separados por responsabilidade, os dados organizados de forma centralizada e cada fluxo de teste é independente e rastreável.
 
 **61 casos individuais no Allure** · 26 E2E · 14 API · 21 performance (13 k6 + 8 Core Web Vitals)
 
