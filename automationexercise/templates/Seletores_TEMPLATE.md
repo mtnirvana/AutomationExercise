@@ -30,7 +30,7 @@ Cada página é dividida em duas seções:
 <!--
 ## Instruções para o Agente
 
-1. Use o Playwright CLI (consultando `playwright-cli/SKILL.md`) para inspecionar a página ao vivo
+1. Use o Playwright CLI (consultando `automationexercise/Cypress/playwright-cli/SKILL.md`) para inspecionar a página ao vivo
 2. Descubra seletores seguindo a hierarquia: data-qa > id > name > texto > classe
 3. Preencha este template com os seletores encontrados
 4. Copie o bloco completo para o `Seletores.md` oficial

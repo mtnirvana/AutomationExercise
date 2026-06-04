@@ -142,8 +142,9 @@ antigravity PORTFOLIO/
 │       ├── Guia_Cypress_Template.md               # Template de codificação e padrões do projeto
 │       ├── Seletores_TEMPLATE.md                  # Template de estrutura para novos seletores (IA)
 │       └── Seletores.md                           # Histórico de seletores e self-healing (IA)
+│   │
+│   └── Backup/                                    # Backups automáticos de documentação
 │
-└── Backup/                                        # Backups automáticos de documentação
 ```
 
 ---

@@ -97,9 +97,9 @@ When creating or updating any documentation file, the agent MUST append this foo
 
 ## Configuration Files Backup
 Before making ANY changes to documentation files:
-1. **CREATE BACKUP** in the `Backup/` folder.
+1. **CREATE BACKUP** in the `automationexercise/Backup/` folder.
 2. Format: `[FILENAME]_[YYYYMMDD_HHmmss].[ext]`.
-3. **Command:** `copy "[file]" "Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]"`
+3. **Command:** `copy "[file]" "automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]"`
 
 ### General Documentation Files (Backup MANDATORY):
 - `AGENTS.md`
@@ -213,7 +213,7 @@ Whenever creating ANY new documentation file (whether for a real test or a mock/
 The BDD document provides a business-readable overview of all test scenarios organized by functional area.
 
 ### BDD Generation Rules:
-1. **CREATE BACKUP** of BDD files before any change (`Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+1. **CREATE BACKUP** of BDD files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
 2. **READ ALL SOURCE DOCUMENTS FIRST** — Before reading the BDD template:
    - Read `Especificacao_Tecnica_Web.md`
    - Read `Especificacao_Tecnica_API.md`
@@ -324,7 +324,7 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
     1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_Web.md` — if yes, skip increment.
     2. **CODE FIRST — DOCUMENT AFTER:** Create the test file (`.cy.js`), Page Objects, and all supporting code first.
     3. **RUN AND CONFIRM:** Execute the test with `npx cypress run --spec "cypress/e2e/TC[##]_[sucesso/erro]_[titulo].cy.js"` and verify it **passes completely** (all steps, assertions, screenshots, and cleanup) before proceeding to documentation.
-    4. **CREATE BACKUP** of all E2E documentation files before any change (`Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+    4. **CREATE BACKUP** of all E2E documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
     5. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_WEB_001 - TC_WEB_###`).
     6. **Increment `Especificacao_Tecnica_Web.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Web_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
     7. **Update `Suite_BDD.md`:** Add new entry to section 8.1 (E2E) mapping table. Update totals in Meta e Escopo and Cobertura sections.
@@ -335,7 +335,7 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
     1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_API.md` — if yes, skip increment.
     2. **CODE FIRST — DOCUMENT AFTER:** Create the test file (`TC_API_*.cy.js`) in `automationexercise/Cypress/cypress/e2e/` first.
     3. **RUN AND CONFIRM:** Execute the test with `npx cypress run --spec "cypress/e2e/TC_API_*.cy.js"` and verify it **passes completely** (all assertions, responses, and cleanup) before proceeding to documentation.
-    4. **CREATE BACKUP** of all API documentation files before any change (`Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+    4. **CREATE BACKUP** of all API documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
     5. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_API_001 - TC_API_###`).
     6. **Increment `Especificacao_Tecnica_API.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_API_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
     7. **Update `Suite_BDD.md`:** Add new entry to section 8.2 (API) mapping table. Update totals in Meta e Escopo and Cobertura sections.
@@ -346,7 +346,7 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
     1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_Performance.md` — if yes, skip increment.
     2. **CODE FIRST — DOCUMENT AFTER:** Create the k6 script (`TC_PF_*.js`) or Cypress script (`TC_PF_*.cy.js`) in `automationexercise/Cypress/cypress/e2e/performance/` first.
     3. **RUN AND CONFIRM:** Execute the test with `k6 run "cypress/e2e/performance/TC_PF_*.js"` (or `npx cypress run --spec "cypress/e2e/performance/TC_PF_*.cy.js"`) and verify it **passes completely** (all checks pass, thresholds met) before proceeding to documentation.
-    4. **CREATE BACKUP** of all Performance documentation files before any change (`Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+    4. **CREATE BACKUP** of all Performance documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
     5. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate line in the catalog table using `Sumario_Executivo_TEMPLATE.md` as base. Update total count.
     6. **Increment `Especificacao_Tecnica_Performance.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Performance_TEMPLATE.md` as base. Each TC must include: objective, type (smoke/carga/estresse/resistência/pico/auditoria), configuration (VUs, stages, thresholds), script path, validation steps table, and key assertion.
     7. **Update `Suite_BDD.md`:** Add new entry to section 8.3 (Performance) mapping table.
@@ -440,7 +440,7 @@ Before creating any selector or when identifying a failure, the Agent must use i
 ## Self-Healing Policy (Failure/Restoration)
 If a test fails due to a selector error:
 1. **Step 1:** Consult `Seletores.md` for documented alternatives (Skip `[QUEBRADO]`).
-2. **Step 2:** If failed, consult `playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
+2. **Step 2:** If failed, consult `automationexercise/Cypress/playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
 3. **Step 3:** Preencher o `Seletores_TEMPLATE.md` com os seletores descobertos (usar como modelo de estrutura de seções e categorias).
 4. **Step 4:** Copiar o bloco do template para o `Seletores.md` oficial e atualizar o Page Object (marcando o seletor antigo como `[QUEBRADO]`).
 

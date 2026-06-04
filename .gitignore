@@ -3,8 +3,8 @@ opencode.json
 .playwright-cli/
 corrigir.txt
 *.log
-Backup/*
-!Backup/.gitkeep
+automationexercise/Backup/*
+!automationexercise/Backup/.gitkeep
 
 ABOUT.md
 # Cypress generated artifacts (presentes no remote via skip-worktree, ignorados em novos commits)
