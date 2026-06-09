@@ -1,0 +1,153 @@
+# ============================================================
+#  NOME DO PIPELINE (aparece no GitHub Actions)
+# ============================================================
+name: CI
+
+# ============================================================
+#  QUANDO esse pipeline é ATIVADO (gatilhos/triggers)
+# ============================================================
+on:
+  push:                              # Quando der git push...
+    branches: [main, feat/ci-cd]    # ...nessas branches
+  pull_request:                      # Quando abrir PR...
+    branches: [main]                # ...para a main
+  workflow_dispatch:                 # Permite rodar manualmente pelo site
+
+# ============================================================
+#  PERMISSÕES que o GITHUB_TOKEN tem
+#  (o token é um "cracha" que o GitHub cria automaticamente)
+# ============================================================
+permissions:
+  contents: write        # Pode ler/escrever código
+  issues: write          # Pode criar Issues (essencial para self-heal)
+  pull-requests: write   # Pode criar PRs
+
+# ============================================================
+#  JOBS = tarefas que rodam em paralelo
+#  Cada job roda em uma máquina Ubuntu separada na nuvem
+# ============================================================
+jobs:
+  # ──────────────────────────────────────────────────────────
+  #  JOB 1: TESTES
+  # ──────────────────────────────────────────────────────────
+  tests:
+    runs-on: ubuntu-latest   # Máquina: Ubuntu (Linux) na nuvem do GitHub
+    steps:
+      # Step 1: Baixar o código do GitHub para a máquina na nuvem
+      # "Checkout" = git clone automático
+      - uses: actions/checkout@v4
+
+      # Step 2: Instalar Node.js 20 na máquina Ubuntu
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'       # Guarda node_modules em cache (mais rápido)
+          cache-dependency-path: automationexercise/Cypress/package-lock.json
+
+      # Step 3: Cache do Cypress (não precisa baixar de novo)
+      - name: Cache Cypress
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('automationexercise/Cypress/package-lock.json') }}
+
+      # Step 4: Instalar dependências (npm ci = npm install em modo CI)
+      - run: npm ci
+        working-directory: automationexercise/Cypress
+
+      # Step 5: RODAR OS TESTES CYPRESS
+      # "continue-on-error: true" = mesmo que falhe, os próximos steps rodam
+      - id: cypress
+        run: npx cypress run --spec "cypress/e2e/web/TC_WEB_MOCK_*.cy.js" --browser electron
+        working-directory: automationexercise/Cypress
+        continue-on-error: true
+
+      # Step 6: SÓ executa SE o Cypress FALHOU
+      # steps.cypress.outcome == 'failure' significa que algum teste quebrou
+      - name: Gerar relatorio de falha
+        if: steps.cypress.outcome == 'failure'
+        run: node scripts/gerar_relatorio_falha.js
+        working-directory: automationexercise/Cypress
+
+      # Step 7: Se falhou, sobe os relatórios como "artifacts" (arquivos)
+      - uses: actions/upload-artifact@v4
+        if: steps.cypress.outcome == 'failure'
+        with:
+          name: failure-report-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/reports/failure/
+
+      # Step 8: Se falhou, sobe as screenshots como artifacts
+      - uses: actions/upload-artifact@v4
+        if: steps.cypress.outcome == 'failure'
+        with:
+          name: screenshots-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/screenshots/
+
+  # ──────────────────────────────────────────────────────────
+  #  JOB 2: CRIAR ISSUE DE SELF-HEAL (só se algum teste falhou)
+  # ──────────────────────────────────────────────────────────
+  create-issue:
+    needs: [tests]           # Só roda depois do job "tests"
+    if: always() && github.ref == 'refs/heads/feat/ci-cd'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Baixa os relatórios de falha gerados no job anterior
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: failure-report-*
+          path: ./failure-reports
+        continue-on-error: true
+
+      # Script que lê os relatórios e cria a Issue no GitHub
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const reportsDir = './failure-reports';
+
+            // Procura arquivos _failure.json nas pastas baixadas
+            function findJsonFiles(dir) {
+              let results = [];
+              if (!fs.existsSync(dir)) return results;
+              const entries = fs.readdirSync(dir, { withFileTypes: true });
+              for (const entry of entries) {
+                const fullPath = path.join(dir, entry.name);
+                if (entry.isDirectory()) results = results.concat(findJsonFiles(fullPath));
+                else if (entry.name.endsWith('_failure.json')) results.push(fullPath);
+              }
+              return results;
+            }
+
+            const files = findJsonFiles(reportsDir);
+            if (files.length === 0) {
+              console.log('Nenhuma falha. Nenhuma Issue criada.');
+              return;
+            }
+
+            // Verifica se já existe Issue aberta para este testId
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'self-heal',
+            });
+            const existingTitles = existing.data.map(i => i.title);
+
+            for (const file of files) {
+              const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+
+              if (existingTitles.some(t => t.includes(report.testId))) {
+                console.log(`Issue ja existe para ${report.testId}. Pulando.`);
+                continue;
+              }
+
+              // Cria a Issue com label self-heal
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: `[CI] Self-Heal: ${report.testId} (attempt 1)`,
+                labels: ['self-heal', 'self-heal-attempt-1'],
+                body: report.issueBody
+              });
+              console.log(`ISSUE CRIADA para ${report.testId}!`);
+            }

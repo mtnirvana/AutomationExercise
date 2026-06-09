@@ -15,10 +15,18 @@ module.exports = defineConfig({
     viewportHeight: 720,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 60000,
-    video: true,
+    video: !process.env.CI,
     videoCompression: 32,
     screenshotsFolder: 'cypress/screenshots',
     screenshotOnRunFailure: true,
+    retries: {
+        runMode: process.env.CI ? 1 : 0,
+        openMode: 0,
+    },
+    defaultCommandTimeout: process.env.CI ? 15000 : 10000,
+    pageLoadTimeout: process.env.CI ? 90000 : 60000,
+    requestTimeout: process.env.CI ? 15000 : 10000,
+    responseTimeout: process.env.CI ? 60000 : 30000,
     trashAssetsBeforeRuns: true,
     setupNodeEvents(on, config) {
       config.env.allure = true
