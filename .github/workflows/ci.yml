@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [web, api]
+        suite: [web, api, performance]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,6 +44,8 @@ jobs:
 
       - id: cypress
         run: npx cypress run --spec "cypress/e2e/${{ matrix.suite }}/*.cy.js" --browser electron
+        # Nota: suite 'performance' roda apenas TC_PF_008_core_web_vitals.cy.js
+        #       os demais TC_PF_*.js sao k6 (executados no job k6-performance)
         working-directory: automationexercise/Cypress
         continue-on-error: true
 
