@@ -185,8 +185,7 @@ jobs:
           if [ -d "./allure-results-all" ]; then
             find ./allure-results-all -name "*.json" -exec cp {} automationexercise/Cypress/cypress/allure/allure-results/ \;
           fi
-          echo "Arquivos consolidados:"
-          ls automationexercise/Cypress/cypress/allure/allure-results/ | head -10
+          echo "Arquivos consolidados: $(ls automationexercise/Cypress/cypress/allure/allure-results/ | wc -l)"
         shell: bash
 
       - name: Restaurar history do Allure (tendencias)
