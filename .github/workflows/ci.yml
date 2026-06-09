@@ -89,10 +89,10 @@ jobs:
           path: automationexercise/Cypress/cypress/videos/
 
   # ═══════════════════════════════════════════════════════════
-  #  JOB 2: PERFORMANCE (k6) — Roda SEQUENCIAL, só schedule/manual
+  #  JOB 2: PERFORMANCE (k6) — Roda SEQUENCIAL após Cypress
+  #  Ordem: igual ao run_all.bat (Cypress → k6 → Allure)
   # ═══════════════════════════════════════════════════════════
   k6-performance:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     needs: [cypress-tests]
     runs-on: ubuntu-latest
     steps:
