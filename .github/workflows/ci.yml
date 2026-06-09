@@ -80,6 +80,12 @@ jobs:
           name: screenshots-${{ matrix.suite }}-${{ github.run_id }}
           path: automationexercise/Cypress/cypress/screenshots/
 
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: videos-${{ matrix.suite }}-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/videos/
+
   # ═══════════════════════════════════════════════════════════
   #  JOB 2: PERFORMANCE (k6) — Roda SEQUENCIAL, só schedule/manual
   # ═══════════════════════════════════════════════════════════
@@ -226,11 +232,19 @@ jobs:
           name: allure-report-${{ github.run_id }}
           path: automationexercise/Cypress/cypress/allure/allure-report/
 
+      - name: Coletar apenas GIFs para artifact
+        run: |
+          mkdir -p cypress/screenshots/gifs_only
+          find cypress/screenshots -name "*.gif" -exec cp {} cypress/screenshots/gifs_only/ \;
+          echo "GIFs coletados: $(ls cypress/screenshots/gifs_only/ | wc -l)"
+        working-directory: automationexercise/Cypress
+        shell: bash
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: gifs-${{ github.run_id }}
-          path: automationexercise/Cypress/cypress/screenshots/
+          path: automationexercise/Cypress/cypress/screenshots/gifs_only/
 
       - name: RESUMO DAS EVIDENCIAS
         if: always()
