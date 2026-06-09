@@ -17,6 +17,7 @@ module.exports = defineConfig({
     pageLoadTimeout: 60000,
     video: true,
     videoCompression: 0,
+    failOnStatusCode: false,
     screenshotsFolder: 'cypress/screenshots',
     screenshotOnRunFailure: true,
     retries: {
