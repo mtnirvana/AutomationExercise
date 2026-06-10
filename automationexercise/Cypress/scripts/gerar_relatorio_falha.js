@@ -67,11 +67,11 @@ function gerarIssueBody(fail) {
 ${fail.error}
 \`\`\`
 
-### Instrucoes
-1. Abra o site e verifique se esta no ar
-2. Use Playwright CLI para inspecionar a pagina
-3. Atualize o Page Object e o Seletores.md
-4. Crie um PR com a correcao
+### Instruções
+1. Abra o site e verifique se está no ar
+2. Use Playwright CLI para inspecionar a página
+3. Atualize o Page Object e o `Seletores.md`
+4. Crie um PR com a correção
 `;
 }
 
@@ -79,8 +79,8 @@ function main() {
   console.log('[FAILURE REPORT] Iniciando...');
 
   if (!fs.existsSync(ALLURE_RESULTS_DIR)) {
-    console.log('[FAILURE REPORT] Pasta allure-results nao encontrada.');
-    console.log('[FAILURE REPORT] Nenhum relatorio gerado.');
+    console.log('[FAILURE REPORT] Pasta allure-results não encontrada.');
+    console.log('[FAILURE REPORT] Nenhum relatório gerado.');
     return;
   }
 
@@ -118,7 +118,7 @@ function main() {
   for (const fail of failures) {
     const reportPath = path.join(FAILURE_REPORT_DIR, `${fail.testId}_failure.json`);
     fs.writeFileSync(reportPath, JSON.stringify(fail, null, 2));
-    console.log(`[FAILURE REPORT] Relatorio salvo: ${reportPath}`);
+    console.log(`[FAILURE REPORT] Relatório salvo: ${reportPath}`);
   }
 
   const summary = {
@@ -126,7 +126,7 @@ function main() {
     timestamp: new Date().toISOString(),
   };
   fs.writeFileSync(path.join(FAILURE_REPORT_DIR, '_summary.json'), JSON.stringify(summary, null, 2));
-  console.log('[FAILURE REPORT] Concluido.');
+  console.log('[FAILURE REPORT] Concluído.');
 }
 
 main();
