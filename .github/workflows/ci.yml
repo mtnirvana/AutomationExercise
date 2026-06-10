@@ -225,6 +225,24 @@ jobs:
           cp -r automationexercise/Cypress/cypress/reports/k6/*.json ./output/k6-reports/ 2>/dev/null || true
           cp -r automationexercise/Cypress/cypress/allure/allure-report/* ./output/allure-report/ 2>/dev/null || true
           cp automationexercise/Cypress/cypress/allure/allure-open.bat ./output/allure-report/ 2>/dev/null || true
+
+      - name: Criar script para abrir report (sem depender de node_modules)
+        run: |
+          cat > ./output/allure-report/abrir_report.bat << 'BAT'
+          @echo off
+          cd /d "%~dp0"
+          echo ============================================
+          echo   Allure Report - AutomationExercise
+          echo ============================================
+          echo.
+          echo Iniciando servidor em http://localhost:8765 ...
+          start http://localhost:8765
+          python -m http.server 8765
+          echo.
+          pause
+          BAT
+          chmod +x ./output/allure-report/abrir_report.bat 2>/dev/null || true
+          echo "Script criado: abrir_report.bat"
           echo "ESTRUTURA: $(find ./output -type f | wc -l) arquivos"
           echo "Screenshots:$(find ./output/screenshots -name '*.png' | wc -l)"
           echo "GIFs:$(find ./output/screenshots -name '*.gif' | wc -l)"
