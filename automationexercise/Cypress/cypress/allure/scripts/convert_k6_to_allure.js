@@ -50,7 +50,17 @@ for (const file of files) {
   const totalChecks = checksObj.passes || 0
   const failedChecks = checksObj.fails || 0
 
-  const testStatus = (failedChecks > 0 || errorRate > 0) ? 'failed' : 'passed'
+  function evalThreshold(condition, val) {
+    const m = condition.match(/([<>]=?)([\d.]+)/)
+    if (!m) return true
+    const limit = parseFloat(m[2])
+    return m[1] === '<' ? val < limit : m[1] === '<=' ? val <= limit : m[1] === '>' ? val > limit : val >= limit
+  }
+  const failsOk = Object.entries(httpReqFailed.thresholds || {})
+    .every(([cond]) => evalThreshold(cond, errorRate))
+  const durationOk = Object.entries(httpReqDuration.thresholds || {})
+    .every(([cond]) => evalThreshold(cond, p95))
+  const testStatus = (failedChecks > 0 || !failsOk || !durationOk) ? 'failed' : 'passed'
 
   const duration = Math.max(Math.floor(httpReqDuration.avg || 1000) * (httpReqDuration.count || 1), 1000)
   const startTime = Date.now() - Math.floor(Math.random() * 600000)
