@@ -226,7 +226,7 @@ jobs:
           cp -r automationexercise/Cypress/cypress/allure/allure-report/* ./output/allure-report/ 2>/dev/null || true
           cp automationexercise/Cypress/cypress/allure/allure-open.bat ./output/allure-report/ 2>/dev/null || true
 
-      - name: Criar script para abrir report (sem depender de node_modules)
+      - name: Criar scripts para abrir report
         run: |
           cat > ./output/allure-report/abrir_report.bat << 'BAT'
           @echo off
@@ -255,7 +255,20 @@ jobs:
           SH
           chmod +x ./output/allure-report/abrir_report.sh 2>/dev/null || true
 
-          echo "Scripts criados: abrir_report.bat (Windows) e abrir_report.sh (Linux/Mac)"
+          cat > ./output/Relatorio_Testes.bat << 'BAT'
+          @echo off
+          cd /d "%~dp0"
+          call allure-report\abrir_report.bat
+          BAT
+
+          cat > ./output/Relatorio_Testes.sh << 'SH'
+          #!/bin/bash
+          cd "$(dirname "$0")"
+          ./allure-report/abrir_report.sh
+          SH
+          chmod +x ./output/Relatorio_Testes.sh 2>/dev/null || true
+
+          echo "Atalhos criados: Relatorio_Testes.bat (Windows) e Relatorio_Testes.sh (Linux/Mac)"
           echo "ESTRUTURA: $(find ./output -type f | wc -l) arquivos"
           echo "Screenshots:$(find ./output/screenshots -name '*.png' | wc -l)"
           echo "GIFs:$(find ./output/screenshots -name '*.gif' | wc -l)"
