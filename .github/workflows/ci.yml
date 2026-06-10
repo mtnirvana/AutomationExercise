@@ -191,12 +191,14 @@ jobs:
           echo "Pastas: $(ls -d */ 2>/dev/null | wc -l)"
         shell: bash
 
-      - name: Gerar GIFs
-        run: node scripts/gerar_gifs.js
-        working-directory: automationexercise/Cypress
+      - name: Baixar allure-results (web + api + perf + k6)
+        uses: actions/download-artifact@v4
+        with:
+          pattern: allure-results-*
+          path: ./allure-results-all
         continue-on-error: true
 
-      - name: Consolidar allure-results
+      - name: Consolidar allure-results unificado
         run: |
           mkdir -p ./output/allure-results
           mkdir -p ./output/screenshots ./output/videos ./output/k6-reports ./output/allure-report
@@ -204,23 +206,24 @@ jobs:
             find ./allure-results-all -name "*.json" -exec cp {} ./output/allure-results/ \;
           fi
           find automationexercise/Cypress/cypress/allure -name "*.json" -path "*/allure-results/*" -exec cp {} ./output/allure-results/ \; 2>/dev/null || true
+          echo "Total allure-results: $(ls ./output/allure-results/*.json 2>/dev/null | wc -l)"
         shell: bash
 
-      - name: Baixar history do gh-pages (preservar tendencias)
+      - name: Restaurar history do gh-pages (tendencias)
         run: |
           mkdir -p ./output/allure-results/history
           git fetch origin gh-pages --depth=1 2>/dev/null || true
           git checkout origin/gh-pages -- allure-report/history/ 2>/dev/null || true
           if [ -d "allure-report/history" ]; then
             cp allure-report/history/*.json ./output/allure-results/history/ 2>/dev/null || true
-            echo "History restaurado: $(ls ./output/allure-results/history/*.json 2>/dev/null | wc -l) arquivos"
+            echo "History: $(ls ./output/allure-results/history/*.json 2>/dev/null | wc -l) arquivos"
           else
-            echo "Nenhum history anterior encontrado. Primeira execucao."
+            echo "Nenhum history anterior."
           fi
         shell: bash
         continue-on-error: true
 
-      - name: Gerar Allure Report com history
+      - name: Gerar Allure Report (web + api + perf + k6)
         run: |
           cp cypress/allure/allure.properties ./output/allure-results/allure.properties 2>/dev/null || true
           npx allure generate --clean -o ./output/allure-report ./output/allure-results --lang br --name "AutomationExercise"
@@ -241,9 +244,7 @@ jobs:
           cp automationexercise/Cypress/cypress/allure/allure-open.bat ./output/allure-report/ 2>/dev/null || true
 
       - name: Remover duplicata do TC_WEB_019 em videos/
-        run: |
-          rm -f ./output/videos/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js.mp4 2>/dev/null || true
-          echo "OK"
+        run: rm -f ./output/videos/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js.mp4 2>/dev/null || true
 
       - name: Criar scripts para abrir report
         run: |
@@ -256,34 +257,23 @@ jobs:
           echo.
           where allure >nul 2>&1
           if %errorlevel% equ 0 (
-            echo Usando Allure CLI...
             allure open . -p 8765
           ) else (
             where npx >nul 2>&1
             if %errorlevel% equ 0 (
-              echo Usando npx allure...
               npx -y allure-commandline allure open . -p 8765
             ) else (
-              echo Erro: Nem allure nem npx encontrados.
-              echo Instale Node.js (https://nodejs.org) ou Allure CLI.
+              echo Instale Node.js ou Allure CLI.
               pause
               exit /b 1
             )
           )
           BAT
-
           cat > ./output/Relatorio_Testes.bat << 'BAT'
           @echo off
           cd /d "%~dp0"
-          if not exist "%cd%\allure-report\index.html" (
-            echo Erro: allure-report nao encontrado.
-            pause
-            exit /b 1
-          )
           call allure-report\abrir_report.bat
           BAT
-
-          echo "OK"
           echo "ESTRUTURA: $(find ./output -type f | wc -l) arquivos"
           echo "Screenshots:$(find ./output/screenshots -name '*.png' | wc -l)"
           echo "GIFs:$(find ./output/screenshots -name '*.gif' | wc -l)"
@@ -306,94 +296,6 @@ jobs:
           publish_dir: ./output/allure-report
           destination_dir: allure-report
           keep_files: false
-
-      - name: Gerar GIFs
-        run: node scripts/gerar_gifs.js
-        working-directory: automationexercise/Cypress
-        continue-on-error: true
-
-      - name: Baixar allure-results
-        uses: actions/download-artifact@v4
-        with:
-          pattern: allure-results-*
-          path: ./allure-results-all
-        continue-on-error: true
-
-      - name: Consolidar allure-results
-        run: |
-          mkdir -p automationexercise/Cypress/cypress/allure/allure-results
-          if [ -d "./allure-results-all" ]; then
-            find ./allure-results-all -name "*.json" -exec cp {} automationexercise/Cypress/cypress/allure/allure-results/ \;
-          fi
-          echo "Total: $(ls automationexercise/Cypress/cypress/allure/allure-results/*.json 2>/dev/null | wc -l)"
-        shell: bash
-
-      - name: Restaurar history do Allure
-        run: |
-          cd automationexercise/Cypress/cypress/allure
-          git fetch origin gh-pages --depth=1 2>/dev/null || true
-          git checkout origin/gh-pages -- allure-report/history/ 2>/dev/null || true
-          if [ -d "allure-report/history" ]; then
-            mkdir -p allure-results/history
-            cp allure-report/history/*.json allure-results/history/ 2>/dev/null || true
-          fi
-        shell: bash
-        continue-on-error: true
-
-      - name: Gerar Allure Report unificado
-        run: |
-          cd cypress/allure
-          cp allure.properties allure-results/allure.properties 2>/dev/null || true
-          if [ -d "allure-report/history" ]; then
-            mkdir -p allure-results/history
-            cp allure-report/history/*.json allure-results/history/
-          fi
-          npx allure generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-        working-directory: automationexercise/Cypress
-        continue-on-error: true
-
-      - name: Forcar dark mode
-        run: node cypress/allure/scripts/force-dark-mode.js
-        working-directory: automationexercise/Cypress
-        continue-on-error: true
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: allure-report
-          path: automationexercise/Cypress/cypress/allure/allure-report/
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: screenshots-completo
-          path: automationexercise/Cypress/cypress/screenshots/
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: k6-reports
-          path: automationexercise/Cypress/cypress/reports/k6/
-
-      - name: RESUMO DAS EVIDENCIAS
-        if: always()
-        run: |
-          echo "═══════════════════════════════════════"
-          echo "  RESUMO DE EVIDENCIAS"
-          echo "═══════════════════════════════════════"
-          echo ""
-          echo "Screenshots (PNG):  $(find automationexercise/Cypress/cypress/screenshots -name '*.png' 2>/dev/null | wc -l)"
-          echo "GIFs:               $(find automationexercise/Cypress/cypress/screenshots -name '*.gif' 2>/dev/null | wc -l)"
-          echo "Videos (MP4):       $(find automationexercise/Cypress/cypress/videos -name '*.mp4' 2>/dev/null | wc -l)"
-          echo "API Evidence (HTML):$(find automationexercise/Cypress/cypress/screenshots -name '*.html' 2>/dev/null | wc -l)"
-          echo "Allure Report:      $(ls automationexercise/Cypress/cypress/allure/allure-report/index.html 2>/dev/null && echo 'OK' || echo 'NAO GERADO')"
-          echo ""
-          echo "Artifacts finais:"
-          echo "  1. screenshots-completo  (PNGs + GIFs + HTMLs API)"
-          echo "  2. videos-completo       (MP4s)"
-          echo "  3. allure-report         (HTML interativo)"
-          echo "═══════════════════════════════════════"
-        shell: bash
 
   # ═══════════════════════════════════════════════════════════
   #  JOB 4: CRIA ISSUE DE SELF-HEAL (se algum teste falhou)
