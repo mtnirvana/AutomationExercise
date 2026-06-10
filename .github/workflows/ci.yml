@@ -82,11 +82,7 @@ jobs:
           name: screenshots-${{ matrix.suite }}-${{ github.run_id }}
           path: automationexercise/Cypress/cypress/screenshots/
 
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: videos-${{ matrix.suite }}-${{ github.run_id }}
-          path: automationexercise/Cypress/cypress/videos/
+
 
   # ═══════════════════════════════════════════════════════════
   #  JOB 2: PERFORMANCE (k6) — Roda SEQUENCIAL após Cypress
@@ -168,39 +164,45 @@ jobs:
       - run: npm ci
         working-directory: automationexercise/Cypress
 
-      - name: Baixar screenshots (web + api)
+      - name: Baixar screenshots
         uses: actions/download-artifact@v4
         with:
           pattern: screenshots-*
           path: automationexercise/Cypress/cypress/screenshots/
         continue-on-error: true
 
-      - name: Baixar videos (web + api)
-        uses: actions/download-artifact@v4
-        with:
-          pattern: videos-*
-          path: automationexercise/Cypress/cypress/videos/
-        continue-on-error: true
+      - name: Aplainar estrutura (remover pastas de artifact)
+        run: |
+          cd automationexercise/Cypress/cypress/screenshots
+          for dir in screenshots-*/; do
+            if [ -d "$dir" ]; then
+              cp -r "$dir"/* . 2>/dev/null || true
+              rm -rf "$dir"
+            fi
+          done
+          echo "Estrutura final:"
+          ls -d */ 2>/dev/null || echo "(vazia)"
+        shell: bash
 
-      - name: Gerar GIFs (dentro das pastas de screenshots, igual codigo local)
+      - name: Gerar GIFs
         run: node scripts/gerar_gifs.js
         working-directory: automationexercise/Cypress
         continue-on-error: true
 
-      - name: Baixar allure-results (web + api + k6)
+      - name: Baixar allure-results
         uses: actions/download-artifact@v4
         with:
           pattern: allure-results-*
           path: ./allure-results-all
         continue-on-error: true
 
-      - name: Consolidar allure-results em diretorio unico
+      - name: Consolidar allure-results
         run: |
           mkdir -p automationexercise/Cypress/cypress/allure/allure-results
           if [ -d "./allure-results-all" ]; then
             find ./allure-results-all -name "*.json" -exec cp {} automationexercise/Cypress/cypress/allure/allure-results/ \;
           fi
-          echo "Total allure-results: $(ls automationexercise/Cypress/cypress/allure/allure-results/*.json 2>/dev/null | wc -l)"
+          echo "Total: $(ls automationexercise/Cypress/cypress/allure/allure-results/*.json 2>/dev/null | wc -l)"
         shell: bash
 
       - name: Restaurar history do Allure
@@ -232,26 +234,23 @@ jobs:
         working-directory: automationexercise/Cypress
         continue-on-error: true
 
-      - name: Upload Allure Report
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-report
           path: automationexercise/Cypress/cypress/allure/allure-report/
 
-      - name: Upload screenshots completo (com GIFs embutidos)
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshots-completo
           path: automationexercise/Cypress/cypress/screenshots/
 
-      - name: Upload videos completo
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: videos-completo
-          path: automationexercise/Cypress/cypress/videos/
+          name: k6-reports
+          path: automationexercise/Cypress/cypress/reports/k6/
 
       - name: RESUMO DAS EVIDENCIAS
         if: always()
