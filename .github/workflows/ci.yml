@@ -226,7 +226,21 @@ jobs:
           cp -r automationexercise/Cypress/cypress/allure/allure-report/* ./output/allure-report/ 2>/dev/null || true
           cp automationexercise/Cypress/cypress/allure/allure-open.bat ./output/allure-report/ 2>/dev/null || true
 
-      - name: Criar scripts para abrir report
+      - name: Remover duplicata do TC_WEB_019 em videos/
+        run: |
+          rm -f ./output/videos/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js.mp4 2>/dev/null || true
+          echo "OK"
+
+      - name: Copiar allure.cmd e node_modules (igual ao codigo local)
+        run: |
+          mkdir -p ./output/node_modules/.bin ./output/node_modules/allure-commandline
+          cp automationexercise/Cypress/node_modules/.bin/allure* ./output/node_modules/.bin/ 2>/dev/null || true
+          cp -r automationexercise/Cypress/node_modules/allure-commandline ./output/node_modules/ 2>/dev/null || true
+          cp automationexercise/Cypress/cypress/allure/allure.cmd ./output/allure-report/ 2>/dev/null || true
+          cp automationexercise/Cypress/cypress/allure/allure.properties ./output/allure-report/ 2>/dev/null || true
+          echo "OK"
+
+      - name: Criar scripts para abrir report (igual ao local)
         run: |
           cat > ./output/allure-report/abrir_report.bat << 'BAT'
           @echo off
@@ -235,11 +249,18 @@ jobs:
           echo   Allure Report - AutomationExercise
           echo ============================================
           echo.
+          if not exist "index.html" (
+            echo Gerando relatorio Allure...
+            call allure.cmd generate --clean -o . allure-results --lang br --name "AutomationExercise"
+          )
           echo Iniciando servidor em http://localhost:8765 ...
+          start "Allure Server" /MIN cmd /c "allure.cmd open . -p 8765"
+          timeout /t 4 /nobreak >nul
           start http://localhost:8765
-          python -m http.server 8765
-          echo.
-          pause
+          echo Servidor rodando em http://localhost:8765
+          echo Feche esta janela para parar o servidor.
+          pause >nul
+          taskkill /f /fi "WINDOWTITLE eq Allure Server" >nul 2>&1
           BAT
 
           cat > ./output/allure-report/abrir_report.sh << 'SH'
@@ -248,10 +269,15 @@ jobs:
           echo "============================================"
           echo "  Allure Report - AutomationExercise"
           echo "============================================"
-          echo ""
+          if [ ! -f "index.html" ]; then
+            echo "Gerando relatorio Allure..."
+            allure generate --clean -o . allure-results --lang br --name "AutomationExercise" 2>/dev/null
+          fi
           echo "Iniciando servidor em http://localhost:8765 ..."
+          allure open . -p 8765 &
+          sleep 3
           xdg-open http://localhost:8765 2>/dev/null || open http://localhost:8765 2>/dev/null
-          python3 -m http.server 8765
+          wait
           SH
           chmod +x ./output/allure-report/abrir_report.sh 2>/dev/null || true
 
@@ -268,7 +294,7 @@ jobs:
           SH
           chmod +x ./output/Relatorio_Testes.sh 2>/dev/null || true
 
-          echo "Atalhos criados: Relatorio_Testes.bat (Windows) e Relatorio_Testes.sh (Linux/Mac)"
+          echo "OK"
           echo "ESTRUTURA: $(find ./output -type f | wc -l) arquivos"
           echo "Screenshots:$(find ./output/screenshots -name '*.png' | wc -l)"
           echo "GIFs:$(find ./output/screenshots -name '*.gif' | wc -l)"
