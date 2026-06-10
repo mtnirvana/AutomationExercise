@@ -224,6 +224,7 @@ jobs:
           cp -r automationexercise/Cypress/cypress/videos/* ./output/videos/ 2>/dev/null || true
           cp -r automationexercise/Cypress/cypress/reports/k6/*.json ./output/k6-reports/ 2>/dev/null || true
           cp -r automationexercise/Cypress/cypress/allure/allure-report/* ./output/allure-report/ 2>/dev/null || true
+          cp automationexercise/Cypress/cypress/allure/allure-open.bat ./output/allure-report/ 2>/dev/null || true
           echo "ESTRUTURA: $(find ./output -type f | wc -l) arquivos"
           echo "Screenshots:$(find ./output/screenshots -name '*.png' | wc -l)"
           echo "GIFs:$(find ./output/screenshots -name '*.gif' | wc -l)"
@@ -235,7 +236,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: evidencias-completas
+          name: evidencias_completas_${{ github.run_id }}
           path: output/
 
       - name: Gerar GIFs

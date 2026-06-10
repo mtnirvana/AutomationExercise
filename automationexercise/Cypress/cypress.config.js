@@ -72,15 +72,17 @@ module.exports = defineConfig({
         const ssDir = path.join(__dirname, 'cypress', 'screenshots')
         const flat = path.join(ssDir, specFolder)
         const nested = path.join(ssDir, subDir, specFolder)
-        if (fs.existsSync(flat) && !fs.existsSync(nested)) {
-          fs.mkdirSync(path.join(ssDir, subDir), { recursive: true })
-          try { fs.renameSync(flat, nested) } catch (e) {
-            const files = fs.readdirSync(flat)
-            for (const f of files) {
-              try { fs.renameSync(path.join(flat, f), path.join(nested, f)) } catch (e2) { /* skip */ }
+        if (fs.existsSync(flat)) {
+          if (!fs.existsSync(nested)) {
+            fs.mkdirSync(path.join(ssDir, subDir), { recursive: true })
+            try { fs.renameSync(flat, nested) } catch (e) {
+              const files = fs.readdirSync(flat)
+              for (const f of files) {
+                try { fs.renameSync(path.join(flat, f), path.join(nested, f)) } catch (e2) { /* skip */ }
+              }
             }
-            try { fs.rmdirSync(flat) } catch (e3) { /* skip */ }
           }
+          try { fs.rmSync(flat, { recursive: true, force: true }) } catch (e) { /* skip */ }
         }
       })
 
