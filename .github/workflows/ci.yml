@@ -241,8 +241,21 @@ jobs:
           echo.
           pause
           BAT
-          chmod +x ./output/allure-report/abrir_report.bat 2>/dev/null || true
-          echo "Script criado: abrir_report.bat"
+
+          cat > ./output/allure-report/abrir_report.sh << 'SH'
+          #!/bin/bash
+          cd "$(dirname "$0")"
+          echo "============================================"
+          echo "  Allure Report - AutomationExercise"
+          echo "============================================"
+          echo ""
+          echo "Iniciando servidor em http://localhost:8765 ..."
+          xdg-open http://localhost:8765 2>/dev/null || open http://localhost:8765 2>/dev/null
+          python3 -m http.server 8765
+          SH
+          chmod +x ./output/allure-report/abrir_report.sh 2>/dev/null || true
+
+          echo "Scripts criados: abrir_report.bat (Windows) e abrir_report.sh (Linux/Mac)"
           echo "ESTRUTURA: $(find ./output -type f | wc -l) arquivos"
           echo "Screenshots:$(find ./output/screenshots -name '*.png' | wc -l)"
           echo "GIFs:$(find ./output/screenshots -name '*.gif' | wc -l)"
