@@ -82,7 +82,11 @@ jobs:
           name: screenshots-${{ matrix.suite }}-${{ github.run_id }}
           path: automationexercise/Cypress/cypress/screenshots/
 
-
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: videos-${{ matrix.suite }}-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/videos/
 
   # ═══════════════════════════════════════════════════════════
   #  JOB 2: PERFORMANCE (k6) — Roda SEQUENCIAL após Cypress
@@ -141,7 +145,7 @@ jobs:
           path: automationexercise/Cypress/cypress/allure/allure-results/
 
   # ═══════════════════════════════════════════════════════════
-  #  JOB 3: CONSOLIDA EVIDÊNCIAS (GIFs + Allure + estrutura final)
+  #  JOB 3: CONSOLIDA TUDO EM UM UNICO ARTIFACT
   # ═══════════════════════════════════════════════════════════
   generate-evidence:
     needs: [cypress-tests, k6-performance]
@@ -171,18 +175,71 @@ jobs:
           path: automationexercise/Cypress/cypress/screenshots/
         continue-on-error: true
 
-      - name: Aplainar estrutura (remover pastas de artifact)
+      - name: Baixar k6-reports
+        uses: actions/download-artifact@v4
+        with:
+          pattern: k6-reports-*
+          path: automationexercise/Cypress/cypress/reports/k6/
+        continue-on-error: true
+
+      - name: Aplainar estrutura screenshots
         run: |
           cd automationexercise/Cypress/cypress/screenshots
           for dir in screenshots-*/; do
-            if [ -d "$dir" ]; then
-              cp -r "$dir"/* . 2>/dev/null || true
-              rm -rf "$dir"
-            fi
+            [ -d "$dir" ] && cp -r "$dir"/* . 2>/dev/null && rm -rf "$dir"
           done
-          echo "Estrutura final:"
-          ls -d */ 2>/dev/null || echo "(vazia)"
+          echo "Pastas: $(ls -d */ 2>/dev/null | wc -l)"
         shell: bash
+
+      - name: Gerar GIFs
+        run: node scripts/gerar_gifs.js
+        working-directory: automationexercise/Cypress
+        continue-on-error: true
+
+      - name: Consolidar allure-results
+        run: |
+          mkdir -p ./output/allure-results
+          mkdir -p ./output/screenshots ./output/videos ./output/k6-reports ./output/allure-report
+          if [ -d "./allure-results-all" ]; then
+            find ./allure-results-all -name "*.json" -exec cp {} ./output/allure-results/ \;
+          fi
+          find automationexercise/Cypress/cypress/allure -name "*.json" -path "*/allure-results/*" -exec cp {} ./output/allure-results/ \; 2>/dev/null || true
+        shell: bash
+
+      - name: Gerar Allure Report
+        run: |
+          cp cypress/allure/allure.properties ./output/allure-results/allure.properties 2>/dev/null || true
+          npx allure generate --clean -o ./output/allure-report ./output/allure-results --lang br --name "AutomationExercise"
+        working-directory: automationexercise/Cypress
+        continue-on-error: true
+
+      - name: Forcar dark mode
+        run: node cypress/allure/scripts/force-dark-mode.js
+        working-directory: automationexercise/Cypress
+        continue-on-error: true
+
+      - name: Copiar tudo para o artifact unico
+        run: |
+          cp -r automationexercise/Cypress/cypress/screenshots/* ./output/screenshots/ 2>/dev/null || true
+          cp -r automationexercise/Cypress/cypress/videos/* ./output/videos/ 2>/dev/null || true
+          cp -r automationexercise/Cypress/cypress/reports/k6/*.json ./output/k6-reports/ 2>/dev/null || true
+          cp -r automationexercise/Cypress/cypress/allure/allure-report/* ./output/allure-report/ 2>/dev/null || true
+          echo "=== ESTRUTURA FINAL ==="
+          find ./output -type f | head -30
+          echo ""
+          echo "Screenshots:  $(find ./output/screenshots -name '*.png' | wc -l)"
+          echo "GIFs:         $(find ./output/screenshots -name '*.gif' | wc -l)"
+          echo "Videos:       $(find ./output/videos -name '*.mp4' | wc -l)"
+          echo "API HTMLs:    $(find ./output/screenshots -name '*.html' | wc -l)"
+          echo "k6 JSONs:     $(find ./output/k6-reports -name '*.json' | wc -l)"
+          echo "Allure:       $(find ./output/allure-report -name 'index.html' | wc -l)"
+        shell: bash
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidencias-completas
+          path: output/
 
       - name: Gerar GIFs
         run: node scripts/gerar_gifs.js
