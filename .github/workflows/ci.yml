@@ -206,7 +206,21 @@ jobs:
           find automationexercise/Cypress/cypress/allure -name "*.json" -path "*/allure-results/*" -exec cp {} ./output/allure-results/ \; 2>/dev/null || true
         shell: bash
 
-      - name: Gerar Allure Report
+      - name: Baixar history do gh-pages (preservar tendencias)
+        run: |
+          mkdir -p ./output/allure-results/history
+          git fetch origin gh-pages --depth=1 2>/dev/null || true
+          git checkout origin/gh-pages -- allure-report/history/ 2>/dev/null || true
+          if [ -d "allure-report/history" ]; then
+            cp allure-report/history/*.json ./output/allure-results/history/ 2>/dev/null || true
+            echo "History restaurado: $(ls ./output/allure-results/history/*.json 2>/dev/null | wc -l) arquivos"
+          else
+            echo "Nenhum history anterior encontrado. Primeira execucao."
+          fi
+        shell: bash
+        continue-on-error: true
+
+      - name: Gerar Allure Report com history
         run: |
           cp cypress/allure/allure.properties ./output/allure-results/allure.properties 2>/dev/null || true
           npx allure generate --clean -o ./output/allure-report ./output/allure-results --lang br --name "AutomationExercise"
@@ -283,6 +297,15 @@ jobs:
         with:
           name: evidencias_completas_${{ github.run_id }}
           path: output/
+
+      - name: Deploy Allure Report para GitHub Pages
+        if: github.ref == 'refs/heads/feat/ci-cd'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output/allure-report
+          destination_dir: allure-report
+          keep_files: false
 
       - name: Gerar GIFs
         run: node scripts/gerar_gifs.js
