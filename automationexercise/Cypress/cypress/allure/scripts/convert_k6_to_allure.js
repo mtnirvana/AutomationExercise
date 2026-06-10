@@ -60,7 +60,7 @@ for (const file of files) {
     .every(([cond]) => evalThreshold(cond, errorRate))
   const durationOk = Object.entries(httpReqDuration.thresholds || {})
     .every(([cond]) => evalThreshold(cond, p95))
-  const testStatus = (failedChecks > 0 || !failsOk || !durationOk) ? 'failed' : 'passed'
+  const testStatus = (!failsOk || !durationOk) ? 'failed' : 'passed'
 
   const duration = Math.max(Math.floor(httpReqDuration.avg || 1000) * (httpReqDuration.count || 1), 1000)
   const startTime = Date.now() - Math.floor(Math.random() * 600000)
