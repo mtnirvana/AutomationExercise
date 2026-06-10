@@ -220,7 +220,7 @@ jobs:
 
       - name: Copiar tudo para o artifact unico
         run: |
-          cp -r automationexercise/Cypress/cypress/screenshots/* ./output/screenshots/ 2>/dev/null || true
+          rsync -a --exclude='*.mp4' automationexercise/Cypress/cypress/screenshots/ ./output/screenshots/ 2>/dev/null || cp -r automationexercise/Cypress/cypress/screenshots/* ./output/screenshots/ 2>/dev/null || true
           cp -r automationexercise/Cypress/cypress/videos/* ./output/videos/ 2>/dev/null || true
           cp -r automationexercise/Cypress/cypress/reports/k6/*.json ./output/k6-reports/ 2>/dev/null || true
           cp -r automationexercise/Cypress/cypress/allure/allure-report/* ./output/allure-report/ 2>/dev/null || true
