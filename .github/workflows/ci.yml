@@ -206,7 +206,7 @@ jobs:
           if [ -d "./allure-results-all" ]; then
             find ./allure-results-all -name "*.json" -exec cp {} ./output/allure-results/ \;
           fi
-          find automationexercise/Cypress/cypress/allure -name "*.json" -path "*/allure-results/*" -exec cp {} ./output/allure-results/ \; 2>/dev/null || true
+          # NOTA: Nao copiar allure-results do checkout (gitignorado mas pode ter residuos)
           echo "Total allure-results: $(ls ./output/allure-results/*.json 2>/dev/null | wc -l)"
         shell: bash
 
