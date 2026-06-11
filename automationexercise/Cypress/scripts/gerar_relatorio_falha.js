@@ -70,7 +70,7 @@ ${fail.error}
 ### Instruções
 1. Abra o site e verifique se está no ar
 2. Use Playwright CLI para inspecionar a página
-3. Atualize o Page Object e o `Seletores.md`
+3. Atualize o Page Object e o Seletores.md
 4. Crie um PR com a correção
 `;
 }
