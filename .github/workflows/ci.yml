@@ -94,6 +94,7 @@ jobs:
   # ═══════════════════════════════════════════════════════════
   k6-performance:
     needs: [cypress-tests]
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

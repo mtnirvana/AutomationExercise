@@ -120,7 +120,8 @@ Mapeie o fluxo completo da story de acordo com o tipo classificado na Seção 2.
 | 2 | | | | |
 | ... | | | | |
 
-- **Checkpoint** = ponto onde uma regra de negócio PODE ser validada (Seção 5 usará estes)
+- **Checkpoint** = ponto onde uma REGRA DE NEGÓCIO é validada. Passos intermediários (navegação, cliques sem validação de regra, preenchimento de formulário) NÃO são checkpoints.
+- Regra: se o passo não valida diretamente um Critério de Aceitação ou uma regra de negócio explícita, ele NÃO é checkpoint.
 - **Estado esperado** = o que deve ser verdade após a ação (ex: "carrinho com 2 itens", "página de login visível")
 
 ### Para API:
@@ -322,7 +323,7 @@ Identifique o que a story NÃO diz mas PRESSUPÕE para fazer sentido. Use os pad
 **Para E2E:**
 - "Cada navegação pressupõe que a página carregou completamente"
 - "Elementos estão visíveis e interagíveis antes da ação"
-- "Dados persistem entre páginas e/ou sessões" (nunca assuma — INVESTIGUE)
+- "Dados persistem entre páginas e/ou sessões" — o DISSECT alerta, o CODE verifica na prática
 - "Não há popups, alertas ou modais inesperados"
 - "O navegador tem viewport suficiente para exibir os elementos"
 
@@ -361,9 +362,9 @@ Identifique o que a story NÃO diz mas PRESSUPÕE para fazer sentido. Use os pad
 
 ### Formato de saída
 
-| Premissa | Tipo | Impacto se FALSA | Investigar antes do código? |
-|----------|:----:|:----------------:|:---------------------------:|
-| | | | [SIM/NÃO] |
+| Premissa | Impacto se FALSA | O que o CODE precisa verificar |
+|----------|:----------------:|:-------------------------------|
+| | | |
 
 ---
 
@@ -472,6 +473,34 @@ Esta seção é o ÚNICO artefato que a pipeline (CODE) deve consumir. A IA de c
 3. A Seção 5 (Engenharia de Asserção) é a MAIS IMPORTANTE. Dedique mais tempo a ela.
 4. A Seção 8 (Saída para Pipeline) é o ÚNICO handoff. Ela deve ser auto-suficiente.
 5. Ao final, releia a Seção 8 e pergunte: "Uma IA que só ler esta seção consegue executar o pipeline corretamente?"
+
+---
+
+## Revisão Final (TRIPLE CHECK — OBRIGATÓRIO)
+
+Antes de finalizar a dissertação, execute este checklist de verificação:
+
+### Passo 1: Releia a Seção 8 (Handoff) isoladamente
+1. "Uma IA que só ler esta seção consegue criar o teste corretamente?"
+2. "Falta alguma informação que a IA de código teria que ADIVINHAR?"
+3. "Todos os asserts mencionados têm PROVA DE VALIDADE ou são só 'existe'?"
+
+### Passo 2: Verifique cada checkpoint contra a Story
+4. "Cada checkpoint valida DIRETAMENTE um Critério de Aceitação?"
+5. "Algum checkpoint é só passo intermediário disfarçado?" (se sim, REMOVER)
+6. "A quantidade de checkpoints é MENOR que o número de passos?" (deve ser)
+
+### Passo 3: Caça a Falsos Positivos
+7. "Para cada assert obrigatório: consigo imaginar UM cenário onde ele passa e a regra está violada?" (se sim, o assert é FRACO)
+8. "Tem algum assert que verifica só EXISTÊNCIA quando deveria verificar IDENTIDADE?"
+9. "Tem algum assert que verifica só QUANTIDADE TOTAL quando deveria verificar INDIVIDUAL?"
+
+### Passo 4: Verifique dados e diferenciação
+10. "Se duas quantidades precisam ser diferentes, isso está EXPLÍCITO no handoff?"
+11. "Se a ordem importa, isso está EXPLÍCITO?"
+12. "As fontes dos dados (fixtures, factory, arquivo) estão ESPECIFICADAS?"
+
+> **Se alguma resposta for NÃO: corrija antes de finalizar o handoff.**
 
 ---
 
