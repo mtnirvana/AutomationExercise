@@ -133,6 +133,7 @@ Before making ANY changes to documentation files:
 ### IA Documentation Files (Backup MANDATORY):
 - `Guia_Cypress_Template.md`
 - `Seletores.md`
+- `Template_Story.md`
 
 ## Story Dissection (MANDATORY - FIRST STEP)
 
