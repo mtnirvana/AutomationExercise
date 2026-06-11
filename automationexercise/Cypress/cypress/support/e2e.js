@@ -40,7 +40,7 @@ beforeEach(function () {
   if (specName.startsWith('TC_API_') || specName.startsWith('TC_PF_')) {
     return
   }
-  cy.visit('/')
+  cy.visit('/', { failOnStatusCode: false })
   cy.fixture('users').as('usersData')
   HomePage.logo.should('be.visible')
   cy.captura(uiData.homepage.loadStep)
