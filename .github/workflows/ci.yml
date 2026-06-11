@@ -225,14 +225,14 @@ jobs:
 
       - name: Gerar Allure Report (web + api + perf + k6)
         run: |
-          cp cypress/allure/allure.properties ./output/allure-results/allure.properties 2>/dev/null || true
-          npx allure generate --clean -o ./output/allure-report ./output/allure-results --lang br --name "AutomationExercise"
-        working-directory: automationexercise/Cypress
+          cp automationexercise/Cypress/cypress/allure/allure.properties ./output/allure-results/allure.properties 2>/dev/null || true
+          cd automationexercise/Cypress && npx allure generate --clean -o ../../output/allure-report ../../output/allure-results --lang br --name "AutomationExercise"
         continue-on-error: true
 
       - name: Forcar dark mode
-        run: node cypress/allure/scripts/force-dark-mode.js
-        working-directory: automationexercise/Cypress
+        run: node automationexercise/Cypress/cypress/allure/scripts/force-dark-mode.js
+        env:
+          ALLURE_OUTPUT_DIR: ./output/allure-report
         continue-on-error: true
 
       - name: Copiar tudo para o artifact unico
@@ -240,7 +240,6 @@ jobs:
           rsync -a --exclude='*.mp4' automationexercise/Cypress/cypress/screenshots/ ./output/screenshots/ 2>/dev/null || cp -r automationexercise/Cypress/cypress/screenshots/* ./output/screenshots/ 2>/dev/null || true
           cp -r automationexercise/Cypress/cypress/videos/* ./output/videos/ 2>/dev/null || true
           cp -r automationexercise/Cypress/cypress/reports/k6/*.json ./output/k6-reports/ 2>/dev/null || true
-          cp -r automationexercise/Cypress/cypress/allure/allure-report/* ./output/allure-report/ 2>/dev/null || true
           cp automationexercise/Cypress/cypress/allure/allure-open.bat ./output/allure-report/ 2>/dev/null || true
 
       - name: Remover duplicata do TC_WEB_019 em videos/

@@ -87,6 +87,7 @@ This rule applies to every document in the project:
 - Relatorio_Resultados_Performance.md
 - Relatorio_Resultados_Performance_TEMPLATE.md
 - Seletores.md
+- Template_Story.md
 - README.md
 
 When creating or updating any documentation file, the agent MUST append this footer with the **current date** (not a fixed placeholder).
@@ -133,10 +134,56 @@ Before making ANY changes to documentation files:
 - `Guia_Cypress_Template.md`
 - `Seletores.md`
 
+## Story Dissection (MANDATORY - FIRST STEP)
+
+Whenever a user story file (`.txt`, `Story.txt`, `*.story`, or any free-text file
+containing a feature description) is provided:
+
+### Step 0: Read the Dissection Template
+
+1. Read `automationexercise/templates/Template_Story.md` completely.
+2. Read the provided story file completely.
+
+### Step 1: Apply the Template Interactively
+
+The agent MUST apply EACH section of the dissection template to the story content.
+The template is NOT a form to fill — it is a GUIDE. For each section:
+
+| Section | Action |
+|:-------:|--------|
+| 1. Extração Estrutural | Parse title, description, acceptance criteria, additional info |
+| 2. Classificação + Granularidade | Identify story type (E2E/API/Performance/Bug/Security/UI/Data/Mixed) and decide 1 vs N tests |
+| 3. Análise de Fluxo | Map steps, checkpoints, application states |
+| 4. Análise de Dados | List entities, quantities, differentiation needs, whether order matters |
+| 5. Engenharia de Asserção | For each checkpoint: business rule → exact assertion → false positive risk → mitigation → validity proof → weight |
+| 6. Premissas Ocultas | Surface assumptions not stated in the story |
+| 7. Ambiguidades | Identify open questions and document decisions |
+| 8. Saída para Pipeline | Produce the structured handoff for the CODE phase |
+
+### Handoff Rule
+
+The dissection output (Section 8) IS the input for the pipeline.
+The AI that executes CODE MUST consume the dissection output — NOT the raw story file.
+The dissection resolves ambiguities, identifies false positive risks, and specifies
+exactly what assertions prove the business rule. The CODE phase receives decisions,
+not questions.
+
+### Integration with Pipeline
+
+This section modifies nothing in the existing pipeline — it PRE-cedes it.
+The full pipeline becomes:  
+
+**DISSECT → CODE → RUN → BACKUP → DOCS → ALLURE → VERIFY**
+
+---
+
 ## Pipeline Order (MANDATORY)
 
 The standard pipeline for ALL new test cases MUST follow this exact order:
 
+0. **DISSECT** — When a story file is provided, read `Template_Story.md`
+   and apply it interactively. Output the structured analysis as handoff for CODE.
+   See "Story Dissection" section above for details.
 1. **CODE** — Create the test file, Page Objects (if E2E), and all supporting code
 2. **RUN** — Execute the test and verify it passes completely
 3. **BACKUP** — Create backups of all documentation files before any changes

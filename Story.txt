@@ -1,0 +1,14 @@
+Título: Persistência do carrinho entre sessões com checkout completo.
+Descrição: Quando um cliente adiciona produtos no carrinho, ajusta as quantidades e sai da loja, ele espera que ao voltar e fazer login tudo esteja exatamente como deixou — os mesmos itens, as mesmas quantidades, sem surpresas.    
+
+Hoje o cliente consegue finalizar a compra, mas não temos garantia de que o carrinho sobrevive a um logout/relogin. Precisamos que o fluxo completo funcione: o cara monta o carrinho, sai, volta, loga, confere, comenta alguma coisa no pedido (tipo "deixar na portaria") e consiga baixar a nota fiscal no final.
+
+Critérios de Aceitação:
+- Carrinho não pode perder itens nem quantidades depois de deslogar e logar de novo
+- O comentário que o cliente digitar no checkout precisa aparecer no pedido
+- Tem que gerar e baixar a fatura certinha, com os itens e valores que estavam no carrinho
+
+Informações Adicionais:
+- Qualquer usuário registrado consegue testar isso
+- Usar dados reais de cadastro, não precisa de cenário de erro
+- A fatura é um arquivo gerado na hora, o cliente clica e baixa
