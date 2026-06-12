@@ -1,12 +1,12 @@
 @echo off
 REM ============================================
 REM  Install ALL dependencies for Automation Exercise
-REM  Usage: install_all.bat
+REM  Usage: install_all.bat (da pasta automationexercise/)
 REM  Windows (CMD / PowerShell)
 REM ============================================
 setlocal enabledelayedexpansion
 
-cd /d "%~dp0"
+cd /d "%~dp0\Cypress"
 
 echo ============================================
 echo  Instalando dependencias Node.js

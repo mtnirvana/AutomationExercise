@@ -135,7 +135,7 @@
 k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js --summary-export=cypress/reports/k6/TC_PF_001_smoke_test.json
 
 # ou via run_all.bat (executa todos os 13 scripts k6 automaticamente):
-cd Cypress && run_all.bat
+run_all.bat
 ```
 
 ---

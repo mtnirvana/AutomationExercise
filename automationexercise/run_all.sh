@@ -4,10 +4,11 @@
 #  Executa todos os testes, gera GIFs e
 #  relatorios (Allure + k6)
 #  Linux / macOS / WSL / Git Bash
+#  Uso: bash run_all.sh (da pasta automationexercise/)
 # ============================================
 set -e
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/Cypress"
 
 echo "============================================"
 echo "    EXECUTANDO TODOS OS TESTES"

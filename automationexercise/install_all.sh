@@ -1,7 +1,7 @@
 #!/bin/bash
 # =============================================
 #  Install ALL dependencies for Automation Exercise
-#  Usage: bash install_all.sh
+#  Usage: bash install_all.sh (da pasta automationexercise/)
 # =============================================
 set -e
 

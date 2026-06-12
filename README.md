@@ -67,11 +67,11 @@ Projeto/
 ├── automationexercise/
 │   ├── install_all.sh                             # Instala todas as dependências (Linux/macOS/WSL)
 │   ├── install_all.bat                            # Instala todas as dependências (Windows)
+│   ├── run_all.sh                                 # Script único: Cypress + k6 + GIFs + relatório (Linux/macOS/WSL)
+│   ├── run_all.bat                                # Script único: Cypress + k6 + GIFs + relatório (Windows)
 │   │
 │   ├── Cypress/                                   # Motor de automação
 │   │   ├── cypress.config.js                      # Config: trash, video, reporter, after:spec
-│   │   ├── run_all.bat                            # Script único: Cypress + k6 + GIFs + relatório (Windows)
-│   │   ├── run_all.sh                             # Script único: Cypress + k6 + GIFs + relatório (Linux/macOS/WSL)
 │   │   ├── package.json                           # Dependências Node (Cypress, Allure, etc.)
 │   │   ├── scripts/                               # Utilitários
 │   │   │   └── gerar_gifs.js                      # Gera GIFs animados
@@ -352,7 +352,7 @@ cd AutomationExercise
 ### Instalação Rápida (tudo de uma vez)
 
 ```bash
-cd automationexercise/Cypress
+cd automationexercise
 
 # Windows (PowerShell / CMD)
 .\install_all.bat
@@ -408,7 +408,7 @@ Adicione ao `mcpServers` do seu cliente MCP:
 ### Suíte Completa (todos os testes + relatórios)
 
 ```bash
-cd automationexercise/Cypress
+cd automationexercise
 
 # Windows
 run_all.bat
@@ -459,8 +459,8 @@ k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js
 npx cypress open
 ```
 
-> **Windows:** Use `run_all.bat` / `install_all.bat` para fluxo completo.  
-> **Linux/macOS/WSL:** Use `bash run_all.sh` / `bash install_all.sh` ou rode os comandos acima individualmente.
+> **Windows:** Use `run_all.bat` / `install_all.bat` (da pasta `automationexercise/`) para fluxo completo.  
+> **Linux/macOS/WSL:** Use `bash run_all.sh` / `bash install_all.sh` (da pasta `automationexercise/`) ou rode os comandos acima individualmente.
 
 ---
 

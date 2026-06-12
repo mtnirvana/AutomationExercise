@@ -3,10 +3,11 @@ REM ============================================
 REM  RUN ALL - Automation Exercise Test Suite
 REM  Executa todos os testes, gera GIFs e
 REM  relatorios (Allure + k6)
+REM  Uso: run_all.bat (da pasta automationexercise/)
 REM ============================================
 setlocal enabledelayedexpansion
-cd /d "%~dp0"
-set "PATH=%PATH%;C:\Program Files\k6"
+
+cd /d "%~dp0\Cypress"
 
 echo ============================================
 echo    EXECUTANDO TODOS OS TESTES
