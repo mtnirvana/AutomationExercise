@@ -257,7 +257,7 @@ Então o produto deve estar no carrinho
 **F02.05** - Adicionar avaliação em produto
 - **Tipo:** Sucesso
 - **Criticidade:** Média
-- **Objetivo:** Validar que usuário logado pode adicionar avaliação em produto
+- **Objetivo:** Validar que usuário pode adicionar avaliação em produto
 - **TC:** TC_WEB_021
 - **Dado:** Que existe um texto de avaliação de produto disponível
 - **Pós-condição:** Nenhuma
@@ -727,6 +727,7 @@ E o body deve conter responseCode igual a 200
 E o body.products deve ser um array
 E body.products.length deve ser igual a 14
 E cada produto deve possuir as propriedades id e name
+E o nome do primeiro produto deve conter o termo "top"
 ```
 
 ---
