@@ -295,6 +295,10 @@ Para cada CHECKPOINT identificado na Seção 3 (Análise de Fluxo):
 4. **"Quanto mais específico o assert, menor a chance de falso positivo."**
    - Prefira `contém texto exato` sobre `existe`, prefira `posição + valor` sobre `quantidade total`.
 
+5. **"Verificar só que o arquivo EXISTE é um falso positivo."**
+   - O arquivo pode existir mas estar VAZIO ou com dados incorretos.
+   - Use SEMPRE `cy.readFile()` + verificação de conteúdo (`.should('include', valorEsperado)`).
+
 ### Asserções Proibidas (NÃO usar como assert único)
 
 Aqui estão padrões de assert que a história deste projeto já mostrou serem FRACOS. Use esta lista como referência para identificar problemas similares no seu checkpoint:
@@ -414,7 +418,7 @@ Esta seção é o ÚNICO artefato que a pipeline (CODE) deve consumir. A IA de c
    ├─ Nº de testes: [1 | N]
    ├─ Justificativa: [por que esta granularidade]
    ├─ Nome sugerido (português): [título do teste]
-   └─ Nome sugerido (arquivo): [se aplicável]
+   └─ Nome sugerido (arquivo): [se aplicável — ### DEVE ser o próximo número sequencial. Use glob para consultar o maior TC existente antes de definir.]
 
 2. ESCOPO
    ┌─ Abrange:
@@ -446,9 +450,10 @@ Esta seção é o ÚNICO artefato que a pipeline (CODE) deve consumir. A IA de c
    │  └─ [checkpoint] → [assert mínimo que prova a regra]
    ├─ Asserções CRÍTICAS (sem elas, regra principal não validada):
    │  └─ [checkpoint] → [assert crítico]
-   └─ PROIBIDO usar como assert único:
-      ├─ ❌ [assert frágil identificado]
-      └─ ❌ [assert frágil identificado]
+    └─ PROIBIDO usar como assert único:
+       ├─ ❌ Verificar só que ARQUIVO EXISTE sem verificar CONTEÚDO (ex: `cy.readFile().should('exist')`)
+       ├─ ❌ [assert frágil identificado]
+       └─ ❌ [assert frágil identificado]
 
 5. PREMISSAS A VALIDAR NO CÓDIGO
    ┌─ [premissa] — [o que acontece se for FALSA]
@@ -463,6 +468,22 @@ Esta seção é o ÚNICO artefato que a pipeline (CODE) deve consumir. A IA de c
    ┌─ [ambiguidade] → [decisão]
    └─ [ambiguidade] → [decisão]
 ```
+
+---
+
+## ⚠️ REGRA FUNDAMENTAL — FALSO POSITIVO
+
+> **"Um teste que passa validando nada é pior que um teste que falha."**
+
+Se durante o RUN o sistema não implementar a regra de negócio:
+- **NÃO** enfraqueça a asserção para fazer o teste passar
+- **NÃO** remova o checkpoint do teste
+- A falha é o **resultado correto** — o teste revelou um bug
+- Documente o bug e prossiga com a pipeline
+
+Esta regra vale para TODOS os tipos de assert:
+- ❌ "Comentário não aparece no pedido? Vou remover essa asserção." → ERRADO
+- ✅ "Comentário não aparece no pedido? O teste falha e reporta o bug." → CORRETO
 
 ---
 
@@ -484,11 +505,12 @@ Antes de finalizar a dissertação, execute este checklist de verificação:
 1. "Uma IA que só ler esta seção consegue criar o teste corretamente?"
 2. "Falta alguma informação que a IA de código teria que ADIVINHAR?"
 3. "Todos os asserts mencionados têm PROVA DE VALIDADE ou são só 'existe'?"
+4. "O número sequencial (###) foi validado contra os testes existentes? Está correto?"
 
 ### Passo 2: Verifique cada checkpoint contra a Story
-4. "Cada checkpoint valida DIRETAMENTE um Critério de Aceitação?"
-5. "Algum checkpoint é só passo intermediário disfarçado?" (se sim, REMOVER)
-6. "A quantidade de checkpoints é MENOR que o número de passos?" (deve ser)
+5. "Cada checkpoint valida DIRETAMENTE um Critério de Aceitação?"
+6. "Algum checkpoint é só passo intermediário disfarçado?" (se sim, REMOVER)
+7. "A quantidade de checkpoints é MENOR que o número de passos?" (deve ser)
 
 ### Passo 3: Caça a Falsos Positivos
 7. "Para cada assert obrigatório: consigo imaginar UM cenário onde ele passa e a regra está violada?" (se sim, o assert é FRACO)
@@ -499,9 +521,10 @@ Antes de finalizar a dissertação, execute este checklist de verificação:
 10. "Se duas quantidades precisam ser diferentes, isso está EXPLÍCITO no handoff?"
 11. "Se a ordem importa, isso está EXPLÍCITO?"
 12. "As fontes dos dados (fixtures, factory, arquivo) estão ESPECIFICADAS?"
+13. "Se o teste envolve download de arquivo gerado (fatura, relatório, invoice), o assert verifica o CONTEÚDO ou apenas a EXISTÊNCIA?"
 
 > **Se alguma resposta for NÃO: corrija antes de finalizar o handoff.**
 
 ---
 
-**Documento gerado em:** 2026-06-11
+**Documento gerado em:** 2026-06-12

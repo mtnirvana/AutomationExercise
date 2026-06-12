@@ -5,8 +5,8 @@ Hoje o cliente consegue finalizar a compra, mas não temos garantia de que o car
 
 Critérios de Aceitação:
 - Carrinho não pode perder itens nem quantidades depois de deslogar e logar de novo
-- O comentário que o cliente digitar no checkout precisa aparecer no pedido
-- Tem que gerar e baixar a fatura certinha, com os itens e valores que estavam no carrinho
+- O comentário que o cliente digitar no checkout não precisa aparecer no pedido
+- Tem que gerar e baixar a fatura certinha, com os valores que estavam no carrinho
 
 Informações Adicionais:
 - Qualquer usuário registrado consegue testar isso
