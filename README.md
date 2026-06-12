@@ -347,6 +347,7 @@ npm install
 
 # Playwright CLI (self-healing de seletores)
 npx playwright-cli --help
+npx playwright-cli install-browser
 
 # Allure: https://allurereport.org/docs/install/
 # k6: https://grafana.com/docs/k6/latest/set-up/install/
