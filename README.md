@@ -23,17 +23,17 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 
 ## 📋 Sumário
 
-- [Stack](#stack)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Testes E2E Web](#testes-e2e-web-26)
-- [Testes de API](#testes-de-api-14)
-- [Testes de Performance](#testes-de-performance-14)
-- [Evidências](#evidencias)
-- [Documentação](#documentacao)
+- [🛠 Stack](#stack)
+- [🏗 Estrutura do Projeto](#estrutura-do-projeto)
+- [📊 Testes E2E Web](#testes-e2e-web-26)
+- [📊 Testes de API](#testes-de-api-14)
+- [📊 Testes de Performance](#testes-de-performance-14)
+- [📸 Evidências](#evidencias)
+- [📄 Documentação](#documentacao)
 - [🤖 Uso com Agentes de IA](#uso-com-agentes-de-ia)
-- [Documentação IA](#documentacao-ia)
-- [Rastreabilidade Histórica](#rastreabilidade-historica)
-- [Como Executar](#como-executar)
+- [📋 Documentação IA](#documentacao-ia)
+- [📈 Rastreabilidade Histórica](#rastreabilidade-historica)
+- [🚀 Como Executar](#como-executar)
 
 ---
 
