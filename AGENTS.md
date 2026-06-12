@@ -29,7 +29,7 @@ If the user doesn't specify which tool to use, choose the most suitable tool for
 ## Priority Rule
 1. Tool explicitly requested by the user.
 2. Rules in this AGENTS2.md.
-3. Guidelines in `Guia_Cypress_Template.md`.
+3. Guidelines in `Guia_Cypress_TEMPLATE.md`.
 4. Current state of the page or session.
 
 ---
@@ -189,7 +189,7 @@ Esta seção substitui a abordagem "leia tudo" por leitura direcionada. O objeti
 
 | Arquivo | Como ler | Tokens |
 |:--------|:---------|:------:|
-| `Guia_Cypress_Template.md` | Completo (~300 linhas) | ~1.5K |
+| `Guia_Cypress_TEMPLATE.md` | Completo (~300 linhas) | ~1.5K |
 | `Seletores.md` | **Só a seção relevante** (ex: só `CheckoutPage`) | ~0.2K |
 | `UserFactory.js` | Completo (~40 linhas) | ~0.2K |
 | `cypress.config.js` | Completo (~260 linhas) | ~0.5K |
@@ -287,13 +287,13 @@ The `beforeEach()` with `cy.visit('/')` and `cy.fixture('users').as('usersData')
 ## Coding & Naming Standards
 
 ### E2E Tests (Default)
-Follow all coding, naming, and documentation standards defined in `Guia_Cypress_Template.md`.
+Follow all coding, naming, and documentation standards defined in `Guia_Cypress_TEMPLATE.md`.
 
 ### API Tests
-Follow `Guia_Cypress_Template.md`, `Sumario_Executivo.md`, `Especificacao_Tecnica_API.md`.
+Follow `Guia_Cypress_TEMPLATE.md`, `Sumario_Executivo.md`, `Especificacao_Tecnica_API.md`.
 
 ### Performance Tests (k6)
-Follow `Guia_Cypress_Template.md`, `Sumario_Executivo.md`, `Especificacao_Tecnica_Performance.md`.
+Follow `Guia_Cypress_TEMPLATE.md`, `Sumario_Executivo.md`, `Especificacao_Tecnica_Performance.md`.
 
 - **Step Numbering:** Sequential numbers. Each step has `// N. [description in Portuguese]`.
 - **BeforeEach:** Global in `cypress/support/e2e.js`, DO NOT repeat in tests.

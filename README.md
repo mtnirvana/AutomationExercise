@@ -140,7 +140,7 @@ antigravity PORTFOLIO/
 │       ├── Suite_BDD_TEMPLATE.md                  # Template de cenários BDD (Gherkin)
 │       ├── Story_TEMPLATE.md                     # Template de dissecção de histórias de usuário
 │       ├── Relatorio_Resultados_Performance_TEMPLATE.md # Template de relatório de resultados
-│       ├── Guia_Cypress_Template.md               # Template de codificação e padrões do projeto
+│       ├── Guia_Cypress_TEMPLATE.md               # Template de codificação e padrões do projeto
 │       ├── Seletores_TEMPLATE.md                  # Template de estrutura para novos seletores (IA)
 │       └── Seletores.md                           # Histórico de seletores e self-healing (IA)
 │   │
@@ -270,7 +270,7 @@ Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_
 O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework** em 9 etapas:
 
 1. **🔬 Dissecar** — Disseca a história de usuário aplicando o `Story_TEMPLATE.md`: extrai estrutura, classifica tipo (E2E/API/Performance), mapeia fluxo, entidades, regras de negócio e checkpoints. Identifica premissas ocultas, resolve ambiguidades e produz um **handoff estruturado** (Seção 8 do template) que alimenta a etapa seguinte sem ruído.
-2. **📚 Contextualizar** — Contextualiza o projeto usando o handoff para guiar a leitura seletiva e incrementa com as regras de governança: `AGENTS.md`, padrões `Guia_Cypress_Template.md`, templates de documentação, Page Objects, base de seletores `Seletores.md` e dados disponíveis `fixtures/` + `UserFactory`
+2. **📚 Contextualizar** — Contextualiza o projeto usando o handoff para guiar a leitura seletiva e incrementa com as regras de governança: `AGENTS.md`, padrões `Guia_Cypress_TEMPLATE.md`, templates de documentação, Page Objects, base de seletores `Seletores.md` e dados disponíveis `fixtures/` + `UserFactory`
 3. **🧠 Planejar** — Planeja o teste gerando ID sequencial do TC (ex: TC_WEB_027), classifica como sucesso ou erro, decompõe a história em steps numerados, mapeia quais Page Objects usar e decide entre dados dinâmicos (factory) ou estáticos (fixture)
 4. **✍️ Criar** — Cria o arquivo .cy.js com JSDoc contendo @tags, importa os Page Objects necessários, implementa cada passo com comentário numerado em português, adiciona cy.captura() em cada interação e mantém a abstração entre camadas (pages, fixtures, factory)
 5. **▶️ Executar** — Executa o teste com `npx cypress run --spec` no navegador configurado, rodando cada passo automaticamente como um usuário real, enquanto gera screenshots por passo, grava vídeo da execução e exporta resultados para o Allure
@@ -292,7 +292,7 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 
 | Documento | Conteúdo |
 |:----------|:---------|
-| [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md) | Padrões de codificação, nomenclatura e boas práticas |
+| [`Guia_Cypress_TEMPLATE.md`](automationexercise/templates/Guia_Cypress_TEMPLATE.md) | Padrões de codificação, nomenclatura e boas práticas |
 | [`Seletores_TEMPLATE.md`](automationexercise/templates/Seletores_TEMPLATE.md) | Template de estrutura para novos seletores |
 | [`Seletores.md`](automationexercise/templates/Seletores.md) | Histórico de seletores e self-healing |
 | [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md) | Template do Sumário Executivo |
@@ -300,7 +300,7 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 | [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md) | Template de especificação técnica (API) |
 | [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md) | Template de especificação técnica (Performance) |
 | [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
-| [`Story_TEMPLATE.md`](automationexercise/templates/Story_TEMPLATE.md) | Template de dissecção de histórias de usuário para agentes de IA |
+| [`Story_TEMPLATE.md`](automationexercise/templates/Story_TEMPLATE.md) | Template de dissecção de histórias de usuário |
 | [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
 
 ---
