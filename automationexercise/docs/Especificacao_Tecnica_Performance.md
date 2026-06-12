@@ -607,7 +607,6 @@ automationexercise/
 │   ├── Relatorio_Resultados_Performance.md             # Metricas e resultados k6 + Lighthouse
 │   └── ...
 ├── templates/                                          # Templates para novos TCs
-│   ├── Template_Story.md                               # Template de dissecção de histórias de usuário
 │   ├── Especificacao_Tecnica_Performance_TEMPLATE.md   # Template especificacao tecnica de performance
 │   ├── Relatorio_Resultados_Performance_TEMPLATE.md    # Template metricas e resultados k6 + Lighthouse
 │   └── ...
