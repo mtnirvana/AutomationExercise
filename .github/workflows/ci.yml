@@ -214,12 +214,17 @@ jobs:
         run: |
           mkdir -p ./output/allure-results/history
           git fetch origin gh-pages --depth=1 2>/dev/null || true
-          git checkout origin/gh-pages -- allure-report/history/ 2>/dev/null || true
-          if [ -d "allure-report/history" ]; then
-            cp allure-report/history/*.json ./output/allure-results/history/ 2>/dev/null || true
-            echo "History: $(ls ./output/allure-results/history/*.json 2>/dev/null | wc -l) arquivos"
+          if git checkout origin/gh-pages -- allure-report/history/ 2>/dev/null; then
+            if ls allure-report/history/*.json 2>/dev/null | grep -q . && \
+               cat allure-report/history/history-trend.json 2>/dev/null | grep -q '"passed"'; then
+              cp allure-report/history/*.json ./output/allure-results/history/ 2>/dev/null || true
+              echo "History restaurado: $(ls ./output/allure-results/history/*.json 2>/dev/null | wc -l) arquivos"
+            else
+              echo "History vazio ou invalido. Ignorando."
+              rm -rf allure-report/history 2>/dev/null || true
+            fi
           else
-            echo "Nenhum history anterior."
+            echo "Nenhum history anterior (gh-pages nao existe ou sem allure-report)."
           fi
         shell: bash
         continue-on-error: true
