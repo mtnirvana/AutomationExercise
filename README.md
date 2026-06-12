@@ -15,7 +15,7 @@ Cada teste, documento e relatório são gerados e mantidos por IA, desde os scri
 
 Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os componentes são separados por responsabilidade, os dados organizados de forma centralizada e cada fluxo de teste é independente e rastreável. Um ecossistema escalável pensado para crescer sem perder a qualidade.
 
-**54 casos individuais no Allure** · 26 E2E · 14 API · 14 performance (13 k6 + 1 Cypress Core Web Vitals)
+**61 casos individuais no Allure** · 26 E2E · 14 API · 21 performance (13 k6 + 8 Core Web Vitals)
 
 ---
 
@@ -269,15 +269,15 @@ Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_
 
 O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework** em 9 etapas:
 
-0. **🔬 Dissecar** — Disseca a história de usuário aplicando o `Story_TEMPLATE.md`: extrai estrutura, classifica tipo (E2E/API/Performance), mapeia fluxo, entidades, regras de negócio e checkpoints. Identifica premissas ocultas, resolve ambiguidades e produz um **handoff estruturado** (Seção 8 do template) que alimenta a etapa seguinte sem ruído.
-1. **📚 Contextualizar** — Contextualiza o projeto usando o handoff para guiar a leitura seletiva e incrementa com as regras de governança: `AGENTS.md`, padrões `Guia_Cypress_Template.md`, templates de documentação, Page Objects, base de seletores `Seletores.md` e dados disponíveis `fixtures/` + `UserFactory`
-2. **🧠 Planejar** — Planeja o teste gerando ID sequencial do TC (ex: TC_WEB_027), classifica como sucesso ou erro, decompõe a história em steps numerados, mapeia quais Page Objects usar e decide entre dados dinâmicos (factory) ou estáticos (fixture)
-3. **✍️ Criar** — Cria o arquivo .cy.js com JSDoc contendo @tags, importa os Page Objects necessários, implementa cada passo com comentário numerado em português, adiciona cy.captura() em cada interação e mantém a abstração entre camadas (pages, fixtures, factory)
-4. **▶️ Executar** — Executa o teste com `npx cypress run --spec` no navegador configurado, rodando cada passo automaticamente como um usuário real, enquanto gera screenshots por passo, grava vídeo da execução e exporta resultados para o Allure
-5. **🔀 Decidir** — Decide entre seguir ou corrigir: se passa, screenshots são salvos, GIF animado gerado via `gerar_gifs.js` e HTML reports consolidados como evidência. Se falha, dispara a cadeia de auto-correção em 5 níveis — 1º consulta `Seletores.md` por alternativas, 2º Playwright CLI, 3º Chrome DevTools MCP, 4º Playwright MCP, 5º Selenium MCP. Após encontrar o seletor, atualiza o `Seletores.md` marcando o antigo como `[QUEBRADO]` e incluindo data de restauração se voltar a funcionar `[RESTAURADO]`, corrige o Page Object e reexecuta
-6. **📄 Documentação completa** — Documenta gerando Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e relatório de resultados utilizando o Allure Report
-7. **📦 Entregar** — Entrega 4 artefatos: script .cy.js validado, pasta com prints numerados + GIF animado, 3 documentos técnicos consistentes e relatório Allure com histórico
-8. **🔄 Funciona para projetos novos ou incrementos** — Se o projeto não tem nada, a IA cria toda a estrutura do zero (pastas, pages, fixtures, factory, docs, configurações). Se já existe, identifica o próximo ID disponível, integra ao ecossistema existente e mantém a rastreabilidade com o histórico sem quebrar nada. O padrão é sempre o mesmo, independente do ponto de partida
+1. **🔬 Dissecar** — Disseca a história de usuário aplicando o `Story_TEMPLATE.md`: extrai estrutura, classifica tipo (E2E/API/Performance), mapeia fluxo, entidades, regras de negócio e checkpoints. Identifica premissas ocultas, resolve ambiguidades e produz um **handoff estruturado** (Seção 8 do template) que alimenta a etapa seguinte sem ruído.
+2. **📚 Contextualizar** — Contextualiza o projeto usando o handoff para guiar a leitura seletiva e incrementa com as regras de governança: `AGENTS.md`, padrões `Guia_Cypress_Template.md`, templates de documentação, Page Objects, base de seletores `Seletores.md` e dados disponíveis `fixtures/` + `UserFactory`
+3. **🧠 Planejar** — Planeja o teste gerando ID sequencial do TC (ex: TC_WEB_027), classifica como sucesso ou erro, decompõe a história em steps numerados, mapeia quais Page Objects usar e decide entre dados dinâmicos (factory) ou estáticos (fixture)
+4. **✍️ Criar** — Cria o arquivo .cy.js com JSDoc contendo @tags, importa os Page Objects necessários, implementa cada passo com comentário numerado em português, adiciona cy.captura() em cada interação e mantém a abstração entre camadas (pages, fixtures, factory)
+5. **▶️ Executar** — Executa o teste com `npx cypress run --spec` no navegador configurado, rodando cada passo automaticamente como um usuário real, enquanto gera screenshots por passo, grava vídeo da execução e exporta resultados para o Allure
+6. **🔀 Decidir** — Decide entre seguir ou corrigir: se passa, screenshots são salvos, GIF animado gerado via `gerar_gifs.js` e HTML reports consolidados como evidência. Se falha, dispara a cadeia de auto-correção em 5 níveis — 1º consulta `Seletores.md` por alternativas, 2º Playwright CLI, 3º Chrome DevTools MCP, 4º Playwright MCP, 5º Selenium MCP. Após encontrar o seletor, atualiza o `Seletores.md` marcando o antigo como `[QUEBRADO]` e incluindo data de restauração se voltar a funcionar `[RESTAURADO]`, corrige o Page Object e reexecuta
+7. **📄 Documentação completa** — Documenta gerando Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e relatório de resultados utilizando o Allure Report
+8. **📦 Entregar** — Entrega 4 artefatos: script .cy.js validado, pasta com prints numerados + GIF animado, 3 documentos técnicos consistentes e relatório Allure com histórico
+9. **🔄 Funciona para projetos novos ou incrementos** — Se o projeto não tem nada, a IA cria toda a estrutura do zero (pastas, pages, fixtures, factory, docs, configurações). Se já existe, identifica o próximo ID disponível, integra ao ecossistema existente e mantém a rastreabilidade com o histórico sem quebrar nada. O padrão é sempre o mesmo, independente do ponto de partida
 
 Isso transforma o projeto em um **framework dirigido por IA**: todo artefato — script, documento, GIF, relatório — segue o mesmo padrão, independentemente do modelo de IA usado, garantindo consistência e rastreabilidade em toda a suíte.
 
