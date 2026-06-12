@@ -1,1 +1,1 @@
-{"reportName":"AutomationExercise","testRuns":[],"statistic":{"failed":3,"broken":0,"skipped":0,"passed":58,"unknown":0,"total":61},"time":{"start":1781287600649,"stop":1781291905623,"duration":4304974,"minDuration":103,"maxDuration":111977,"sumDuration":577607}}
+{"reportName":"AutomationExercise","testRuns":[],"statistic":{"failed":11,"broken":0,"skipped":0,"passed":50,"unknown":0,"total":61},"time":{"start":1781287198032,"stop":1781292022453,"duration":4824421,"minDuration":373,"maxDuration":93276,"sumDuration":830410}}
