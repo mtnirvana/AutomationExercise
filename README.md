@@ -59,7 +59,8 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 ## 🏗 Estrutura do Projeto
 
 ```
-
+Projeto/
+│
 ├── AGENTS.md                                      # Governança para agentes de IA
 ├── README.md                                      # Este arquivo
 │
