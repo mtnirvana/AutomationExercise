@@ -31,7 +31,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 - [📸 Evidências](#evidencias)
 - [📄 Documentação](#documentacao)
 - [🤖 Uso com Agentes de IA](#uso-com-agentes-de-ia)
-- [📋 Documentação IA](#documentacao-ia)
+- [🧠 Documentação IA](#documentacao-ia)
 - [📈 Rastreabilidade Histórica](#rastreabilidade-historica)
 - [🚀 Como Executar](#como-executar)
 
@@ -65,11 +65,13 @@ antigravity PORTFOLIO/
 ├── README.md                                      # Este arquivo
 │
 ├── automationexercise/
-│   ├── install_all.sh                             # Instala todas as dependências
+│   ├── install_all.sh                             # Instala todas as dependências (Linux/macOS/WSL)
+│   ├── install_all.bat                            # Instala todas as dependências (Windows)
 │   │
 │   ├── Cypress/                                   # Motor de automação
 │   │   ├── cypress.config.js                      # Config: trash, video, reporter, after:spec
-│   │   ├── run_all.bat                            # Script único: Cypress + k6 + GIFs + relatório
+│   │   ├── run_all.bat                            # Script único: Cypress + k6 + GIFs + relatório (Windows)
+│   │   ├── run_all.sh                             # Script único: Cypress + k6 + GIFs + relatório (Linux/macOS/WSL)
 │   │   ├── package.json                           # Dependências Node (Cypress, Allure, etc.)
 │   │   ├── scripts/                               # Utilitários
 │   │   │   └── gerar_gifs.js                      # Gera GIFs animados
@@ -286,7 +288,7 @@ Isso transforma o projeto em um **framework dirigido por IA**: todo artefato —
 ---
 
 <a name="documentacao-ia"></a>
-## 📋 Documentação IA
+## 🧠 Documentação IA
 
 Documentos de suporte utilizados exclusivamente pelo agente de IA para geração e manutenção de testes:
 
