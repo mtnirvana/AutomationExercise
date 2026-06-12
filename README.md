@@ -138,7 +138,7 @@ antigravity PORTFOLIO/
 │       ├── Especificacao_Tecnica_API_TEMPLATE.md  # Template de especificação técnica (API)
 │       ├── Especificacao_Tecnica_Performance_TEMPLATE.md # Template de especificação técnica (Performance)
 │       ├── Suite_BDD_TEMPLATE.md                  # Template de cenários BDD (Gherkin)
-│       ├── Template_Story.md                     # Template de dissecção de histórias de usuário
+│       ├── Story_TEMPLATE.md                     # Template de dissecção de histórias de usuário
 │       ├── Relatorio_Resultados_Performance_TEMPLATE.md # Template de relatório de resultados
 │       ├── Guia_Cypress_Template.md               # Template de codificação e padrões do projeto
 │       ├── Seletores_TEMPLATE.md                  # Template de estrutura para novos seletores (IA)
@@ -267,14 +267,15 @@ Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_
 <a name="uso-com-agentes-de-ia"></a>
 ## 🤖 Uso com Agentes de IA
 
-O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework** em 8 etapas:
+O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework** em 9 etapas:
 
-1. **📖 Estudar** — Lê governança (AGENTS.md), padrões (Guia_Cypress), templates de docs, Page Objects, base de seletores (Seletores.md) e dados disponíveis (fixtures + UserFactory)
+0. **🔬 Dissecar** — Aplica o `Story_TEMPLATE.md` para analisar a história de usuário: extrai estrutura, classifica tipo (E2E/API/Performance), mapeia fluxo, entidades, regras de negócio e checkpoints. Identifica premissas ocultas, resolve ambiguidades e produz um **handoff estruturado** (Seção 8 do template) que alimenta a etapa seguinte sem ruído.
+1. **📚 Contextualizar** — Lê governança (`AGENTS.md`), padrões (`Guia_Cypress_Template.md`), templates de documentação, Page Objects, base de seletores (`Seletores.md`) e dados disponíveis (`fixtures/` + `UserFactory`)
 2. **🧠 Planejar** — Define tipo do teste (E2E, API ou Performance), gera ID sequencial do TC (ex: TC_WEB_027), classifica como sucesso ou erro, decompõe a história em steps numerados, mapeia quais Page Objects usar e decide entre dados dinâmicos (factory) ou estáticos (fixture)
 3. **✍️ Criar** — Gera o arquivo .cy.js com JSDoc contendo @tags, importa os Page Objects necessários, implementa cada passo com comentário numerado em português, adiciona cy.captura() em cada interação e mantém a abstração entre camadas (pages, fixtures, factory)
 4. **▶️ Executar** — Roda `npx cypress run --spec` no navegador configurado, executando cada passo automaticamente como um usuário real, enquanto gera screenshots por passo, grava vídeo da execução e exporta resultados para o Allure
 5. **🔀 Decidir** — Se passa: screenshots numerados são salvos, um GIF animado é gerado via `gerar_gifs.js` e HTML reports são consolidados como evidência. Se falha: dispara a cadeia de auto-correção em 5 níveis — 1º consulta `Seletores.md` por alternativas, 2º Playwright CLI, 3º Chrome DevTools MCP, 4º Playwright MCP, 5º Selenium MCP. Após encontrar o seletor, atualiza o `Seletores.md` marcando o antigo como `[QUEBRADO]` e incluindo data de restauração se voltar a funcionar `[RESTAURADO]`, corrige o Page Object e reexecuta
-6. **📄 Documentação completa** — Gera Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e relatório de resultados utilizando o Allure Report
+6. **📄 Documentar** — Gera Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e relatório de resultados utilizando o Allure Report
 7. **📦 Entregar** — Disponibiliza 4 artefatos: script .cy.js validado, pasta com prints numerados + GIF animado, 3 documentos técnicos consistentes e relatório Allure com histórico
 8. **🔄 Funciona para projetos novos ou incrementos** — Se o projeto não tem nada, a IA cria toda a estrutura do zero (pastas, pages, fixtures, factory, docs, configurações). Se já existe, identifica o próximo ID disponível, integra ao ecossistema existente e mantém a rastreabilidade com o histórico sem quebrar nada. O padrão é sempre o mesmo, independente do ponto de partida
 
@@ -299,7 +300,7 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 | [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md) | Template de especificação técnica (API) |
 | [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md) | Template de especificação técnica (Performance) |
 | [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
-| [`Template_Story.md`](automationexercise/templates/Template_Story.md) | Template de dissecção de histórias de usuário para agentes de IA |
+| [`Story_TEMPLATE.md`](automationexercise/templates/Story_TEMPLATE.md) | Template de dissecção de histórias de usuário para agentes de IA |
 | [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
 
 ---

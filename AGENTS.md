@@ -40,7 +40,7 @@ Todas as etapas DEVEM seguir estas regras de leitura seletiva para evitar desper
 
 | Etapa | Lê do disco | Usa do contexto |
 |:------|:------------|:----------------|
-| DISSECT | `Template_Story.md` + story + `glob` para listar nomes de testes existentes | Nada |
+| DISSECT | `Story_TEMPLATE.md` + story + `glob` para listar nomes de testes existentes | Nada |
 | CODE | Handoff + **apenas o necessário** (regras abaixo) | Nada (invocação nova) |
 | RUN | Nada | Nada |
 | UPDATE DOCS | `.md` existentes + `*_TEMPLATE.md` | POs, fixtures, `.cy.js`, screenshots herdados do CODE |
@@ -55,7 +55,7 @@ Whenever a user story file (`.txt`, `Story.txt`, `*.story`, or any free-text fil
 
 ### Step 0: Read the Dissection Template
 
-1. Read `automationexercise/templates/Template_Story.md` completely.
+1. Read `automationexercise/templates/Story_TEMPLATE.md` completely.
 2. Read the provided story file completely.
 3. Use `glob` to list existing test file names (e.g. `**/TC_WEB_*.cy.js`) and extract the highest TC number. The next TC number = max + 1. This number MUST be used in the handoff.
 
@@ -142,7 +142,7 @@ The dissection output (Section 8) IS the input for the pipeline. The AI that exe
 The standard pipeline for ALL new test cases MUST follow this exact order:
 
 <<<<<<< Updated upstream
-0. **DISSECT** — When a story file is provided, read `Template_Story.md`
+0. **DISSECT** — When a story file is provided, read `Story_TEMPLATE.md`
    and apply it silently. Output the structured analysis as handoff for CODE.
    See "Story Dissection" section above for details.
 1. **CODE** — Create the test file, Page Objects (if E2E), and all supporting code
@@ -150,7 +150,7 @@ The standard pipeline for ALL new test cases MUST follow this exact order:
 3. **BACKUP** — Create backups of all documentation files before any changes
 4. **UPDATE DOCS** — First read the existing `.md` documents (Sumario_Executivo.md, Especificacao_Tecnica_Web.md, Suite_BDD.md) to understand current state. Then read their respective `*_TEMPLATE.md`. Then increment each document. Use the context inherited from CODE (POs, fixtures, `.cy.js`, screenshots) to populate the new entry — do NOT re-read those files from disk.
 =======
-0. **DISSECT** — When a story file is provided, read `Template_Story.md` and apply it silently. Output the structured analysis as handoff for CODE.
+0. **DISSECT** — When a story file is provided, read `Story_TEMPLATE.md` and apply it silently. Output the structured analysis as handoff for CODE.
 1. **CODE** — Create the test file, Page Objects (if E2E), and all supporting code (leitura seletiva obrigatória — ver seção "CODE — Leitura Seletiva" abaixo)
 2. **RUN** — Execute the test. Use `--quiet` ou pipe para reduzir output.  
    ⚠️ **REGRRA DE OURO:** Se o teste falhar porque o sistema NÃO implementa a regra de negócio (ex: comentário não aparece, fatura sem conteúdo), **NÃO remova nem enfraqueça a asserção**. A falha é o resultado CORRETO — revela um bug. Documente o bug e prossiga.  
