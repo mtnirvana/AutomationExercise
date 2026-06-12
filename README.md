@@ -15,7 +15,7 @@ Cada teste, documento e relatório são gerados e mantidos por IA, desde os scri
 
 Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os componentes são separados por responsabilidade, os dados organizados de forma centralizada e cada fluxo de teste é independente e rastreável. Um ecossistema escalável pensado para crescer sem perder a qualidade.
 
-**54 casos individuais no Allure** · 26 E2E · 14 API · 14 performance (13 k6 + 1 Cypress Core Web Vitals)
+**61 casos individuais no Allure** · 26 E2E · 14 API · 21 performance (13 k6 + 8 Core Web Vitals)
 
 ---
 
