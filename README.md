@@ -316,63 +316,42 @@ O [Allure](https://allurereport.org/) gera um **relatório único** com todos os
 - **Linha do tempo** — Timeline completa de execução
 - **Histórico** — Acumula execuções ao longo de dias/meses (append-only via `history/`)
 
-```bash
-# Tudo de uma vez (passo a passo):
-cd automationexercise/Cypress/cypress/allure
-
-node scripts/convert_k6_to_allure.js      # Converte resultados k6 para Allure
-copy /y allure.properties allure-results\allure.properties >nul
-if exist allure-report\history copy /y allure-report\history\*.json allure-results\history\ >nul
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-allure.cmd open allure-report -p 8765
-
-# Gera relatório estático:
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-```
-
 O **histórico** funciona assim:
 1. Ao gerar o relatório, o Allure salva `history/` dentro do `allure-report/`
-2. O `run_all.bat` copia o `history/` do relatório anterior para `allure-results/history/` (criando o diretório se necessário) antes de gerar o novo relatório
+2. O `run_all.bat` copia o `history/` do relatório anterior para `allure-results/history/` antes de gerar o novo relatório
 3. O `before:run` do `cypress.config.js` preserva esse histórico durante a execução dos testes
 4. Isso acumula dados de múltiplas execuções — dias, semanas, meses
 5. Os gráficos de tendência mostram a evolução ao longo do tempo
+
+📊 **Relatório publicado:** [`https://mtnirvana.github.io/AutomationExercise/allure-report/`](https://mtnirvana.github.io/AutomationExercise/allure-report/)
 
 ---
 
 <a name="como-executar"></a>
 ## 🚀 Como Executar
 
-### Instalação Rápida (tudo de uma vez)
+### Pré-requisitos
+- Node.js 20+ · npm · Allure CLI · k6 (para performance)
 
+### Instalação
+
+**Rápida:**
 ```bash
-# 1. Baixar o repositório e extrair
-# 2. Instalar tudo
 cd automationexercise/Cypress
 bash install_all.sh
 ```
 
-### Instalação Manual (passo a passo)
-
+**Manual:**
 ```bash
-# 0. Baixar o repositório e extrair
-# 1. Dependências Node.js
 cd automationexercise/Cypress
 npm install
-
-# 2. k6 (testes de performance)
-# https://grafana.com/docs/k6/latest/set-up/install/
-
-# 3. Playwright CLI (self-healing)
-npx playwright-cli --help
-
-# 4. Allure (relatório interativo)
-cd automationexercise/Cypress/cypress/allure
-npm install
+# Allure: https://allurereport.org/docs/install/
+# k6: https://grafana.com/docs/k6/latest/set-up/install/
 ```
 
-### Chrome DevTools MCP
+### MCP Servers
 
-Adicione ao config do seu cliente MCP:
+Adicione ao `mcpServers` do seu cliente MCP:
 
 ```json
 {
@@ -380,33 +359,11 @@ Adicione ao config do seu cliente MCP:
     "chrome-devtools": {
       "command": "npx",
       "args": ["-y", "chrome-devtools-mcp@latest"]
-    }
-  }
-}
-```
-
-> Debugging ativo: console, network, performance traces, Lighthouse, screenshots e snapshots do DOM. [Repositório oficial](https://github.com/ChromeDevTools/chrome-devtools-mcp)
-
-### Playwright MCP
-
-```json
-{
-  "mcpServers": {
+    },
     "playwright": {
       "command": "npx",
       "args": ["@playwright/mcp@latest"]
-    }
-  }
-}
-```
-
-> Automação de navegação, formulários, fluxos E2E e validação interativa via accessibility tree. [Repositório oficial](https://github.com/microsoft/playwright-mcp)
-
-### Selenium MCP
-
-```json
-{
-  "mcpServers": {
+    },
     "selenium": {
       "command": "npx",
       "args": ["-y", "@angiejones/mcp-selenium@latest"]
@@ -415,7 +372,9 @@ Adicione ao config do seu cliente MCP:
 }
 ```
 
-> Fluxos legados e compatibilidade com Selenium WebDriver (Chrome, Firefox, Edge, Safari). [Repositório oficial](https://github.com/angiejones/mcp-selenium)
+> **Chrome DevTools MCP** — Debugging ativo: console, network, performance, Lighthouse. [Repo](https://github.com/ChromeDevTools/chrome-devtools-mcp) ·
+> **Playwright MCP** — Automação de navegação, formulários, fluxos E2E. [Repo](https://github.com/microsoft/playwright-mcp) ·
+> **Selenium MCP** — Fluxos legados e compatibilidade WebDriver. [Repo](https://github.com/angiejones/mcp-selenium)
 
 ### Suíte Completa
 
@@ -432,10 +391,9 @@ O `run_all.bat` executa em sequência:
 | 2. GIFs | `node scripts/gerar_gifs.js` | GIFs em `screenshots/web/` e `screenshots/performance/` |
 | 3. k6 | 13 scripts de performance | JSONs em `reports/k6/` |
 | 4. k6 → Allure | `node cypress/allure/scripts/convert_k6_to_allure.js` | Resultados k6 em allure-results |
-| 5. Allure Generate | `allure.cmd generate` | Relatório em `allure-report/` |
-| — | Atalho do relatório | `docs/Relatorio_Testes.lnk` — abre servidor + navegador |
+| 5. Allure | `allure.cmd generate` | Relatório em `allure-report/` |
 
-### Execuções Individuais
+### Executar Testes
 
 ```bash
 cd automationexercise/Cypress
@@ -444,25 +402,31 @@ cd automationexercise/Cypress
 npx cypress run
 
 # Apenas E2E Web
-npx cypress run --spec "cypress/e2e/web/*.cy.js"
+npx cypress run --spec "cypress/e2e/web/TC_WEB_*.cy.js"
 
 # Apenas API
-npx cypress run --spec "cypress/e2e/api/*.cy.js"
+npx cypress run --spec "cypress/e2e/api/TC_API_*.cy.js"
 
 # Teste específico
-npx cypress run --spec "cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js"
-
-# Relatório Allure (após rodar os testes)
-cd automationexercise/Cypress/cypress/allure
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-allure.cmd open allure-report -p 8765
-allure.cmd serve allure-results -p 8765 --lang br --name "AutomationExercise"
-
-# Teste de performance (k6)
-k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js
+npx cypress run --spec "cypress/e2e/web/TC_WEB_001_*.cy.js"
 
 # Modo interativo
 npx cypress open
+```
+
+### Relatório Allure
+
+```bash
+cd automationexercise/Cypress/cypress/allure
+allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
+allure.cmd open allure-report -p 8765
+```
+
+### Performance (k6)
+
+```bash
+cd automationexercise/Cypress
+k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js
 ```
 
 ---
