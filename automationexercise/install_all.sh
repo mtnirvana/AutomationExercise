@@ -31,5 +31,5 @@ echo "Para ver o relatorio: cd Cypress/cypress/allure && npm run serve"
 
 echo ""
 echo "=== Instalacao concluida ==="
-echo "Execute os testes com: cd Cypress && run_all.bat"
+echo "Execute os testes com: bash run_all.sh"
 echo "Veja o relatorio Allure: cd Cypress/cypress/allure && npm run serve (http://localhost:8765)"

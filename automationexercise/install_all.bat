@@ -52,6 +52,6 @@ echo.
 echo ============================================
 echo  Instalacao concluida
 echo ============================================
-echo Execute os testes com: run_all.bat
+echo Execute os testes com: ..\run_all.bat
 echo Veja o relatorio Allure: cd cypress\allure && npx allure serve allure-results --lang br --name "AutomationExercise" (http://localhost:8765)
 pause
