@@ -59,8 +59,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 ## 🏗 Estrutura do Projeto
 
 ```
-antigravity PORTFOLIO/
-│
+
 ├── AGENTS.md                                      # Governança para agentes de IA
 ├── README.md                                      # Este arquivo
 │
