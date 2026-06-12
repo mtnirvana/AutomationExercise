@@ -330,18 +330,15 @@ O **histórico** funciona assim:
 <a name="como-executar"></a>
 ## 🚀 Como Executar
 
-### Pré-requisitos
-- Node.js 20+ · npm · Allure CLI · k6 (para performance)
+### Instalação Rápida (tudo de uma vez)
 
-### Instalação
-
-**Rápida:**
 ```bash
 cd automationexercise/Cypress
 bash install_all.sh
 ```
 
-**Manual:**
+### Instalação Manual (passo a passo)
+
 ```bash
 cd automationexercise/Cypress
 npm install
@@ -393,7 +390,7 @@ O `run_all.bat` executa em sequência:
 | 4. k6 → Allure | `node cypress/allure/scripts/convert_k6_to_allure.js` | Resultados k6 em allure-results |
 | 5. Allure | `allure.cmd generate` | Relatório em `allure-report/` |
 
-### Executar Testes
+### Execuções Individuais
 
 ```bash
 cd automationexercise/Cypress
@@ -410,23 +407,17 @@ npx cypress run --spec "cypress/e2e/api/TC_API_*.cy.js"
 # Teste específico
 npx cypress run --spec "cypress/e2e/web/TC_WEB_001_*.cy.js"
 
-# Modo interativo
-npx cypress open
-```
-
-### Relatório Allure
-
-```bash
-cd automationexercise/Cypress/cypress/allure
+# Relatório Allure
+cd cypress/allure
 allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
 allure.cmd open allure-report -p 8765
-```
 
-### Performance (k6)
-
-```bash
-cd automationexercise/Cypress
+# Teste de performance (k6)
+cd ..
 k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js
+
+# Modo interativo
+npx cypress open
 ```
 
 ---
