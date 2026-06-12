@@ -145,9 +145,24 @@ containing a feature description) is provided:
 1. Read `automationexercise/templates/Template_Story.md` completely.
 2. Read the provided story file completely.
 
-### Step 1: Apply the Template Interactively
+**The dissecting agent reads ONLY the template and the story. It does NOT read the project codebase, Page Objects, fixtures, or existing tests.** Project exploration is the CODE agent's responsibility. This keeps the dissect phase pure (business analysis) and prevents context bleed.
 
-The agent MUST apply EACH section of the dissection template to the story content.
+### Step 1: Apply the Template (Silent Internal Reasoning)
+
+The agent MUST process EACH section of the dissection template as INTERNAL ANALYSIS.
+Sections 1 through 8 are working memory — the agent reasons through them mentally
+and must NEVER output them to the user or use the `question` tool.
+
+The agent MUST IMMEDIATELY launch a NEW task invocation (using the `task` tool) for
+the CODE phase, passing Section 8 (Handoff) as the prompt input. The CODE agent is
+a fresh invocation — it does NOT inherit context from the dissection agent.
+The dissecting agent NEVER proceeds to CODE itself. After launching the CODE task,
+the full pipeline (CODE → RUN → BACKUP → DOCS → ALLURE → VERIFY) executes inside
+that new task invocation without outputting intermediate analysis or prompting the user.
+
+The user sees only concrete results: files created, test execution output,
+screenshots, and error messages if something fails.
+
 The template is NOT a form to fill — it is a GUIDE. For each section:
 
 | Section | Action |
@@ -169,12 +184,23 @@ The dissection resolves ambiguities, identifies false positive risks, and specif
 exactly what assertions prove the business rule. The CODE phase receives decisions,
 not questions.
 
-### Integration with Pipeline
+> **The handoff is passed via the `task` tool prompt.** The dissecting agent launches
+> a `task` with subagent_type="general", passing the full Section 8 output as the
+> prompt. The CODE agent reads the handoff and nothing else — it does NOT re-read
+> the story or the template. This guarantees zero context bleed and zero ambiguity.
 
-This section modifies nothing in the existing pipeline — it PRE-cedes it.
-The full pipeline becomes:  
+> **Project exploration is the CODE agent's job.** The CODE agent, upon receiving
+> the handoff, MUST first read the project codebase — Page Objects, existing tests,
+> fixtures, data factories, configuration, and `Seletores.md` — to understand how to
+> implement the test technically. The dissecting agent includes NO technical
+> implementation details in the handoff. This guarantees zero context bleed and zero
+> ambiguity.
 
-**DISSECT → CODE → RUN → BACKUP → DOCS → ALLURE → VERIFY**
+> **Pipeline runs inside the CODE task.** After project exploration, the same agent
+> invocation executes RUN → BACKUP → UPDATE DOCS → ALLURE → VERIFY sequentially.
+> The UPDATE DOCS stage inherits all context from CODE (modified POs, fixtures,
+> `.cy.js`, screenshots) — it only reads the existing `.md` docs and `*_TEMPLATE.md`
+> from disk, never re-reading POs, fixtures, or the `.cy.js` file.
 
 ---
 
@@ -183,16 +209,27 @@ The full pipeline becomes:
 The standard pipeline for ALL new test cases MUST follow this exact order:
 
 0. **DISSECT** — When a story file is provided, read `Template_Story.md`
-   and apply it interactively. Output the structured analysis as handoff for CODE.
+   and apply it silently. Output the structured analysis as handoff for CODE.
    See "Story Dissection" section above for details.
 1. **CODE** — Create the test file, Page Objects (if E2E), and all supporting code
 2. **RUN** — Execute the test and verify it passes completely
 3. **BACKUP** — Create backups of all documentation files before any changes
-4. **UPDATE DOCS** — Increment Sumario_Executivo, Especificacao_Tecnica, Suite_BDD, and Relatorio (if applicable) using their respective templates
-5. **ALLURE** — Ensure Allure results are generated (Cypress auto-generates for .cy.js; k6 requires conversion via `convert_k6_to_allure.js`)
-6. **VERIFY** — Confirm all documents compile correctly with no broken links or numbering gaps
+4. **UPDATE DOCS** — First read the existing `.md` documents (Sumario_Executivo.md, Especificacao_Tecnica_Web.md, Suite_BDD.md) to understand current state. Then read their respective `*_TEMPLATE.md`. Then increment each document. Use the context inherited from CODE (POs, fixtures, `.cy.js`, screenshots) to populate the new entry — do NOT re-read those files from disk.
 
 > **NEVER** update documentation with unexecuted tests. Code first, document after, Allure last.
+
+### No Permission Asking (MANDATORY)
+
+The agent MUST NOT ask the user for permission, confirmation, or approval to advance
+between pipeline stages (DISSECT → CODE → RUN → BACKUP → DOCS → ALLURE → VERIFY).
+The pipeline is fully automatic.
+
+The only valid reasons to stop or ask are:
+(a) a command fails with an error requiring human decision, or
+(b) a selector cannot be resolved after exhausting all recovery tools.
+
+Asking "can I proceed?", "do you want me to continue?", or showing the handoff to
+the user for approval is a violation of this rule.
 
 ---
 
@@ -372,11 +409,11 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
     1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_Web.md` — if yes, skip increment.
     2. **CODE FIRST — DOCUMENT AFTER:** Create the test file (`.cy.js`), Page Objects, and all supporting code first.
     3. **RUN AND CONFIRM:** Execute the test with `npx cypress run --spec "cypress/e2e/TC[##]_[sucesso/erro]_[titulo].cy.js"` and verify it **passes completely** (all steps, assertions, screenshots, and cleanup) before proceeding to documentation.
-    4. **CREATE BACKUP** of all E2E documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
-    5. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_WEB_001 - TC_WEB_###`).
-    6. **Increment `Especificacao_Tecnica_Web.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Web_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
-    7. **Update `Suite_BDD.md`:** Add new entry to section 8.1 (E2E) mapping table. Update totals in Meta e Escopo and Cobertura sections.
-    8. **Verify** both documents compile correctly with no broken links or numbering gaps.
+     4. **CREATE BACKUP** of all E2E documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+     5. **Increment `Sumario_Executivo.md`:** First read the existing file to understand current state. Then read `Sumario_Executivo_TEMPLATE.md` for format reference. Add new TC entry to the appropriate table (Sucesso or Erro). Update catalog table header (e.g., `TC_WEB_001 - TC_WEB_###`). Use the test filename (derived from naming convention) for `**Script:**` hyperlinks.
+     6. **Increment `Especificacao_Tecnica_Web.md`:** First read the existing file to understand current structure. Then read `Especificacao_Tecnica_Web_TEMPLATE.md` for format reference. Add new TC section below the appropriate group using the template as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave. Refer to the newly created `.cy.js` file to extract the detailed steps and evidence paths for the documentation.
+     7. **Update `Suite_BDD.md`:** First read the existing file. Then read `Suite_BDD_TEMPLATE.md` for format reference. Add new entry to section 8.1 (E2E) mapping table. Update totals in Meta e Escopo and Cobertura sections.
+     8. **Verify** both documents compile correctly with no broken links or numbering gaps.
     9. **Allure** — Confirm allure-results were generated for the test. If not, check `@shelex/cypress-allure-plugin` configuration in `cypress.config.js`.
 
 #### For API Tests:
@@ -582,4 +619,4 @@ npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js"
  
  ---
  
- **Documento gerado em:** 2026-05-22
+ **Documento gerado em:** 2026-06-12 (7ª revisão)
