@@ -94,6 +94,7 @@ module.exports = defineConfig({
               hostname: options.hostname,
               path: options.path,
               method: options.method || 'GET',
+              timeout: 30000,
               headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Content-Length': options.body ? Buffer.byteLength(options.body) : 0
@@ -139,6 +140,10 @@ module.exports = defineConfig({
             req.on('error', (err) => {
               console.error('  ERROR:', err.message)
               reject(err)
+            })
+            req.on('timeout', () => {
+              req.destroy()
+              reject(new Error('Request timed out after 30000ms'))
             })
             if (options.body) {
               req.write(options.body)
