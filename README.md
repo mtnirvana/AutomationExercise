@@ -333,7 +333,7 @@ O **histórico** funciona assim:
 <a name="como-executar"></a>
 ## 🚀 Como Executar
 
-### 0. Obter o Projeto
+### Obter o Projeto
 
 ```bash
 # Clone padrão (branch main)
@@ -359,7 +359,8 @@ cd automationexercise/Cypress
 bash install_all.sh
 ```
 
-> Scripts equivalentes: `install_all.bat` (Windows) e `install_all.sh` (Linux/macOS/WSL).
+> Scripts equivalentes: `install_all.bat` (Windows) e `install_all.sh` (Linux/macOS/WSL).  
+> **Ambos instalam exatamente o mesmo que a "Instalação Manual" abaixo** (npm, Playwright CLI, Allure local, verificação de k6).
 
 ### Instalação Manual (passo a passo)
 
@@ -398,9 +399,9 @@ Adicione ao `mcpServers` do seu cliente MCP:
 }
 ```
 
-> **Chrome DevTools MCP** — Debugging ativo: console, network, performance, Lighthouse. [Repo](https://github.com/ChromeDevTools/chrome-devtools-mcp)<br>
-> **Playwright MCP** — Automação de navegação, formulários, fluxos E2E. [Repo](https://github.com/microsoft/playwright-mcp)<br>
-> **Selenium MCP** — Fluxos legados e compatibilidade WebDriver. [Repo](https://github.com/angiejones/mcp-selenium)
+> **Chrome DevTools MCP** — Debugging ativo: console, network, performance, Lighthouse. [Repositório](https://github.com/ChromeDevTools/chrome-devtools-mcp)<br>
+> **Playwright MCP** — Automação de navegação, formulários, fluxos E2E. [Repositório](https://github.com/microsoft/playwright-mcp)<br>
+> **Selenium MCP** — Fluxos legados e compatibilidade WebDriver. [Repositório](https://github.com/angiejones/mcp-selenium)
 
 ### Suíte Completa (todos os testes + relatórios)
 
