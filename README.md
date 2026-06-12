@@ -371,8 +371,8 @@ Adicione ao `mcpServers` do seu cliente MCP:
 }
 ```
 
-> **Chrome DevTools MCP** — Debugging ativo: console, network, performance, Lighthouse. [Repo](https://github.com/ChromeDevTools/chrome-devtools-mcp) ·
-> **Playwright MCP** — Automação de navegação, formulários, fluxos E2E. [Repo](https://github.com/microsoft/playwright-mcp) ·
+> **Chrome DevTools MCP** — Debugging ativo: console, network, performance, Lighthouse. [Repo](https://github.com/ChromeDevTools/chrome-devtools-mcp)<br>
+> **Playwright MCP** — Automação de navegação, formulários, fluxos E2E. [Repo](https://github.com/microsoft/playwright-mcp)<br>
 > **Selenium MCP** — Fluxos legados e compatibilidade WebDriver. [Repo](https://github.com/angiejones/mcp-selenium)
 
 ### Suíte Completa
