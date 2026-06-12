@@ -138,6 +138,7 @@ antigravity PORTFOLIO/
 │       ├── Especificacao_Tecnica_API_TEMPLATE.md  # Template de especificação técnica (API)
 │       ├── Especificacao_Tecnica_Performance_TEMPLATE.md # Template de especificação técnica (Performance)
 │       ├── Suite_BDD_TEMPLATE.md                  # Template de cenários BDD (Gherkin)
+│       ├── Template_Story.md                     # Template de dissecção de histórias de usuário
 │       ├── Relatorio_Resultados_Performance_TEMPLATE.md # Template de relatório de resultados
 │       ├── Guia_Cypress_Template.md               # Template de codificação e padrões do projeto
 │       ├── Seletores_TEMPLATE.md                  # Template de estrutura para novos seletores (IA)
@@ -298,6 +299,7 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 | [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md) | Template de especificação técnica (API) |
 | [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md) | Template de especificação técnica (Performance) |
 | [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
+| [`Template_Story.md`](automationexercise/templates/Template_Story.md) | Template de dissecção de histórias de usuário para agentes de IA |
 | [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
 
 ---
