@@ -333,12 +333,33 @@ O **histórico** funciona assim:
 <a name="como-executar"></a>
 ## 🚀 Como Executar
 
+### 0. Obter o Projeto
+
+```bash
+# Clone padrão (branch main)
+git clone https://github.com/mtnirvana/AutomationExercise.git
+cd AutomationExercise
+
+# Ou baixe o ZIP da branch main no GitHub
+# https://github.com/mtnirvana/AutomationExercise/archive/refs/heads/main.zip
+# → Extraia → Abra a pasta extraída
+```
+
+> A pasta raiz será `AutomationExercise/`. Todos os comandos abaixo assumem que você está dentro dela.
+
 ### Instalação Rápida (tudo de uma vez)
 
 ```bash
 cd automationexercise/Cypress
+
+# Windows (PowerShell / CMD)
+.\install_all.bat
+
+# Linux / macOS / Git Bash / WSL
 bash install_all.sh
 ```
+
+> Scripts equivalentes: `install_all.bat` (Windows) e `install_all.sh` (Linux/macOS/WSL).
 
 ### Instalação Manual (passo a passo)
 
@@ -381,14 +402,21 @@ Adicione ao `mcpServers` do seu cliente MCP:
 > **Playwright MCP** — Automação de navegação, formulários, fluxos E2E. [Repo](https://github.com/microsoft/playwright-mcp)<br>
 > **Selenium MCP** — Fluxos legados e compatibilidade WebDriver. [Repo](https://github.com/angiejones/mcp-selenium)
 
-### Suíte Completa
+### Suíte Completa (todos os testes + relatórios)
 
 ```bash
 cd automationexercise/Cypress
+
+# Windows
 run_all.bat
+
+# Linux / macOS / WSL
+bash run_all.sh
 ```
 
-O `run_all.bat` executa em sequência:
+> Ambos geram: Cypress (E2E+API+Core Web Vitals) → GIFs → k6 (13 scripts) → Allure Report.
+
+O `run_all.bat` / `run_all.sh` executa em sequência:
 
 | Etapa | O que faz | Saída |
 |:------|:----------|:------|
@@ -403,7 +431,7 @@ O `run_all.bat` executa em sequência:
 ```bash
 cd automationexercise/Cypress
 
-# Todos os testes
+# Todos os testes (Cypress)
 npx cypress run
 
 # Apenas E2E Web
@@ -415,18 +443,21 @@ npx cypress run --spec "cypress/e2e/api/TC_API_*.cy.js"
 # Teste específico
 npx cypress run --spec "cypress/e2e/web/TC_WEB_001_*.cy.js"
 
-# Relatório Allure
+# Relatório Allure (serve local)
 cd cypress/allure
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-allure.cmd open allure-report -p 8765
+npx allure serve allure-results --lang br --name "AutomationExercise"
+# Abre em http://localhost:8765
 
 # Teste de performance (k6)
-cd ..
+cd ../..
 k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js
 
-# Modo interativo
+# Modo interativo Cypress
 npx cypress open
 ```
+
+> **Windows:** Use `run_all.bat` / `install_all.bat` para fluxo completo.  
+> **Linux/macOS/WSL:** Use `bash run_all.sh` / `bash install_all.sh` ou rode os comandos acima individualmente.
 
 ---
 
