@@ -344,6 +344,10 @@ bash install_all.sh
 ```bash
 cd automationexercise/Cypress
 npm install
+
+# Playwright CLI (self-healing de seletores)
+npx playwright-cli --help
+
 # Allure: https://allurereport.org/docs/install/
 # k6: https://grafana.com/docs/k6/latest/set-up/install/
 ```
