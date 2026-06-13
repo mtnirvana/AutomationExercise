@@ -8,6 +8,7 @@
 [![Chrome DevTools MCP](https://img.shields.io/badge/Chrome_DevTools_MCP-latest-FFD700)](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 [![Playwright MCP](https://img.shields.io/badge/Playwright_MCP-latest-45ba4b)](https://github.com/microsoft/playwright-mcp)
 [![Selenium MCP](https://img.shields.io/badge/Selenium_MCP-latest-43B02A)](https://github.com/angiejones/mcp-selenium)
+[![CI](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml/badge.svg)](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml)
 
 Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes funcionais (E2E e API), testes de performance, documentação ISTQB/BDD e inteligência artificial.
 
@@ -34,6 +35,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 - [🧠 Documentação IA](#documentacao-ia)
 - [📈 Rastreabilidade Histórica](#rastreabilidade-historica)
 - [🚀 Como Executar](#como-executar)
+- [⚙️ CI/CD](#ci-cd)
 
 ---
 
@@ -52,6 +54,29 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 | [gifencoder](https://www.npmjs.com/package/gifencoder) | 2.x | Geração de GIFs animados |
 | [canvas](https://www.npmjs.com/package/canvas) | 2.x | Processamento de imagens |
 | [Node.js](https://nodejs.org/) | 20.19.5 | Runtime |
+| [GitHub Actions](https://github.com/features/actions) | — | CI/CD — 4 jobs orquestrados |
+
+---
+
+<a name="ci-cd"></a>
+## ⚙️ CI/CD — GitHub Actions
+
+[![CI](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml/badge.svg)](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml)
+
+O pipeline de integração contínua executa automaticamente toda a suíte de testes a cada push, pull request e semanalmente. Consiste em **4 jobs** orquestrados:
+
+| Job | Descrição |
+|:----|:----------|
+| **cypress-tests** | Matrix (`web`, `api`, `performance`) — 3 suítes paralelas em Electron |
+| **k6-performance** | 13 scripts k6 sequenciais após Cypress |
+| **generate-evidence** | Consolida artefatos + gera Allure unificado + deploy GitHub Pages |
+| **create-issue** | Cria issue `self-heal` automática se houver falhas (branch `feat/ci-cd`) |
+
+**Triggers:** push (`main`/`feat/ci-cd`), PR (`main`), semanal (seg 06:00 UTC), `workflow_dispatch`
+
+**Workflow file:** [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
+
+**Relatório publicado:** [`https://mtnirvana.github.io/AutomationExercise/allure-report/`](https://mtnirvana.github.io/AutomationExercise/allure-report/)
 
 ---
 

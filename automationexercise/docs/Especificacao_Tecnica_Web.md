@@ -11,6 +11,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 - **Clean Slate:** Cada teste deve ser capaz de criar e excluir seus próprios dados quando aplicável.
 - **Design Pattern:** Uso obrigatório de **Page Object Model (POM)** para abstração de seletores, mensagens, validações e métodos de interação.
 - **Dados Dinâmicos:** Uso de `UserFactory` para dados únicos por execução.
+- **CI/CD:** Integração Contínua via [`GitHub Actions`](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml) — suíte web executada em paralelo com API e Performance, com relatório Allure unificado publicado em [`GitHub Pages`](https://mtnirvana.github.io/AutomationExercise/allure-report/).
 ---
 ## 2. Padrões de Validação
 | Elemento | Padrão Técnico |

@@ -186,6 +186,19 @@ Todas as evidências dos 3 tipos de teste (E2E Web, API e Performance) são cent
 
 > O relatório unificado pode ser acessado via `cypress/allure/allure-report/index.html` ou atalho `docs/Relatorio_Testes.lnk`.
 
+### 7.2 Pipeline CI/CD (GitHub Actions)
+
+O projeto conta com um pipeline completo de Integração Contínua via GitHub Actions. Consiste em 4 jobs orquestrados:
+
+| Job | Execução | Finalidade |
+|:----|:---------|:-----------|
+| **cypress-tests** | Matriz paralela (web, api, performance) | Executa os specs Cypress |
+| **k6-performance** | Sequencial após Cypress | Executa scripts k6 de performance |
+| **generate-evidence** | Após Cypress + k6 | Consolida artefatos, gera relatório Allure unificado e faz deploy no GitHub Pages |
+| **create-issue** | Apenas em branch específica | Abre issue `self-heal` automaticamente se houver falhas |
+
+**Relatório unificado:** Publicado no GitHub Pages
+
 ---
 
 **Documento gerado em:** AAAA-MM-DD
