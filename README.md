@@ -8,7 +8,7 @@
 [![Chrome DevTools MCP](https://img.shields.io/badge/Chrome_DevTools_MCP-latest-FFD700)](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 [![Playwright MCP](https://img.shields.io/badge/Playwright_MCP-latest-45ba4b)](https://github.com/microsoft/playwright-mcp)
 [![Selenium MCP](https://img.shields.io/badge/Selenium_MCP-latest-43B02A)](https://github.com/angiejones/mcp-selenium)
-[![CI/CD](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml/badge.svg?label=CI%2FCD)](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml)
+[![CI/CD](https://img.shields.io/github/actions/workflow/status/mtnirvana/AutomationExercise/ci.yml?label=CI%2FCD)](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml)
 
 Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes funcionais (E2E e API), testes de performance, documentação ISTQB/BDD e inteligência artificial.
 
