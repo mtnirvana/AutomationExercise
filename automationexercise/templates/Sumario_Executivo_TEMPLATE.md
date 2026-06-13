@@ -195,7 +195,7 @@ O projeto conta com um pipeline completo de Integração Contínua via GitHub Ac
 | **cypress-tests** | Matriz paralela (web, api, performance) | Executa os specs Cypress |
 | **k6-performance** | Sequencial após Cypress | Executa scripts k6 de performance |
 | **generate-evidence** | Após Cypress + k6 | Consolida artefatos, gera relatório Allure unificado e faz deploy no GitHub Pages |
-| **create-issue** | Apenas em branch específica | Abre issue `self-heal` automaticamente se houver falhas |
+| **create-issue** | Após Cypress (configurável) | Abre issue `self-heal` automaticamente se houver falhas |
 
 **Relatório unificado:** Publicado no GitHub Pages
 

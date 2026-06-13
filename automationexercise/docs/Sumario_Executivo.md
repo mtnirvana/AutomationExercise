@@ -195,7 +195,7 @@ O projeto conta com um pipeline completo de Integração Contínua via [`ci.yml`
 | **cypress-tests** | Matriz paralela (web, api, performance) | Executa os 41 specs Cypress |
 | **k6-performance** | Sequencial após Cypress | Executa 13 scripts k6 de performance |
 | **generate-evidence** | Após Cypress + k6 | Consolida artefatos, gera relatório Allure unificado e faz deploy no GitHub Pages |
-| **create-issue** | Apenas na branch `feat/ci-cd` | Abre issue `self-heal` automaticamente se houver falhas |
+| **create-issue** | Após Cypress (configurável) | Abre issue `self-heal` automaticamente se houver falhas |
 
 **Relatório unificado:** Publicado em [`https://mtnirvana.github.io/AutomationExercise/allure-report/`](https://mtnirvana.github.io/AutomationExercise/allure-report/)
 
