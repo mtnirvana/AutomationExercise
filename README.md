@@ -65,6 +65,9 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 Projeto/
 │
 ├── AGENTS.md                                      # Governança para agentes de IA
+├── .github/
+│   └── workflows/
+│       └── ci.yml                                 # GitHub Actions Pipeline CI/CD
 ├── README.md                                      # Este arquivo
 │
 ├── automationexercise/
