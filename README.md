@@ -12,7 +12,7 @@
 
 Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes funcionais (E2E e API), testes de performance, documentação ISTQB/BDD e inteligência artificial.
 
-Cada teste, documento e relatório são gerados e mantidos por IA, desde os scripts até a documentação técnica, BDD e relatórios de performance. A IA codifica, executa, documenta, corrige seletores e mantém a rastreabilidade entre execuções no Allure. Tudo dentro de uma governança rígida e pré-definida. O ciclo completo de QA é padronizado e automatizado, garantindo consistência em cada etapa.
+Cada teste, documento e relatório são gerados e mantidos por IA, desde os scripts até a documentação técnica, BDD e relatórios de performance. A IA codifica, executa, documenta, corrige seletores e mantém a rastreabilidade entre execuções no Allure. Tudo dentro de uma governança rígida e pré-definida, com consumo de tokens otimizado em **~70%**. O ciclo completo de QA é padronizado e automatizado, garantindo consistência em cada etapa.
 
 Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os componentes são separados por responsabilidade, os dados organizados de forma centralizada e cada fluxo de teste é independente e rastreável. Um ecossistema escalável pensado para crescer sem perder a qualidade.
 
@@ -34,6 +34,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 - [📄 Documentação](#documentacao)
 - [🤖 Uso com Agentes de IA](#uso-com-agentes-de-ia)
 - [🧠 Documentação IA](#documentacao-ia)
+- [⚡ Otimização no Uso de Tokens](#otimizacao-tokens)
 - [📈 Rastreabilidade Histórica](#rastreabilidade-historica)
 - [🚀 Como Executar](#como-executar)
 
@@ -330,6 +331,44 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 | [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
 | [`Story_TEMPLATE.md`](automationexercise/templates/Story_TEMPLATE.md) | Template de dissecção de histórias de usuário |
 | [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
+
+---
+
+<a name="otimizacao-tokens"></a>
+## ⚡ Otimização no Uso de Tokens
+
+O framework foi projetado para que agentes de IA gastem **o mínimo possível de tokens** em cada ciclo de criação de testes. As regras completas estão no [`AGENTS.md`](AGENTS.md).
+
+### Abordagem Tradicional vs. Abordagem Otimizada
+
+Se o agente lesse todo o projeto do início ao fim a cada nova tarefa, o consumo seria muito maior:
+
+| Fase | Se lesse tudo | Com a otimização |
+|:-----|:------------:|:----------------:|
+| **Analisar a história** | Leria código-fonte, Page Objects, testes — ~8K tokens | Lê apenas o template e a história — **~0.5K tokens** |
+| **Criar o teste** | Leria 26 testes + 14 API + 9 POs + fixtures + docs — ~22K tokens | Lê ~4.6K obrigatórios + 1-2 testes similares — **~6.6K tokens** |
+| **Atualizar documentação** | Releria POs, fixtures e scripts do zero — ~10K tokens | Reaproveita contexto do CODE, lê só os `.md` — **~2K tokens** |
+| **Total por ciclo** | **~40K tokens** | **~9K tokens** |
+
+> **Redução de ~70%** sem perder qualidade ou precisão.
+
+### Economia também na escolha das ferramentas
+
+O agente prioriza o **Playwright CLI** por ser até **76% mais econômico** que as alternativas MCP:
+
+| Ferramenta | Consumo por fluxo |
+|:-----------|:-----------------:|
+| **Playwright CLI** (tentativa principal) | **~27K tokens** |
+| Playwright MCP (fallback) | ~114K tokens |
+
+O [`AGENTS.md`](AGENTS.md) define que a primeira tentativa de interação com o navegador é sempre via **Playwright CLI**. Apenas se ele falhar ou não der conta do cenário é que os **MCPs são acionados como fallback** (Chrome DevTools MCP → Playwright MCP → Selenium MCP), exatamente como documentado na [cadeia de auto-correção](#uso-com-agentes-de-ia). Isso garante que a maioria das interações gaste o mínimo de tokens possível.
+
+### Como essa economia é possível?
+
+- **Cada etapa lê só o que precisa** — a fase de análise não acessa código, a fase de criação não releu documentação
+- **Nada é lido duas vezes** — se um arquivo foi lido antes, a etapa seguinte reaproveita o contexto
+- **Cada ciclo começa limpo** — invocação nova, sem resíduo de tarefas anteriores
+- **Playwright CLI como primeira opção** — ~27K tokens por fluxo; MCPs são acionados apenas quando necessário
 
 ---
 
