@@ -157,251 +157,30 @@ cy.get('@usersData').then((usersData) => {
 
 ## 4. cypress.config.js
 
-> **Nota:** Este template reflete o arquivo real de configuração. O Allure plugin (`@shelex/cypress-allure-plugin`) é usado para integração com relatórios Allure. Consulte o arquivo real `cypress.config.js` no projeto para a versão completa com `before:run`, `after:spec` e Allure integration.
-
 ```javascript
 const { defineConfig } = require('cypress')
-const fs = require('fs')
 const path = require('path')
-const allureWriter = require('@shelex/cypress-allure-plugin/writer')
-
-const ALLURE_RESULTS = path.join(__dirname, 'cypress', 'allure', 'allure-results')
 
 module.exports = defineConfig({
   e2e: {
-    projectId: 'automationexercise',
-    specPattern: 'cypress/e2e/**/*.cy.js',
-    supportFile: 'cypress/support/e2e.js',
     baseUrl: 'https://www.automationexercise.com',
     viewportWidth: 1280,
     viewportHeight: 720,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 60000,
-    video: true,
-    videoCompression: 32,
-    screenshotsFolder: 'cypress/screenshots',
-    screenshotOnRunFailure: true,
-    trashAssetsBeforeRuns: true,
+    video: !process.env.CI,
+    // ... demais configs no arquivo real
     setupNodeEvents(on, config) {
-      config.env.allure = true
-      config.env.allureResultsPath = path.join('cypress', 'allure', 'allure-results')
-      allureWriter(on, config)
-
-      on('before:run', () => {
-        const historyDir = path.join(ALLURE_RESULTS, 'history')
-        const hasHistory = fs.existsSync(historyDir)
-        if (hasHistory) {
-          const tmpDir = path.join(__dirname, 'cypress', 'allure', '.history_backup')
-          if (fs.existsSync(tmpDir)) fs.rmSync(tmpDir, { recursive: true })
-          fs.cpSync(historyDir, tmpDir, { recursive: true })
-          if (fs.existsSync(ALLURE_RESULTS)) fs.rmSync(ALLURE_RESULTS, { recursive: true })
-          fs.mkdirSync(ALLURE_RESULTS, { recursive: true })
-          fs.mkdirSync(historyDir, { recursive: true })
-          fs.cpSync(tmpDir, historyDir, { recursive: true })
-          fs.rmSync(tmpDir, { recursive: true })
-        } else {
-          if (fs.existsSync(ALLURE_RESULTS)) fs.rmSync(ALLURE_RESULTS, { recursive: true })
-          fs.mkdirSync(ALLURE_RESULTS, { recursive: true })
-        }
-        const propsSrc = path.join(__dirname, 'cypress', 'allure', 'allure.properties')
-        const propsDst = path.join(ALLURE_RESULTS, 'allure.properties')
-        if (fs.existsSync(propsSrc)) {
-          fs.copyFileSync(propsSrc, propsDst)
-        }
-      })
-
-      on('after:spec', (spec, results) => {
-        if (!results || results.stats.failures + results.stats.passes === 0) return
-        const rel = spec.relative || ''
-        const parts = rel.replace(/\\/g, '/').split('/')
-        const e2eIdx = parts.indexOf('e2e')
-        if (e2eIdx === -1 || e2eIdx + 2 >= parts.length) return
-        const subDir = parts[e2eIdx + 1]
-        if (!subDir) return
-        const specName = parts[parts.length - 1]
-        const specFolder = specName.replace('.cy.js', '') + '.cy.js'
-        const ssDir = path.join(__dirname, 'cypress', 'screenshots')
-        const flat = path.join(ssDir, specFolder)
-        const nested = path.join(ssDir, subDir, specFolder)
-        if (fs.existsSync(flat) && !fs.existsSync(nested)) {
-          fs.mkdirSync(path.join(ssDir, subDir), { recursive: true })
-          try { fs.renameSync(flat, nested) } catch (e) {
-            const files = fs.readdirSync(flat)
-            for (const f of files) {
-              try { fs.renameSync(path.join(flat, f), path.join(nested, f)) } catch (e2) { /* skip */ }
-            }
-            try { fs.rmdirSync(flat) } catch (e3) { /* skip */ }
-          }
-        }
-      })
-
-      on('task', {
-        apiRequest(options) {
-          const https = require('https')
-          return new Promise((resolve, reject) => {
-            const startTime = Date.now()
-            const reqOptions = {
-              hostname: options.hostname,
-              path: options.path,
-              method: options.method || 'GET',
-              headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Content-Length': options.body ? Buffer.byteLength(options.body) : 0
-              }
-            }
-            console.log('')
-            console.log('═══════════════════════════════════════════════════════════════')
-            console.log('  REQUEST')
-            console.log('═══════════════════════════════════════════════════════════════')
-            console.log(`  Method:  ${reqOptions.method}`)
-            console.log(`  URL:     https://${reqOptions.hostname}${reqOptions.path}`)
-            console.log(`  Body:    ${options.body || '(empty)'}`)
-            console.log('───────────────────────────────────────────────────────────────')
-            const req = https.request(reqOptions, (res) => {
-              let data = ''
-              res.on('data', chunk => data += chunk)
-              res.on('end', () => {
-                const duration = Date.now() - startTime
-                const responseBody = JSON.parse(data || '{}')
-                console.log('  RESPONSE')
-                console.log('═══════════════════════════════════════════════════════════════')
-                console.log(`  Status:  ${res.statusCode}`)
-                console.log(`  Time:    ${duration}ms`)
-                console.log(`  Body:    ${data.substring(0, 500)}${data.length > 500 ? '...' : ''}`)
-                console.log('═══════════════════════════════════════════════════════════════')
-                console.log('')
-                resolve({
-                  status: res.statusCode,
-                  body: responseBody,
-                  _meta: {
-                    duration,
-                    timestamp: new Date().toISOString(),
-                    request: {
-                      hostname: reqOptions.hostname,
-                      path: reqOptions.path,
-                      method: reqOptions.method,
-                      body: options.body
-                    }
-                  }
-                })
-              })
-            })
-            req.on('error', (err) => {
-              console.error('  ERROR:', err.message)
-              reject(err)
-            })
-            if (options.body) {
-              req.write(options.body)
-            }
-            req.end()
-          })
-        },
-        generateEvidenceReport(data) {
-          const testId = data.testId || 'UNKNOWN'
-          const destDir = path.join(__dirname, 'cypress', 'screenshots', 'api')
-
-          if (!fs.existsSync(destDir)) {
-            fs.mkdirSync(destDir, { recursive: true })
-          }
-
-          const htmlPath = path.join(destDir, `${testId}_api_result.html`)
-
-          if (fs.existsSync(htmlPath)) {
-            fs.unlinkSync(htmlPath)
-          }
-
-          const htmlContent = `<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-    <title>Evidência de Teste API - ${testId}</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Consolas', 'Courier New', monospace; background: #0d1117; color: #c9d1d9; padding: 20px; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    h1 { color: #58a6ff; font-size: 24px; margin-bottom: 20px; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
-    .header { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 15px; margin-bottom: 20px; }
-    .header-item { display: flex; margin-bottom: 8px; }
-    .header-label { color: #8b949e; width: 120px; flex-shrink: 0; }
-    .header-value { color: #c9d1d9; }
-    .pass { color: #3fb950; font-weight: bold; }
-    .fail { color: #f85149; font-weight: bold; }
-    .section { background: #161b22; border: 1px solid #30363d; border-radius: 6px; margin-bottom: 15px; overflow: hidden; }
-    .section-title { background: #21262d; padding: 10px 15px; font-weight: bold; color: #58a6ff; border-bottom: 1px solid #30363d; }
-    .section-content { padding: 15px; }
-    .json { background: #0d1117; padding: 15px; border-radius: 4px; white-space: pre-wrap; word-break: break-all; font-size: 12px; overflow-x: auto; max-height: 400px; overflow-y: auto; }
-    .assertion { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid #21262d; }
-    .assertion:last-child { border-bottom: none; }
-    .assertion-icon { margin-right: 10px; font-size: 16px; }
-    .assertion-text { color: #c9d1d9; }
-    .timestamp { color: #8b949e; font-size: 12px; margin-top: 20px; text-align: center; }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Relatório de Evidência de Teste API</h1>
-    <div class="header">
-      <div class="header-item">
-        <span class="header-label">Test ID:</span>
-        <span class="header-value">${testId}</span>
-      </div>
-      <div class="header-item">
-        <span class="header-label">Test Name:</span>
-        <span class="header-value">${data.testName || 'N/A'}</span>
-      </div>
-      <div class="header-item">
-        <span class="header-label">Horário:</span>
-        <span class="header-value">${data.timestamp ? new Date(data.timestamp).toLocaleString('pt-BR').replace(',', ' -') : 'N/A'}</span>
-      </div>
-      <div class="header-item">
-        <span class="header-label">Duração:</span>
-        <span class="header-value">${data.duration || 'N/A'}ms</span>
-      </div>
-      <div class="header-item">
-        <span class="header-label">Status:</span>
-        <span class="header-value ${data.status === 'PASS' ? 'pass' : 'fail'}">${data.status}</span>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">REQUISIÇÃO</div>
-      <div class="section-content">
-        <div class="json">Method: ${data.request?.method || 'N/A'}
-URL: https://${data.request?.hostname || 'N/A'}${data.request?.path || 'N/A'}
-Body: ${data.request?.body || '(empty)'}</div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">RESPOSTA</div>
-      <div class="section-content">
-        <div class="json">Status: ${data.response?.status || 'N/A'}
-Body: ${JSON.stringify(data.response?.body, null, 2)}</div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="section-title">ASSERÇÕES (${data.assertions?.length || 0})</div>
-      <div class="section-content">
-        ${(data.assertions || []).map((a, i) => `
-        <div class="assertion">
-          <span class="assertion-icon">${a.passed ? '✓' : '✗'}</span>
-          <span class="assertion-text">${a.description}</span>
-        </div>
-        `).join('')}
-      </div>
-    </div>
-    <div class="timestamp">Gerado em: ${new Date().toISOString()} | Sistema de Evidências API v1.0</div>
-  </div>
-</body>
-</html>`
-          fs.writeFileSync(htmlPath, htmlContent)
-          console.log(`  [EVIDENCE] HTML report saved: ${htmlPath}`)
-          return htmlPath
-        }
-      })
-      return config
+      // Allure plugin
+      // before:run — preserva historico
+      // after:spec — organiza screenshots
+      // tasks: apiRequest, generateEvidenceReport
     },
   },
 })
 ```
+
+> Consulte o arquivo real [`cypress.config.js`](../Cypress/cypress.config.js) para implementação completa com timeouts, retries e CI.
 
 ---
 
@@ -729,17 +508,18 @@ export class [Name]Factory {
 ## 10. Index Template (pages/index.js)
 
 ```javascript
-/**
- * Page Objects Index - Exportação central de todos os page objects
- * @author Rafael Barelli
- */
-
 export { HomePage } from './HomePage'
 export { LoginPage } from './LoginPage'
 export { SignupPage } from './SignupPage'
 export { AccountPage } from './AccountPage'
+export { ContactUsPage } from './ContactUsPage'
+export { TestCasesPage } from './TestCasesPage'
+export { ProductsPage } from './ProductsPage'
+export { CheckoutPage } from './CheckoutPage'
 // Adicionar novos Page Objects aqui
 ```
+
+> Consulte [`pages/index.js`](../Cypress/cypress/pages/index.js) para versão atualizada.
 
 ---
 
@@ -750,56 +530,25 @@ import '@shelex/cypress-allure-plugin'
 import { HomePage } from '../pages'
 import uiData from '../fixtures/ui_texts.json'
 
-// Screenshot custom - sempre salva dentro da pasta do spec
-// Extrai o prefixo TC do nome do spec (ex: TC_WEB_001, TC_API_005, TC_PF_003)
+// Comando customizado cy.captura() — screenshot com prefixo TC
 Cypress.Commands.add('captura', (stepName) => {
-  const specName = Cypress.spec.name || ''
-  const tcMatch = specName.match(/^(TC_WEB_\d+|TC_API_\d+|TC_PF_\d+|TC\d+)/)
-  const tcPrefix = tcMatch ? tcMatch[1] + '_' : ''
-  cy.screenshot(`${tcPrefix}${stepName}`, { capture: 'runner', overwrite: true })
+  // Extrai prefixo TC do nome do spec
+  // cy.screenshot com capture: 'runner'
 })
 
-// beforeEach global - adiciona labels Allure (epic/feature/story/tag)
-// para filtros nos tabs Behaviors e Suites do relatorio
+// beforeEach global — labels Allure + navegação
 beforeEach(function () {
-  const specName = Cypress.spec.name
-  let epic = 'web'
-  if (specName.startsWith('TC_API_')) epic = 'api'
-  if (specName.startsWith('TC_PF_')) epic = 'performance'
-
-  const tcMatch = specName.match(/^(TC_WEB_\d+|TC_API_\d+|TC_PF_\d+|TC\d+)/)
-  if (tcMatch) {
-    const desc = specName.replace(/^TC_WEB_\d+_sucesso_|^TC_WEB_\d+_erro_|^TC_API_\d+_sucesso_|^TC_API_\d+_erro_|^TC_PF_\d+_/,'').replace('.cy.js','').replace(/_/g,' ')
-    cy.allure().story(`${tcMatch[1]} - ${desc}`)
-    cy.allure().tag(tcMatch[1])
-  }
-
-  cy.allure().epic(epic)
-
-  if (specName.includes('_sucesso_')) { cy.allure().feature('sucesso'); cy.allure().tag('sucesso') }
-  if (specName.includes('_erro_'))    { cy.allure().feature('erro');    cy.allure().tag('erro') }
-  if (specName.includes('smoke'))     { cy.allure().feature('smoke');     cy.allure().tag('smoke') }
-  if (specName.includes('carga'))     { cy.allure().feature('carga');     cy.allure().tag('carga') }
-  if (specName.includes('estresse'))  { cy.allure().feature('estresse');  cy.allure().tag('estresse') }
-  if (specName.includes('resistencia')) { cy.allure().feature('resistencia'); cy.allure().tag('resistencia') }
-  if (specName.includes('pico') || specName.includes('spike')) { cy.allure().feature('pico'); cy.allure().tag('pico') }
-  if (specName.includes('auditoria')) { cy.allure().feature('auditoria'); cy.allure().tag('auditoria') }
-  if (specName.includes('vitals'))    { cy.allure().feature('frontend');  cy.allure().tag('frontend') }
-
-  if (specName.startsWith('TC_API_') || specName.startsWith('TC_PF_')) {
-    return
-  }
+  // labels: epic, feature, story, tag
   cy.visit('/')
   cy.fixture('users').as('usersData')
   HomePage.logo.should('be.visible')
   cy.captura(uiData.homepage.loadStep)
 })
 
-// Suporte para Cypress
-Cypress.on('uncaught:exception', (err, runnable) => {
-  return false
-})
+Cypress.on('uncaught:exception', () => false)
 ```
+
+> Consulte [`support/e2e.js`](../Cypress/cypress/support/e2e.js) para código completo.
 
 ---
 
