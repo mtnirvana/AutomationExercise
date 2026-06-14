@@ -10,7 +10,7 @@
 [![Selenium MCP](https://img.shields.io/badge/Selenium_MCP-latest-43B02A)](https://github.com/angiejones/mcp-selenium)
 [![CI/CD](https://img.shields.io/github/actions/workflow/status/mtnirvana/AutomationExercise/ci.yml?label=CI%2FCD)](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml)
 
-Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes funcionais (E2E e API), testes de performance, documentação ISTQB/BDD e inteligência artificial.
+Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes funcionais (E2E e API), testes de performance, CI/CD automatizado, documentação ISTQB/BDD e inteligência artificial.
 
 Cada teste, documento e relatório são gerados e mantidos por IA, desde os scripts até a documentação técnica, BDD e relatórios de performance. A IA codifica, executa, documenta, corrige seletores e mantém a rastreabilidade entre execuções no Allure. Tudo dentro de uma governança rígida e pré-definida, com consumo de tokens otimizado em **~70%**. O ciclo completo de QA é padronizado e automatizado, garantindo consistência em cada etapa.
 
