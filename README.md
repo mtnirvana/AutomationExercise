@@ -394,7 +394,7 @@ O **histórico** funciona assim:
 4. Isso acumula dados de múltiplas execuções — dias, semanas, meses
 5. Os gráficos de tendência mostram a evolução ao longo do tempo
 
-📊 **Relatório publicado:** [`https://mtnirvana.github.io/AutomationExercise/allure-report/`](https://mtnirvana.github.io/AutomationExercise/allure-report/)
+📊 **Relatório publicado pelo CI/CD:** [`https://mtnirvana.github.io/AutomationExercise/allure-report/`](https://mtnirvana.github.io/AutomationExercise/allure-report/)
 
 ---
 
