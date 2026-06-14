@@ -157,7 +157,30 @@ cy.get('@usersData').then((usersData) => {
 
 ## 4. cypress.config.js
 
-Consulte o arquivo [`cypress.config.js`](../Cypress/cypress.config.js) no projeto para a configuração completa com `before:run` (preservação de histórico Allure), `after:spec` (organização de screenshots), `cy.task('apiRequest')` e `cy.task('generateEvidenceReport')`.
+```javascript
+const { defineConfig } = require('cypress')
+const path = require('path')
+
+module.exports = defineConfig({
+  e2e: {
+    baseUrl: 'https://www.automationexercise.com',
+    viewportWidth: 1280,
+    viewportHeight: 720,
+    defaultCommandTimeout: 10000,
+    pageLoadTimeout: 60000,
+    video: !process.env.CI,
+    // ... demais configs no arquivo real
+    setupNodeEvents(on, config) {
+      // Allure plugin
+      // before:run — preserva historico
+      // after:spec — organiza screenshots
+      // tasks: apiRequest, generateEvidenceReport
+    },
+  },
+})
+```
+
+> Consulte o arquivo real [`cypress.config.js`](../Cypress/cypress.config.js) para implementação completa com timeouts, retries e CI.
 
 ---
 
@@ -484,13 +507,48 @@ export class [Name]Factory {
 
 ## 10. Index Template (pages/index.js)
 
-Consulte o arquivo [`pages/index.js`](../Cypress/cypress/pages/index.js) para a lista completa de Page Objects exportados.
+```javascript
+export { HomePage } from './HomePage'
+export { LoginPage } from './LoginPage'
+export { SignupPage } from './SignupPage'
+export { AccountPage } from './AccountPage'
+export { ContactUsPage } from './ContactUsPage'
+export { TestCasesPage } from './TestCasesPage'
+export { ProductsPage } from './ProductsPage'
+export { CheckoutPage } from './CheckoutPage'
+// Adicionar novos Page Objects aqui
+```
+
+> Consulte [`pages/index.js`](../Cypress/cypress/pages/index.js) para versão atualizada.
 
 ---
 
 ## 11. Support Template (support/e2e.js)
 
-Consulte o arquivo [`support/e2e.js`](../Cypress/cypress/support/e2e.js) para o código completo com `beforeEach`, `cy.captura()`, labels Allure e tratamento de exceções.
+```javascript
+import '@shelex/cypress-allure-plugin'
+import { HomePage } from '../pages'
+import uiData from '../fixtures/ui_texts.json'
+
+// Comando customizado cy.captura() — screenshot com prefixo TC
+Cypress.Commands.add('captura', (stepName) => {
+  // Extrai prefixo TC do nome do spec
+  // cy.screenshot com capture: 'runner'
+})
+
+// beforeEach global — labels Allure + navegação
+beforeEach(function () {
+  // labels: epic, feature, story, tag
+  cy.visit('/')
+  cy.fixture('users').as('usersData')
+  HomePage.logo.should('be.visible')
+  cy.captura(uiData.homepage.loadStep)
+})
+
+Cypress.on('uncaught:exception', () => false)
+```
+
+> Consulte [`support/e2e.js`](../Cypress/cypress/support/e2e.js) para código completo.
 
 ---
 
