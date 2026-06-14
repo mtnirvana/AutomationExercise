@@ -339,7 +339,7 @@ O agente prioriza o **Playwright CLI** por ser até **76% mais econômico** que 
 | **Playwright CLI** (tentativa principal) | **~27K tokens** |
 | Playwright MCP (fallback) | ~114K tokens |
 
-O [`AGENTS.md`](AGENTS.md) define que a primeira tentativa de interação com o navegador é sempre via **Playwright CLI**. Apenas se ele falhar ou não der conta do cenário é que os **MCPs são acionados como fallback** (Chrome DevTools MCP → Playwright MCP → Selenium MCP), exatamente como documentado na [cadeia de auto-correção](#uso-com-agentes-de-ia). Isso garante que a maioria das interações gaste o mínimo de tokens possível.
+O [`AGENTS.md`](AGENTS.md) define que a primeira tentativa de interação com o navegador é sempre via **Playwright CLI**. Apenas se ele falhar ou não der conta do cenário é que os **MCPs são acionados como fallback** (Chrome DevTools MCP → Playwright MCP → Selenium MCP), exatamente como documentado na [cadeia de auto-correção](#uso-com-agentes-de-ia). Múltiplos testes comparativos comprovam essa economia — o Playwright CLI consome ~27K tokens contra ~114K do Playwright MCP na mesma tarefa ([referência](https://scrolltest.medium.com/playwright-mcp-burns-114k-tokens-per-test-the-new-cli-uses-27k-heres-when-to-use-each-65dabeaac7a0)).
 
 ### Como essa economia é possível?
 
