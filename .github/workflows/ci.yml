@@ -232,6 +232,7 @@ jobs:
       - name: Gerar Allure Report (web + api + perf + k6)
         run: |
           cp automationexercise/Cypress/cypress/allure/allure.properties ./output/allure-results/allure.properties 2>/dev/null || true
+          cp automationexercise/Cypress/cypress/allure/categories.json ./output/allure-results/categories.json 2>/dev/null || true
           cd automationexercise/Cypress && npx allure generate --clean -o ../../output/allure-report ../../output/allure-results --lang br --name "AutomationExercise"
         continue-on-error: true
 

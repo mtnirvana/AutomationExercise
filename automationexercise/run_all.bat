@@ -63,6 +63,7 @@ echo [5/5] Gerando relatorio Allure completo...
 cd cypress\allure
 if not exist "allure-results" mkdir "allure-results"
 copy /y allure.properties allure-results\allure.properties >nul 2>&1
+copy /y categories.json allure-results\categories.json >nul 2>&1
 if exist "allure-report\history" (
   if not exist "allure-results\history" mkdir "allure-results\history"
   copy /y "allure-report\history\*.json" "allure-results\history\" >nul 2>&1

@@ -67,6 +67,7 @@ echo "[5/5] Gerando relatorio Allure completo..."
 cd cypress/allure
 mkdir -p allure-results
 cp -f allure.properties allure-results/allure.properties 2>/dev/null || true
+cp -f categories.json allure-results/categories.json 2>/dev/null || true
 if [ -d "allure-report/history" ]; then
   mkdir -p allure-results/history
   cp -f allure-report/history/*.json allure-results/history/ 2>/dev/null || true
