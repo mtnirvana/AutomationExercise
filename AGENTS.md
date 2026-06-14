@@ -1,11 +1,3 @@
-# AGENTS2.md — Versão Otimizada para Economia de Tokens
-**Versão:** 1.0.0<br>
-**Baseado em:** `AGENTS.md` (revisão 7)<br>
-**Objetivo:** Reduzir ~51% do consumo de tokens sem perder acurácia ou qualidade<br>
-**Responsável:** Rafael Barelli
-
----
-
 ## Objective
 This project can use multiple browser automation and debugging tools:
 - Chrome DevTools MCP
