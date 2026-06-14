@@ -34,7 +34,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 - [📄 Documentação](#documentacao)
 - [🤖 Uso com Agentes de IA](#uso-com-agentes-de-ia)
 - [🧠 Documentação IA](#documentacao-ia)
-- [⚡ Otimização no Uso de Tokens](#otimizacao-tokens)
+- [⚡ Otimização no Uso de Tokens de IA](#otimizacao-tokens)
 - [📈 Rastreabilidade Histórica](#rastreabilidade-historica)
 - [🚀 Como Executar](#como-executar)
 
@@ -335,7 +335,7 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 ---
 
 <a name="otimizacao-tokens"></a>
-## ⚡ Otimização no Uso de Tokens
+## ⚡ Otimização no Uso de Tokens de IA
 
 O framework foi projetado para que agentes de IA gastem **o mínimo possível de tokens** em cada ciclo de criação de testes. As regras completas estão no [`AGENTS.md`](AGENTS.md).
 
