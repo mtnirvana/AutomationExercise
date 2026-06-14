@@ -33,8 +33,8 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 - [📸 Evidências](#evidencias)
 - [📄 Documentação](#documentacao)
 - [🤖 Uso com Agentes de IA](#uso-com-agentes-de-ia)
-- [🧠 Documentação IA](#documentacao-ia)
 - [⚡ Otimização no Uso de Tokens de IA](#otimizacao-tokens)
+- [🧠 Documentação IA](#documentacao-ia)
 - [📈 Rastreabilidade Histórica](#rastreabilidade-historica)
 - [🚀 Como Executar](#como-executar)
 
@@ -147,7 +147,7 @@ Projeto/
 │       ├── Especificacao_Tecnica_API_TEMPLATE.md  # Template de especificação técnica (API)
 │       ├── Especificacao_Tecnica_Performance_TEMPLATE.md # Template de especificação técnica (Performance)
 │       ├── Suite_BDD_TEMPLATE.md                  # Template de cenários BDD (Gherkin)
-│       ├── Story_TEMPLATE.md                     # Template de dissecção de histórias de usuário
+│       ├── Story_TEMPLATE.md                      # Template de dissecção de histórias de usuário
 │       ├── Relatorio_Resultados_Performance_TEMPLATE.md # Template de relatório de resultados
 │       ├── Guia_Cypress_TEMPLATE.md               # Template de codificação e padrões do projeto
 │       ├── Seletores_TEMPLATE.md                  # Template de estrutura para novos seletores (IA)
@@ -312,28 +312,6 @@ Isso transforma o projeto em um **framework dirigido por IA**: todo artefato —
 
 ![Fluxo da IA Orquestradora](automationexercise/docs/diagrama_ia.png)
 
----
-
-<a name="documentacao-ia"></a>
-## 🧠 Documentação IA
-
-Documentos de suporte utilizados exclusivamente pelo agente de IA para geração e manutenção de testes:
-
-| Documento | Conteúdo |
-|:----------|:---------|
-| [`Guia_Cypress_TEMPLATE.md`](automationexercise/templates/Guia_Cypress_TEMPLATE.md) | Padrões de codificação, nomenclatura e boas práticas |
-| [`Seletores_TEMPLATE.md`](automationexercise/templates/Seletores_TEMPLATE.md) | Template de estrutura para novos seletores |
-| [`Seletores.md`](automationexercise/templates/Seletores.md) | Histórico de seletores e self-healing |
-| [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md) | Template do Sumário Executivo |
-| [`Especificacao_Tecnica_Web_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Web_TEMPLATE.md) | Template de especificação técnica (E2E Web) |
-| [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md) | Template de especificação técnica (API) |
-| [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md) | Template de especificação técnica (Performance) |
-| [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
-| [`Story_TEMPLATE.md`](automationexercise/templates/Story_TEMPLATE.md) | Template de dissecção de histórias de usuário |
-| [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
-
----
-
 <a name="otimizacao-tokens"></a>
 ## ⚡ Otimização no Uso de Tokens de IA
 
@@ -369,6 +347,26 @@ O [`AGENTS.md`](AGENTS.md) define que a primeira tentativa de interação com o 
 - **Nada é lido duas vezes** — se um arquivo foi lido antes, a etapa seguinte reaproveita o contexto
 - **Cada ciclo começa limpo** — invocação nova, sem resíduo de tarefas anteriores
 - **Playwright CLI como primeira opção** — ~27K tokens por fluxo; MCPs são acionados apenas quando necessário
+
+---
+
+<a name="documentacao-ia"></a>
+## 🧠 Documentação IA
+
+Documentos de suporte utilizados exclusivamente pelo agente de IA para geração e manutenção de testes:
+
+| Documento | Conteúdo |
+|:----------|:---------|
+| [`Guia_Cypress_TEMPLATE.md`](automationexercise/templates/Guia_Cypress_TEMPLATE.md) | Padrões de codificação, nomenclatura e boas práticas |
+| [`Seletores_TEMPLATE.md`](automationexercise/templates/Seletores_TEMPLATE.md) | Template de estrutura para novos seletores |
+| [`Seletores.md`](automationexercise/templates/Seletores.md) | Histórico de seletores e self-healing |
+| [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md) | Template do Sumário Executivo |
+| [`Especificacao_Tecnica_Web_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Web_TEMPLATE.md) | Template de especificação técnica (E2E Web) |
+| [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md) | Template de especificação técnica (API) |
+| [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md) | Template de especificação técnica (Performance) |
+| [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
+| [`Story_TEMPLATE.md`](automationexercise/templates/Story_TEMPLATE.md) | Template de dissecção de histórias de usuário |
+| [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
 
 ---
 
