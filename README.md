@@ -325,7 +325,7 @@ Se o agente lesse todo o projeto do início ao fim a cada nova tarefa, o consumo
 |:-----|:------------:|:----------------:|
 | **Analisar a história** | Leria código-fonte, Page Objects, testes — ~8K tokens | Lê apenas o template e a história — **~0.5K tokens** |
 | **Criar o teste** | Leria 26 testes + 14 API + 9 POs + fixtures + docs — ~22K tokens | Lê ~4.6K obrigatórios + 1-2 testes similares — **~6.6K tokens** |
-| **Atualizar documentação** | Releria POs, fixtures e scripts do zero — ~10K tokens | Reaproveita contexto do CODE, lê só os `.md` — **~2K tokens** |
+| **Atualizar documentação** | Releria POs, fixtures e scripts do zero — ~10K tokens | Reaproveita contexto da etapa anterior, lê só os `.md` — **~2K tokens** |
 | **Total por ciclo** | **~40K tokens** | **~9K tokens** |
 
 > **Redução de ~70%** sem perder qualidade ou precisão.
