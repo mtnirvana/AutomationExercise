@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Product defects",
+    "matchedStatuses": ["failed"]
+  },
+  {
+    "name": "Test defects",
+    "matchedStatuses": ["broken"]
+  },
+  {
+    "name": "Performance threshold breaches",
+    "matchedStatuses": ["failed", "broken"],
+    "messageRegex": "threshold|p\\(95\\)|rate limit|Cloudflare|timed out"
+  },
+  {
+    "name": "Skipped tests",
+    "matchedStatuses": ["skipped"]
+  }
+]

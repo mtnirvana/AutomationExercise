@@ -1,0 +1,362 @@
+name: CI
+
+on:
+  push:
+    branches: [main, feat/ci-cd]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  # ═══════════════════════════════════════════════════════════
+  #  JOB 1: CYPRESS (WEB + API) — roda em PARALELO
+  # ═══════════════════════════════════════════════════════════
+  cypress-tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [web, api, performance]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: automationexercise/Cypress/package-lock.json
+
+      - name: Cache Cypress
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('automationexercise/Cypress/package-lock.json') }}
+
+      - run: npm ci
+        working-directory: automationexercise/Cypress
+
+      - id: cypress
+        run: npx cypress run --spec "cypress/e2e/${{ matrix.suite }}/*.cy.js" --browser electron
+        # Nota: suite 'performance' roda apenas TC_PF_008_core_web_vitals.cy.js
+        #       os demais TC_PF_*.js sao k6 (executados no job k6-performance)
+        working-directory: automationexercise/Cypress
+        continue-on-error: true
+
+      - name: Listar screenshots geradas
+        if: always()
+        run: |
+          echo "=== Screenshots ==="
+          find cypress/screenshots -type f -name "*.png" 2>/dev/null | head -20 || echo "Nenhuma screenshot"
+          echo "=== Allure Results ==="
+          ls cypress/allure/allure-results/ 2>/dev/null | head -5 || echo "Nenhum allure-result"
+        working-directory: automationexercise/Cypress
+        shell: bash
+
+      - name: Gerar relatorio de falha
+        if: steps.cypress.outcome == 'failure'
+        run: node scripts/gerar_relatorio_falha.js
+        working-directory: automationexercise/Cypress
+
+      - uses: actions/upload-artifact@v4
+        if: steps.cypress.outcome == 'failure'
+        with:
+          name: failure-report-${{ matrix.suite }}-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/reports/failure/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results-${{ matrix.suite }}-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/allure/allure-results/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-${{ matrix.suite }}-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/screenshots/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: videos-${{ matrix.suite }}-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/videos/
+
+  # ═══════════════════════════════════════════════════════════
+  #  JOB 2: PERFORMANCE (k6) — Roda SEQUENCIAL após Cypress
+  #  Ordem: igual ao run_all.bat (Cypress → k6 → Allure)
+  # ═══════════════════════════════════════════════════════════
+  k6-performance:
+    needs: [cypress-tests]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar k6
+        run: |
+          curl -L https://github.com/grafana/k6/releases/download/v0.54.0/k6-v0.54.0-linux-amd64.tar.gz | tar xz
+          sudo mv k6-v0.54.0-linux-amd64/k6 /usr/local/bin/
+          k6 version
+
+      - name: Criar pasta de reports
+        run: mkdir -p cypress/reports/k6
+        working-directory: automationexercise/Cypress
+
+      - name: Rodar k6 SEQUENCIAL (um por um)
+        run: |
+          PASS=0; FAIL=0
+          for f in cypress/e2e/performance/TC_PF_*.js; do
+            if echo "$f" | grep -qv "\.cy\.js"; then
+              echo "--- Rodando: $(basename "$f") ---"
+              if k6 run "$f" --quiet --summary-export="cypress/reports/k6/$(basename "$f" .js).json"; then
+                PASS=$((PASS+1))
+              else
+                FAIL=$((FAIL+1))
+              fi
+              echo "--- Concluido: $(basename "$f") ---"
+            fi
+          done
+          echo "k6: $PASS pass, $FAIL fail"
+        working-directory: automationexercise/Cypress
+        shell: bash
+        continue-on-error: true
+
+      - name: Converter k6 para Allure
+        run: node cypress/allure/scripts/convert_k6_to_allure.js
+        working-directory: automationexercise/Cypress
+        continue-on-error: true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: k6-reports-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/reports/k6/
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results-k6-${{ github.run_id }}
+          path: automationexercise/Cypress/cypress/allure/allure-results/
+
+  # ═══════════════════════════════════════════════════════════
+  #  JOB 3: CONSOLIDA TUDO EM UM UNICO ARTIFACT
+  # ═══════════════════════════════════════════════════════════
+  generate-evidence:
+    needs: [cypress-tests, k6-performance]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: automationexercise/Cypress/package-lock.json
+
+      - name: Instalar libs nativas para canvas (GIFs)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+
+      - run: npm ci
+        working-directory: automationexercise/Cypress
+
+      - name: Baixar screenshots
+        uses: actions/download-artifact@v4
+        with:
+          pattern: screenshots-*
+          path: automationexercise/Cypress/cypress/screenshots/
+        continue-on-error: true
+
+      - name: Baixar k6-reports
+        uses: actions/download-artifact@v4
+        with:
+          pattern: k6-reports-*
+          path: automationexercise/Cypress/cypress/reports/k6/
+        continue-on-error: true
+
+      - name: Aplainar estrutura screenshots
+        run: |
+          cd automationexercise/Cypress/cypress/screenshots
+          for dir in screenshots-*/; do
+            [ -d "$dir" ] && cp -r "$dir"/* . 2>/dev/null && rm -rf "$dir"
+          done
+          echo "Pastas: $(ls -d */ 2>/dev/null | wc -l)"
+        shell: bash
+
+      - name: Baixar allure-results (web + api + perf + k6)
+        uses: actions/download-artifact@v4
+        with:
+          pattern: allure-results-*
+          path: ./allure-results-all
+        continue-on-error: true
+
+      - name: Consolidar allure-results unificado
+        run: |
+          mkdir -p ./output/allure-results
+          mkdir -p ./output/screenshots ./output/videos ./output/k6-reports ./output/allure-report
+          if [ -d "./allure-results-all" ]; then
+            find ./allure-results-all -name "*.json" -exec cp {} ./output/allure-results/ \;
+          fi
+          # NOTA: Nao copiar allure-results do checkout (gitignorado mas pode ter residuos)
+          echo "Total allure-results: $(ls ./output/allure-results/*.json 2>/dev/null | wc -l)"
+        shell: bash
+
+      - name: Restaurar history do gh-pages (tendencias)
+        run: |
+          mkdir -p ./output/allure-results/history
+          git fetch origin gh-pages --depth=1 2>/dev/null || true
+          if git checkout origin/gh-pages -- allure-report/history/ 2>/dev/null; then
+            if ls allure-report/history/*.json 2>/dev/null | grep -q . && \
+               cat allure-report/history/history-trend.json 2>/dev/null | grep -q '"passed"'; then
+              cp allure-report/history/*.json ./output/allure-results/history/ 2>/dev/null || true
+              echo "History restaurado: $(ls ./output/allure-results/history/*.json 2>/dev/null | wc -l) arquivos"
+            else
+              echo "History vazio ou invalido. Ignorando."
+              rm -rf allure-report/history 2>/dev/null || true
+            fi
+          else
+            echo "Nenhum history anterior (gh-pages nao existe ou sem allure-report)."
+          fi
+        shell: bash
+        continue-on-error: true
+
+      - name: Gerar Allure Report (web + api + perf + k6)
+        run: |
+          cp automationexercise/Cypress/cypress/allure/allure.properties ./output/allure-results/allure.properties 2>/dev/null || true
+          cp automationexercise/Cypress/cypress/allure/categories.json ./output/allure-results/categories.json 2>/dev/null || true
+          cd automationexercise/Cypress && npx allure generate --clean -o ../../output/allure-report ../../output/allure-results --lang br --name "AutomationExercise"
+        continue-on-error: true
+
+      - name: Forcar dark mode
+        run: node automationexercise/Cypress/cypress/allure/scripts/force-dark-mode.js
+        env:
+          ALLURE_OUTPUT_DIR: ./output/allure-report
+        continue-on-error: true
+
+      - name: Copiar tudo para o artifact unico
+        run: |
+          rsync -a --exclude='*.mp4' automationexercise/Cypress/cypress/screenshots/ ./output/screenshots/ 2>/dev/null || cp -r automationexercise/Cypress/cypress/screenshots/* ./output/screenshots/ 2>/dev/null || true
+          cp -r automationexercise/Cypress/cypress/videos/* ./output/videos/ 2>/dev/null || true
+          cp -r automationexercise/Cypress/cypress/reports/k6/*.json ./output/k6-reports/ 2>/dev/null || true
+          cp automationexercise/Cypress/cypress/allure/allure-open.bat ./output/allure-report/ 2>/dev/null || true
+
+      - name: Remover duplicata do TC_WEB_019 em videos/
+        run: rm -f ./output/videos/TC_WEB_019_sucesso_visualizar_adicionar_marcas.cy.js.mp4 2>/dev/null || true
+
+      - name: Criar scripts para abrir report
+        run: |
+          cat > ./output/allure-report/abrir_report.bat << 'BAT'
+          @echo off
+          cd /d "%~dp0"
+          echo ============================================
+          echo   Allure Report - AutomationExercise
+          echo ============================================
+          echo.
+          where allure >nul 2>&1
+          if %errorlevel% equ 0 (
+            allure open . -p 8765
+          ) else (
+            where npx >nul 2>&1
+            if %errorlevel% equ 0 (
+              npx -y allure-commandline allure open . -p 8765
+            ) else (
+              echo Instale Node.js ou Allure CLI.
+              pause
+              exit /b 1
+            )
+          )
+          BAT
+          cat > ./output/Relatorio_Testes.bat << 'BAT'
+          @echo off
+          cd /d "%~dp0"
+          call allure-report\abrir_report.bat
+          BAT
+          echo "ESTRUTURA: $(find ./output -type f | wc -l) arquivos"
+          echo "Screenshots:$(find ./output/screenshots -name '*.png' | wc -l)"
+          echo "GIFs:$(find ./output/screenshots -name '*.gif' | wc -l)"
+          echo "Videos:$(find ./output/videos -name '*.mp4' | wc -l)"
+          echo "API:$(find ./output/screenshots -name '*.html' | wc -l)"
+          echo "k6:$(find ./output/k6-reports -name '*.json' | wc -l)"
+          echo "Allure:$(find ./output/allure-report -name 'index.html' | wc -l)"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidencias_completas_${{ github.run_id }}
+          path: output/
+
+      - name: Deploy Allure Report para GitHub Pages
+        if: github.ref == 'refs/heads/feat/ci-cd'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output/allure-report
+          destination_dir: allure-report
+          keep_files: false
+
+  # ═══════════════════════════════════════════════════════════
+  #  JOB 4: CRIA ISSUE DE SELF-HEAL (se algum teste falhou)
+  # ═══════════════════════════════════════════════════════════
+  create-issue:
+    needs: [cypress-tests]
+    if: always() && github.ref == 'refs/heads/feat/ci-cd'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: failure-report-*
+          path: ./failure-reports
+        continue-on-error: true
+
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const reportsDir = './failure-reports';
+            function findJsonFiles(dir) {
+              let results = [];
+              if (!fs.existsSync(dir)) return results;
+              const entries = fs.readdirSync(dir, { withFileTypes: true });
+              for (const entry of entries) {
+                const fullPath = path.join(dir, entry.name);
+                if (entry.isDirectory()) results = results.concat(findJsonFiles(fullPath));
+                else if (entry.name.endsWith('_failure.json')) results.push(fullPath);
+              }
+              return results;
+            }
+            const files = findJsonFiles(reportsDir);
+            if (files.length === 0) {
+              console.log('Nenhuma falha. Nenhuma Issue criada.');
+              return;
+            }
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'self-heal',
+            });
+            const existingTitles = existing.data.map(i => i.title);
+            for (const file of files) {
+              const report = JSON.parse(fs.readFileSync(file, 'utf8'));
+              if (existingTitles.some(t => t.includes(report.testId))) {
+                console.log(`Issue ja existe para ${report.testId}. Pulando.`);
+                continue;
+              }
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title: `[CI] Self-Heal: ${report.testId} (attempt 1)`,
+                labels: ['self-heal', 'self-heal-attempt-1'],
+                body: report.issueBody
+              });
+              console.log(`ISSUE CRIADA para ${report.testId}!`);
+            }

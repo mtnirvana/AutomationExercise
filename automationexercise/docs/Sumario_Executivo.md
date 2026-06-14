@@ -186,6 +186,19 @@ Todas as evidências dos 3 tipos de teste (E2E Web, API e Performance) são cent
 
 > O relatório unificado pode ser acessado via [`../Cypress/cypress/allure/allure-report/index.html`](../Cypress/cypress/allure/allure-report/index.html) ou atalho [`Relatorio_Testes.lnk`](Relatorio_Testes.lnk).
 
+### 7.2 Pipeline CI/CD (GitHub Actions)
+
+O projeto conta com um pipeline completo de Integração Contínua via [`ci.yml`](../.github/workflows/ci.yml), disponível em [`Actions`](https://github.com/mtnirvana/AutomationExercise/actions).
+
+| Job | Execução | Finalidade |
+|:----|:---------|:-----------|
+| **cypress-tests** | Matriz paralela (web, api, performance) | Executa os 41 specs Cypress |
+| **k6-performance** | Sequencial após Cypress | Executa 13 scripts k6 de performance |
+| **generate-evidence** | Após Cypress + k6 | Consolida artefatos, gera relatório Allure unificado e faz deploy no GitHub Pages |
+| **create-issue** | Após Cypress (configurável) | Abre issue `self-heal` automaticamente se houver falhas |
+
+**Relatório unificado:** Publicado em [`https://mtnirvana.github.io/AutomationExercise/allure-report/`](https://mtnirvana.github.io/AutomationExercise/allure-report/)
+
 ---
 
 **Documento gerado em:** 2026-06-02

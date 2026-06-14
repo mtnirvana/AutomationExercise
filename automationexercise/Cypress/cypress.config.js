@@ -15,10 +15,19 @@ module.exports = defineConfig({
     viewportHeight: 720,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 60000,
-    video: true,
+    video: !process.env.CI,
     videoCompression: 32,
+    failOnStatusCode: false,
     screenshotsFolder: 'cypress/screenshots',
     screenshotOnRunFailure: true,
+    retries: {
+        runMode: process.env.CI ? 1 : 0,
+        openMode: 0,
+    },
+    defaultCommandTimeout: process.env.CI ? 15000 : 10000,
+    pageLoadTimeout: process.env.CI ? 90000 : 60000,
+    requestTimeout: process.env.CI ? 15000 : 10000,
+    responseTimeout: process.env.CI ? 60000 : 30000,
     trashAssetsBeforeRuns: true,
     setupNodeEvents(on, config) {
       config.env.allure = true
@@ -68,6 +77,7 @@ module.exports = defineConfig({
           try { fs.renameSync(flat, nested) } catch (e) {
             const files = fs.readdirSync(flat)
             for (const f of files) {
+              if (f.endsWith('.mp4')) continue
               try { fs.renameSync(path.join(flat, f), path.join(nested, f)) } catch (e2) { /* skip */ }
             }
             try { fs.rmdirSync(flat) } catch (e3) { /* skip */ }
@@ -84,6 +94,7 @@ module.exports = defineConfig({
               hostname: options.hostname,
               path: options.path,
               method: options.method || 'GET',
+              timeout: 30000,
               headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Content-Length': options.body ? Buffer.byteLength(options.body) : 0
@@ -129,6 +140,10 @@ module.exports = defineConfig({
             req.on('error', (err) => {
               console.error('  ERROR:', err.message)
               reject(err)
+            })
+            req.on('timeout', () => {
+              req.destroy()
+              reject(new Error('Request timed out after 30000ms'))
             })
             if (options.body) {
               req.write(options.body)

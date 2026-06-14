@@ -13,4 +13,7 @@ automationexercise/Cypress/cypress/videos/
 automationexercise/Cypress/cypress/reports/
 automationexercise/Cypress/cypress/allure/allure-report/
 automationexercise/Cypress/cypress/allure/allure-results/
+automationexercise/Cypress/cypress/downloads/
+.playwright-mcp/
+Story.txt
 

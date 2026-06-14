@@ -15,6 +15,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 - **Design Pattern:** Scripts em JavaScript com uso de `stages`, `thresholds` e `check()` do k6.
 - **Dados Dinâmicos:** Uso de `Date.now()` para emails únicos em cenários de criação de conta (TC_PF_009).
 - **Headless:** Execução via CLI (sem GUI), modo non-interactive. 
+- **CI/CD:** Integração Contínua via GitHub Actions — scripts k6 executados no job `k6-performance` (sequencial após Cypress), convertidos para Allure e publicados no GitHub Pages.
 
 ### 1.2 Arquitetura do Alvo
 - **Site:** https://www.automationexercise.com

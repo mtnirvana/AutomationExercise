@@ -1,9 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 
-const indexPath = path.join(__dirname, '..', 'allure-report', 'index.html')
+const outputDir = process.env.ALLURE_OUTPUT_DIR
+  ? path.resolve(process.env.ALLURE_OUTPUT_DIR)
+  : path.join(__dirname, '..', 'allure-report')
+const indexPath = path.join(outputDir, 'index.html')
 if (!fs.existsSync(indexPath)) {
-  console.log('index.html not found, skipping dark mode injection')
+  console.log(`index.html not found at ${indexPath}, skipping dark mode injection`)
   process.exit(0)
 }
 

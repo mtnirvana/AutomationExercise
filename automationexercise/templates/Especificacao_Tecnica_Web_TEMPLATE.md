@@ -13,6 +13,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 - **Clean Slate:** Cada teste deve ser capaz de criar e excluir seus próprios dados quando aplicável.
 - **Design Pattern:** Uso obrigatório de **Page Object Model (POM)** para abstração de seletores, mensagens, validações e métodos de interação.
 - **Dados Dinâmicos:** Uso de `UserFactory` para dados únicos por execução.
+- **CI/CD:** Integração Contínua via GitHub Actions — suíte executada em paralelo com API e Performance, com relatório Allure unificado no GitHub Pages.
 
 ---
 
@@ -298,9 +299,12 @@ Estrutura completa do projeto com destaque para os artefatos de teste **Web (E2E
 
 ```
 automationexercise/
+├── install_all.sh
+├── install_all.bat
+├── run_all.sh
+├── run_all.bat
 ├── Cypress/
 │   ├── cypress.config.js                # Configuracao: allure, videos, screenshots, reporters
-│   ├── run_all.bat                      # Script unico: Cypress + k6 + GIFs + relatorio
 │   ├── package.json                     # Dependencias Node (Cypress, Allure, etc.)
 │   ├── scripts/                         # Utilitarios
 │   │   └── gerar_gifs.js                # Gera GIFs animados

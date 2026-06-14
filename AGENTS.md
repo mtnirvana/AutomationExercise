@@ -1,4 +1,10 @@
-﻿# AGENTS.md
+# AGENTS2.md — Versão Otimizada para Economia de Tokens
+**Versão:** 1.0.0<br>
+**Baseado em:** `AGENTS.md` (revisão 7)<br>
+**Objetivo:** Reduzir ~51% do consumo de tokens sem perder acurácia ou qualidade<br>
+**Responsável:** Rafael Barelli
+
+---
 
 ## Objective
 This project can use multiple browser automation and debugging tools:
@@ -13,12 +19,6 @@ The agent must choose the tool based on the user's explicit request.
 If the user explicitly requests a tool, use exactly the requested tool.
 When there is an explicit request, do not substitute another tool based on personal preference.
 
-Examples of explicit requests:
-- "use playwright cli to..."
-- "use selenium mcp to..."
-- "use chrome devtools mcp to..."
-- "use playwright mcp to..."
-
 ## Rule for Requests Without Explicit Tool
 If the user doesn't specify which tool to use, choose the most suitable tool for the objective:
 - Use Chrome DevTools MCP for active browser debugging, console analysis, network, performance, CSS, layout and live session inspection.
@@ -28,345 +28,334 @@ If the user doesn't specify which tool to use, choose the most suitable tool for
 
 ## Priority Rule
 1. Tool explicitly requested by the user.
-2. Rules in this AGENTS.md.
-3. Guidelines in `Guia_Cypress_Template.md`.
+2. Rules in this AGENTS2.md.
+3. Guidelines in `Guia_Cypress_TEMPLATE.md`.
 4. Current state of the page or session.
 
-## Specific Rules for Playwright CLI
-When using Playwright CLI, first consult the skill at `SKILL.md`.
-
-## Mandatory Use of Playwright CLI
-Before any action with Playwright CLI:
-1. Read `SKILL.md`.
-2. Execute `playwright-cli --help`.
-3. Confirm the appropriate commands for the task.
-4. Only then start the automation.
-
-## Standard Flow with Playwright CLI
-Always follow this sequence:
-1. Open the browser or page with `playwright-cli open`
-2. Navigate with `playwright-cli goto <url>` if necessary
-3. Execute `playwright-cli snapshot`
-4. Identify elements from the returned refs
-5. Interact using those refs
-6. Execute new `playwright-cli snapshot` after any DOM update
-7. Use `playwright-cli screenshot` to record evidence
-
-## Interaction Rules with Playwright CLI
-- Prefer refs from snapshot instead of guessing selectors.
-- Only use interaction commands after inspecting the page.
-- Take a new snapshot whenever the page state changes.
-- Consult the skill and `--help` for any doubt about syntax.
-
-## Execution Rules
-- Do not switch tools when the user has requested a specific tool.
-- If a command fails, stop and explain the error before continuing.
-- Always log the executed commands and important results.
-- Confirm the current state of the browser after an error.
-- Maintain consistency if you choose a tool for an ambiguous task.
-
-## Document Date Standard (MANDATORY)
-ALL documentation files MUST end with the generation date in the following format:
-```
 ---
 
-**Documento gerado em:** AAAA-MM-DD
-```
-This rule applies to every document in the project:
-- Sumario_Executivo.md
-- Sumario_Executivo_TEMPLATE.md
-- Especificacao_Tecnica_Web.md
-- Especificacao_Tecnica_Web_TEMPLATE.md
-- Especificacao_Tecnica_API.md
-- Especificacao_Tecnica_API_TEMPLATE.md
-- Suite_BDD.md
-- Suite_BDD_TEMPLATE.md
-- Guia_Cypress_Template.md
-- Especificacao_Tecnica_Performance.md
-- Especificacao_Tecnica_Performance_TEMPLATE.md
-- Relatorio_Resultados_Performance.md
-- Relatorio_Resultados_Performance_TEMPLATE.md
-- Seletores.md
-- README.md
+## Token Economy Rules (MANDATORY)
 
-When creating or updating any documentation file, the agent MUST append this footer with the **current date** (not a fixed placeholder).
+Todas as etapas DEVEM seguir estas regras de leitura seletiva para evitar desperdício de tokens. Cada arquivo é lido UMA ÚNICA VEZ na etapa que precisa dele — nunca releitura.
+
+| Etapa | Lê do disco | Usa do contexto |
+|:------|:------------|:----------------|
+| DISSECT | `Story_TEMPLATE.md` + story + `glob` para listar nomes de testes existentes | Nada |
+| CODE | Handoff + **apenas o necessário** (regras abaixo) | Nada (invocação nova) |
+| RUN | Nada | Nada |
+| UPDATE DOCS | `.md` existentes + `*_TEMPLATE.md` | POs, fixtures, `.cy.js`, screenshots herdados do CODE |
+| ALLURE | Nada | Nada |
+| VERIFY | Nada | Nada |
 
 ---
 
-# Operational Governance (MANDATORY)
+## Story Dissection (MANDATORY - FIRST STEP)
 
-## Configuration Files Backup
-Before making ANY changes to documentation files:
-1. **CREATE BACKUP** in the `automationexercise/Backup/` folder.
-2. Format: `[FILENAME]_[YYYYMMDD_HHmmss].[ext]`.
-3. **Command:** `copy "[file]" "automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]"`
+Whenever a user story file (`.txt`, `Story.txt`, `*.story`, or any free-text file containing a feature description) is provided:
 
-### General Documentation Files (Backup MANDATORY):
-- `AGENTS.md`
-- `README.md`
+### Step 0: Read the Dissection Template
 
-### E2E Documentation Files (Backup MANDATORY):
-- `Sumario_Executivo.md`
-- `Sumario_Executivo_TEMPLATE.md`
-- `Especificacao_Tecnica_Web.md`
-- `Especificacao_Tecnica_Web_TEMPLATE.md`
+1. Read `automationexercise/templates/Story_TEMPLATE.md` completely.
+2. Read the provided story file completely.
+3. Use `glob` to list existing test file names (e.g. `**/TC_WEB_*.cy.js`) and extract the highest TC number. The next TC number = max + 1. This number MUST be used in the handoff.
 
-### BDD Documentation Files (Backup MANDATORY):
-- `Suite_BDD.md`
-- `Suite_BDD_TEMPLATE.md`
+<<<<<<< Updated upstream
+**The dissecting agent reads ONLY the template and the story. It does NOT read the project codebase, Page Objects, fixtures, or existing tests.** Project exploration is the CODE agent's responsibility. This keeps the dissect phase pure (business analysis) and prevents context bleed.
 
-### API Documentation Files (Backup MANDATORY):
-- `Sumario_Executivo.md`
-- `Sumario_Executivo_TEMPLATE.md`
-- `Especificacao_Tecnica_API.md`
-- `Especificacao_Tecnica_API_TEMPLATE.md`
+### Step 1: Apply the Template (Silent Internal Reasoning)
 
-### Performance Documentation Files (Backup MANDATORY):
-- `Sumario_Executivo.md`
-- `Sumario_Executivo_TEMPLATE.md`
-- `Especificacao_Tecnica_Performance.md`
-- `Especificacao_Tecnica_Performance_TEMPLATE.md`
-- `Relatorio_Resultados_Performance.md`
-- `Relatorio_Resultados_Performance_TEMPLATE.md`
+The agent MUST process EACH section of the dissection template as INTERNAL ANALYSIS.
+Sections 1 through 8 are working memory — the agent reasons through them mentally
+and must NEVER output them to the user or use the `question` tool.
 
-### IA Documentation Files (Backup MANDATORY):
-- `Guia_Cypress_Template.md`
-- `Seletores.md`
+The agent MUST IMMEDIATELY launch a NEW task invocation (using the `task` tool) for
+the CODE phase, passing Section 8 (Handoff) as the prompt input. The CODE agent is
+a fresh invocation — it does NOT inherit context from the dissection agent.
+The dissecting agent NEVER proceeds to CODE itself. After launching the CODE task,
+the full pipeline (CODE → RUN → BACKUP → DOCS → ALLURE → VERIFY) executes inside
+that new task invocation without outputting intermediate analysis or prompting the user.
+
+The user sees only concrete results: files created, test execution output,
+screenshots, and error messages if something fails.
+=======
+**The dissecting agent reads ONLY the template, the story, and a glob listing of existing test file names (to determine the next sequential TC number). It does NOT read Page Objects, fixtures, or full test files.** Project exploration is the CODE agent's responsibility.
+
+### Step 1: Apply the Template (Silent Internal Reasoning)
+
+The agent MUST process EACH section of the dissection template as INTERNAL ANALYSIS. Sections 1 through 8 are working memory — the agent reasons through them mentally and must NEVER output them to the user or use the `question` tool.
+
+The agent MUST IMMEDIATELY launch a NEW task invocation (using the `task` tool) for the CODE phase, passing Section 8 (Handoff) as the prompt input. The CODE agent is a fresh invocation — it does NOT inherit context from the dissection agent. The dissecting agent NEVER proceeds to CODE itself. After launching the CODE task, the full pipeline (CODE → RUN → BACKUP → DOCS → ALLURE → VERIFY) executes inside that new task invocation without outputting intermediate analysis or prompting the user.
+>>>>>>> Stashed changes
+
+The template is NOT a form to fill — it is a GUIDE. For each section:
+
+| Section | Action |
+|:-------:|--------|
+| 1. Extração Estrutural | Parse title, description, acceptance criteria, additional info |
+| 2. Classificação + Granularidade | Identify story type (E2E/API/Performance/Bug/Security/UI/Data/Mixed) and decide 1 vs N tests |
+| 3. Análise de Fluxo | Map steps, checkpoints, application states |
+| 4. Análise de Dados | List entities, quantities, differentiation needs, whether order matters |
+| 5. Engenharia de Asserção | For each checkpoint: business rule → exact assertion → false positive risk → mitigation → validity proof → weight |
+| 6. Premissas Ocultas | Surface assumptions not stated in the story |
+| 7. Ambiguidades | Identify open questions and document decisions |
+| 8. Saída para Pipeline | Produce the structured handoff for the CODE phase |
+
+### Handoff Rule
+
+The dissection output (Section 8) IS the input for the pipeline. The AI that executes CODE MUST consume the dissection output — NOT the raw story file.
+
+<<<<<<< Updated upstream
+> **The handoff is passed via the `task` tool prompt.** The dissecting agent launches
+> a `task` with subagent_type="general", passing the full Section 8 output as the
+> prompt. The CODE agent reads the handoff and nothing else — it does NOT re-read
+> the story or the template. This guarantees zero context bleed and zero ambiguity.
+
+> **Project exploration is the CODE agent's job.** The CODE agent, upon receiving
+> the handoff, MUST first read the project codebase — Page Objects, existing tests,
+> fixtures, data factories, configuration, and `Seletores.md` — to understand how to
+> implement the test technically. The dissecting agent includes NO technical
+> implementation details in the handoff. This guarantees zero context bleed and zero
+> ambiguity.
+
+> **Pipeline runs inside the CODE task.** After project exploration, the same agent
+> invocation executes RUN → BACKUP → UPDATE DOCS → ALLURE → VERIFY sequentially.
+> The UPDATE DOCS stage inherits all context from CODE (modified POs, fixtures,
+> `.cy.js`, screenshots) — it only reads the existing `.md` docs and `*_TEMPLATE.md`
+> from disk, never re-reading POs, fixtures, or the `.cy.js` file.
+=======
+> **The handoff is passed via the `task` tool prompt.** The dissecting agent launches a `task` with subagent_type="general", passing the full Section 8 output as the prompt. The CODE agent reads the handoff and nothing else — it does NOT re-read the story or the template.
+
+> **Project exploration is the CODE agent's job.** The CODE agent, upon receiving the handoff, MUST read only the necessary files per the Token Economy rules below. The dissecting agent includes NO technical implementation details in the handoff.
+
+> **TC Numbering Rules — CRITICAL:**
+> 1. **DISSECT** — Before generating the handoff, use `glob` to list existing test files and extract the highest TC number. The next TC number = max + 1. Never hardcode a number without this check.
+> 2. **CODE** — Upon receiving the handoff, re-validate the TC number from the handoff against the glob of existing tests. If the handoff's number is already taken or skips available numbers, CORRECT it to the next available sequential number. Do NOT blindly trust the handoff's number.
+> 3. **UPDATE DOCS** — When incrementing documentation, verify the TC number is sequential with the last documented entry. If it is not sequential but was already used in the `.cy.js` filename, log a warning.
+
+> **Pipeline runs inside the CODE task.** After project exploration, the same agent invocation executes RUN → BACKUP → UPDATE DOCS → ALLURE → VERIFY sequentially. The UPDATE DOCS stage inherits all context from CODE (modified POs, fixtures, `.cy.js`, screenshots) — it only reads the existing `.md` docs and `*_TEMPLATE.md` from disk.
+>>>>>>> Stashed changes
+
+---
 
 ## Pipeline Order (MANDATORY)
 
 The standard pipeline for ALL new test cases MUST follow this exact order:
 
+<<<<<<< Updated upstream
+0. **DISSECT** — When a story file is provided, read `Story_TEMPLATE.md`
+   and apply it silently. Output the structured analysis as handoff for CODE.
+   See "Story Dissection" section above for details.
 1. **CODE** — Create the test file, Page Objects (if E2E), and all supporting code
 2. **RUN** — Execute the test and verify it passes completely
-3. **GIF** — Gerar GIF do teste executado com `node scripts/gerar_gifs.js` em `automationexercise/Cypress/`
-4. **BACKUP** — Create backups of all documentation files before any changes
-5. **UPDATE DOCS** — Increment Sumario_Executivo, Especificacao_Tecnica, Suite_BDD, and Relatorio (if applicable) using their respective templates
-6. **ALLURE** — Ensure Allure results are generated (Cypress auto-generates for .cy.js; k6 requires conversion via `convert_k6_to_allure.js`)
-7. **VERIFY** — Confirm all documents compile correctly with no broken links or numbering gaps
+3. **BACKUP** — Create backups of all documentation files before any changes
+4. **UPDATE DOCS** — First read the existing `.md` documents (Sumario_Executivo.md, Especificacao_Tecnica_Web.md, Suite_BDD.md) to understand current state. Then read their respective `*_TEMPLATE.md`. Then increment each document. Use the context inherited from CODE (POs, fixtures, `.cy.js`, screenshots) to populate the new entry — do NOT re-read those files from disk.
+=======
+0. **DISSECT** — When a story file is provided, read `Story_TEMPLATE.md` and apply it silently. Output the structured analysis as handoff for CODE.
+1. **CODE** — Create the test file, Page Objects (if E2E), and all supporting code (leitura seletiva obrigatória — ver seção "CODE — Leitura Seletiva" abaixo)
+2. **RUN** — Execute the test. Use `--quiet` ou pipe para reduzir output.  
+   ⚠️ **REGRRA DE OURO:** Se o teste falhar porque o sistema NÃO implementa a regra de negócio (ex: comentário não aparece, fatura sem conteúdo), **NÃO remova nem enfraqueça a asserção**. A falha é o resultado CORRETO — revela um bug. Documente o bug e prossiga.  
+   Se o teste falhar por erro de código/teste (seletor quebrado, timeout, etc.), aí sim corrija o teste.
+3. **BACKUP** — Create backups of all documentation files before any changes
+4. **UPDATE DOCS** — Read existing `.md` documents + `*_TEMPLATE.md` only. Use inherited context (POs, fixtures, `.cy.js`, screenshots) to populate new entry.
+5. **ALLURE** — Ensure Allure results are generated (Cypress auto-generates for `.cy.js`; k6 requires conversion via `convert_k6_to_allure.js`)
+6. **VERIFY** — Confirm all documents compile correctly with no broken links or numbering gaps
+>>>>>>> Stashed changes
 
-> **NEVER** update documentation with unexecuted tests. Code first, document after, GIF third, Allure last.
+> **NEVER** update documentation with unexecuted tests. Code first, document after, Allure last.
+
+### No Permission Asking (MANDATORY)
+
+<<<<<<< Updated upstream
+The agent MUST NOT ask the user for permission, confirmation, or approval to advance
+between pipeline stages (DISSECT → CODE → RUN → BACKUP → DOCS → ALLURE → VERIFY).
+The pipeline is fully automatic.
+
+The only valid reasons to stop or ask are:
+(a) a command fails with an error requiring human decision, or
+(b) a selector cannot be resolved after exhausting all recovery tools.
+
+Asking "can I proceed?", "do you want me to continue?", or showing the handoff to
+the user for approval is a violation of this rule.
+=======
+The agent MUST NOT ask the user for permission, confirmation, or approval to advance between pipeline stages. The pipeline is fully automatic. The only valid reasons to stop or ask are: (a) a command fails with an error requiring human decision, or (b) a selector cannot be resolved after exhausting all recovery tools.
+
+---
+
+## CODE — Leitura Seletiva (TOKEN ECONOMY)
+
+Esta seção substitui a abordagem "leia tudo" por leitura direcionada. O objetivo é consumir ~9K tokens em vez de ~22K (~59% de economia).
+
+### Leitura Obrigatória (essencial)
+
+| Arquivo | Como ler | Tokens |
+|:--------|:---------|:------:|
+| `Guia_Cypress_TEMPLATE.md` | Completo (~300 linhas) | ~1.5K |
+| `Seletores.md` | **Só a seção relevante** (ex: só `CheckoutPage`) | ~0.2K |
+| `UserFactory.js` | Completo (~40 linhas) | ~0.2K |
+| `cypress.config.js` | Completo (~260 linhas) | ~0.5K |
+| `cypress/support/e2e.js` | Completo (~50 linhas) | ~0.2K |
+| Po-relevante (ex: `CheckoutPage.js`) | Completo (~200 linhas) | ~0.5K |
+| Outros POs necessários | Apenas os que o handoff mencionar | ~0.5K |
+| Fixtures relevantes | Apenas as mencionadas (`products.json`, `ui_texts.json`, `users.json`, `contact.json`) | ~1K |
+| **Total leitura obrigatória** | | **~4.6K** |
+
+### Leitura Seletiva de Testes Existentes (NÃO ler todos)
+
+1. Use `glob` para listar nomes de testes existentes (barato — só nomes)
+2. Re-valide o número do TC contra o glob: extraia o maior número existente. Se o número do handoff não for o próximo sequencial, CORRIJA para o próximo disponível. NÃO confiar cegamente no handoff.
+3. Leia **apenas 1-2 testes do mesmo tipo** que o novo teste (ex: checkout, carrinho, login)
+4. Critério de escolha: o teste mais recente e o mais similar ao fluxo do handoff
+
+> **Exemplo:** Se o novo teste é de checkout com login, leia `TC_WEB_016` (login antes checkout) e `TC_WEB_024` (baixar fatura). Ignore os outros 24.
+
+| Arquivo | Como ler | Tokens |
+|:--------|:---------|:------:|
+| 2 testes similares (~150 linhas cada) | Completos | ~1K |
+| **Total** | | **~1K** |
+
+### Leitura Proibida (evitar)
+
+| Arquivo | Motivo | Economia |
+|:--------|:-------|:--------:|
+| Todos os 26 TC_WEB_* | Já entendeu o padrão com 1-2 exemplos | ~7K |
+| POs que não serão modificados | Só precisa dos POs que vai usar/criar | ~4K |
+| `Seletores.md` inteiro | Só precisa da seção relevante | ~1.3K |
+| `Sumario_Executivo.md`, `Especificacao_Tecnica_Web.md` | É responsabilidade do UPDATE DOCS | ~5K |
+
+### Total CODE otimizado: **~6.6K** tokens (vs ~22K original)
+
+---
+
+## RUN — Output Mínimo
+
+Use `--quiet` para reduzir output do Cypress. O log completo é truncado pelo sistema de qualquer forma. Só mostre erros se houver falha.
+
+```bash
+npx cypress run --spec "cypress/e2e/TC[##]_[sucesso/erro]_[titulo].cy.js" --quiet
+```
+
+Se falhar, execute novamente sem `--quiet` para capturar o erro completo.
+>>>>>>> Stashed changes
 
 ---
 
 ## Document Generation Rules (MANDATORY)
 
-Whenever creating ANY new documentation file (whether for a real test or a mock/temp test), the agent MUST:
+Whenever creating ANY new documentation file, the agent MUST:
 
 1. **READ THE TEMPLATE FIRST** — Before writing any document, read its corresponding `*_TEMPLATE.md` file completely.
-2. **MIRROR THE TEMPLATE STRUCTURE** — The generated document MUST follow the exact same sections, subsections, tables, and formatting as the template. The template is the source of truth for structure.
-3. **BDD MUST USE GHERKIN** — Every BDD scenario MUST have proper Gherkin blocks: `Dado`, `Quando`, `Então` (and optionally `E`). Never list scenarios without their Gherkin description. Each scenario must have business-readable language (no technical terms).
-4. **SUMARIO_EXECUTIVO MUST BE COMPLETE** — The executive summary must include: visão geral, escopo, tabela de casos de teste, e configuração do ambiente. Never output a minimal table-only version.
+2. **MIRROR THE TEMPLATE STRUCTURE** — The generated document MUST follow the exact same sections, subsections, tables, and formatting as the template.
+3. **BDD MUST USE GHERKIN** — Every BDD scenario MUST have proper Gherkin blocks: `Dado`, `Quando`, `Então` (and optionally `E`).
+4. **SUMARIO_EXECUTIVO MUST BE COMPLETE** — Must include visão geral, escopo, tabela de casos de teste, e configuração do ambiente.
 5. **ESPECIFICAÇÃO TÉCNICA MUST BE COMPLETE** — Every TC must have: objetivo, tipo, criticidade, dados, pós-condição, tabela de passos detalhados, e asserção chave.
-6. **EXECUTE AND INCLUDE EVIDENCE** — After generating scripts, run the tests, collect screenshots/HTML reports/videos, and include them in the output folder.
-7. **PERFORMANCE TESTS** — Follow `Especificacao_Tecnica_Performance_TEMPLATE.md` to create new performance TCs. Each performance TC must have: objective, type (smoke/carga/estresse/resistência/pico), configuration (VUs, stages, thresholds), k6 script, validation steps.
-8. **PERFORMANCE RESULTS REPORT** — After executing performance tests, update `Relatorio_Resultados_Performance.md` with collected metrics (avg, p95, error rate) and generate evidence via `--summary-export`.
-9. **HEADING STANDARDIZATION** — All documents MUST follow this heading hierarchy:
-
-   | Level | Format | Usage |
-   |:-----:|:-------|:------|
-   | `#` | Document title | `# Title - Automation Exercise` |
-   | `##` | Major section | `## 1. Section Name` |
-   | `###` | Subsection | `### 1.1 Subsection Name` |
-   | `####` | TC / sub-subsection | `#### TC_WEB_001 - Test name` |
-   | `**bold**` | Metadata | `**Versão:** 1.0.0`, `**Responsável:** Rafael Barelli` |
-   | normal text | Content | Paragraphs, lists, tables, code blocks |
-
-   The `---` separator MUST appear after the metadata block (with a blank line before it) and between major sections.
-
-> **HYPERLINK RULE:** Every reference to another document (`.md`, `.js`, `.json`, etc.) within any documentation file MUST be a clickable Markdown link in the format `` `filename` ``. Bare filenames in backticks (`` `file.md` ``) are NOT allowed unless they are inside code blocks or inlined code examples.
->
-> **METADATA LINE BREAK RULE:** Every metadata field in the document header (`**Versão:**`, `**Responsável:**`, `**Metodologia:**`, `**Ferramenta:**`, `**Data:**`, `**Ambiente:**`) and every TC metadata field (`**Objetivo:**`, `**Tipo:**`, `**Criticidade:**`, `**Dados:**`, `**Pós-condição:**`, `**Configuração:**`, `**Thresholds:**`) MUST end with `<br>` to force line breaks on GitHub. Example:
-> ```
-> **Objetivo:** Validar o ciclo de vida completo de criação e exclusão de conta.<br>
-> **Tipo:** Sucesso<br>
-> **Criticidade:** Crítica<br>
-> **Dados:** `UserFactory.generate()` - dados dinâmicos únicos por execução<br>
-> **Pós-condição:** Conta criada e excluída ao final do teste<br>
-> **Passos Detalhados:**
-> ```
-> The field `**Asserção Chave:**` MUST end with `<br>` when followed by `**Resultado esperado:**`. Only the field `**Asserção Chave:**` when followed by a code block or paragraph does NOT need `<br>.`
-> 
-> **API ASSERÇÃO CHAVE FORMAT:** For API tests, `**Asserção Chave:**` MUST contain the technical validation detail (status code + key response fields), distinct from the business outcome in `**Resultado esperado:**`. Example:
-> ```
-> **Asserção Chave:** Response status 200 com responseCode 200 e body contendo array de 34 produtos<br>
-> **Resultado esperado:** API retorna catálogo completo com 34 produtos<br>
-> ```
->
-> **RESULTADO ESPERADO RULE:** All tests (E2E, API, BDD, Performance) MUST include the field `**Resultado esperado:**` after `**Pós-condição:**` describing the expected business outcome of the test. This field applies to both technical documents and BDD scenarios.
->
-> **SCRIPT HYPERLINK RULE:** Every TC in technical documents (E2E Web, API, Performance) AND every BDD scenario MUST include the field `**Script:**` after `**Resultado esperado:**` with the script filename and a clickable hyperlink to the respective `.cy.js` or `.js` file. Example:
-> ```
-> **Resultado esperado:** Usuário consegue se registrar...<br>
-> **Script:** `TC_WEB_001_sucesso_registrar_usuario.cy.js`<br>
-> ```
-> For BDD scenarios, use the `- **Script:**` format:
-> ```
-> - **Resultado esperado:** Usuário consegue se registrar...
-> - **Script:** `TC_WEB_001_sucesso_registrar_usuario.cy.js`
-> ```
-
-> **Exception:** Templates already have `AAAA-MM-DD` as a date placeholder. Always replace it with the **current date** when generating the document.
+6. **EXECUTE AND INCLUDE EVIDENCE** — After generating scripts, run the tests, collect screenshots/HTML reports/videos.
+7. **HEADING STANDARDIZATION** — Follow the heading hierarchy: `#` title, `##` major section, `###` subsection, `####` TC entry, `**bold**` metadata.
+8. **HYPERLINK RULE** — Every reference to another document must be a clickable Markdown link.
+9. **METADATA LINE BREAK RULE** — Every metadata field must end with `<br>`.
+10. **RESULTADO ESPERADO RULE** — All tests MUST include `**Resultado esperado:**` after `**Pós-condição:**`.
+11. **SCRIPT HYPERLINK RULE** — Every TC MUST include `**Script:**` with hyperlink to the `.cy.js` file.
+12. **ASSERÇÃO CHAVE FORMAT** — For API tests, include technical validation detail (status code + key response fields).
 
 ---
 
 ## BDD Documentation (MANDATORY)
+
 The BDD document provides a business-readable overview of all test scenarios organized by functional area.
 
 ### BDD Generation Rules:
-1. **CREATE BACKUP** of BDD files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
-2. **READ ALL SOURCE DOCUMENTS FIRST** — Before reading the BDD template:
-   - Read `Especificacao_Tecnica_Web.md`
-   - Read `Especificacao_Tecnica_API.md`
-   - Read `Sumario_Executivo.md`
-3. **READ Suite_BDD_TEMPLATE.md** — Only after the source documents are read, read the template to understand the structure.
-4. **GENERATE FROM TECHNICAL DOCUMENTS** — The BDD must reflect the exact scenarios defined in the technical test plans, NOT invent new scenarios.
-5. **MATCH TECHNICAL DETAILS** — Each BDD entry must align with its corresponding entry in Especificacao_Tecnica_Web.md, Especificacao_Tecnica_API.md and Sumario_Executivo.md.
-6. **BDD SIMPLIFICATION** — Each scenario must use grouped Given/When/Then steps (resumo) by business intent:
-   - Maximum of **7 blocks** per scenario
-   - Group related actions into single When steps (e.g., "adiciono dois produtos ao carrinho" instead of separate hover+click steps)
-   - Given = 1 line (precondition)
-   - When = actions grouped by business intent
-   - Then = validations grouped
-   - The technical plan has the granular steps; the BDD summarizes by intention
-7. **REQUIRED DADO FIELD** — Every scenario MUST have the `Dado` field filled with natural language context (input data, preconditions, or required resources). NEVER use "Nenhum" when context applies — describe the resource or condition needed. Example: "Que existem credenciais pré-cadastradas no sistema" instead of "Nenhum".
-8. **DADO LANGUAGE STANDARD** — The `Dado` field must follow consistent patterns for stakeholder readability:
+1. **CREATE BACKUP** of BDD files before any change.
+2. **READ ALL SOURCE DOCUMENTS FIRST** — Before reading the BDD template: read `Especificacao_Tecnica_Web.md`, `Especificacao_Tecnica_API.md`, `Sumario_Executivo.md`.
+3. **READ Suite_BDD_TEMPLATE.md** — Only after the source documents are read.
+4. **GENERATE FROM TECHNICAL DOCUMENTS** — The BDD must reflect the exact scenarios defined in the technical test plans.
+5. **BDD SIMPLIFICATION** — Max 7 blocks per scenario. Given = 1 line. When = grouped by business intent. Then = grouped validations.
+6. **REQUIRED DADO FIELD** — Every scenario MUST have `Dado` filled with natural language context.
+7. **DADO LANGUAGE STANDARD:** Follow patterns for stakeholder readability.
+8. **SCRIPT FIELD** — Every BDD scenario MUST include `- **Script:**` with hyperlink.
+9. **TECHNICAL DETAILS** — Each BDD entry must align with its corresponding entry in the technical documents.
 
-| Cenário | Padrão `Dado` |
-|---------|---------------|
-| Login (usuário existente) | `Que existem credenciais pré-cadastradas no sistema` |
-| Falha de login | `Que existem credenciais inexistentes no sistema` |
-| Registro (criar nova conta) | `Que existem dados de registro disponíveis` |
-| Checkout com login | `Que existem credenciais pré-cadastradas e dados de pagamento disponíveis` |
-| API criar conta | `Que existem dados de registro e a API de criação de conta está disponível` |
-| API excluir conta | `Que existem credenciais pré-cadastradas e a API de exclusão de conta está disponível` |
-| API atualizar conta | `Que existem dados de registro e a API de atualização de conta está disponível` |
-| API consultar conta | `Que existem dados de registro e a API de consulta de conta está disponível` |
-
-**Regras:**
-- Nunca usar "por execução", "dinâmico", "timestamp" ou termos técnicos no `Dado`
-- "Credenciais pré-cadastradas" = usuário já existe no sistema
-- "Dados de registro" = criar novo usuário
-- "API de [função] disponível" = APIs específicas com dados dinâmicos
-
-### BDD Increment Rules:
-When creating a new test case, the BDD must be updated AFTER the technical documents are updated:
-
-1. **READ ALL SOURCE DOCUMENTS FIRST** — Before reading the BDD template:
-   - Read `Especificacao_Tecnica_Web.md`
-   - Read `Especificacao_Tecnica_API.md`
-   - Read `Sumario_Executivo.md`
-2. **READ Suite_BDD_TEMPLATE.md** — Only after the source documents are read, read the template to understand the structure.
-3. **CHECK** if TC already exists in Suite_BDD.md.
-4. **CREATE BACKUP** of BDD files before any change.
-5. **UPDATE BDD** using Suite_BDD_TEMPLATE.md as base:
-   - Extract the exact scenarios from the source documents
-    - **SUMMARIZE steps** by grouping actions into Given/When/Then blocks (max 7 blocks per scenario)
-   - Populate the template with the collected data
-   - **REQUIRED DADO FIELD:** Every scenario MUST have the `Dado` field filled with natural language context. Never use "Nenhum" when context applies.
-   - **DADO LANGUAGE STANDARD:** Follow the language patterns defined in item 8 — use "Que existem credenciais pré-cadastradas no sistema" for login, "Que existem dados de registro disponíveis" for registration, etc.
-   - **SCRIPT FIELD:** Every BDD scenario MUST include `- **Script:** `filename`` after `- **Resultado esperado:**` with a hyperlink to the respective test script.
-   - Add new entry to the appropriate functional area (E2E or API)
-   - Update totals in Meta e Escopo section
-   - Update classification tables (Sucesso/Erro counts and percentages)
-   - Update mapping tables (Test Cases)
-
-### BDD Documentation:
-The BDD document must follow the structure defined in:
-📄 `Suite_BDD_TEMPLATE.md`
-
-Template file for increment:
-📄 `Suite_BDD_TEMPLATE.md`
+---
 
 ## Centralized BeforeEach (MANDATORY)
+
 The `beforeEach()` with `cy.visit('/')` and `cy.fixture('users').as('usersData')` must be centralized in `cypress/support/e2e.js`.
-- **DO NOT** repeat individual `beforeEach` in test files inside `cypress/e2e/`
-- The step `// 2. Navegar para url... (via beforeEach)` remains in tests for traceability
-- The step `// 1. Abrir navegador (via beforeEach cy.visit('/'))` remains in tests for traceability
+- **DO NOT** repeat individual `beforeEach` in test files.
+- The step `// 2. Navegar para url... (via beforeEach)` remains in tests for traceability.
+- The step `// 1. Abrir navegador (via beforeEach cy.visit('/'))` remains in tests for traceability.
+
+---
 
 ## Coding & Naming Standards
-The Agent **MUST** follow the appropriate standards based on the test type:
 
 ### E2E Tests (Default)
-The Agent **MUST** follow all coding, naming, and documentation standards defined in:
-📄 - `Guia_Cypress_Template.md`
+Follow all coding, naming, and documentation standards defined in `Guia_Cypress_TEMPLATE.md`.
 
 ### API Tests
-The Agent **MUST** follow all coding, naming, and documentation standards defined in:
-📄 `Guia_Cypress_Template.md`
-📄 `Sumario_Executivo.md`
-📄 `Especificacao_Tecnica_API.md`
-
-**Rule:** When the user explicitly mentions "API tests", "API documentation", or "testes de API", the Agent MUST use the API-specific technical document.
+Follow `Guia_Cypress_TEMPLATE.md`, `Sumario_Executivo.md`, `Especificacao_Tecnica_API.md`.
 
 ### Performance Tests (k6)
-The Agent **MUST** follow all coding, naming, and documentation standards defined in:
-📄 `Guia_Cypress_Template.md`
-📄 `Sumario_Executivo.md`
-📄 `Especificacao_Tecnica_Performance.md`
+Follow `Guia_Cypress_TEMPLATE.md`, `Sumario_Executivo.md`, `Especificacao_Tecnica_Performance.md`.
 
-**Rule:** When the user explicitly mentions "performance tests", "load tests", "carga", or "testes de performance", the Agent MUST use the performance-specific technical document.
-
-- **Step Numbering:** All steps use sequential numbering (no sub-letters like 4a, 4b, 4c). Each action is a separate step. Each step MUST have a comment in format `// N. [description in Portuguese]`. **This applies to BOTH E2E and API tests.**
+- **Step Numbering:** Sequential numbers. Each step has `// N. [description in Portuguese]`.
 - **BeforeEach:** Global in `cypress/support/e2e.js`, DO NOT repeat in tests.
-- **Test Naming:** File names, `describe()` and `it()` tags (MUST be in Portuguese).
-- **Screenshots:** Numbering MUST exactly match the current step number (e.g., `04_`). For multiple screenshots in the same step, use suffixes `04_`, `04a_`, `04b_`. ALL descriptions in the takeScreenshot argument MUST be in Portuguese. **MANDATORY use of `cy.captura()` custom command.**
-- **Zero Hardcoded Policy (MANDATORY):** Test data (emails, passwords, product names, categories, brands, or messages) and **UI TEXTS** (buttons, headers, labels) **MUST NOT** be hardcoded in test files (Always abstract to fixtures).
-- **Data Fixtures:** All static data, search terms, and UI texts must be in `cypress/fixtures/` (`users.json`, `products.json`, `contact.json`, `ui_texts.json`).
-    - **`ui_texts.json`**: Must contain all fixed `headers`, `buttons`, `errors`, and `labels` of the site.
-- **Data Factories:** Unique dynamic data (new accounts) must come from `UserFactory.js`.
-- **Selector Hierarchy:** Priority order for elements.
-- **Selector Investigation Flow:** Always inspect the live site before creating selectors; register alternatives in `Seletores.md`.
-- **Documentation:** One-line comment patterns for selectors and methods.
-- **Selector Description Format:** All selector descriptions in `Especificacao_Tecnica_Web.md` and its template MUST follow the pattern: `[verbo/objeto] + [elemento] + (contexto se necessário)`. Examples: `Botão adicionar ao carrinho (modal)`, `Header categoria`, `Campo email newsletter`. The doc is the source of truth — the template MUST mirror the doc exactly.
-- **Documentation Increment (MANDATORY):** When creating a new test case:
+- **Test Naming:** Portuguese. File name: `TC_[TYPE]_[###]_[sucesso/erro]_[title].cy.js`
+- **Screenshots:** Use `cy.captura()`. Numbering matches step number.
+- **Zero Hardcoded Policy:** No test data or UI texts hardcoded. Use fixtures.
+- **Data Fixtures:** `users.json`, `products.json`, `contact.json`, `ui_texts.json`.
+- **Data Factories:** Use `UserFactory.js` for dynamic data.
+- **Selector Investigation Flow:** Inspect live site before creating selectors; register in `Seletores.md`.
+
+### Documentation Increment (MANDATORY):
 
 #### For E2E Tests:
+<<<<<<< Updated upstream
     1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_Web.md` — if yes, skip increment.
     2. **CODE FIRST — DOCUMENT AFTER:** Create the test file (`.cy.js`), Page Objects, and all supporting code first.
     3. **RUN AND CONFIRM:** Execute the test with `npx cypress run --spec "cypress/e2e/TC[##]_[sucesso/erro]_[titulo].cy.js"` and verify it **passes completely** (all steps, assertions, screenshots, and cleanup) before proceeding to documentation.
-    4. **GIF** — Gerar GIF do teste executado com `node scripts/gerar_gifs.js` em `automationexercise/Cypress/`
-    5. **CREATE BACKUP** of all E2E documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
-    6. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_WEB_001 - TC_WEB_###`).
-    7. **Increment `Especificacao_Tecnica_Web.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Web_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
-    8. **Update `Suite_BDD.md`:** Add new entry to section 8.1 (E2E) mapping table. Update totals in Meta e Escopo and Cobertura sections.
-    9. **Verify** both documents compile correctly with no broken links or numbering gaps.
-    10. **Allure** — Confirm allure-results were generated for the test. If not, check `@shelex/cypress-allure-plugin` configuration in `cypress.config.js`.
+     4. **CREATE BACKUP** of all E2E documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
+     5. **Increment `Sumario_Executivo.md`:** First read the existing file to understand current state. Then read `Sumario_Executivo_TEMPLATE.md` for format reference. Add new TC entry to the appropriate table (Sucesso or Erro). Update catalog table header (e.g., `TC_WEB_001 - TC_WEB_###`). Use the test filename (derived from naming convention) for `**Script:**` hyperlinks.
+     6. **Increment `Especificacao_Tecnica_Web.md`:** First read the existing file to understand current structure. Then read `Especificacao_Tecnica_Web_TEMPLATE.md` for format reference. Add new TC section below the appropriate group using the template as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave. Refer to the newly created `.cy.js` file to extract the detailed steps and evidence paths for the documentation.
+     7. **Update `Suite_BDD.md`:** First read the existing file. Then read `Suite_BDD_TEMPLATE.md` for format reference. Add new entry to section 8.1 (E2E) mapping table. Update totals in Meta e Escopo and Cobertura sections.
+     8. **Verify** both documents compile correctly with no broken links or numbering gaps.
+    9. **Allure** — Confirm allure-results were generated for the test. If not, check `@shelex/cypress-allure-plugin` configuration in `cypress.config.js`.
+=======
+1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_Web.md` — if yes, skip.
+2. **CODE FIRST — DOCUMENT AFTER:** Create test file, Page Objects, and supporting code first.
+3. **RUN AND CONFIRM:** Execute test with `npx cypress run --quiet --spec "cypress/e2e/TC[##]_[sucesso/erro]_[titulo].cy.js"` and verify it passes completely.
+4. **CREATE BACKUP** of all E2E documentation files.
+5. **Increment `Sumario_Executivo.md`:** Read existing file + `Sumario_Executivo_TEMPLATE.md`. Add entry. Update catalog header.
+6. **Increment `Especificacao_Tecnica_Web.md`:** Read existing file + `Especificacao_Tecnica_Web_TEMPLATE.md`. Add TC section with full details.
+7. **Update `Suite_BDD.md`:** Read existing file + `Suite_BDD_TEMPLATE.md`. Add entry. Update totals.
+8. **Verify** both documents have no broken links or numbering gaps.
+9. **Allure** — Confirm allure-results were generated.
+>>>>>>> Stashed changes
 
 #### For API Tests:
-    1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_API.md` — if yes, skip increment.
-    2. **CODE FIRST — DOCUMENT AFTER:** Create the test file (`TC_API_*.cy.js`) in `automationexercise/Cypress/cypress/e2e/` first.
-    3. **RUN AND CONFIRM:** Execute the test with `npx cypress run --spec "cypress/e2e/TC_API_*.cy.js"` and verify it **passes completely** (all assertions, responses, and cleanup) before proceeding to documentation.
-    4. **GIF** — Gerar GIF do teste executado com `node scripts/gerar_gifs.js` em `automationexercise/Cypress/`
-    5. **CREATE BACKUP** of all API documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
-    6. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate table (Sucesso or Erro) using `Sumario_Executivo_TEMPLATE.md` as base. Update catalog table header (e.g., `TC_API_001 - TC_API_###`).
-    7. **Increment `Especificacao_Tecnica_API.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_API_TEMPLATE.md` as base. Each action is a **separate step** (no grouping). Steps are numbered sequentially (no sub-letters). Update catalog table header and add entry. Each new TC section must include: title, objective, type, criticidade, dados, pós-condição, steps table, and asserção chave.
-    8. **Update `Suite_BDD.md`:** Add new entry to section 8.2 (API) mapping table. Update totals in Meta e Escopo and Cobertura sections.
-    9. **Verify** both documents compile correctly with no broken links or numbering gaps.
-    10. **Allure** — Confirm allure-results were generated for the test. If not, check `@shelex/cypress-allure-plugin` configuration in `cypress.config.js`.
+1. **CHECK** if TC exists. If yes, skip.
+2. **CODE FIRST — DOCUMENT AFTER:** Create `TC_API_*.cy.js`.
+3. **RUN AND CONFIRM** with `npx cypress run --quiet --spec "cypress/e2e/TC_API_*.cy.js"`.
+4. **CREATE BACKUP** of all API documentation files.
+5. **Increment `Sumario_Executivo.md`** and `Especificacao_Tecnica_API.md`.
+6. **Update `Suite_BDD.md`** section 8.2.
+7. **Verify** documents.
+8. **Allure** — Confirm allure-results.
 
 #### For Performance Tests:
-    1. **CHECK** if TC already exists in `Sumario_Executivo.md` and `Especificacao_Tecnica_Performance.md` — if yes, skip increment.
-    2. **CODE FIRST — DOCUMENT AFTER:** Create the k6 script (`TC_PF_*.js`) or Cypress script (`TC_PF_*.cy.js`) in `automationexercise/Cypress/cypress/e2e/performance/` first.
-    3. **RUN AND CONFIRM:** Execute the test with `k6 run "cypress/e2e/performance/TC_PF_*.js"` (or `npx cypress run --spec "cypress/e2e/performance/TC_PF_*.cy.js"`) and verify it **passes completely** (all checks pass, thresholds met) before proceeding to documentation.
-    4. **GIF** — Gerar GIF do teste executado com `node scripts/gerar_gifs.js` em `automationexercise/Cypress/`
-    5. **CREATE BACKUP** of all Performance documentation files before any change (`automationexercise/Backup/[FILENAME]_[YYYYMMDD_HHmmss].[ext]`).
-    6. **Increment `Sumario_Executivo.md`:** Add new TC entry to the appropriate line in the catalog table using `Sumario_Executivo_TEMPLATE.md` as base. Update total count.
-    7. **Increment `Especificacao_Tecnica_Performance.md`:** Add new TC section below the appropriate group using `Especificacao_Tecnica_Performance_TEMPLATE.md` as base. Each TC must include: objective, type (smoke/carga/estresse/resistência/pico/auditoria), configuration (VUs, stages, thresholds), script path, validation steps table, and key assertion.
-    8. **Update `Suite_BDD.md`:** Add new entry to section 8.3 (Performance) mapping table.
-    9. **Update `Relatorio_Resultados_Performance.md`:** After execution, populate metrics (avg, p95, taxa de erro) using `Relatorio_Resultados_Performance_TEMPLATE.md` as base.
-    10. **Verify** all documents compile correctly with no broken links or numbering gaps.
-    11. **Allure** — Confirm allure-results are generated (k6 requires conversion via `convert_k6_to_allure.js`).
-
-**Critical Rule:** NEVER update any test plan or technical test plan with a test case that has not been executed and confirmed passing. Documentation reflects the validated, working state of the test — not a planned or in-progress state.
+1. **CHECK** if TC exists. If yes, skip.
+2. **CODE FIRST — DOCUMENT AFTER:** Create k6 script or Cypress script.
+3. **RUN AND CONFIRM** with `k6 run ... --quiet` or `npx cypress run --quiet --spec ...`.
+4. **CREATE BACKUP** of all Performance documentation files.
+5. **Increment documents** using respective templates.
+6. **Update `Relatorio_Resultados_Performance.md`.**
+7. **Verify** documents.
+8. **Allure** — Confirm allure-results (k6 requires conversion).
 
 ---
 
 ## Test Case Classification (MANDATORY)
 
 ### Classification Rules
-1. **Sucesso**: Test that verifies a successful flow (expected success)
-2. **Erro**: Test that verifies error handling/negative validations
+1. **Sucesso**: Test that verifies a successful flow.
+2. **Erro**: Test that verifies error handling/negative validations.
 
 ### Classification Criteria
 | Type | Characteristics |
@@ -375,168 +364,91 @@ The Agent **MUST** follow all coding, naming, and documentation standards define
 | **Erro** | Invalid credentials, Duplicate email, Invalid form, Search without results |
 
 ### Naming Convention (MANDATORY)
-- **Test ID Format (MANDATORY):**
-  - **E2E Tests:** `TC_WEB_###` (ex: TC_WEB_001, TC_WEB_014)
-  - **API Tests:** `TC_API_###` (ex: TC_API_001, TC_API_014)
-  - **Performance Tests:** `TC_PF_###` (ex: TC_PF_001, TC_PF_014)
-- File: `TC_[TYPE]_[###]_[sucesso/erro]_[translated_original_title].cy.js` (same as JSDoc line 1: "Test Case #: Title")
-- Examples:
-  - E2E: `TC_WEB_003_erro_login_usuario_email_senha_incorretos.cy.js`
-  - API: `TC_API_012_erro_validar_metodo_post_em_productslist.cy.js`
-  - Performance: `TC_PF_005_estresse_api_produtos.js`
+- **Test ID Format:** `TC_WEB_###`, `TC_API_###`, `TC_PF_###`
+- **File:** `TC_[TYPE]_[###]_[sucesso/erro]_[translated_title].cy.js`
 
 ### Test Documentation (MANDATORY)
-- **Test Case Title MUST be in PORTUGUESE** (translate from the original .txt), with prefix `TC_[TYPE]_### - ` in JSDoc (ex: `TC_WEB_003 - Login de usuário com credenciais incorretas`)
-- Add tag `@sucesso` or `@erro` in JSDoc (ONLY these tags are allowed)
-- Add tag `@TC_[TYPE]_###` in JSDoc (ex: `@TC_WEB_003`)
-- **describe() format:**
-  - **E2E:** `TC_WEB_### - [Description in Portuguese]` (ex: `describe('TC_WEB_003 - Login de usuário com email e senha incorretos')`)
-  - **API:** `TC_API_### - [Description in Portuguese]` (ex: `describe('TC_API_012 - Validar método POST em productsList via API')`)
-  - **Performance:** `TC_PF_### - [Description in Portuguese]` (ex: `describe('TC_PF_005 - Estresse progressivo no /api/productsList')`)
-  - **Rule:** Do NOT include "Test Case ## -" nor "Sucesso/Erro -" in describe(). Only ID + description.
-- it() format: `[verb] [result in Portuguese]` (without `[TC##]` at the start)
-- Example: `it('deve mostrar erro com credenciais incorretas')`
-- **Screenshot Command:** Helper `takeScreenshot` MUST use `cy.captura(`${stepName}`)`.
-
-## API Evidence Structure (MANDATORY)
-API tests MUST generate HTML-only evidence in the following structure:
-- **Folder:** `cypress/screenshots/api/` (plano, sem subpasta por spec)
-- **HTML Report:** `{testId}_api_result.html` (e.g., `TC_API_001_api_result.html`, sobrescrito a cada execução)
-
-A `generateEvidenceReport` task em `cypress.config.js` salva os HTMLs diretamente em `screenshots/api/`.
-All 14 API tests pass successfully with this structure.
-
-### Evidence Format Standards (MANDATORY)
-
-As evidências nos documentos devem seguir o formato exato abaixo:
-
-- **WEB (E2E) em Especificações Técnicas:** `**Evidência em GIF:** ![TC_WEB_###](../Cypress/cypress/screenshots/web/TC_WEB_###_sucesso/erro_titulo.cy.js/TC_WEB_###_sucesso/erro_titulo.gif)`
-- **WEB (E2E) em BDD:** `- **Evidência:** ![TC_WEB_###](../Cypress/cypress/screenshots/web/TC_WEB_###_sucesso/erro_titulo.cy.js/TC_WEB_###_sucesso/erro_titulo.gif)`
-- **API em Especificações Técnicas:** `**Evidência:**` (linha separada) + `` [`TC_API_###_api_result.html`](https://htmlpreview.github.io/?https://github.com/mtnirvana/AutomationExercise/blob/main/automationexercise/Cypress/cypress/screenshots/api/TC_API_###_api_result.html) ``
-- **API em BDD:** `- **Evidência:** [`TC_API_###_api_result.html`](https://htmlpreview.github.io/?...)``
-
-### Test ID Format (MANDATORY)
-- **E2E Tests:** `TC_WEB_###` (ex: TC_WEB_001, TC_WEB_014)
-- **API Tests:** `TC_API_###` (ex: TC_API_001, TC_API_014)
-
-### API Assertion Patterns (MANDATORY)
-All API test assertions must use Portuguese descriptions in the format:
-- **equals** → `é igual a {value}`
-- **is_an_array** → `é um array`
-- **greater_than** → `é maior que {value}`
-- **has_property** → `possui propriedade {tag}`
-
-**Example:**
-```javascript
-assertions.push({ description: 'response.status é igual a 200', passed: true })
-assertions.push({ description: 'response.body.products é um array', passed: true })
-assertions.push({ description: 'response.body.products.length é maior que 0', passed: true })
-```
-
-## Execution Protocol
-Before creating any selector or when identifying a failure, the Agent must use its inspection tools to:
-1. Open the site and inspect the complete HTML.
-2. Search for the most robust level available (data-qa, ID, etc.).
-3. **MANDATORY CHECK:** Verify if the selector (or an equivalent one) ALREADY EXISTS in the target Page Object. If it exists, **REUSE it**. Do not create redundant selectors with different names to avoid polluting the Page Objects.
-4. **Preencher o template `Seletores_TEMPLATE.md`** — Usar como modelo de estrutura de seções e categorias, seguindo o formato padronizado de tabelas (Elemento/Seletor Atual/Alternativas/Status).
-5. **Incrementar o `Seletores.md` oficial** — Copiar o bloco preenchido do template para o documento oficial, na seção da página correspondente.
-
-## Self-Healing Policy (Failure/Restoration)
-If a test fails due to a selector error:
-1. **Step 1:** Consult `Seletores.md` for documented alternatives (Skip `[QUEBRADO]`).
-2. **Step 2:** If failed, consult `automationexercise/Cypress/playwright-cli/SKILL.md` and use Playwright CLI (`playwright-cli open`, `playwright-cli goto`, `playwright-cli snapshot`) to inspect the page and find a new selector. If Playwright CLI fails, use Playwright MCP or Chrome DevTools MCP. As a last resort, use Selenium MCP.
-3. **Step 3:** Preencher o `Seletores_TEMPLATE.md` com os seletores descobertos (usar como modelo de estrutura de seções e categorias).
-4. **Step 4:** Copiar o bloco do template para o `Seletores.md` oficial e atualizar o Page Object (marcando o seletor antigo como `[QUEBRADO]`).
-5. **Step 5:** GERAR GIF — Após restaurar o seletor com sucesso, executar `node scripts/gerar_gifs.js` no diretório `automationexercise/Cypress/` para gerar novo GIF evidenciando o fluxo corrigido.
-
-> **O fluxo completo de investigação de seletores (hierarquia, ferramentas, como inspecionar) está detalhado no `Guia_Cypress_Template.md` (seção 8). Consulte-o SEMPRE antes de criar ou substituir seletores.**
-
-## Golden Rules
-- **NEVER** use a selector marked as `[QUEBRADO]` during execution.
-- **Restoration:** If a broken selector works again during investigation, remove the tag in `Seletores.md` but **KEEP the history** (Failure/Restoration dates).
+- Title in Portuguese with `TC_[TYPE]_### - ` prefix in JSDoc.
+- Tags: `@sucesso` or `@erro`, `@TC_[TYPE]_###`.
+- `describe()`: `TC_WEB_### - [Description in Portuguese]`.
+- `it()`: `[verb] [result in Portuguese]`.
+- Screenshots: `cy.captura()`.
 
 ---
 
-# Useful Commands
+## API Evidence Structure (MANDATORY)
+
+HTML-only evidence in `cypress/screenshots/api/`. Use `generateEvidenceReport` task.
+
+### Evidence Format Standards:
+- **WEB (E2E) em Especificações Técnicas:** `**Evidência em GIF:** ![TC_WEB_###](path/to/file.gif)`
+- **WEB (E2E) em BDD:** `- **Evidência:** ![TC_WEB_###](path/to/file.gif)`
+- **API em Especificações Técnicas:** HTML link.
+- **API em BDD:** HTML link.
+
+---
+
+## Execution Protocol
+
+Before creating any selector or when identifying a failure:
+1. Open the site and inspect the complete HTML.
+2. Search for the most robust level available (data-qa, ID, etc.).
+3. **MANDATORY CHECK:** Verify if the selector already exists in the target Page Object. If it exists, REUSE it.
+4. Use `Seletores_TEMPLATE.md` as model.
+5. Increment `Seletores.md` with new selectors.
+
+---
+
+## Self-Healing Policy (Failure/Restoration)
+
+If a test fails due to a selector error:
+1. **Step 1:** Consult `Seletores.md` for documented alternatives.
+2. **Step 2:** Use Playwright CLI, Playwright MCP, or Chrome DevTools MCP to inspect.
+3. **Step 3:** Fill `Seletores_TEMPLATE.md`.
+4. **Step 4:** Update `Seletores.md` and Page Object (mark old selector as `[QUEBRADO]`).
+
+---
+
+## Golden Rules
+- **NEVER** use a selector marked as `[QUEBRADO]`.
+- **Restoration:** If a broken selector works again, remove the tag but keep history.
+- **NEVER enfraquecer ou remover uma asserção para fazer o teste passar.** Se o sistema não implementa a regra de negócio, o teste DEVE falhar. Um falso positivo (teste passa validando nada) é pior que um teste falhando.
+- **Falha legítima não é erro de teste.** Se a falha revela que o sistema não cumpre a especificação, documente o bug. Não "corrija" o teste.
+
+---
+
+## Useful Commands
+
 ```bash
-# Open Cypress UI
-npx cypress open
-# Run all tests
-npx cypress run
-# Run specific test by tag (ex: TC_WEB_003)
-npx cypress run --tag @TC_WEB_003
-# Run specific test
-npx cypress run --spec "cypress/e2e/[test].cy.js"
+# Run specific test (silencio máximo)
+npx cypress run --spec "cypress/e2e/[test].cy.js" --quiet
+
 # Run on specific browser
-npx cypress run --browser edge
-npx cypress run --browser chrome
-npx cypress run --browser firefox
-```
+npx cypress run --spec "cypress/e2e/[test].cy.js" --browser edge --quiet
 
-## Supported Browsers
-| Browser | Recommended Version | Note |
-|---------|-------------------|------------|
-| Edge | 148+ | Fastest |
-| Firefox | 135+ | Compatible |
-| Chrome | 147+ | Default |
-| Electron | 138 | Bundled with Cypress |
-
-## API Testing Commands
-```bash
 # Run all API tests
-npx cypress run --spec "cypress/e2e/TC_API_*.cy.js"
-# Run specific API test
-npx cypress run --spec "cypress/e2e/TC_API_001_sucesso_listar_todos_produtos.cy.js"
-# Run on specific browser
-npx cypress run --spec "cypress/e2e/TC_API_*.cy.js" --browser edge
+npx cypress run --spec "cypress/e2e/TC_API_*.cy.js" --quiet
 ```
 
 ## GIF Generation
-Animated GIFs from PNG screenshots are generated by:
 ```bash
 cd automationexercise/Cypress
 node scripts/gerar_gifs.js
 ```
-GIFs are stored in the same folder as PNG screenshots (e.g., cypress/screenshots/web/TC_WEB_001.cy.js/). The script requires `gifencoder` and `canvas` npm packages.
 
 ## Performance Testing Commands (k6)
 ```bash
-# Install k6 (Windows)
-winget install GrafanaLabs.k6 --accept-package-agreements
-
-# Smoke test
-k6 run automationexercise/Cypress/cypress/e2e/performance/TC_PF_001_smoke_test.js
-
-# Load test
-k6 run automationexercise/Cypress/cypress/e2e/performance/TC_PF_003_carga_api_produtos.js
-
-# Stress test
-k6 run automationexercise/Cypress/cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js
-
-# Soak test
-k6 run automationexercise/Cypress/cypress/e2e/performance/TC_PF_006_resistencia_soak.js
-
-# Spike test
-k6 run automationexercise/Cypress/cypress/e2e/performance/TC_PF_007_pico_spike.js
-
-# Checkout flow
-k6 run automationexercise/Cypress/cypress/e2e/performance/TC_PF_009_carga_checkout.js
-
-# Image audit
-k6 run automationexercise/Cypress/cypress/e2e/performance/TC_PF_010_auditoria_imagens.js
-
-# Run with JSON evidence export
-k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js --summary-export=reports/resultado.json
-
-# Run all k6 tests
-# Run all k6 tests (exclui .cy.js)
-for %f in (automationexercise/Cypress/cypress/e2e/performance/TC_PF_*.js) do @echo %f | findstr /v "\.cy" >nul && k6 run "%f" --quiet
-
-# Run Core Web Vitals (Cypress)
-cd automationexercise/Cypress
-npx cypress run --spec "cypress/e2e/performance/TC_PF_008_core_web_vitals.cy.js" --browser edge
+k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js --quiet
+k6 run cypress/e2e/performance/TC_PF_005_estresse_api_produtos.js --summary-export=reports/resultado.json --quiet
 ```
+<<<<<<< Updated upstream
  
  ---
  
- **Documento gerado em:** 2026-06-04
+ **Documento gerado em:** 2026-06-12 (7ª revisão)
+=======
+
+---
+
+**Documento gerado em:** 2026-06-12
+>>>>>>> Stashed changes

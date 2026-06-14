@@ -8,10 +8,11 @@
 [![Chrome DevTools MCP](https://img.shields.io/badge/Chrome_DevTools_MCP-latest-FFD700)](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 [![Playwright MCP](https://img.shields.io/badge/Playwright_MCP-latest-45ba4b)](https://github.com/microsoft/playwright-mcp)
 [![Selenium MCP](https://img.shields.io/badge/Selenium_MCP-latest-43B02A)](https://github.com/angiejones/mcp-selenium)
+[![CI/CD](https://img.shields.io/github/actions/workflow/status/mtnirvana/AutomationExercise/ci.yml?label=CI%2FCD)](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml)
 
-Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes funcionais (E2E e API), testes de performance, documentação ISTQB/BDD e inteligência artificial.
+Framework de automação de testes para o site [Automation Exercise](https://www.automationexercise.com) — uma loja virtual de demonstração — seguindo o padrão ouro do mercado. Combina testes funcionais (E2E e API), testes de performance, CI/CD automatizado, documentação ISTQB/BDD e inteligência artificial.
 
-Cada teste, documento e relatório são gerados e mantidos por IA, desde os scripts até a documentação técnica, BDD e relatórios de performance. A IA codifica, executa, documenta, corrige seletores e mantém a rastreabilidade entre execuções no Allure. Tudo dentro de uma governança rígida e pré-definida. O ciclo completo de QA é padronizado e automatizado, garantindo consistência em cada etapa.
+Cada teste, documento e relatório são gerados e mantidos por IA, desde os scripts até a documentação técnica, BDD e relatórios de performance. A IA codifica, executa, documenta, corrige seletores e mantém a rastreabilidade entre execuções no Allure. Tudo dentro de uma governança rígida e pré-definida, com consumo de tokens otimizado em **~70%**. O ciclo completo de QA é padronizado e automatizado, garantindo consistência em cada etapa.
 
 Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os componentes são separados por responsabilidade, os dados organizados de forma centralizada e cada fluxo de teste é independente e rastreável. Um ecossistema escalável pensado para crescer sem perder a qualidade.
 
@@ -23,17 +24,19 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 
 ## 📋 Sumário
 
-- [Stack](#stack)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Testes E2E Web](#testes-e2e-web-26)
-- [Testes de API](#testes-de-api-14)
-- [Testes de Performance](#testes-de-performance-14)
-- [Evidências](#evidencias)
-- [Documentação](#documentacao)
+- [🛠 Stack](#stack)
+- [🏗 Estrutura do Projeto](#estrutura-do-projeto)
+- [📊 Testes E2E Web](#testes-e2e-web-26)
+- [📊 Testes de API](#testes-de-api-14)
+- [📊 Testes de Performance](#testes-de-performance-14)
+- [⚙️ CI/CD](#ci-cd)
+- [📸 Evidências](#evidencias)
+- [📄 Documentação](#documentacao)
 - [🤖 Uso com Agentes de IA](#uso-com-agentes-de-ia)
-- [Documentação IA](#documentacao-ia)
-- [Rastreabilidade Histórica](#rastreabilidade-historica)
-- [Como Executar](#como-executar)
+- [⚡ Otimização no Uso de Tokens de IA](#otimizacao-tokens)
+- [🧠 Documentação IA](#documentacao-ia)
+- [📈 Rastreabilidade Histórica](#rastreabilidade-historica)
+- [🚀 Como Executar](#como-executar)
 
 ---
 
@@ -52,6 +55,7 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 | [gifencoder](https://www.npmjs.com/package/gifencoder) | 2.x | Geração de GIFs animados |
 | [canvas](https://www.npmjs.com/package/canvas) | 2.x | Processamento de imagens |
 | [Node.js](https://nodejs.org/) | 20.19.5 | Runtime |
+| [GitHub Actions](https://github.com/features/actions) | — | CI/CD — 4 jobs orquestrados |
 
 ---
 
@@ -59,17 +63,22 @@ Arquitetura orientada a **alta manutenibilidade e repetibilidade**: os component
 ## 🏗 Estrutura do Projeto
 
 ```
-antigravity PORTFOLIO/
+Projeto/
 │
 ├── AGENTS.md                                      # Governança para agentes de IA
+├── .github/
+│   └── workflows/
+│       └── ci.yml                                 # GitHub Actions Pipeline CI/CD
 ├── README.md                                      # Este arquivo
 │
 ├── automationexercise/
-│   ├── install_all.sh                             # Instala todas as dependências
+│   ├── install_all.sh                             # Instala todas as dependências (Linux/macOS/WSL)
+│   ├── install_all.bat                            # Instala todas as dependências (Windows)
+│   ├── run_all.sh                                 # Script único: Cypress + k6 + GIFs + relatório (Linux/macOS/WSL)
+│   ├── run_all.bat                                # Script único: Cypress + k6 + GIFs + relatório (Windows)
 │   │
 │   ├── Cypress/                                   # Motor de automação
 │   │   ├── cypress.config.js                      # Config: trash, video, reporter, after:spec
-│   │   ├── run_all.bat                            # Script único: Cypress + k6 + GIFs + relatório
 │   │   ├── package.json                           # Dependências Node (Cypress, Allure, etc.)
 │   │   ├── scripts/                               # Utilitários
 │   │   │   └── gerar_gifs.js                      # Gera GIFs animados
@@ -138,8 +147,9 @@ antigravity PORTFOLIO/
 │       ├── Especificacao_Tecnica_API_TEMPLATE.md  # Template de especificação técnica (API)
 │       ├── Especificacao_Tecnica_Performance_TEMPLATE.md # Template de especificação técnica (Performance)
 │       ├── Suite_BDD_TEMPLATE.md                  # Template de cenários BDD (Gherkin)
+│       ├── Story_TEMPLATE.md                      # Template de dissecção de histórias de usuário
 │       ├── Relatorio_Resultados_Performance_TEMPLATE.md # Template de relatório de resultados
-│       ├── Guia_Cypress_Template.md               # Template de codificação e padrões do projeto
+│       ├── Guia_Cypress_TEMPLATE.md               # Template de codificação e padrões do projeto
 │       ├── Seletores_TEMPLATE.md                  # Template de estrutura para novos seletores (IA)
 │       └── Seletores.md                           # Histórico de seletores e self-healing (IA)
 │   │
@@ -233,6 +243,26 @@ antigravity PORTFOLIO/
 
 ---
 
+<a name="ci-cd"></a>
+## ⚙️ CI/CD — GitHub Actions
+
+O pipeline de integração contínua executa automaticamente toda a suíte de testes a cada push e pull request. Consiste em **4 jobs** orquestrados:
+
+| Job | Descrição |
+|:----|:----------|
+| **cypress-tests** | Matrix (`web`, `api`, `performance`) — 3 suítes paralelas |
+| **k6-performance** | 13 scripts k6 sequenciais após Cypress |
+| **generate-evidence** | Consolida artefatos + gera Allure unificado + deploy GitHub Pages |
+| **create-issue** | Cria issue `self-heal` automática se houver falhas |
+
+**Triggers:** push, pull request, `workflow_dispatch`
+
+**Workflow file:** [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
+
+**Relatório publicado:** [`https://mtnirvana.github.io/AutomationExercise/allure-report/`](https://mtnirvana.github.io/AutomationExercise/allure-report/)
+
+---
+
 <a name="evidencias"></a>
 ## 📸 Evidências
 
@@ -266,31 +296,71 @@ Cada TC na [Especificação Técnica Web](automationexercise/docs/Especificacao_
 <a name="uso-com-agentes-de-ia"></a>
 ## 🤖 Uso com Agentes de IA
 
-O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework** em 8 etapas:
+O [`AGENTS.md`](AGENTS.md) é o núcleo de governança do framework. Ele define como a IA deve atuar em cada etapa do ciclo de QA, desde a geração de scripts até o self-healing de seletores. O agente não se limita a documentar — ele **orquestra o ciclo completo do framework** em 9 etapas:
 
-1. **📖 Estudar** — Lê governança (AGENTS.md), padrões (Guia_Cypress), templates de docs, Page Objects, base de seletores (Seletores.md) e dados disponíveis (fixtures + UserFactory)
-2. **🧠 Planejar** — Define tipo do teste (E2E, API ou Performance), gera ID sequencial do TC (ex: TC_WEB_027), classifica como sucesso ou erro, decompõe a história em steps numerados, mapeia quais Page Objects usar e decide entre dados dinâmicos (factory) ou estáticos (fixture)
-3. **✍️ Criar** — Gera o arquivo .cy.js com JSDoc contendo @tags, importa os Page Objects necessários, implementa cada passo com comentário numerado em português, adiciona cy.captura() em cada interação e mantém a abstração entre camadas (pages, fixtures, factory)
-4. **▶️ Executar** — Roda `npx cypress run --spec` no navegador configurado, executando cada passo automaticamente como um usuário real, enquanto gera screenshots por passo, grava vídeo da execução e exporta resultados para o Allure
-5. **🔀 Decidir** — Se passa: screenshots numerados são salvos, um GIF animado é gerado via `gerar_gifs.js` e HTML reports são consolidados como evidência. Se falha: dispara a cadeia de auto-correção em 5 níveis — 1º consulta `Seletores.md` por alternativas, 2º Playwright CLI, 3º Chrome DevTools MCP, 4º Playwright MCP, 5º Selenium MCP. Após encontrar o seletor, atualiza o `Seletores.md` marcando o antigo como `[QUEBRADO]` e incluindo data de restauração se voltar a funcionar `[RESTAURADO]`, corrige o Page Object e reexecuta
-6. **📄 Documentação completa** — Gera Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e relatório de resultados utilizando o Allure Report
-7. **📦 Entregar** — Disponibiliza 4 artefatos: script .cy.js validado, pasta com prints numerados + GIF animado, 3 documentos técnicos consistentes e relatório Allure com histórico
-8. **🔄 Funciona para projetos novos ou incrementos** — Se o projeto não tem nada, a IA cria toda a estrutura do zero (pastas, pages, fixtures, factory, docs, configurações). Se já existe, identifica o próximo ID disponível, integra ao ecossistema existente e mantém a rastreabilidade com o histórico sem quebrar nada. O padrão é sempre o mesmo, independente do ponto de partida
+1. **🔬 Dissecar** — Disseca a história de usuário aplicando o `Story_TEMPLATE.md`: extrai estrutura, classifica tipo (E2E/API/Performance), mapeia fluxo, entidades, regras de negócio e checkpoints. Identifica premissas ocultas, resolve ambiguidades e produz um **handoff estruturado** (Seção 8 do template) que alimenta a etapa seguinte sem ruído.
+2. **📚 Contextualizar** — Contextualiza o projeto usando o handoff para guiar a leitura seletiva e incrementa com as regras de governança: `AGENTS.md`, padrões `Guia_Cypress_TEMPLATE.md`, templates de documentação, Page Objects, base de seletores `Seletores.md` e dados disponíveis `fixtures/` + `UserFactory`
+3. **🧠 Planejar** — Planeja o teste gerando ID sequencial do TC (ex: TC_WEB_027), classifica como sucesso ou erro, decompõe a história em steps numerados, mapeia quais Page Objects usar e decide entre dados dinâmicos (factory) ou estáticos (fixture)
+4. **✍️ Criar** — Cria o arquivo .cy.js com JSDoc contendo @tags, importa os Page Objects necessários, implementa cada passo com comentário numerado em português, adiciona cy.captura() em cada interação e mantém a abstração entre camadas (pages, fixtures, factory)
+5. **▶️ Executar** — Executa o teste com `npx cypress run --spec` no navegador configurado, rodando cada passo automaticamente como um usuário real, enquanto gera screenshots por passo, grava vídeo da execução e exporta resultados para o Allure
+6. **🔀 Decidir** — Decide entre seguir ou corrigir: se passa, screenshots são salvos, GIF animado gerado via `gerar_gifs.js` e HTML reports consolidados como evidência. Se falha, dispara a cadeia de auto-correção em 5 níveis — 1º consulta `Seletores.md` por alternativas, 2º Playwright CLI, 3º Chrome DevTools MCP, 4º Playwright MCP, 5º Selenium MCP. Após encontrar o seletor, atualiza o `Seletores.md` marcando o antigo como `[QUEBRADO]` e incluindo data de restauração se voltar a funcionar `[RESTAURADO]`, corrige o Page Object e reexecuta
+7. **📄 Documentação completa** — Documenta gerando Sumário Executivo, Suite BDD, Especificações Técnicas (Web, API, Performance) e relatório de resultados utilizando o Allure Report
+8. **📦 Entregar** — Entrega 4 artefatos: script .cy.js validado, pasta com prints numerados + GIF animado, 3 documentos técnicos consistentes e relatório Allure com histórico
+9. **🔄 Funciona para projetos novos ou incrementos** — Se o projeto não tem nada, a IA cria toda a estrutura do zero (pastas, pages, fixtures, factory, docs, configurações). Se já existe, identifica o próximo ID disponível, integra ao ecossistema existente e mantém a rastreabilidade com o histórico sem quebrar nada. O padrão é sempre o mesmo, independente do ponto de partida
 
 Isso transforma o projeto em um **framework dirigido por IA**: todo artefato — script, documento, GIF, relatório — segue o mesmo padrão, independentemente do modelo de IA usado, garantindo consistência e rastreabilidade em toda a suíte.
 
 ![Fluxo da IA Orquestradora](automationexercise/docs/diagrama_ia.png)
 
+<a name="otimizacao-tokens"></a>
+## ⚡ Otimização no Uso de Tokens de IA
+
+O framework foi projetado para que agentes de IA gastem **o mínimo possível de tokens** em cada ciclo de criação de testes.
+
+### Abordagem Tradicional vs. Abordagem Otimizada
+
+Se o agente lesse todo o projeto do início ao fim a cada nova tarefa, o consumo seria muito maior:
+
+| Fase | Se lesse tudo | Com a otimização |
+|:-----|:------------:|:----------------:|
+| **Analisar a história** | Leria código-fonte, Page Objects, testes — ~8K tokens | Lê apenas o template e a história — **~0.5K tokens** |
+| **Criar o teste** | Leria 26 testes + 14 API + 9 POs + fixtures + docs — ~22K tokens | Lê ~4.6K obrigatórios + 1-2 testes similares — **~6.6K tokens** |
+| **Atualizar documentação** | Releria POs, fixtures e scripts do zero — ~10K tokens | Reaproveita contexto da etapa anterior, lê só os `.md` — **~2K tokens** |
+| **Total por ciclo** | **~40K tokens** | **~9K tokens** |
+
+> **Redução de ~70%** sem perder qualidade ou precisão.
+
+### Economia também na escolha das ferramentas
+
+O agente prioriza o **Playwright CLI** por ser até **76% mais econômico** que as alternativas MCP:
+
+| Ferramenta | Consumo por fluxo |
+|:-----------|:-----------------:|
+| **Playwright CLI** (tentativa principal) | **~27K tokens** |
+| Playwright MCP (fallback) | ~114K tokens |
+
+A primeira tentativa de interação com o navegador é sempre via **Playwright CLI**. Apenas se ele falhar ou não der conta do cenário é que os **MCPs são acionados como fallback** (Chrome DevTools MCP → Playwright MCP → Selenium MCP), exatamente como documentado na [cadeia de auto-correção](#uso-com-agentes-de-ia).
+
+📊 **Comprovação prática:** Testes comparativos demonstram que o Playwright CLI consome ~27K tokens contra ~114K do Playwright MCP na mesma tarefa, uma economia de **~76%**.
+[Ver estudo completo →](https://scrolltest.medium.com/playwright-mcp-burns-114k-tokens-per-test-the-new-cli-uses-27k-heres-when-to-use-each-65dabeaac7a0)
+
+### Como essa economia é possível?
+
+- **Cada etapa lê só o que precisa** — a fase de análise não acessa código, a fase de criação não releu documentação
+- **Nada é lido duas vezes** — se um arquivo foi lido antes, a etapa seguinte reaproveita o contexto
+- **Cada ciclo começa limpo** — invocação nova, sem resíduo de tarefas anteriores
+- **Playwright CLI como primeira opção** — ~27K tokens por fluxo; MCPs são acionados apenas quando necessário
+
 ---
 
 <a name="documentacao-ia"></a>
-## 📋 Documentação IA
+## 🧠 Documentação IA
 
 Documentos de suporte utilizados exclusivamente pelo agente de IA para geração e manutenção de testes:
 
 | Documento | Conteúdo |
 |:----------|:---------|
-| [`Guia_Cypress_Template.md`](automationexercise/templates/Guia_Cypress_Template.md) | Padrões de codificação, nomenclatura e boas práticas |
+| [`Guia_Cypress_TEMPLATE.md`](automationexercise/templates/Guia_Cypress_TEMPLATE.md) | Padrões de codificação, nomenclatura e boas práticas |
 | [`Seletores_TEMPLATE.md`](automationexercise/templates/Seletores_TEMPLATE.md) | Template de estrutura para novos seletores |
 | [`Seletores.md`](automationexercise/templates/Seletores.md) | Histórico de seletores e self-healing |
 | [`Sumario_Executivo_TEMPLATE.md`](automationexercise/templates/Sumario_Executivo_TEMPLATE.md) | Template do Sumário Executivo |
@@ -298,6 +368,7 @@ Documentos de suporte utilizados exclusivamente pelo agente de IA para geração
 | [`Especificacao_Tecnica_API_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_API_TEMPLATE.md) | Template de especificação técnica (API) |
 | [`Especificacao_Tecnica_Performance_TEMPLATE.md`](automationexercise/templates/Especificacao_Tecnica_Performance_TEMPLATE.md) | Template de especificação técnica (Performance) |
 | [`Suite_BDD_TEMPLATE.md`](automationexercise/templates/Suite_BDD_TEMPLATE.md) | Template de cenários BDD (Gherkin) |
+| [`Story_TEMPLATE.md`](automationexercise/templates/Story_TEMPLATE.md) | Template de dissecção de histórias de usuário |
 | [`Relatorio_Resultados_Performance_TEMPLATE.md`](automationexercise/templates/Relatorio_Resultados_Performance_TEMPLATE.md) | Template de relatório de resultados |
 
 ---
@@ -316,63 +387,66 @@ O [Allure](https://allurereport.org/) gera um **relatório único** com todos os
 - **Linha do tempo** — Timeline completa de execução
 - **Histórico** — Acumula execuções ao longo de dias/meses (append-only via `history/`)
 
-```bash
-# Tudo de uma vez (passo a passo):
-cd automationexercise/Cypress/cypress/allure
-
-node scripts/convert_k6_to_allure.js      # Converte resultados k6 para Allure
-copy /y allure.properties allure-results\allure.properties >nul
-if exist allure-report\history copy /y allure-report\history\*.json allure-results\history\ >nul
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-allure.cmd open allure-report -p 8765
-
-# Gera relatório estático:
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-```
-
 O **histórico** funciona assim:
 1. Ao gerar o relatório, o Allure salva `history/` dentro do `allure-report/`
-2. O `run_all.bat` copia o `history/` do relatório anterior para `allure-results/history/` (criando o diretório se necessário) antes de gerar o novo relatório
+2. O `run_all.bat` copia o `history/` do relatório anterior para `allure-results/history/` antes de gerar o novo relatório
 3. O `before:run` do `cypress.config.js` preserva esse histórico durante a execução dos testes
 4. Isso acumula dados de múltiplas execuções — dias, semanas, meses
 5. Os gráficos de tendência mostram a evolução ao longo do tempo
+
+📊 **Relatório publicado pelo CI/CD:** [`https://mtnirvana.github.io/AutomationExercise/allure-report/`](https://mtnirvana.github.io/AutomationExercise/allure-report/)
 
 ---
 
 <a name="como-executar"></a>
 ## 🚀 Como Executar
 
+### Obter o Projeto
+
+```bash
+# Clone padrão (branch main)
+git clone https://github.com/mtnirvana/AutomationExercise.git
+cd AutomationExercise
+
+# Ou baixe o ZIP da branch main no GitHub
+# https://github.com/mtnirvana/AutomationExercise/archive/refs/heads/main.zip
+# → Extraia → Abra a pasta extraída
+```
+
+> A pasta raiz será `AutomationExercise/`. Todos os comandos abaixo assumem que você está dentro dela.
+
 ### Instalação Rápida (tudo de uma vez)
 
 ```bash
-# 1. Baixar o repositório e extrair
-# 2. Instalar tudo
-cd automationexercise/Cypress
+cd automationexercise
+
+# Windows (PowerShell / CMD)
+.\install_all.bat
+
+# Linux / macOS / Git Bash / WSL
 bash install_all.sh
 ```
+
+> Scripts equivalentes: `install_all.bat` (Windows) e `install_all.sh` (Linux/macOS/WSL).  
+> **Ambos instalam exatamente o mesmo que a "Instalação Manual" abaixo** (npm, Playwright CLI, Allure local, verificação de k6).
 
 ### Instalação Manual (passo a passo)
 
 ```bash
-# 0. Baixar o repositório e extrair
-# 1. Dependências Node.js
 cd automationexercise/Cypress
 npm install
 
-# 2. k6 (testes de performance)
-# https://grafana.com/docs/k6/latest/set-up/install/
-
-# 3. Playwright CLI (self-healing)
+# Playwright CLI (self-healing de seletores)
 npx playwright-cli --help
+npx playwright-cli install-browser
 
-# 4. Allure (relatório interativo)
-cd automationexercise/Cypress/cypress/allure
-npm install
+# Allure: https://allurereport.org/docs/install/
+# k6: https://grafana.com/docs/k6/latest/set-up/install/
 ```
 
-### Chrome DevTools MCP
+### MCP Servers
 
-Adicione ao config do seu cliente MCP:
+Adicione ao `mcpServers` do seu cliente MCP:
 
 ```json
 {
@@ -380,33 +454,11 @@ Adicione ao config do seu cliente MCP:
     "chrome-devtools": {
       "command": "npx",
       "args": ["-y", "chrome-devtools-mcp@latest"]
-    }
-  }
-}
-```
-
-> Debugging ativo: console, network, performance traces, Lighthouse, screenshots e snapshots do DOM. [Repositório oficial](https://github.com/ChromeDevTools/chrome-devtools-mcp)
-
-### Playwright MCP
-
-```json
-{
-  "mcpServers": {
+    },
     "playwright": {
       "command": "npx",
       "args": ["@playwright/mcp@latest"]
-    }
-  }
-}
-```
-
-> Automação de navegação, formulários, fluxos E2E e validação interativa via accessibility tree. [Repositório oficial](https://github.com/microsoft/playwright-mcp)
-
-### Selenium MCP
-
-```json
-{
-  "mcpServers": {
+    },
     "selenium": {
       "command": "npx",
       "args": ["-y", "@angiejones/mcp-selenium@latest"]
@@ -415,16 +467,25 @@ Adicione ao config do seu cliente MCP:
 }
 ```
 
-> Fluxos legados e compatibilidade com Selenium WebDriver (Chrome, Firefox, Edge, Safari). [Repositório oficial](https://github.com/angiejones/mcp-selenium)
+> **Chrome DevTools MCP** — Debugging ativo: console, network, performance, Lighthouse. [Repositório](https://github.com/ChromeDevTools/chrome-devtools-mcp)<br>
+> **Playwright MCP** — Automação de navegação, formulários, fluxos E2E. [Repositório](https://github.com/microsoft/playwright-mcp)<br>
+> **Selenium MCP** — Fluxos legados e compatibilidade WebDriver. [Repositório](https://github.com/angiejones/mcp-selenium)
 
-### Suíte Completa
+### Suíte Completa (todos os testes + relatórios)
 
 ```bash
-cd automationexercise/Cypress
+cd automationexercise
+
+# Windows
 run_all.bat
+
+# Linux / macOS / WSL
+bash run_all.sh
 ```
 
-O `run_all.bat` executa em sequência:
+> Ambos geram: Cypress (E2E+API+Core Web Vitals) → GIFs → k6 (13 scripts) → Allure Report.
+
+O `run_all.bat` / `run_all.sh` executa em sequência:
 
 | Etapa | O que faz | Saída |
 |:------|:----------|:------|
@@ -432,38 +493,40 @@ O `run_all.bat` executa em sequência:
 | 2. GIFs | `node scripts/gerar_gifs.js` | GIFs em `screenshots/web/` e `screenshots/performance/` |
 | 3. k6 | 13 scripts de performance | JSONs em `reports/k6/` |
 | 4. k6 → Allure | `node cypress/allure/scripts/convert_k6_to_allure.js` | Resultados k6 em allure-results |
-| 5. Allure Generate | `allure.cmd generate` | Relatório em `allure-report/` |
-| — | Atalho do relatório | `docs/Relatorio_Testes.lnk` — abre servidor + navegador |
+| 5. Allure | `allure.cmd generate` | Relatório em `allure-report/` |
 
 ### Execuções Individuais
 
 ```bash
 cd automationexercise/Cypress
 
-# Todos os testes
+# Todos os testes (Cypress)
 npx cypress run
 
 # Apenas E2E Web
-npx cypress run --spec "cypress/e2e/web/*.cy.js"
+npx cypress run --spec "cypress/e2e/web/TC_WEB_*.cy.js"
 
 # Apenas API
-npx cypress run --spec "cypress/e2e/api/*.cy.js"
+npx cypress run --spec "cypress/e2e/api/TC_API_*.cy.js"
 
 # Teste específico
-npx cypress run --spec "cypress/e2e/web/TC_WEB_001_sucesso_registrar_usuario.cy.js"
+npx cypress run --spec "cypress/e2e/web/TC_WEB_001_*.cy.js"
 
-# Relatório Allure (após rodar os testes)
-cd automationexercise/Cypress/cypress/allure
-allure.cmd generate --clean -o allure-report allure-results --lang br --name "AutomationExercise"
-allure.cmd open allure-report -p 8765
-allure.cmd serve allure-results -p 8765 --lang br --name "AutomationExercise"
+# Relatório Allure (serve local)
+cd cypress/allure
+npx allure serve allure-results --lang br --name "AutomationExercise"
+# Abre em http://localhost:8765
 
 # Teste de performance (k6)
+cd ../..
 k6 run cypress/e2e/performance/TC_PF_001_smoke_test.js
 
-# Modo interativo
+# Modo interativo Cypress
 npx cypress open
 ```
+
+> **Windows:** Use `run_all.bat` / `install_all.bat` (da pasta `automationexercise/`) para fluxo completo.  
+> **Linux/macOS/WSL:** Use `bash run_all.sh` / `bash install_all.sh` (da pasta `automationexercise/`) ou rode os comandos acima individualmente.
 
 ---
 

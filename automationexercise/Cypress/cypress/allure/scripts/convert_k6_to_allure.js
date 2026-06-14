@@ -20,113 +20,160 @@ const pfNames = {
   'TC_PF_014': { name: 'Carga na página de produtos', feature: 'Performance - Carga' },
 }
 
-if (!fs.existsSync(K6_DIR)) {
-  console.log('Nenhum resultado k6 encontrado. Execute os testes k6 primeiro.')
-  process.exit(0)
+function garantirDir(dir) {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true })
+    console.log(`  DIRETORIO CRIADO: ${dir}`)
+  }
 }
 
-const files = fs.readdirSync(K6_DIR).filter(f => f.endsWith('.json') && !f.includes('k6_report'))
-console.log(`Encontrados ${files.length} arquivos de resultado k6`)
+try {
+  if (!fs.existsSync(K6_DIR)) {
+    console.log('Nenhum resultado k6 encontrado. Execute os testes k6 primeiro.')
+    process.exit(0)
+  }
 
-let testCount = 0
-const k6Children = []
+  const files = fs.readdirSync(K6_DIR).filter(f => f.endsWith('.json') && !f.includes('k6_report'))
+  console.log(`Encontrados ${files.length} arquivos de resultado k6`)
 
-for (const file of files) {
-  const raw = fs.readFileSync(path.join(K6_DIR, file), 'utf-8')
-  const data = JSON.parse(raw)
+  if (files.length === 0) {
+    console.log('Nenhum arquivo .json de k6 para converter.')
+    process.exit(0)
+  }
 
-  const tcMatch = file.match(/^(TC_PF_\d+)/)
-  const tcId = tcMatch ? tcMatch[1] : path.basename(file, '.json')
-  const nameInfo = pfNames[tcId] || { name: tcId.replace(/_/g, ' '), feature: 'Performance' }
+  garantirDir(ALLURE_RESULTS_DIR)
 
-  const metrics = data.metrics || {}
-  const checks = data.root_group?.checks || {}
-  const httpReqFailed = metrics.http_req_failed || {}
-  const httpReqDuration = metrics.http_req_duration || {}
-  const checksObj = metrics.checks || {}
+  let testCount = 0
+  const k6Children = []
 
-  const p95 = httpReqDuration['p(95)'] || 0
-  const errorRate = httpReqFailed.value || 0
-  const totalChecks = checksObj.passes || 0
-  const failedChecks = checksObj.fails || 0
+  for (const file of files) {
+    let raw, data
+    try {
+      raw = fs.readFileSync(path.join(K6_DIR, file), 'utf-8')
+      data = JSON.parse(raw)
+    } catch (e) {
+      console.log(`  ERRO ao ler/parsear ${file}: ${e.message}`)
+      continue
+    }
 
-  const testStatus = (failedChecks > 0 || errorRate > 0) ? 'failed' : 'passed'
+    const tcMatch = file.match(/^(TC_PF_\d+)/)
+    const tcId = tcMatch ? tcMatch[1] : path.basename(file, '.json')
+    const nameInfo = pfNames[tcId] || { name: tcId.replace(/_/g, ' '), feature: 'Performance' }
 
-  const duration = Math.max(Math.floor(httpReqDuration.avg || 1000) * (httpReqDuration.count || 1), 1000)
-  const startTime = Date.now() - Math.floor(Math.random() * 600000)
-  const endTime = startTime + duration
+    const metrics = data.metrics || {}
+    const checks = data.root_group?.checks || {}
+    const httpReqFailed = metrics.http_req_failed || {}
+    const httpReqDuration = metrics.http_req_duration || {}
+    const checksObj = metrics.checks || {}
 
-  const testUuid = `${tcId.toLowerCase().replace(/_/g, '-')}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`
-  k6Children.push(testUuid)
+    const p95 = httpReqDuration['p(95)'] || 0
+    const errorRate = httpReqFailed.value || 0
+    const totalChecks = checksObj.passes || 0
+    const failedChecks = checksObj.fails || 0
 
-  const steps = []
-  let stepIdx = 1
-  for (const [checkName, checkData] of Object.entries(checks)) {
-    const isOk = (checkData.fails || 0) === 0
+    function evalThreshold(condition, val) {
+      const m = condition.match(/([<>]=?)([\d.]+)/)
+      if (!m) return true
+      const limit = parseFloat(m[2])
+      return m[1] === '<' ? val < limit : m[1] === '<=' ? val <= limit : m[1] === '>' ? val > limit : val >= limit
+    }
+    const failsOk = typeof httpReqFailed.thresholds === 'object' && httpReqFailed.thresholds !== null
+      ? Object.entries(httpReqFailed.thresholds).every(([cond]) => evalThreshold(cond, errorRate))
+      : true
+    const durationOk = typeof httpReqDuration.thresholds === 'object' && httpReqDuration.thresholds !== null
+      ? Object.entries(httpReqDuration.thresholds).every(([cond]) => evalThreshold(cond, p95))
+      : true
+    const testStatus = (!failsOk || !durationOk) ? 'failed' : 'passed'
+
+    const duration = Math.max(Math.floor(httpReqDuration.avg || 1000) * (httpReqDuration.count || 1), 1000)
+    const startTime = Date.now() - Math.floor(Math.random() * 600000)
+    const endTime = startTime + duration
+
+    const testUuid = `${tcId.toLowerCase().replace(/_/g, '-')}-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`
+    k6Children.push(testUuid)
+
+    const steps = []
+    let stepIdx = 1
+    if (typeof checks === 'object' && checks !== null) {
+      for (const [checkName, checkData] of Object.entries(checks)) {
+        const isOk = (checkData.fails || 0) === 0
+        steps.push({
+          name: `${stepIdx}. ${checkName}`,
+          status: isOk ? 'passed' : 'failed',
+          stage: 'finished',
+          start: startTime + stepIdx * 500,
+          stop: startTime + stepIdx * 500 + 300,
+        })
+        stepIdx++
+      }
+    }
+
+    const statusLabel = testStatus === 'passed' ? 'Aprovado' : 'Falhou'
     steps.push({
-      name: `${stepIdx}. ${checkName}`,
-      status: isOk ? 'passed' : 'failed',
+      name: `${stepIdx}. Resumo: p95=${(p95).toFixed(0)}ms | Erro=${(errorRate * 100).toFixed(1)}% | ${totalChecks - failedChecks}/${totalChecks + failedChecks} checks | ${statusLabel}`,
+      status: testStatus,
       stage: 'finished',
-      start: startTime + stepIdx * 500,
-      stop: startTime + stepIdx * 500 + 300,
+      start: endTime - 100,
+      stop: endTime,
     })
-    stepIdx++
+
+    const result = {
+      name: nameInfo.name,
+      status: testStatus,
+      stage: 'finished',
+      start: startTime,
+      stop: endTime,
+      uuid: testUuid,
+      historyId: tcId.toLowerCase(),
+      fullName: `Performance - ${nameInfo.name}`,
+      labels: [
+        { name: 'epic', value: 'performance' },
+        { name: 'tag', value: 'performance' },
+        { name: 'tag', value: tcId },
+        { name: 'feature', value: nameInfo.feature },
+        { name: 'suite', value: 'Performance' },
+      ],
+      parameters: [
+        { name: 'Test Case', value: tcId },
+        { name: 'p95', value: `${(p95).toFixed(0)}ms` },
+        { name: 'Error Rate', value: `${(errorRate * 100).toFixed(1)}%` },
+        { name: 'Checks', value: `${totalChecks - failedChecks}/${totalChecks + failedChecks}` },
+        { name: 'Duration', value: `${(duration / 1000).toFixed(1)}s` },
+      ],
+      steps: steps,
+      attachments: [],
+    }
+
+    try {
+      const filePath = path.join(ALLURE_RESULTS_DIR, `${result.uuid}-result.json`)
+      fs.writeFileSync(filePath, JSON.stringify(result, null, 2))
+      testCount++
+      console.log(`  OK: ${tcId} - ${nameInfo.name} [${testStatus}]`)
+    } catch (e) {
+      console.log(`  ERRO ao escrever resultado Allure para ${tcId}: ${e.message}`)
+    }
   }
 
-  const statusLabel = testStatus === 'passed' ? 'Aprovado' : 'Falhou'
-  steps.push({
-    name: `${stepIdx}. Resumo: p95=${(p95).toFixed(0)}ms | Erro=${(errorRate * 100).toFixed(1)}% | ${totalChecks - failedChecks}/${totalChecks + failedChecks} checks | ${statusLabel}`,
-    status: testStatus,
-    stage: 'finished',
-    start: endTime - 100,
-    stop: endTime,
-  })
-
-  const result = {
-    name: nameInfo.name,
-    status: testStatus,
-    stage: 'finished',
-    start: startTime,
-    stop: endTime,
-    uuid: testUuid,
-    historyId: tcId.toLowerCase(),
-    fullName: `Performance - ${nameInfo.name}`,
-    labels: [
-      { name: 'epic', value: 'performance' },
-      { name: 'tag', value: 'performance' },
-      { name: 'tag', value: tcId },
-      { name: 'feature', value: nameInfo.feature },
-      { name: 'suite', value: 'Performance' },
-    ],
-    parameters: [
-      { name: 'Test Case', value: tcId },
-      { name: 'p95', value: `${(p95).toFixed(0)}ms` },
-      { name: 'Error Rate', value: `${(errorRate * 100).toFixed(1)}%` },
-      { name: 'Checks', value: `${totalChecks - failedChecks}/${totalChecks + failedChecks}` },
-      { name: 'Duration', value: `${(duration / 1000).toFixed(1)}s` },
-    ],
-    steps: steps,
-    attachments: [],
+  if (k6Children.length > 0) {
+    try {
+      const k6Container = {
+        uuid: 'container-performance-k6',
+        name: 'Performance (k6)',
+        children: k6Children,
+        befores: [],
+        afters: [],
+        start: Date.now() - 600000,
+        stop: Date.now(),
+      }
+      fs.writeFileSync(path.join(ALLURE_RESULTS_DIR, 'container-performance-k6-container.json'), JSON.stringify(k6Container, null, 2))
+      console.log(`Container: Performance (k6) (${k6Container.children.length} testes)`)
+    } catch (e) {
+      console.log(`  ERRO ao escrever container k6: ${e.message}`)
+    }
   }
 
-  const filePath = path.join(ALLURE_RESULTS_DIR, `${result.uuid}-result.json`)
-  fs.writeFileSync(filePath, JSON.stringify(result, null, 2))
-  testCount++
-  console.log(`  OK: ${tcId} - ${nameInfo.name} [${testStatus}]`)
+  console.log(`\nTotal: ${testCount} testes k6 convertidos para Allure`)
+} catch (e) {
+  console.log(`\nERRO FATAL no conversor k6: ${e.message}`)
+  process.exit(1)
 }
-
-if (k6Children.length > 0) {
-  const k6Container = {
-    uuid: 'container-performance-k6',
-    name: 'Performance (k6)',
-    children: k6Children,
-    befores: [],
-    afters: [],
-    start: Date.now() - 600000,
-    stop: Date.now(),
-  }
-  fs.writeFileSync(path.join(ALLURE_RESULTS_DIR, 'container-performance-k6-container.json'), JSON.stringify(k6Container, null, 2))
-  console.log(`Container: Performance (k6) (${k6Container.children.length} testes)`)
-}
-
-console.log(`\nTotal: ${testCount} testes k6 convertidos para Allure`)

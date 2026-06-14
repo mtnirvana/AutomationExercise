@@ -13,6 +13,7 @@ Este documento fornece o detalhamento operacional para a execução e manutenç�
 - **Clean Slate:** Cada teste deve ser capaz de criar e excluir seus próprios dados quando aplicável.
 - **Design Pattern:** Uso de `cy.task()` para requisições HTTP via Node.js, evitando dependência de browser.
 - **Dados Dinâmicos:** Uso de `UserFactory.generate()` para criação de usuários únicos por execução.
+- **CI/CD:** Integração Contínua via [`GitHub Actions`](https://github.com/mtnirvana/AutomationExercise/actions/workflows/ci.yml) — suíte API executada em paralelo com Web e Performance, com evidências HTML centralizadas no relatório Allure em [`GitHub Pages`](https://mtnirvana.github.io/AutomationExercise/allure-report/).
 
 ---
 
